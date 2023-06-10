@@ -1,0 +1,1308 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'hy';
+  src: url("../fonts/hy.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'msr';
+  src: url("../fonts/msr.otf") format("truetype");
+}
+
+/* 页面公共样式 - Start */
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+html {
+  /*防止IOS屏幕横竖屏切换时文字大小产生变化*/
+  -webkit-text-size-adjust: 100%;
+  /*禁用点击的高亮反馈*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 禁止长按链接与图片弹出菜单 */
+a, img {
+  -webkit-touch-callout: none;
+}
+
+body, dl, dd, ul, ol, h1, h2, h3, h4, h5, h6, form, input, textarea, p, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input:focus, textarea:focus, button:focus {
+  outline: 0;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+/*解决字体和文字大小在浏览器中没有被继承的问题*/
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+body {
+  font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+html,
+body,
+.wrap {
+  height: 100vh;
+  position: relative;
+  font-family: hy, "STSongti-TC-Regular", "STSongti-TC", Simsun, "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 测试样式 - 项目开始删除 */
+.wrap {
+  font-size: 0.12rem;
+  height: 100vh;
+  overflow: auto;
+}
+
+.page {
+  position: relative;
+  height: 100vh;
+}
+
+.logo {
+  display: block;
+  height: 0.22rem;
+}
+
+.start {
+  position: relative;
+  background-color: #0e2567;
+}
+
+.start .bg {
+  display: block;
+  width: 100%;
+}
+
+.start .page-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 0.32rem;
+  padding-bottom: 0.26rem;
+}
+
+.start .start-desc {
+  margin-top: 3.18rem;
+  padding: 0 0.25rem;
+  margin-bottom: 0.23rem;
+}
+
+.start .start-desc-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 0.05rem;
+  border-bottom: 1px solid rgba(122, 155, 246, 0.5);
+}
+
+.start .start-desc-text {
+  display: block;
+  width: 2.29rem;
+  height: 1.08rem;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-right: 0.1rem;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.start .start-desc-list {
+  width: 0.91rem;
+  padding-top: 0.15rem;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.start .start-desc-btn {
+  display: block;
+  height: 0.24rem;
+  margin-bottom: 0.11rem;
+  background-image: url("../img/index_btn.png");
+  background-size: 0.91rem 0.75rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.start .start-desc-btn.start-desc-btn-1 {
+  background-position: 0 0;
+}
+
+.start .start-desc-btn.start-desc-btn-2 {
+  background-position: 0 -0.25rem;
+}
+
+.start .start-desc-btn.start-desc-btn-3 {
+  background-position: 0 -0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.start .start-activity .start-activity-item {
+  margin-bottom: 0.25rem;
+}
+
+.start .start-activity .start-activity-item:last-child {
+  margin-bottom: 0.25rem;
+}
+
+.start .start-activity .start-activity-text {
+  margin: 0 auto 0.08rem;
+  width: 2.5rem;
+  height: 0.29rem;
+  color: #9cb0de;
+  font-size: 0.12rem;
+  line-height: 0.15rem;
+  text-align: center;
+  background-image: url("../img/start_text.png");
+  background-size: 2.5rem 0.86rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity .start-activity-text.start-activity-text2 {
+  height: 0.58rem;
+  background-position: 0 -0.29rem;
+  margin-bottom: 0.01rem;
+}
+
+.start .start-activity .start-activity-btn {
+  margin: 0 auto;
+  width: 1.6rem;
+  height: 0.37rem;
+  background-image: url("../img/btns.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 1.71rem 2.22rem;
+}
+
+.start .start-activity .start-activity-btn.start-activity-btn-2 {
+  background-position: 0 -0.37rem;
+}
+
+.start .start-activity2 .start-activity2-music {
+  margin: 0 auto 0.02rem;
+  width: 3.3rem;
+  height: 2.2rem;
+  background-image: url("../img/start_activity2_bg.png");
+  background-size: 100%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity2 .start-activity2-music-item {
+  color: #fff;
+  font-size: 0.13rem;
+  font-family: "STSongti-TC-Regular", "STSongti-TC", Simsun, "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+  height: 0.44rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 0.29rem;
+  padding-right: 0.26rem;
+}
+
+.start .start-activity2 .start-activity2-music-prefix {
+  width: 0.2rem;
+  height: 0.2rem;
+  margin-right: 0.04rem;
+  background-image: url("../img/icon.png");
+  background-size: 0.4rem 1rem;
+  background-position: 0 -0.4rem;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity2 .start-activity2-music-name {
+  position: relative;
+  margin-right: auto;
+  width: 1.84rem;
+  overflow: hidden;
+}
+
+.start .start-activity2 .start-activity2-music-inner {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.start .start-activity2 .start-activity2-music-action {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.start .start-activity2 .start-activity2-music-icon {
+  width: 0.2rem;
+  height: 0.2rem;
+  background-image: url("../img/icon.png");
+  background-size: 0.4rem 1rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity2 .start-activity2-music-icon.start-activity2-music-play {
+  margin-right: 0.13rem;
+  background-position: 0 0;
+}
+
+.start .start-activity2 .start-activity2-music-icon.start-activity2-music-play.active {
+  background-position: -0.2rem 0;
+}
+
+.start .start-activity2 .start-activity2-music-icon.start-activity2-music-favicon {
+  background-position: 0 -0.2rem;
+}
+
+.start .start-activity2 .start-activity2-music-icon.start-activity2-music-favicon.active {
+  background-position: -0.2rem -0.2rem;
+}
+
+.start .start-activity2 .start-activity2-replace {
+  margin-left: auto;
+  margin-right: 0.2rem;
+  width: 0.6rem;
+  padding-left: 0.06rem;
+  font-size: 0.12rem;
+  font-family: "STSongti-TC-Regular", "STSongti-TC", Simsun, "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+  color: #9cb0de;
+  background-image: url("../img/icon.png");
+  background-size: 0.4rem 1rem;
+  background-position: 0.4rem  -0.8rem;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity2 .start-activity2-btn {
+  margin: 0 auto 0.08rem;
+  width: 1.60rem;
+  height: 0.37rem;
+  background-image: url("../img/btns.png");
+  background-size: 1.71rem 2.22rem;
+  background-position: 0 -0.37rem;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity2 .start-activity2-btn.start-activity2-btn2 {
+  margin-bottom: 0.26rem;
+  background-position: 0 0;
+}
+
+.start .start-activity2 .start-activity2-more {
+  display: block;
+  margin: 0 auto 0.2rem;
+  width: 0.92rem;
+  height: 0.25rem;
+}
+
+.start .start-activity2 .start-activity2-comment {
+  position: relative;
+  margin: 0 auto;
+  width: 3.3rem;
+  height: 1.05rem;
+  padding: 0.12rem 0.06rem 0.04rem;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  background-image: url("../img/start_activity2_bg2.png");
+  background-size: 3.3rem 1.05rem;
+  background-position: 0 0;
+}
+
+.start .start-activity2 .start-activity2-comment .start-activity2-comment-item {
+  position: relative;
+  font-size: 0.12rem;
+  line-height: 0.18rem;
+  color: #fff;
+  padding-left: 0.08rem;
+}
+
+.start .start-activity2 .start-activity2-comment .start-activity2-comment-item::before {
+  content: '';
+  display: block;
+  width: 0.05rem;
+  height: 0.05rem;
+  position: absolute;
+  left: 0;
+  top: 0.07rem;
+  background: #5573d8;
+  border-radius: 50%;
+  border: 0.01rem solid #fff;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.start .start-activity2 .start-activity2-comment .start-activity2-comment-item:first-child {
+  margin-bottom: 0.08rem;
+}
+
+.start .start-activity3 .start-activity3-music {
+  margin: 0 auto 0.21rem;
+  width: 3.3rem;
+  height: 2.2rem;
+  background-image: url("../img/start_activity2_bg.png");
+  background-size: 100%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity3 .start-activity3-music-item {
+  color: #fff;
+  font-size: 0.13rem;
+  font-family: "STSongti-TC-Regular", "STSongti-TC", Simsun, "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+  height: 0.44rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 0.24rem;
+  padding-right: 0.26rem;
+}
+
+.start .start-activity3 .start-activity3-music-avatar {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: rgba(85, 115, 216, 0.4);
+  overflow: hidden;
+  margin-right: 0.02rem;
+}
+
+.start .start-activity3 .start-activity3-music-prefix {
+  width: 0.2rem;
+  height: 0.2rem;
+  margin-right: 0.02rem;
+  background-image: url("../img/icon.png");
+  background-size: 0.4rem 1rem;
+  background-position: 0 -0.4rem;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity3 .start-activity3-music-name {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+     -moz-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-right: auto;
+  width: 1.64rem;
+}
+
+.start .start-activity3 .start-activity3-music-name-sub {
+  font-size: 0.12rem;
+  color: #c9caca;
+}
+
+.start .start-activity3 .start-activity3-music-outer {
+  overflow: hidden;
+  max-width: 1rem;
+}
+
+.start .start-activity3 .start-activity3-music-inner {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.start .start-activity3 .start-activity3-music-wait {
+  font-size: 0.14rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 auto;
+}
+
+.start .start-activity3 .start-activity3-music-action {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.start .start-activity3 .start-activity3-music-icon {
+  width: 0.2rem;
+  height: 0.2rem;
+  background-image: url("../img/icon.png");
+  background-size: 0.4rem 1rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity3 .start-activity3-music-icon.start-activity3-music-play {
+  margin-right: 0.13rem;
+  background-position: 0 0;
+}
+
+.start .start-activity3 .start-activity3-music-icon.start-activity3-music-play.active {
+  background-position: -0.2rem 0;
+}
+
+.start .start-activity3 .start-activity3-music-icon.start-activity3-music-favicon {
+  background-position: 0 -0.2rem;
+}
+
+.start .start-activity3 .start-activity3-music-icon.start-activity3-music-favicon.active {
+  background-position: -0.2rem -0.2rem;
+}
+
+.start .start-activity3 .start-activity3-logo {
+  margin: 0 auto 0.18rem;
+  display: block;
+  width: 1.82rem;
+  height: 0.78rem;
+}
+
+.start .start-activity3 .start-activity3-try {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 0.02rem;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-item {
+  position: relative;
+  width: 1.63rem;
+  height: 0.9rem;
+  background-image: url("../img/start_activity3_bg3.png");
+  background-size: 1.63rem 0.9rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  padding: 0.2rem;
+  padding-left: 0.1rem;
+  padding-right: 0.06rem;
+  padding-top: 0.31rem;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-item.start-activity3-try-item-1 {
+  margin-right: 0.02rem;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-content {
+  margin-bottom: 0.04rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 0.02rem;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  background-image: -webkit-gradient(linear, left top, right top, from(#5573d8), color-stop(94%, rgba(85, 115, 216, 0)), to(#273576));
+  background-image: -webkit-linear-gradient(left, #5573d8 0%, rgba(85, 115, 216, 0) 94%, #273576 100%);
+  background-image: linear-gradient(90deg, #5573d8 0%, rgba(85, 115, 216, 0) 94%, #273576 100%);
+  background-size: 100% 0.01rem;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-sign {
+  margin: 0 auto;
+  width: 0.2rem;
+  height: 0.2rem;
+  background-image: url("../img/icon.png");
+  background-size: 0.4rem 1rem;
+  background-position: 0 -0.6rem;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-name {
+  font-size: 0.12rem;
+  color: #fff;
+  font-family: "STSongti-TC-Regular", "STSongti-TC", Simsun, "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+  width: 1rem;
+  overflow: hidden;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-inner {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-action {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-icon {
+  width: 0.15rem;
+  height: 0.15rem;
+  background-image: url("../img/icon.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 0.3rem 0.75rem;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-icon.start-activity3-try-icon-1 {
+  margin-right: 0.1rem;
+  background-position: 0 0;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-icon.start-activity3-try-icon-1.active {
+  background-position: -0.15rem 0;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-icon.start-activity3-try-icon-2 {
+  background-position: 0 -0.15rem;
+}
+
+.start .start-activity3 .start-activity3-try .start-activity3-try-icon.start-activity3-try-icon-2.active {
+  background-position: -0.15rem  -0.15rem;
+}
+
+.start .start-activity3 .start-activity3-replace {
+  margin: 0 auto 0.17rem;
+  width: 0.6rem;
+  color: #9cb0de;
+  font-size: 0.12rem;
+  padding-left: 0.06rem;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "STSongti-TC-Regular", "STSongti-TC", Simsun, "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+  background-image: url("../img/icon.png");
+  background-size: 0.4rem 1rem;
+  background-position: 0.4rem -0.8rem;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity3 .start-activity3-comment {
+  margin: 0 auto 0.04rem;
+  width: 3.3rem;
+  height: 0.88rem;
+  font-size: 0.12rem;
+  line-height: 0.18rem;
+  color: #fff;
+  padding: 0.16rem 0.12rem 0;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  background-image: url("../img/start_activity2_bg2.png");
+  background-size: 3.3rem 0.88rem;
+  background-position: 0 0;
+}
+
+.start .start-activity3 .start-activity3-show {
+  position: relative;
+  margin: 0 auto 0.25rem;
+  width: 3.28rem;
+}
+
+.start .start-activity3 .start-activity3-show .start-activity3-show-img {
+  display: block;
+  width: 100%;
+}
+
+.start .start-activity3 .start-activity3-show .start-activity3-show-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 0.92rem;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.start .start-activity3 .start-activity3-show .start-activity3-show-title {
+  font-size: 0.2rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0.02rem;
+  font-family: msr, "STSongti-TC-Regular", "STSongti-TC", Simsun, "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+}
+
+.start .start-activity3 .start-activity3-show .start-activity3-show-btns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.start .start-activity3 .start-activity3-show .start-activity3-show-btn {
+  width: 0.75rem;
+  height: 0.2rem;
+  margin-right: 0.05rem;
+  background-image: url("../img/start_activity3_btn.png");
+  background-size: 0.75rem 0.8rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.start .start-activity3 .start-activity3-show .start-activity3-show-btn:last-child {
+  margin-right: 0;
+}
+
+.start .start-activity3 .start-activity3-show .start-activity3-show-btn1 {
+  background-position: 0 0rem;
+}
+
+.start .start-activity3 .start-activity3-show .start-activity3-show-btn2 {
+  background-position: 0 -0.2rem;
+}
+
+.start .start-activity3 .start-activity3-show .start-activity3-show-btn3 {
+  background-position: 0 -0.4rem;
+}
+
+.start .start-activity3 .start-activity3-show .start-activity3-show-btn4 {
+  background-position: 0 -0.6rem;
+}
+
+.start .start-activity-logo {
+  display: block;
+  margin: 0 auto 0.28rem;
+  margin-left: 1.11rem;
+  width: 1.64rem;
+  height: 0.85rem;
+}
+
+.start .start-person {
+  margin-bottom: 0.13rem;
+}
+
+.start .start-person-link {
+  display: block;
+  margin: 0 auto 0.05rem;
+  width: 3.6rem;
+  height: 1.15rem;
+  background-image: url("../img/start_person.png");
+  background-size: 3.6rem 5.75rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.start .start-person-link:last-child {
+  margin-bottom: 0;
+}
+
+.start .start-person-link.start-person-link-1 {
+  background-position: 0 0rem;
+}
+
+.start .start-person-link.start-person-link-2 {
+  background-position: 0 -1.15rem;
+}
+
+.start .start-person-link.start-person-link-3 {
+  background-position: 0 -2.3rem;
+}
+
+.start .start-person-link.start-person-link-4 {
+  background-position: 0 -3.45rem;
+}
+
+.start .start-person-link.start-person-link-5 {
+  background-position: 0 -4.6rem;
+}
+
+.start .start-person-avatar {
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  position: absolute;
+  left: 0.2rem;
+  top: 0.22rem;
+}
+
+.start .start-person-text {
+  display: block;
+  width: 2.3rem;
+  position: absolute;
+  left: 1.14rem;
+  top: 0.62rem;
+}
+
+.start .start-person-info {
+  position: absolute;
+  width: 1.8rem;
+  height: 0.34rem;
+  left: 1.15rem;
+  top: 0.125rem;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 0.06rem;
+}
+
+.start .start-person-info .start-person-name {
+  font-size: 0.16rem;
+}
+
+.start .start-person-info .start-person-desc {
+  white-space: pre-line;
+  color: #9cb0de;
+  font-size: 0.12rem;
+  line-height: 0.13rem;
+  text-align: right;
+  letter-spacing: -1px;
+}
+
+.start .start-person-info .start-person-desc .start-person-desc-en {
+  font-family: msr;
+}
+
+.start .start-swiper {
+  margin: 0 auto;
+  width: 3.28rem;
+  height: 1.2rem;
+  overflow: hidden;
+  background-color: #5573d8;
+}
+
+.start .start-swiper .start-wrap {
+  height: 100%;
+}
+
+.start .start-swiper .start-item-link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.start .start-swiper .start-item-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.start .start-swiper .start-item-img-btn {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0.06rem;
+  margin-left: -0.675rem;
+  width: 1.35rem;
+  height: 0.3rem;
+}
+
+.start .start-fixed {
+  position: fixed;
+  left: 0.03rem;
+  top: 2.5rem;
+}
+
+.start .start-fixed .start-fixed-icon {
+  width: 0.37rem;
+  height: 0.37rem;
+  background-image: url("../img/start_fixed.png");
+  background-size: 0.37rem auto;
+  background-position: 0 -0.37rem;
+}
+
+.start .start-fixed .start-fixed-icon:first-child {
+  margin-bottom: .15rem;
+  background-position: 0 0;
+}
+
+.project-intro,
+.person-intro {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/intro_bg.jpg");
+  background-size: 100% 8.125rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.project-intro.active,
+.person-intro.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.project-intro .intro-content,
+.person-intro .intro-content {
+  position: relative;
+  height: 5.5rem;
+  padding-top: 0.27rem;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.project-intro .intro-logo,
+.person-intro .intro-logo {
+  display: block;
+  width: 3.75rem;
+  margin: 0 auto 1.84rem;
+}
+
+.project-intro .intro-link,
+.person-intro .intro-link {
+  display: block;
+  width: 0.73rem;
+  height: 0.32rem;
+  margin-left: auto;
+  margin-right: 0.1rem;
+  background-image: url("../img/intro_btn.png");
+  background-size: 0.73rem 0.64rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.person-intro .intro-person-bg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -4.0625rem;
+  display: block;
+  width: 100%;
+  height: 8.125rem;
+}
+
+.person-intro .intro-content {
+  padding-top: 0.76rem;
+}
+
+.person-intro .intro-logo {
+  margin-bottom: 0.34rem;
+}
+
+.person-intro .person-intro-video {
+  position: relative;
+  width: 3.42rem;
+  height: 1.92rem;
+  background: #0a0f0e;
+  margin: 0 auto 0.1rem;
+  overflow: hidden;
+  border-width: 1px;
+  border-color: rgba(224, 98, 238, 0.6);
+  border-style: solid;
+}
+
+.person-intro .person-intro-video .person-intro-video-el {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.person-intro .person-intro-video .person-intro-video-cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.person-intro .person-intro-video .person-intro-video-icon {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: -0.25rem;
+  margin-top: -0.25rem;
+}
+
+.person-intro .intro-link {
+  background-position: 0 -0.32rem;
+}
+
+.page.write {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/write_bg.jpg");
+  background-size: 100% 8.125rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.page.write .write-logo {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -2.66rem;
+  display: block;
+  width: 3.75rem;
+  height: 0.22rem;
+  background-image: url("../img/logo.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.page.write.active {
+  position: fixed;
+  visibility: visible;
+  opacity: 1;
+}
+
+.page.write .write-content {
+  position: relative;
+  height: 5.5rem;
+  padding-top: 0.48rem;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.page.write .write-logo {
+  display: block;
+  width: 3.75rem;
+}
+
+.page.write .write-input {
+  position: relative;
+  height: 0.95rem;
+  margin-bottom: 0.06rem;
+  background-image: url("../img/write_input.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.page.write .write-text {
+  position: absolute;
+  left: 0.64rem;
+  top: 0.36rem;
+  display: block;
+  width: 2.4rem;
+  font-size: 0.125rem;
+  color: #fefefe;
+  background: none;
+  font-family: "STSongti-TC-Regular", "STSongti-TC", Simsun, "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+  height: 0.46rem;
+  border: 0 none;
+  resize: none;
+}
+
+.page.write .write-btns-submit {
+  margin: 0 auto 0;
+  display: block;
+  width: 1.7rem;
+  height: 0.37rem;
+  background-image: url("../img/btns.png");
+  background-size: 1.71rem 2.22rem;
+  background-position: 0 -1.48rem;
+}
+
+.page.write .write-btns-submit.disable {
+  background-position: 0 -1.85rem;
+}
+
+.page.write .write-btns-group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page.write .write-btn {
+  background-image: url("../img/write_btn2.png");
+  background-size: 0.93rem 0.6rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.page.write .write-btn.write-btn-back {
+  width: 0.93rem;
+  height: 0.3rem;
+  margin-left: 0.03rem;
+}
+
+.page.write .write-btn.write-btn-rule {
+  width: 0.93rem;
+  height: 0.3rem;
+  margin-left: -0.14rem;
+  background-position: 0 -0.3rem;
+}
+
+.page.result {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/result_bg.jpg");
+  background-size: 100% 8.125rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.page.result.active {
+  position: fixed;
+  visibility: visible;
+  opacity: 1;
+}
+
+.page.result .result-content {
+  position: relative;
+  height: 5.5rem;
+  padding-top: 0.1rem;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.page.result .result-logo {
+  display: block;
+  margin: 0 auto 0.42rem;
+  width: 3.75rem;
+}
+
+.page.result .result-text {
+  position: relative;
+}
+
+.page.result .result-text-bg {
+  display: block;
+  width: 2.05rem;
+  margin-left: 0.96rem;
+}
+
+.page.result .result-text-content {
+  white-space: pre-line;
+  color: #fefefe;
+  font-size: 0.12rem;
+  line-height: 0.18rem;
+  font-family: "STSongti-TC-Regular", "STSongti-TC", Simsun, "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+  margin-top: -0.37rem;
+  margin-left: 1.67rem;
+  width: 1.55rem;
+  word-break: break-all;
+}
+
+.page.result .result-btns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 0.37rem;
+  position: absolute;
+  top: 4.94rem;
+}
+
+.page.result .result-btns .result-btn-back {
+  display: block;
+  width: 0.69rem;
+  height: 0.37rem;
+  margin-right: 0.1rem;
+  background-image: url("../img/result_back.png");
+  background-size: 0.69rem 0.37rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.page.result .result-btns .result-btn-green {
+  display: block;
+  width: 1.6rem;
+  height: 0.37rem;
+  background-image: url("../img/btns.png");
+  background-size: 1.7rem 2.22rem;
+  background-position: 0 -0.74rem;
+  background-repeat: no-repeat;
+}
+
+.page.result .result-btns .result-btn-green.share {
+  background-position: 0 -1.11rem;
+}
+
+/* 页面样式 - End */
+
+/*# sourceMappingURL=../maps/css/style.min.css.map */

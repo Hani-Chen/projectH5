@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+
+  <meta charset="UTF-8">
+  <!--关键字和描述一定要写，请保留原来格式，只需要替换{}部分的内容(括号不保留)-->
+  <title>fila - QQ音乐</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover,view-port-fit=cover" />
+  <!--设置页面不识别数字为手机号码-->
+  <meta name="format-detection" content="telephone=no">
+  <!--设置编码，解决乱码问题-->
+  <meta http-equiv="Content-Language" content="zh-cn" />
+  <!--页面版权信息，请保留为以下值-->
+  <meta name="author" content="Tencent-Music" />
+  <!--页面版权信息，请保留为以下值-->
+  <meta name="Copyright" content="Tencent" />
+  <meta name="description" content="fila - QQ音乐" />
+  <!--关键字和描述一定要写，请保留原来格式，只需要替换{}部分的内容(括号不保留)-->
+  <meta name="keywords" content="{活动名称相关的关键字} ,qq音乐,qqmusic,腾讯,绿钻贵族,特权,等级,绿钻活动,绿钻豪华版,付费,音乐包" />
+  <!--如果该页面只适合在手机上进行浏览，请添加以下代码-->
+  <meta name="applicable-device" content="mobile">
+
+
+
+  <link rel="stylesheet" href="css/style.min.css">
+
+
+  <script src="js/adaptive.js"></script>
+  <script>
+    window['adaptive'].desinWidth = 375;
+    window['adaptive'].maxRate = 0.63;
+    window['adaptive'].baseFont = 24;
+    window['adaptive'].init();
+  </script>
+
+</head>
+
+<body>
+
+  <section class="wrap">
+    <div class="page_inner">
+      <div class="page_item page_home show">
+        <div class="home_banner">
+          <!-- 滑动 -->
+          <div class="home_banner__slide">上拉查看更多</div>
+        </div>
+        <!-- 抽奖 -->
+        <div class="home_lottery">
+          <div class="home_lottery__claw">
+            <div class="claw_item"></div>
+          </div>
+          <div class="home_lottery__text">
+            <div class="text_item text_left">
+              剩余抽奖次数
+              <div class="text_item__number">1</div>
+            </div>
+            <div class="text_item text_right">我的中奖记录</div>
+          </div>
+          <!-- 点击抓取音乐盲盒按钮 -->
+          <div class="home_lottery__btn"></div>
+        </div>
+        <div class="home_prize"></div>
+        <div class="home_list">
+          <div class="home_list__wrap"></div>
+        </div>
+        <div class="home_rule">
+          <div class="home_rule__wrap">
+            <div class="home_rule__inner">
+              <div class="home_rule__item">
+                <div class="item_title item_title1"></div>
+                <div class="item_text__wrap">
+                  <div class="item_text">
+                    活动期间，用户在FILA X
+                    QQ音乐“只音你「兴」动”页面上点击“点击抓取音乐盲盒”即可收听张艺兴歌曲，点击“点击拆礼盒”即可抽取FILA代言人同款：「兴」运锦鲤、纯粹「兴」衣、太空「兴」履、「兴」动印象，数量有限，送完即止。活动期间，每个账号仅有1次参与抽奖的机会。
+                  </div>
+                </div>
+              </div>
+              <div class="home_rule__item">
+                <div class="item_title item_title2"></div>
+                <div class="item_text__wrap">
+                  <div class="item_text">
+                    活动时间：2021年11月26日0点-12月5日23点59分（仅限中国大陆地区）
+                  </div>
+                </div>
+              </div>
+              <div class="home_rule__item">
+                <div class="item_title item_title3"></div>
+                <div class="item_text__wrap">
+                  <div class="item_text">
+                    <span>1</span>
+                    活动期间，QQ音乐用户可以通过QQ音乐APP
+                    进入《只音你「兴」动》互动页面，点击“抓取”按钮，即可抽取。每个账号仅有一次领取机会。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="home_rule__more"></div>
+        </div>
+      </div>
+      <div class="page_item page_details ">
+        <div class="page_details__return"></div>
+        <div class="page_details__cd stop"></div>
+        <div class="page_details__icon"></div>
+        <div class="page_details__title"></div>
+        <div class="page_details__text"></div>
+        <div class="page_details__btn">
+          <div class="btn_left"></div>
+          <div class="btn_right"></div>
+        </div>
+      </div>
+      <div class="modal " id="modalShare">
+        <div class="modal_content">
+          <div class="modal_bg modal_close"></div>
+          <div class="modal_body modal_share">
+            <canvas id="canvasLoading"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="./js/zepto.min.js"></script>
+  <script src="//y.gtimg.cn/music/h5/player/player.js?max_age=2592000">
+  </script>
+  <script language=javascript src='./js/songPlay.js'></script>
+  <!-- 预加载资源插件 -->
+  <script type="text/javascript" src="js/preloadjs.min.js"></script>
+  <!-- 帧动画参数 -->
+  <script type="text/javascript" src="js/canvasData.js"></script>
+  <!-- 帧动画模块配置 -->
+  <script type="text/javascript" src="js/canvasAni.js"></script>
+  <script src="./js/index.js"></script>
+
+</body>
+
+</html>

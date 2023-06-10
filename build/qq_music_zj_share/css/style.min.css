@@ -1,0 +1,255 @@
+@charset "UTF-8";
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import url(global.import.css);
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: 24px;
+ */
+/* 页面工具类 - 文字禁止选择 */
+/* 页面工具类 - 背景图片公共样式 */
+/* 页面工具类 - 文字禁止选择 */
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: "宋体", "SourceHanSerifCN Heavy", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+  background-color: #7d451e;
+  margin: 0;
+}
+
+.wrap {
+  position: relative;
+  width: 750px;
+  height: 1334px;
+}
+
+.share_wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.share_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.share_bg__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.share_username {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate3d(-50%, 0, 0);
+          transform: translate3d(-50%, 0, 0);
+  z-index: 1;
+  margin-top: -534px;
+  font-size: 30px;
+  color: #551209;
+  font-weight: bold;
+}
+
+.share_text__wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate3d(-50%, 0, 0);
+          transform: translate3d(-50%, 0, 0);
+  z-index: 1;
+  margin-top: -480px;
+  font-size: 30px;
+  color: #551209;
+  font-weight: normal;
+  line-height: 36px;
+  text-align: center;
+}
+
+.share_lyric {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  z-index: 1;
+  width: 400px;
+  height: 200px;
+  padding: 58px 0 0 48px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.share_lyric1 {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  z-index: 1;
+  margin-top: 32px;
+}
+
+.share_lyric__title {
+  position: relative;
+  z-index: 2;
+  font-size: 24px;
+  color: #c02000;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.share_lyric__text {
+  position: relative;
+  z-index: 2;
+  width: 330px;
+  height: auto;
+  font-size: 24px;
+  color: #551209;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.share_lyric::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-size: 400px 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/page_sprite.png");
+}
+
+.share_wrap1 .share_lyric {
+  position: absolute;
+  top: 50%;
+  right: 28px;
+  z-index: 1;
+  margin-top: -102px;
+}
+
+.share_wrap2 .share_lyric {
+  position: absolute;
+  top: 50%;
+  right: 280px;
+  z-index: 1;
+  margin-top: -310px;
+  padding-left: 28px;
+}
+
+.share_wrap2 .share_lyric::before {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.share_wrap3 .share_text__wrap {
+  color: #fff;
+}
+
+.share_wrap3 .share_lyric {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  z-index: 1;
+  margin-top: -102px;
+}
+
+.share_wrap4 .share_text__wrap {
+  color: #fff;
+}
+
+.share_wrap4 .share_lyric {
+  position: absolute;
+  top: 50%;
+  right: 260px;
+  z-index: 1;
+  margin-top: -88px;
+  padding-left: 28px;
+}
+
+.share_wrap4 .share_lyric::before {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.share_wrap5 .share_lyric {
+  position: absolute;
+  top: 50%;
+  right: 178px;
+  z-index: 1;
+  margin-top: -234px;
+}
+
+.share_wrap5 .share_btn__left {
+  color: #430707;
+}
+
+.share_wrap5 .share_btn__left::after {
+  background-color: #430707;
+}
+
+.share_wrap5 .share_btn__right {
+  color: #c02000;
+}
+
+.share_wrap5 .share_btn__right::after {
+  background-color: #c02000;
+}
+
+.share_wrap6 .share_lyric {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  z-index: 1;
+  margin-top: -424px;
+}
+
+.qrcode_wrap {
+  position: absolute;
+  top: 50%;
+  left: 36px;
+  z-index: 1;
+  margin-top: 515px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+     -moz-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.qrcode_item {
+  width: 118px;
+  height: 118px;
+}
+
+.qrcode_item img {
+  display: block;
+  width: 100%;
+}
+
+.qrcode_item1 {
+  margin-right: 216px;
+}
+
+/*# sourceMappingURL=../maps/css/style.min.css.map */

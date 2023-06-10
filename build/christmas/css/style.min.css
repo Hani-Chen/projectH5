@@ -1,0 +1,204 @@
+@charset "UTF-8";
+/* 页面公共样式 - End */
+/* 页面样式 - Start */
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #233343;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-perspective: 1200px;
+          perspective: 1200px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  margin: 0;
+  overflow: hidden;
+}
+
+.tree {
+  position: relative;
+  height: 50vmin;
+  width: 25vmin;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+.tree__light {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: absolute;
+  height: 1vmin;
+  width: 1vmin;
+  border-radius: 50%;
+  -webkit-animation: flash -webkit-calc(var(--speed) * 1s) -webkit-calc(var(--delay) * 1s) infinite steps(4), appear 0.5s -webkit-calc(var(--appear) * 0.05s) both;
+  animation: flash calc(var(--speed) * 1s) calc(var(--delay) * 1s) infinite steps(4), appear 0.5s calc(var(--appear) * 0.05s) both;
+  left: 50%;
+  -webkit-transform: translate(-50%, 50%) rotateY(-webkit-calc(var(--rotate, 0) * 1deg)) translate3d(0, 0, -webkit-calc(var(--radius, 0) * 1vmin));
+          transform: translate(-50%, 50%) rotateY(calc(var(--rotate, 0) * 1deg)) translate3d(0, 0, calc(var(--radius, 0) * 1vmin));
+  bottom: -webkit-calc(var(--y, 0) * 1%);
+  bottom: calc(var(--y, 0) * 1%);
+}
+
+.tree__star {
+  stroke-width: 5vmin;
+  stroke: #f5e0a3;
+  -webkit-filter: drop-shadow(0 0 2vmin #fcf1cf);
+          filter: drop-shadow(0 0 2vmin #fcf1cf);
+  height: 5vmin;
+  width: 5vmin;
+  overflow: visible !important;
+  bottom: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  position: absolute;
+  stroke-dasharray: 1000 1000;
+  fill: none;
+  -webkit-animation: stroke 1s -webkit-calc((var(--delay) * 0.95) * 0.05s) both;
+  animation: stroke 1s calc((var(--delay) * 0.95) * 0.05s) both;
+}
+
+@-webkit-keyframes stroke {
+  from {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes stroke {
+  from {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes flash {
+  0%, 100% {
+    background: #f00;
+  }
+  20% {
+    background: #fff;
+  }
+  40% {
+    background: #f00;
+  }
+  60% {
+    background: #fff;
+  }
+  80% {
+    background: #f00;
+  }
+}
+
+@keyframes flash {
+  0%, 100% {
+    background: #f00;
+  }
+  20% {
+    background: #fff;
+  }
+  40% {
+    background: #f00;
+  }
+  60% {
+    background: #fff;
+  }
+  80% {
+    background: #f00;
+  }
+}
+
+.text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  width: 1.5rem;
+  margin-top: 1.3rem;
+}
+
+.text img {
+  width: 100%;
+  display: block;
+}
+
+@media screen and (min-width: 750px) {
+  .text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+    width: 0.8rem;
+    margin-top: 0.5rem;
+  }
+  .text img {
+    width: 100%;
+    display: block;
+  }
+}
+
+.flower-canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+/* 页面样式 - End */
+
+/*# sourceMappingURL=../maps/css/style.min.css.map */

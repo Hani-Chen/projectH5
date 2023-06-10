@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/* 页面公共样式 - Start */
+@import url(global.import.css);
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+}
+
+/* 页面公共样式 - End */
+/* 页面样式 - Start */
+/* 页面样式 - End */
+.test-canvas {
+  width: 100%;
+  height: 3.6rem;
+  margin-bottom: 0.3rem;
+}
+
+.test-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  background: #000;
+}
+
+/*# sourceMappingURL=../maps/css/style.min.css.map */
