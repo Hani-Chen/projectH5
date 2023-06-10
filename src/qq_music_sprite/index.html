@@ -1,0 +1,59 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<section class="wrap">
+  <div class="page_item page_start show">
+    <!-- logo -->
+    <div class="logo"></div>
+    <canvas id="canvasLoading" width="750" height="1450"></canvas>
+  </div>
+  <div class="page_item page_kernel">
+    <!-- logo -->
+    <div class="logo"></div>
+    <!-- 专辑图 -->
+    <div class="kernel_albums">
+      <img src="./img/kernel_albums1.jpg" alt="" class="kernel_albums__img" >
+    </div>
+    <!-- 歌曲 -->
+    <div class="kernel_song">
+      <!-- 歌曲信息 -->
+      <div class="kernel_song__data">
+        <!-- 歌曲名称 -->
+        <div class="kernel_song__sname">《<span>无渴不爽</span>》</div>
+        <!-- 歌曲艺人 -->
+        <div class="kernel_song__name">华晨宇</div>
+      </div>
+      <!-- 歌曲操作区域 -->
+      <div class="kernel_song__operation">
+        <!-- 播放icon - 【active】控制高亮 -->
+        <div class="kernel_song__icon kernel_song__play"></div>
+        <!-- 分割线 -->
+        <div class="kernel_song__cutoff"></div>
+        <!-- 收藏icon - 【active】控制高亮 -->
+        <div class="kernel_song__icon kernel_song__collect"></div>
+      </div>
+    </div>
+    <!-- 介绍文案 -->
+    <div class="kernel_buttom">
+      <div class="kernel_text__item kernel_text1">你欧气十足，抽中华晨宇隐藏版</div>
+      <div class="kernel_text2">我由我主张，渴自由释放</div>
+      <div class="kernel_text__item kernel_text3">这首专属版本的《无渴不爽》</div>
+      <a href="" id="goSongList" class="kernel_btn kernel_btn_gosonglist"></a>
+      <div class="kernel_btn kernel_btn_rule"></div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<!-- 预加载资源插件 -->
+<script type="text/javascript" src="js/preloadjs.min.js"></script>
+<!-- 帧动画参数 -->
+<script type="text/javascript" src="js/canvasData.js"></script>
+<!-- 帧动画模块配置 -->
+<script type="text/javascript" src="js/canvasAni.js"></script>
+<!-- 音乐播放器 -->
+<script src="//y.gtimg.cn/music/h5/player/player.js?max_age=2592000"></script>
+<!-- 逻辑代码 -->
+<script src="./js/index.js"></script>
+{% endblock %}

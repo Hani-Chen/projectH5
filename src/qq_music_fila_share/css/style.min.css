@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/* 页面公共样式 - Start */
+@import url(global.import.css);
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+}
+
+@font-face {
+  font-family: "font_arial";
+  src: url("../fonts/arial.ttf");
+}
+
+/* 页面公共样式 - End */
+.share_wrap {
+  position: relative;
+  width: 750px;
+  height: 1334px;
+  display: block;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/share_bg.jpg");
+}
+
+.share_time {
+  font-size: 42px;
+  color: #497893;
+  font-weight: bold;
+  font-family: "font_arial";
+  position: absolute;
+  top: 945px;
+  left: 25px;
+  z-index: 1;
+  letter-spacing: 2px;
+}
+
+.share_code {
+  position: absolute;
+  top: 1090px;
+  right: 25px;
+  z-index: 1;
+  width: 188px;
+  height: 188px;
+  overflow: hidden;
+}
+
+.share_code__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 页面样式 - End */
+
+/*# sourceMappingURL=../maps/css/style.min.css.map */

@@ -1,0 +1,377 @@
+{% extends "./_njk/base.njk" %}
+{% set
+singerList = [
+  {
+    id: 1,
+    name: '芒种'
+  }, {
+    id: 2,
+    name: '画'
+  }, {
+    id: 3,
+    name: '光年之外'
+  }, {
+    id: 4,
+    name: '她说'
+  }, {
+    id: 5,
+    name: '情非得已'
+  }, {
+    id: 6,
+    name: '我的名字'
+  }, {
+    id: 7,
+    name: 'something just like this'
+  }, {
+    id: 8,
+    name: '年少有为'
+  }, {
+    id: 9,
+    name: '缘分一道桥'
+  }, {
+    id: 10,
+    name: '缘分一道桥缘分一道桥'
+  }
+
+] %}
+{% block main %}
+<!-- 生成专辑 加载页 -->
+<section class="section section_loading">
+  <div class="box">
+    <!-- logo -->
+    <div class="logo"></div>
+    <!-- 帧图背景 -->
+    <div class="animation_bg">
+      <img class="" src="./img/loading.gif" alt="">
+      <div class="loading_text font_hlw">你的初心专辑<br>正在搜索中 </div>
+    </div>
+  </div>
+</section>
+
+<!-- 背景音乐icon -->
+<section class="icon_play"></section>
+
+<!--Body下的根元素 S-->
+<section class="wrap">
+  <!-- 李宇春首页 -->
+  <div class="item item-home">
+    <div class="box">
+      <!-- logo -->
+      <div class="logo"></div>
+      <!-- 活动规则 -->
+      <div class="home_rule_wrap">
+        <!-- 开始播放按钮 -->
+        <div class="home_play"></div>
+        <div class="home_rule">活动规则</div>
+        <!-- 选择 -->
+        <div class="home_select">
+          <input type="checkbox" name="" value="" id="select" class="select">
+          <label for="select"></label>
+          我已阅读并同意《QQ音乐授权协议》</div>
+      </div>
+    </div>
+    <div class="bg"></div>
+  </div>
+  <!-- 首页 -->
+  <div class="item item-index">
+    <div class="box">
+      <!-- logo -->
+      <div class="logo"></div>
+      <!-- 内容 -->
+      <div class="index_content">
+        <!-- 2019-10-28 Edit by Hani -->
+        <!-- 内容文案 -->
+        <p class="index_text font_hlw">今天<br>
+          是QQ音乐陪伴你的
+        </p>
+        <div class="index_text index_text1 font_hlw">
+          <span>第</span>
+          <!-- 天数容器 -->
+          <div class="data_wrap">
+            <div class="data_item_wrap data_item_wrap0">
+              <div class="data_item data_item0">
+                <span>0</span>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+              </div>
+            </div>
+            <div class="data_item_wrap">
+              <div class="data_item data_item1">
+                <span>0</span>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+              </div>
+            </div>
+            <div class="data_item_wrap">
+              <div class="data_item data_item2">
+                <span>0</span>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+              </div>
+            </div>
+            <div class="data_item_wrap">
+              <div class="data_item data_item3">
+                <span>0</span>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+              </div>
+            </div>
+          </div>
+          <span>天</span>
+        </div>
+      </div>
+      <div class="index_circle"></div>
+      <!-- 动画 -->
+      <div class="index_animation_wrap">
+        <!-- 餐车动画 -->
+        <div class="index_animation_item index_animation_car">
+          <img src="./img/index_car.gif" alt="">
+        </div>
+        <!-- 云朵动画 -->
+        <div class="index_animation_item index_animation_cloud">
+          <!-- 云朵1 -->
+          <div class="cloud_item cloud_1">
+            <img src="./img/cloud1.png" alt="">
+          </div>
+          <!-- 云朵2 -->
+          <div class="cloud_item cloud_2">
+            <img src="./img/cloud2.png" alt="">
+          </div>
+        </div>
+        <div class="index_animation_item index_animation_note">
+          <img src="./img/note.gif" alt="">
+        </div>
+      </div>
+      <!-- 底部 -->
+      <div class="box_bottom">
+        <div class="bottom_icon_box">
+          <img class="bottom_icon" src="./img/icon_gliding.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="bg"></div>
+  </div>
+  <!-- 相似的歌曲页面 -->
+  <div class="item item-alikesong">
+    <div class="box">
+      <!-- logo -->
+      <div class="logo"></div>
+      <!-- 内容 -->
+      <div class="alikesong_content">
+        <!-- 2019-10-28 Edit by Hani -->
+        <!-- 内容文案 -->
+        <div class="alikesong_title font_hlw">歌词里有<span class="alikesong_title_text">时间</span>的歌<br>
+          似乎会得到你的<span>偏爱</span>
+        </div>
+        <!-- 2019-10-28 Edit by Hani -->
+        <!-- 歌曲名称列表 -->
+        <div class="alikesong_songname_list font_hlw">
+          <div class="songname_item">
+            《<span>给我一首歌的时间</span>》
+          </div>
+          <div class="songname_item">
+            《<span>时间都去哪了</span>》
+          </div>
+        </div>
+        <div class="alikesong_title2 font_hlw">其实你没怎么变</div>
+      </div>
+      <!-- 动画背景 -->
+      <div class="animation_bg"></div>
+      <!-- 底部 -->
+      <div class="box_bottom">
+        <div class="bottom_icon_box">
+          <img class="bottom_icon" src="./img/icon_gliding.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="bg"></div>
+  </div>
+  <!-- 单曲循环 -->
+  <div class="item item-loop">
+    <div class="box">
+      <!-- logo -->
+      <div class="logo"></div>
+      <!-- 内容 -->
+      <div class="loop_content">
+        <!-- 标题 -->
+        <div class="loop_title"></div>
+        <!-- 文案 -->
+        <div class="loop_text ">
+          <!-- 歌手 - 需配置 -->
+          <div class="loop_text_1">
+            <span>李宗盛</span>的</div>
+          <!-- 歌曲名 - 需配置 -->
+          <div class="loop_text_2">《<span>伤痕</span>》</div>
+        </div>
+      </div>
+      <!-- 动画 -->
+      <div class="animation_bg"></div>
+      <!-- 底部 -->
+      <div class="box_bottom">
+        <div class="bottom_icon_box">
+          <img class="bottom_icon" src="./img/icon_gliding.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="bg"></div>
+  </div>
+  <!-- 陪伴页 -->
+  <div class="item item-accompany">
+    <div class="box">
+      <!-- logo -->
+      <div class="logo"></div>
+      <!-- 内容 -->
+      <div class="accompany_content">
+        <div class="accompany_title font_hlw">
+          <!-- 时间 -->
+          <div class="accompany_time"></div>
+          <div>夜已深 你却迟迟没睡</div>
+        </div>
+        <div class="accompany_text_wrap font_hlw">
+          还好有
+          <div>
+            <!-- 歌手 - 需配置 -->
+            <span class="accompany_text">林俊杰</span>
+            <!-- 歌曲名 - 需配置 -->
+            <span class="accompany_text1">《<span class="accompany_text3">她说</span>》</span>
+          </div>
+          一直陪你
+        </div>
+      </div>
+      <!-- 动画 -->
+      <div class="accompany_animation">
+        <div class="accompany_lamp"></div>
+        <!-- 餐车 -->
+        <div class="accompany_car"></div>
+      </div>
+      <!-- 底部 -->
+      <div class="box_bottom">
+        <div class="bottom_icon_box">
+          <img class="bottom_icon" src="./img/icon_gliding.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="bg"></div>
+  </div>
+  <!-- like -->
+  <div class="item item-likelist">
+    <div class="box">
+      <!-- logo -->
+      <div class="logo"></div>
+      <!-- 内容 -->
+      <div class="likelist_content">
+        <!-- 标题 -->
+        <div class="likelist_title"></div>
+      </div>
+      <!-- 帧图背景 -->
+      <div class="animation_wrap">
+        <!-- 喜欢歌单列表 -->
+        <div class="likelist_like_list font_hlw">
+          {% for item in singerList %}
+          <div class="likelist_like_item likelist_like_item{{item.id}}">
+            《<span>{{item.name}}</span>》
+          </div>
+          {% endfor %}
+        </div>
+        <!-- 生成初心专辑 -->
+        <div class="likelist_create font_hlw">
+          {# 2019-11-04 Edit by Hani #}
+          {# 最后一步<br> #}
+          向上滑动<br>
+          {# 2019-11-04 Edit by Hani #}
+          生成你的初心专辑
+        </div>
+        <!-- 白纸 -->
+        <div class="likelist_animation_item likelist_animation_paper"></div>
+        <!-- 笔 -->
+        <div class="likelist_animation_item likelist_animation_write">
+          <div class="animation_write"></div>
+        </div>
+        <!-- 餐车 -->
+        <div class="likelist_animation_car"></div>
+      </div>
+      <!-- 底部 -->
+      <div class="box_bottom">
+        <div class="bottom_icon_box">
+          <img class="bottom_icon" src="./img/icon_gliding.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="bg"></div>
+  </div>
+  <!-- 生成页 -->
+  <div class="item item-create">
+    <div class="box">
+      <!-- logo -->
+      <div class="logo"></div>
+      <!-- 生成之前 -->
+      <div class="create_before create_item">
+        <!-- 内容 -->
+        <div class="create_content">
+          <!-- 标题容器 -->
+          <div class="create_title_wrap">
+            <!-- 标题 -->
+            <div class="create_title"></div>
+            <!-- 关键词 -->
+            <div class="create_antistop antistop_item"></div>
+            <!-- 专辑图 -->
+            <div class="create_cover cover_item"></div>
+          </div>
+        </div>
+        <!-- 提交 -->
+        <div class="create_bottom_submit">
+          <!-- 车 -->
+          <div class="create_bottom_car"></div>
+          <div class="create_bottom_bubble">
+            <textarea type="text" class="create_bottom_input" maxlength="12" placeholder="将专辑送给自己或者TA，你想说些什么？"></textarea>
+          </div>
+          <div class="create_bottom_btn"></div>
+        </div>
+      </div>
+      <!-- 保存图片 -->
+      <div class="create_save">
+        <img src="" alt="" id="saveImg">
+        <img src="" alt="" id="saveImage">
+        <span class="hint_text"></span>
+      </div>
+    </div>
+    <div class="bg"></div>
+  </div>
+</section>
+{% endblock %}
+{% block javascript %}
+<!-- zepto -->
+<script src="js/zepto.min.js"></script>
+<!-- QQ音乐 滚屏插件 -->
+<script type="text/javascript" src="js/iSlider.min.js"></script>
+<!-- 主程序 -->
+<script type="text/javascript" src="js/index.js"></script>
+{% endblock %}

@@ -1,0 +1,70 @@
+<!--
+ * @Author: Gianni
+ * @Date: 2021-09-08 19:25:10
+ * @LastEditTime: 2021-09-13 16:43:29
+ * @LastEditors: Gianni
+ * @Description: QQ音乐 - 货拉拉H5
+ * @FilePath: \H5-Project\src\qq_music_huolala__share\index.html
+-->
+{% extends "./_njk/base.njk" %} {% block main %}
+<section class="wrap">
+  <!-- 结果页 -->
+  <div class="page_item page_over show">
+    <!-- 结果页 - 背景 -->
+    <div class="page_bg over_bg"></div>
+    <!-- 结果页 - 装饰 - 内容后 -->
+    <div class="page_decorate over_decorate__under"></div>
+    <!-- 结果页 - 内容 -->
+    <div class="over_content">
+      <!-- 结果页 - 用户数据 -->
+      <div class="over_user__wrap">
+        <!-- 用户数据 - 头像 -->
+        <div class="over_portrait">
+          <img
+            class="over_portrait__img"
+            src="./img/test_portrait.jpg"
+            alt=""
+          />
+        </div>
+        <!-- 用户数据 - 昵称 -->
+        <div class="over_name">Gianni</div>
+      </div>
+      <!-- 第一 -->
+      <div class="over_item over_first">
+        <div class="over_item__title">
+          <div class="name">欧阳娜娜</div>
+        </div>
+        <div class="over_item__text">音域相似度</div>
+        <div class="over_item__percent">90%</div>
+      </div>
+      <!-- 第二 -->
+      <div class="over_item over_second">
+        <div class="over_item__title">
+          <div class="name">易烊千玺</div>
+        </div>
+        <div class="over_item__text">声线相似度</div>
+        <div class="over_item__percent">60%</div>
+      </div>
+      <!-- 第三 -->
+      <div class="over_item over_thirdly">
+        <div class="over_item__title">
+          <div class="name">隔壁老樊</div>
+        </div>
+        <div class="over_item__text">音色相似度</div>
+        <div class="over_item__percent">35%</div>
+      </div>
+      <!-- 二维码 -->
+      <div class="over_qrcode">
+        <img class="over_qrcode__img" src="./img/qrcode.jpg" alt="">
+      </div>
+    </div>
+    <!-- 结果页 - logo -->
+    <div class="page_logo"></div>
+    <!-- 结果页 - 装饰 - 内容前 -->
+    <div class="page_decorate over_decorate__front">
+      <div class="over_decorate1"></div>
+    </div>
+  </div>
+</section>
+{% endblock %} {% block javascript %}
+{% endblock %}

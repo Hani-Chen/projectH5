@@ -1,0 +1,446 @@
+.page_squeeze {
+  .bg {
+    background-image: repeating-linear-gradient(135deg, #282320, #0a0f0e);
+  }
+
+  .squeeze {
+    &_inner {
+      position: relative;
+      height: 100%;
+    }
+
+    &_up {
+      @extend .absolute_center;
+      margin-top: changePx(-7.6rem);
+      width: changePx(7.5rem);
+      height: changePx(0.64rem);
+      background-image: url('../img/squeeze_line_up.png');
+      @extend .bg_item;
+    }
+
+    &_down {
+      @extend .absolute_center;
+      margin-top: changePx(6.4rem);
+      width: changePx(7.5rem);
+      height: changePx(1.06rem);
+      background-image: url('../img/squeeze_line_down.png');
+      @extend .bg_item;
+    }
+
+    &_info {
+      @extend .absolute_center;
+      margin-top: changePx(-6.2rem);
+      display: flex;
+      align-items: center;
+    }
+
+    &_avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: changePx(0.62rem);
+      height: changePx(0.62rem);
+      background-color: #666;
+      border: 1px solid #d5c081;
+      border-radius: 50%;
+      margin-right: changePx(0.1rem);
+
+      img {
+        display: block;
+        width: changePx(0.58rem);
+        height: changePx(0.58rem);
+        border-radius: 50%;
+      }
+    }
+
+    &_topic {
+      width: changePx(1.85rem);
+      height: changePx(0.67rem);
+      line-height: changePx(0.67rem);
+      text-align: center;
+      background-image: url('../img/squeeze_ellipses.png');
+      @extend .bg_item;
+
+      &__text,
+      &__null {
+        color: #d2b375;
+        font-size: changePx(0.22rem);
+        line-height: changePx(0.67rem);
+        letter-spacing: changePx(0.1rem);
+        padding-left: changePx(0.1rem);
+        box-sizing: border-box;
+        @extend .font_OPPOSans__r;
+
+        span {
+          font-size: changePx(0.34rem);
+        }
+      }
+
+      &__null {
+        display: none;
+      }
+    }
+
+    &_content {
+      @extend .absolute_center;
+      margin-top: changePx(-5.5rem);
+    }
+
+    &_frame {
+      width: changePx(7.02rem);
+      height: changePx(6.7rem);
+      background-image: url('../img/squeeze_frame.png');
+      @extend .bg_item;
+    }
+
+    &_ear {
+      @extend .absolute_center;
+      margin-top: changePx(-2.52rem);
+      margin-left: changePx(0.02rem);
+      width: changePx(3.66rem);
+      height: changePx(5.06rem);
+      background-image: url('../img/squeeze_ear_gold.jpg');
+      @extend .bg_item;
+    }
+
+    &_name {
+      @extend .absolute_center;
+      margin-top: changePx(1.54rem);
+      width: changePx(1.7rem);
+      height: changePx(0.62rem);
+      line-height: changePx(0.62rem);
+      color: #d2b375;
+      font-size: changePx(0.28rem);
+      text-align: center;
+      letter-spacing: changePx(0.1rem);
+      padding-left: changePx(0.1rem);
+      box-sizing: border-box;
+      @extend .font_OPPOSans__m;
+
+      &::after {
+        content: "金耳朵";
+      }
+    }
+
+    &_prize {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      margin-top: changePx(-0.95rem);
+      width: changePx(0.59rem);
+      height: changePx(1.83rem);
+      background-image: url('../img/squeeze_prize.png');
+      @extend .bg_item;
+
+      &__text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: changePx(0.59rem);
+        height: changePx(1.83rem);
+        color: #e1cb88;
+        font-size: changePx(0.26rem);
+        letter-spacing: changePx(0.06rem);
+        padding-left: changePx(0.04rem);
+        box-sizing: border-box;
+        writing-mode: vertical-rl;
+        @extend .font_OPPOSans__m;
+      }
+    }
+
+    &_defeat {
+      @extend .absolute_center;
+      margin-top: changePx(1.6rem);
+
+      &__decorate {
+        position: absolute;
+        width: changePx(5.91rem);
+        height: changePx(0.87rem);
+        background-image: url('../img/squeeze_decorate.png');
+        @extend .bg_item;
+      }
+
+      &__title,
+      &__null {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: changePx(5.91rem);
+        height: changePx(0.87rem);
+        color: #d2b375;
+        font-size: changePx(0.24rem);
+        line-height: changePx(0.42rem);
+        letter-spacing: changePx(0.05rem);
+        @extend .font_OPPOSans__r;
+
+        span {
+          font-size: changePx(0.62rem);
+          letter-spacing: 0;
+          @extend .font_OPPOSans__b;
+        }
+      }
+
+      &__text {
+        color: #d2b375;
+        font-size: changePx(0.2rem);
+        line-height: changePx(0.32rem);
+        text-align: center;
+        letter-spacing: changePx(0.05rem);
+        @extend .font_OPPOSans__r;
+
+        &::after {
+          content: "我的金耳朵早已独孤求败";
+        }
+      }
+
+      &__null {
+        display: none;
+      }
+    }
+
+    &_btn {
+      @extend .absolute_center;
+      margin-top: changePx(3.9rem);
+      display: flex;
+      align-items: center;
+    }
+
+    &_retest,
+    &_lottery {
+      width: changePx(2.66rem);
+      height: changePx(0.9rem);
+      @extend .bg_item;
+      margin: 0 changePx(0.2rem);
+
+      &__text {
+        color: #000;
+        font-size: changePx(0.34rem);
+        line-height: changePx(0.72rem);
+        text-align: center;
+        padding-top: changePx(0.04rem);
+        box-sizing: border-box;
+        @extend .font_OPPOSans__b;
+      }
+    }
+
+    &_retest {
+      background-image: url('../img/squeeze_retest.png');
+    }
+
+    &_lottery {
+      background-image: url('../img/squeeze_lottery.png');
+
+      &__text {
+        color: #d2b375;
+      }
+    }
+
+    &_grades {
+      @extend .absolute_center;
+      margin-top: changePx(5.8rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: changePx(6.7rem);
+    }
+
+    &_headset {
+      width: changePx(0.69rem);
+      height: changePx(0.71rem);
+      background-image: url('../img/squeeze_headset.png');
+      @extend .bg_item;
+      margin-left: changePx(0.3rem);
+    }
+
+    &_title {
+      color: #d2b375;
+      font-size: changePx(0.16rem);
+      line-height: changePx(0.24rem);
+      white-space: pre;
+      margin-left: changePx(-0.8rem);
+      @extend .font_OPPOSans__m;
+
+      &::after {
+        content: "丹拿调音的 OPPO Enco X \A 与你的金耳朵才是绝配";
+      }
+    }
+
+    &_save {
+      width: changePx(2.6rem);
+      height: changePx(0.9rem);
+      background-image: url('../img/squeeze_save.png');
+      @extend .bg_item;
+
+      &__text {
+        color: #d2b375;
+        font-size: changePx(0.24rem);
+        font-weight: bolder;
+        line-height: changePx(0.72rem);
+        text-align: center;
+        letter-spacing: changePx(0.02rem);
+        padding-top: changePx(0.04rem);
+        box-sizing: border-box;
+        @extend .font_OPPOSans__r;
+      }
+    }
+  }
+
+  // 银耳朵
+  &.page_silver {
+    .squeeze {
+      &_ear {
+        background-image: url('../img/squeeze_ear_silver.jpg');
+      }
+
+      &_name {
+        &::after {
+          content: "银耳朵";
+        }
+      }
+
+      &_defeat__text {
+        &::after {
+          content: "方圆五里的声响皆在我的掌握";
+        }
+      }
+
+      &_title {
+        &::after {
+          content: "丹拿调音的 OPPO Enco X \A 让你的银耳朵听见\A 更多音乐里的暗藏彩蛋";
+        }
+      }
+    }
+  }
+
+  // 铜耳朵
+  &.page_copper {
+    .squeeze {
+      &_ear {
+        background-image: url('../img/squeeze_ear_copper.jpg');
+      }
+
+      &_name {
+        &::after {
+          content: "铜耳朵";
+        }
+      }
+
+      &_defeat__text {
+        &::after {
+          content: "丝毫没有拉低人类的平均听力水平";
+        }
+      }
+
+      &_title {
+        &::after {
+          content: "丹拿调音的 OPPO Enco X \A 让你的铜耳朵听见\A 更多音乐里的暗藏彩蛋";
+        }
+      }
+    }
+  }
+
+  // 铁耳朵
+  &.page_iron {
+    .squeeze {
+      &_ear {
+        background-image: url('../img/squeeze_ear_iron.jpg');
+      }
+
+      &_name {
+        &::after {
+          content: "铁耳朵";
+        }
+      }
+
+      &_defeat__text {
+        &::after {
+          content: "我以为在第五层，实际只在第一层";
+        }
+      }
+
+      &_title {
+        &::after {
+          content: "丹拿调音的 OPPO Enco X \A 让你的铁耳朵听见\A 更多音乐里的暗藏彩蛋";
+        }
+      }
+    }
+  }
+
+  // 木耳朵
+  &.page_wood {
+    .squeeze {
+      &_ear {
+        background-image: url('../img/squeeze_ear_wood.jpg');
+      }
+
+      &_name {
+        &::after {
+          content: "木耳朵";
+        }
+      }
+
+      &_defeat__text {
+        &::after {
+          content: "是时候掏掏耳朵了";
+        }
+      }
+
+      &_title {
+        &::after {
+          content: "丹拿调音的 OPPO Enco X \A 让你的木耳朵听见 \A 更多音乐里的暗藏彩蛋";
+        }
+      }
+    }
+  }
+
+  // 空耳
+  &.page_null {
+    .squeeze {
+      &_topic {
+        &__text {
+          display: none;
+        }
+
+        &__null {
+          display: block;
+          font-size: changePx(0.18rem);
+          line-height: changePx(0.24rem);
+          padding-top: changePx(0.08rem);
+        }
+      }
+
+      &_defeat {
+        &__title {
+          display: none;
+        }
+
+        &__null {
+          display: flex;
+        }
+      }
+
+      &_ear {
+        background-image: url('../img/squeeze_ear_null.jpg');
+      }
+
+      &_name {
+        &::after {
+          content: "空耳";
+        }
+      }
+
+      &_defeat__text {
+        &::after {
+          content: "我就是传说中的空耳大师！！！";
+        }
+      }
+
+      &_title {
+        &::after {
+          content: "丹拿调音的 OPPO Enco X \A 让你的空耳听见 \A 更多音乐里的暗藏彩蛋";
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,248 @@
+@charset "utf-8";
+/* 公共样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a {
+  text-decoration: none;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+ul,
+li {
+  list-style: none;
+}
+i {
+  font-style: normal;
+}
+body,
+html {
+  height: 100%;
+}
+.section {
+  height: 100%;
+  background: #f7f7f7;
+}
+
+// 页面样式
+.morewelfare {
+  // 轮播
+  &-header {
+    width: 100%;
+    height: 3.6rem;
+    background: #f7f6f6;
+    padding-top: 0.3rem;
+    .swiper-pagination {
+      width: 100%;
+      height: 0.2rem;
+      // background: #f00;
+    }
+    // 右侧轮播显示
+    .swiper-slide-next {
+      left: -8%;
+    }
+    .my-bullet {
+      display: inline-block;
+      border-radius: 50%;
+      width: 0.1rem;
+      height: 0.1rem;
+      background: #ffcbcb;
+      margin: 0 0.125rem;
+    }
+    .my-bullet-active {
+      width: 0.1rem;
+      height: 0.1rem;
+      background: #fe6968;
+    }
+  }
+  // 内容
+  &-middle {
+    padding-bottom: 0.4rem;
+    background: #fff;
+    padding-top: 0.55rem;
+  }
+  &-end {
+    width: 100%;
+    height: 2.4rem;
+    background: #f7f7f7;
+    position: relative;
+    
+  }
+}
+// 轮播
+.header {
+  &-swiper {
+    width: 100%;
+    margin: 0 auto;
+    &-wrap {
+      width: 100%;
+    }
+    &-item {
+      width: 100%;
+      > img {
+        display: block;
+        width: 6.7rem;
+        height: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+// 内容区
+.middle {
+  &-title {
+    width: 3.1rem;
+    height: 0.75rem;
+    margin: 0 auto 0.55rem;
+    font-size: 0.34rem;
+    color: #fff;
+    text-align: center;
+    line-height: 1.8;
+    background: {
+      image: url('../img/bg-morewelfare.png');
+      size: 3.07rem auto;
+      position: center center;
+      repeat: no-repeat;
+    }
+  }
+  &-list {
+    width: 5.9rem;
+    max-height: 4.8rem;
+    margin: 0 auto;
+    padding-top: 0.15rem;
+    // display: grid;
+    overflow: hidden;
+    // grid-template-columns: repeat(3, 1fr);
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: all 0.5s;
+    &.show {
+      max-height: 15rem;
+    }
+    &-item {
+      width: 1.44rem;
+      margin-bottom: 0.5rem;
+      margin-right: 0.75rem;
+      .item-img-box {
+        width: 1.44rem;
+        height: 1.44rem;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+      .item-img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .item-text {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 0.24rem;
+        color: #333;
+        margin-top: 0.2rem;
+      }
+    }
+    &-item:nth-child(3n){
+      margin-right: 0;
+    }
+    
+  }
+  &-more {
+    width: 6.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.25rem auto 0;
+    &-wire {
+      display: block;
+      width: 2.6rem;
+      height: 0.02rem;
+      background: #f7f7f7;
+    }
+    &-text {
+      font-size: 0.24rem;
+      color: #333;
+    }
+    &-arrows {
+      display: inline-block;
+      width: 0.2rem;
+      height: 0.2rem;
+      margin-left: 0.08rem;
+      transform: rotateY(0);
+      background: {
+        image: url('../img/icon-arrows.png');
+        size: 0.2rem auto;
+        position: center center;
+        repeat: no-repeat;
+      }
+      &.expand {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+.end {
+  &-wrap {
+    width: 6.7rem;
+    margin: 0 auto;
+  }
+  
+  &-box {
+    width: 100%;
+    .title {
+      font-size: 0.24rem;
+      color: #1a1a1a;
+      text-align: center;
+      padding-top: 0.46rem;
+      line-height: 1.5;
+      margin-bottom: 0.22rem;
+      font-weight:bold;
+    }
+    .text-box {
+      // display: grid;
+      // grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+      white-space: nowrap;
+      width: 4.6rem;
+      margin: 0 auto;
+    }
+    .text {
+      display: block;
+      font-size: 0.2rem;
+      color: #9f9f9f;
+      display: flex;
+      align-items: center;
+      // margin-right: 0.27rem;
+      margin-bottom: 0.15rem;
+      > i {
+        display: inline-block;
+        width: 0.12rem;
+        height: 0.12rem;
+        border-radius: 50%;
+        margin-right: 0.15rem;
+        background: #e4e7ea;
+      }
+    }
+    .text:nth-child(2),
+    .text:nth-child(4) {
+      width: 1.95rem;
+    }
+    .text:nth-child(3),
+    .text:nth-child(4) {
+      margin-bottom: 0;
+    }
+  }
+}

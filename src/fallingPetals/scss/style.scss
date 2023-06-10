@@ -1,0 +1,28 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  // background-image: url(http://images.htcfu.com/523/bg-loading.jpg);
+  background-size: cover;
+}
+
+// 花瓣画布
+.flower-canvas {
+  canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

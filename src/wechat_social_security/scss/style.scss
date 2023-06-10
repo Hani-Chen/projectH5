@@ -1,0 +1,848 @@
+@charset "utf-8";
+/* 公共样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color:rgba(0,0,0,0)
+}
+a {
+  text-decoration: none;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+ul,
+li {
+  list-style: none;
+}
+i {
+  font-style: normal;
+}
+body,
+html {
+  height: 100%;
+}
+.section {
+  // height: 100%;
+  overflow: hidden;
+  background: #fa4528;
+}
+@font-face {
+  font-family: 'fzht';
+  src: url('../fonts/方正兰亭黑_YS_GBK.TTF');
+}
+.font-fzht {
+  font-family: 'fzht';
+}
+@font-face {
+  font-family: 'dinBLACK';
+  src: url('../fonts/DIN-BLACK.OTF');
+}
+.font-din-black {
+  font-family: 'dinBLACK';
+}
+@font-face {
+  font-family: 'fzzc';
+  src: url('../fonts/FZLTZCHK_0.TTF');
+}
+.font-fzzc {
+  font-family: 'fzzc';
+}
+@font-face {
+  font-family: 'TTTGB';
+  src: url('../fonts/TTTGB-MEDIUM.OTF');
+}
+.font-tttgb {
+  font-family: 'TTTGB';
+}
+/* 页面样式 */
+.section {
+  display: none;
+  &.show {
+    display: block;
+  }
+  // 红包领取页
+  &-redenvelope {
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: {
+      image: url(../img/bg-index.jpg);
+      size: 100% auto;
+      repeat: no-repeat;
+      position: center top;
+    }
+  }
+  &-get {
+    width: 100%;
+    // height: 100%;
+    height: 100%;
+    position: relative;
+    padding-bottom: 0.5rem;
+    background: {
+      image: url(../img/bg-index.jpg);
+      size: 100% auto;
+      repeat: no-repeat;
+      position: center top;
+    }
+  }
+}
+.main {
+  // 头图
+  &-header {
+    width: 100%;
+    height: 7.21rem;
+    background: {
+      image: url(../img/bg-header.png);
+      size: 100% auto;
+      repeat: no-repeat;
+      position: center top;
+    }
+  }
+  // 内容区
+  &-middle {
+    margin-top: -1.1rem;
+    background: #fa4528;
+    padding-bottom: 0.35rem;
+    // 领取模块
+    .receive {
+      // 容器
+      &-wrap {
+        position: relative;
+        display: none;
+        
+        &.show{
+          display: block;
+        }
+      }
+      &-more{
+        position: absolute;
+        top: -1.4rem;
+        right: -0.68rem;
+        z-index: 10;
+        width: 3rem;
+        height: 3rem;
+        a{
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        img{
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+      // 展示金额
+      &-exhibition {
+        width: 6.9rem;
+        height: 8.14rem;
+        margin: 0 auto;
+        border: 1px solid transparent;
+        font-size: 0;
+        color: #ff711c;
+        background: {
+          image: url(../img/bg-get.png);
+          size: 6.9rem auto;
+          repeat: no-repeat;
+          position: center top;
+        }
+        > span {
+          display: block;
+          text-align: center;
+        }
+      }
+      // 标题文案
+      &-title {
+        font-size: 0.36rem;
+        margin-top: 1.62rem;
+      }
+      // 金额
+      &-sum {
+        font-size: 0.48rem;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        top: -0.15rem;
+        // 元
+        > i {
+          font-size: 1.44rem;
+          display: inline-block;
+          margin-left: 0.04rem;
+          // vertical-align: top;
+          position: relative;
+          top: 0.05rem;
+        }
+      }
+      &-btn-box{
+        position: absolute;
+        left: 0;
+        bottom: 0.54rem;
+        width: 100%;
+        .receive-pop{
+          position: absolute;
+          bottom: 2.35rem;
+          right: 0.2rem;
+          width: 3.45rem;
+          height: 2.85rem;
+          text-align: center;
+          z-index: 2;
+          display: none;
+          background: {
+            image: url(../img/bg-remind.png);
+            size: 100% auto;
+            repeat: no-repeat;
+            position: center top;
+          }
+          &.show{
+            animation: remindDown 0.5s;
+            display: block;
+          }
+        }
+      }
+      // 领取更多按钮
+      &-btn-get {
+        width: 6.44rem;
+        height: 1.56rem;
+        margin: 0 auto;
+        color: #eb3e40;
+        font-size: 0.36rem;
+        text-indent: 1.6rem;
+        line-height: 1.5rem;
+        background: {
+          image: url(../img/bg-btn-receive.png);
+          size: 6.06rem auto;
+          repeat: no-repeat;
+          position: center center;
+        }
+      }
+      // 提现按钮
+      &-btn-withdraw {
+        width: 6.06rem;
+        height: 0.88rem;
+        margin: 0 auto;
+        color: #eb3e40;
+        font-size: 0.36rem;
+        text-align: center;
+        line-height: 0.88rem;
+        background: {
+          image: url(../img/bg-btn-withdraw.png);
+          size: 6.05rem auto;
+          repeat: no-repeat;
+          position: center center;
+        }
+        // 已提现状态
+        &.withdraw-yet {
+          color: #fff;
+          background: {
+            image: url(../img/bg-btn-withdraw-yet.png);
+            size: 6.05rem auto;
+            repeat: no-repeat;
+            position: center center;
+          }
+        }
+      }
+      
+      
+    }
+    // 绑定社保卡模块
+    .binding {
+      &-wrap {
+        width: 6.9rem;
+        height: 8.15rem;
+        margin: 0 auto;
+        border: 1px solid transparent;
+        position: relative;
+        font-size: 0;
+        color: #ff711c;
+        display: none;
+        background: {
+          image: url(../img/bg-binding.png);
+          size: 6.9rem auto;
+          repeat: no-repeat;
+          position: center top;
+        }
+        &.show{
+          display: block;
+        }
+      }
+      &-more{
+        position: absolute;
+        top: -0.7rem;
+        right: 0;
+        z-index: 10;
+        width: 1.5rem;
+        height: 1.5rem;
+        img{
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+      &-portrait {
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+        border: 0.08rem solid #fff;
+        // padding: 0.08rem;
+        background: #fff;
+        position: absolute;
+        left: 50%;
+        top: -0.55rem;
+        transform: translateX(-50%);
+        box-shadow: 0 0.1rem 0.2rem rgba($color: #ed4840, $alpha: 0.5);
+        &-img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          position: relative;
+          left: 0.01rem;
+        }
+      }
+      // 内容
+      &-content {
+        text-align: center;
+        margin-top: 2.15rem;
+        &-title {
+          font-size: 0.6rem;
+        }
+        &-text {
+          font-size: 0.3rem;
+          margin-top: 0.3rem;
+        }
+      }
+      // 绑定按钮
+      &-btn {
+        width: 6rem;
+        height: 0.95rem;
+        margin: 0 auto;
+        color: #eb3e40;
+        font-size: 0.36rem;
+        text-align: center;
+        line-height: 0.95rem;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 1.8rem;
+        background: {
+          image: url(../img/bg-btn-withdraw.png);
+          size: 6rem auto;
+          repeat: no-repeat;
+          position: center center;
+        }
+      }
+    }
+    // 好友助力
+    .help {
+      &-wrap {
+        width: 6.9rem;
+        min-height: 4.64rem;
+        position: relative;
+        background: #fff;
+        margin: 0.35rem auto;
+        border-radius: 6px;
+        text-align: center;
+        font-size: 0.28rem;
+        border: 1px solid transparent;
+        padding-bottom: 0.84rem;
+        color: #888;
+        background: {
+          image: url(../img/bg-help.png);
+          size: 2.3rem auto;
+          repeat: no-repeat;
+          position: center center;
+        }
+        &.list-show {
+          background-image: url();
+          .help-depict {
+            display: none;
+          }
+          .help-list {
+            display: block;
+          }
+          .help-more{
+            display: block;
+          }
+          .help-title-number{
+            
+          color: #ff7e63;
+          }
+        }
+      }
+      // 标题
+      &-title {
+        width: 5.85rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0.45rem auto 0;
+        &-wire {
+          display: block;
+          width: 1.4rem;
+          height: 0.02rem;
+          background: #bebebe;
+        }
+        &-number {
+          display: inline-block;
+          margin: 0 0.1rem;
+        }
+      }
+      // 描述
+      &-depict {
+        position: absolute;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0.5rem;
+        font-size: 0.3rem;
+        color: #ff7e63;
+      }
+      // 列表容器
+      &-list {
+        display: none;
+        width: 5.85rem;
+        margin: 0.4rem auto;
+        max-height: 6.1rem;
+        overflow: hidden;
+        transition: all 1s;
+        .help-item:last-child {
+          margin-bottom: 0;
+        }
+      }
+      &-list-show {
+        max-height: 10rem;
+      }
+      // 单个助力用户
+      &-item {
+        height: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.4rem;
+        &-l {
+          display: flex;
+          align-items: center;
+        }
+        &-portrait {
+          width: 0.9rem;
+          border-radius: 50%;
+          height: auto;
+        }
+        &-name {
+          vertical-align: middle;
+          font-size: 0.28rem;
+          line-height: 1;
+          margin-left: 0.2rem;
+        }
+      }
+      // 查看更多
+      &-more {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0.42rem;
+        display: none;
+      }
+    }
+  }
+}
+// 绑定社保卡弹出窗动画
+@keyframes show {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 4rem;
+  }
+}
+
+// 提醒分享上移动画
+@keyframes remindDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+// 红包上移动画
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 1.5rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+// 按钮动画
+@keyframes waggleBtn {
+  0% {
+    transform: translate3d(-46%, 0, 0);
+  }
+  10% {
+    transform: translate3d(-54%, 0, 0);
+  }
+  20% {
+    transform: translate3d(-48%, 0, 0);
+  }
+  30% {
+    transform: translate3d(-52%, 0, 0);
+  }
+  40% {
+    transform: translate3d(-46%, 0, 0);
+  }
+  50% {
+    transform: translate3d(-54%, 0, 0);
+  }
+  75% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+// 活动规则
+.rule {
+  &-wrap {
+    width: 6.9rem;
+    position: relative;
+    background: #fff;
+    margin: 0 auto;
+    padding-bottom: 0.4rem;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid transparent;
+  }
+  
+  &-title {
+    width: 2.9rem;
+    height: 0.5rem;
+    margin: 0.4rem auto;
+    background: {
+      image: url(../img/bg-rule-title.png);
+      size: 2.9rem auto;
+      repeat: no-repeat;
+      position: center center;
+    }
+  }
+  &-list {
+    padding: 0 0.45rem;
+    text-align: justify;
+    line-height: 1.5;
+    font-size: 0.28rem;
+    color: #888;
+  }
+  &-item {
+    margin-bottom: 0.2rem;
+    list-style-position: inside;
+    padding-left: 0.35rem;
+    > i {
+      display: inline-block;
+      width: 0.35rem;
+      margin-left: -0.35rem;
+    }
+  }
+}
+
+// 红包页面
+.redenvelope {
+  &-wrap {
+    width: 100%;
+    height: 8.54rem;
+  }
+  
+  &-box {
+    width: 100%;
+    height: 8.54rem;
+    // display: none;
+    position: absolute;
+    top: 3.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeInDown 1s;
+    background: {
+      image: url(../img/bg-redenvelope.png);
+      size: 100% auto;
+      repeat: no-repeat;
+      position: center top;
+    }
+  }
+  &-text {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 1.7rem;
+    text-align: center;
+    color: #f5dba8;
+    font-size: 0.26rem;
+    .title {
+      font-size: 0.46rem;
+      margin-bottom: 0.2rem;
+    }
+  }
+  &-end {
+    width: 100%;
+    height: 3rem;
+    position: relative;
+    top: 1.3rem;
+    &-wrap {
+      width: 100%;
+      height: 100%;
+      background: {
+        image: url(../img/bg-index-end2.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    &-title {
+      width: 3.5rem;
+      height: 0.4rem;
+      margin: 2rem auto 0;
+      background: {
+        image: url(../img/bg-end-title.png);
+        size: 3.5rem auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    &-text {
+      width: 5.6rem;
+      margin: 0.2rem auto 0;
+      font-size: 0.24rem;
+      color: #f9d9b1;
+      line-height: 1.5;
+    }
+  }
+}
+// 领取成功页面
+.get {
+  &-wrap {
+    position: relative;
+    width: 100%;
+    height: 8.56rem;
+  }
+  &-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 3.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeInDown 1s;
+    background: {
+      image: url(../img/bg-redenvelope2.png);
+      size: 6.37rem auto;
+      repeat: no-repeat;
+      position: center top;
+    }
+  }
+  &-text {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0.9rem;
+    text-align: center;
+    color: #f84d3f;
+    font-size: 0.3rem;
+    z-index: 2;
+    .title {
+      font-size: 0.72rem;
+      margin-bottom: 0.1rem;
+      font-weight: bold;
+    }
+    .get-sum {
+      font-size: 0.48rem;
+    }
+  }
+  &-btn {
+    width: 5.15rem;
+    height: 1.78rem;
+    position: absolute;
+    bottom: 1.8rem;
+    text-align: center;
+    font-size: 0.48rem;
+    line-height: 1.45rem;
+    color: #e83729;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: waggleBtn 1s 1s  alternate infinite;
+    z-index: 3;
+    background: {
+      image: url(../img/bg-get-btn.png);
+      size: 5.15rem auto;
+      repeat: no-repeat;
+      position: center top;
+    }
+  }
+  &-end {
+    width: 100%;
+    height: 3rem;
+    position: relative;
+    top: 1.6rem;
+    &-wrap {
+      width: 100%;
+      height: 100%;
+      background: {
+        image: url(../img/bg-index-end2.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    &-title {
+      width: 3.5rem;
+      height: 0.4rem;
+      margin: 2rem auto 0;
+      background: {
+        image: url(../img/bg-end-title.png);
+        size: 3.5rem auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    &-text {
+      width: 5.6rem;
+      margin: 0.2rem auto 0;
+      font-size: 0.24rem;
+      color: #f9d9b1;
+      line-height: 1.5;
+    }
+  }
+  &-rule {
+    margin: -1.2rem auto 0;
+  }
+}
+
+// 弹窗
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  height: 100%;
+  z-index: 1000;
+  &.show {
+    display: block;
+  }
+  &-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
+  &-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    z-index: 1;
+  }
+  // 分享弹窗
+  &-shore {
+    &-bg {
+      background: rgba(0, 0, 0, 0);
+    }
+    &-body {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 5.16rem;
+      height: 2.3rem;
+      animation: remindDown 0.5s;
+      background: {
+        image: url(../img/bg-share.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+      max-width: 100%;
+      margin: 0 auto;
+      z-index: 2;
+    }
+    &-text {
+      position: absolute;
+      left: 0.75rem;
+      bottom: 0.95rem;
+      font-size: 0.3rem;
+      color: #fd9322;
+    }
+  }
+  // 绑定弹窗
+  &-binding {
+    &-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4rem;
+      text-align: center;
+      background: #f2f2f2;
+      z-index: 2;
+      animation: show 0.5s;
+    }
+    &-title {
+      width: 100%;
+      min-height: 1.66rem;
+      font-size: 0.28rem;
+      color: #f65541;
+      padding: 0 0.52rem;
+      .title {
+        padding-top: 0.32rem;
+      }
+      .text {
+        padding-top: 0.15rem;
+        text-align: left;
+      }
+    }
+    &-btn {
+      width: 100%;
+      height: 1.1rem;
+      font-size: 0.36rem;
+      line-height: 1.1rem;
+      background: #fff;
+      margin-top: 0.1rem;
+    }
+  }
+  // 提醒分享弹窗
+  &-remind {
+    &-bg {
+      background: rgba(0, 0, 0, 0);
+    }
+    &-body {
+      position: absolute;
+      bottom: 2.65rem;
+      right: 0.2rem;
+      width: 3.45rem;
+      height: 2.85rem;
+      text-align: center;
+      z-index: 2;
+      animation: remindDown 0.5s;
+      background: {
+        image: url(../img/bg-remind.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+  }
+}

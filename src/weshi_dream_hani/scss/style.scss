@@ -1,0 +1,395 @@
+@charset "utf-8";
+// 默认字体
+$baseFont: Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB',
+  'Heiti SC', STXihei, 'Microsoft YaHei', SimHei, 'WenQuanYi Micro Hei';
+
+// 页面字体
+@font-face {
+  font-family: 'FZLTZHUNHK';
+  src: url('../fonts/FZLTZHUNHK.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'FZQKBYSJW';
+  src: url('../fonts/FZQKBYSJW.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.font-fzlt {
+  font-family: 'FZLTZHUNHK';
+}
+.font-fzqk {
+  font-family: 'FZQKBYSJW';
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+body,
+html {
+  position: relative;
+  height: 100%;
+  font-family: $baseFont;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch; /* 解决ios滑动不流畅问题 */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* 
+* 公共样式 - 背景图片公共样式
+* 用法: @extend .bg-item;
+*
+*/
+.bg-item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+/* 
+* 公共样式 - 绝对定位居中
+* 用法: @extend .posa-center;
+*
+*/
+.posa-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.mask-front-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/front_bg.png);
+  background-size: 7.5rem auto;
+  background-position: 50%;
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+.page-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f2f3f3;
+}
+
+.section {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  animation: fadeIn 0.5s both;
+  &.show {
+    display: block;
+  }
+}
+
+// 画布背景样式
+.canvas {
+  &-bg {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7.5rem;
+    margin-left: -3.75rem;
+  }
+}
+
+// 背景音乐icon
+.bgm-toggle {
+  position: absolute;
+  top: 0.14rem;
+  right: 0.44rem;
+  z-index: 101;
+  width: 0.6rem;
+  height: 0.8rem;
+  @extend .bg-item;
+  background: {
+    image: url(../img/bgm_sprite.png);
+    position: 0 0;
+  }
+  &.paused {
+    background-position-y: 100%;
+  }
+}
+// logo
+.logo {
+  position: absolute;
+  top: 0.36rem;
+  left: 0.44rem;
+  width: 1.7rem;
+  height: 0.4rem;
+  @extend .bg-item;
+  background-image: url(../img/logo.png);
+}
+
+// 加载页
+.loading {
+  &-wrap {
+    transform: translate3d(0, 0, 0);
+    transition: all 0.5s ease-in;
+    z-index: 10;
+    &.active {
+      animation: none;
+      transform: translate3d(-0.1rem, 2.5rem, 0) scale(2.52);
+      .loading-need-hidden {
+        display: none;
+      }
+    }
+  }
+  // 线条背景
+  &-line-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7.5rem;
+    height: 16rem;
+    margin-left: -3.75rem;
+    margin-top: -8rem;
+    @extend .bg-item;
+    background-image: url(../img/loading/line-6.png);
+    background-position: 0 0.61rem;
+  }
+  &-hourglass {
+    margin-top: -6.67rem;
+  }
+  // 装饰物
+  &-desc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7.5rem;
+    height: 13.5rem;
+    margin-left: -3.75rem;
+    margin-top: -7.29rem;
+    @extend .bg-item;
+    background-image: url(../img/desc.png);
+  }
+  // 进度
+  &-percent {
+    @extend .posa-center;
+    width: 1rem;
+    margin-left: -0.5rem;
+    margin-top: 0.38rem;
+    color: #b63d27;
+    text-align: center;
+    font-size: 0.18rem;
+    line-height: 0.4rem;
+    .percent {
+      font-size: 0.32rem;
+    }
+  }
+  // 标语
+  &-slogan {
+    @extend .posa-center;
+    width: 5rem;
+    height: 1.1rem;
+    margin-left: -2.5rem;
+    margin-top: -5.12rem;
+    text-align: center;
+    @extend .bg-item;
+    background-image: url(../img/loading_slogan.png);
+    animation: fadeInUp 0.3s ease-in-out both;
+  }
+  // 文案
+  &-flag {
+    @extend .posa-center;
+    width: 3rem;
+    height: 1.24rem;
+    margin-left: -1.5rem;
+    margin-top: 1.96rem;
+    @extend .bg-item;
+    background-image: url(../img/loading_t_tips.png);
+    animation: fadeInUp 0.3s ease-in-out 1.3s both;
+  }
+  // 温馨提示
+  &-tips {
+    @extend .posa-center;
+    left: 0.4rem;
+    margin-top: 5.66rem;
+    font-size: 0.24rem;
+    font-style: italic;
+    color: #000;
+  }
+  // loading页 启动按钮
+  &-btn {
+    display: none;
+    @extend .posa-center;
+    width: 0.9rem;
+    margin-left: -0.45rem;
+    margin-top: 3.9rem;
+    text-align: center;
+    font-size: 0.26rem;
+    font-weight: 700;
+    animation: fadeIn 0.5s ease-in-out both;
+    &.show {
+      display: block;
+    }
+    .circle {
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      background-image: url('../img/circle.png');
+      background-position: 25% 0%;
+      background-size: 500% 500%;
+      background-repeat: no-repeat;
+      animation-name: circleLoading;
+      animation-duration: 0.96s;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      animation-timing-function: steps(1);
+    }
+  }
+}
+// 启动页
+.start {
+  &-wrap {
+    animation: none;
+  }
+  // 背景线条
+  &-line {
+    margin-top: -8rem;
+    animation: fadeIn 0.5s both;
+  }
+  // 装饰
+  &-bg {
+    @extend .posa-center;
+    width: 100%;
+    height: 13.34rem;
+    margin-top: 0.05rem;
+    transform: translate3d(-50%, -50%, 0);
+    @extend .bg-item;
+    background-image: url(../img/start_bg.png);
+    animation: fadeIn 0.5s both;
+  }
+  // 沙漏
+  &-hourglass {
+    @extend .posa-center;
+    width: 7.5rem;
+    height: 8.08rem;
+    margin-left: -3.75rem;
+    margin-top: -3.22rem;
+    @extend .bg-item;
+    background-image: url(../img/hourglass.png);
+    // animation: fadeIn 0.5s both;
+  }
+  // 沙漏动画
+  &-sand {
+    margin-top: -6.67rem;
+  }
+  &-slogan {
+    @extend .posa-center;
+    width: 7rem;
+    margin-left: -3.5rem;
+    margin-top: -5.1rem;
+    text-align: center;
+    animation: fadeIn 0.7s 1s both;
+    .text-1 {
+      font-size: 0.72rem;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 0.31rem;
+    }
+    .text-2 {
+      font-size: 0.48rem;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 0.64rem;
+      > span {
+        color: #c35642;
+      }
+    }
+    .text-3 {
+      font-size: 0.31rem;
+      color: #c35642;
+      > span {
+        font-size: 0.45rem;
+        display: inline-block;
+        width: 0.6rem;
+        white-space: nowrap;
+      }
+    }
+  }
+  &-btn-next {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0.64rem;
+    height: 1rem;
+    margin-top: 5.07rem;
+    padding-right: 0.7rem;
+    line-height: 1rem;
+    text-align: right;
+    font-size: 0.38rem;
+    font-weight: bold;
+    font-style: italic;
+    transition: 0.3s all;
+    transform: scale3d(1, 1, 1);
+
+    &::before {
+      @extend .bg-item;
+      content: '';
+      position: absolute;
+      right: 0.03rem;
+      top: 0;
+      width: 0.55rem;
+      height: 1rem;
+      @extend .bg-item;
+      background: {
+        image: url(../img/btn_arrow.png);
+      }
+      animation: btnAni 0.6s ease-out both infinite alternate;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0.07rem;
+      background: {
+        image: linear-gradient(
+          to right,
+          #000 0,
+          #000 22.2222%,
+          transparent 22.2222%
+        );
+        size: 0.09rem 0.07rem;
+        position: 0, 0;
+      }
+      animation: btnBgAni 3s linear both infinite;
+    }
+    .btn-text-inner {
+      animation: heartBeat 1.5s ease-in-out both infinite reverse;
+    }
+  }
+}
+.select {
+  &-build {
+    margin-top: -6.67rem;
+  }
+}
+@import 'ani.scss';

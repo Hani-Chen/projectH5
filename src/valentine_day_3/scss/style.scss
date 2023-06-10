@@ -1,0 +1,1000 @@
+@charset "utf-8";
+// 页面公共样式
+$prefix: '../img/';
+// $prefix: 'http://images.htcfu.com/523/';
+
+@font-face {
+  font-family: 'FZJTJW';
+  src: url('../fonts/FZJTJW.eot'); /* IE9 */
+  src: url('../fonts/FZJTJW.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../fonts/FZJTJW.woff') format('woff'),
+    /* chrome、firefox */ url('../fonts/FZJTJW.ttf') format('truetype'),
+    /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+      url('../fonts/FZJTJW.svg#FZJTJW') format('svg'); /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+i {
+  font-style: normal;
+}
+// 去除a标签下划线 和在iPhone端点击阴影
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body,
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+.bg-cover {
+  background: {
+    size: 100% auto;
+    position: top center;
+    repeat: no-repeat;
+  }
+}
+
+// 页面组
+.section {
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @extend .bg-cover;
+  &.show {
+    display: block;
+  }
+  &-loading {
+    background-image: url($prefix+'bg-loading.jpg');
+    background-size: cover;
+  }
+  &-start {
+    background-image: url($prefix+'bg-index.jpg');
+  }
+  &-message {
+    background-image: url($prefix+'bg_message.jpg');
+    background-position-y: center;
+  }
+  &-calling,
+  // &-svip,
+  &-chat {
+    background-image: url($prefix+'bg_svip.jpg');
+  }
+  &-call {
+    background-image: url($prefix+'bg_call.jpg');
+  }
+  &-end {
+    background-image: url($prefix+'bg_end.jpg');
+  }
+}
+// 统一按钮效果
+.btn {
+  position: static;
+  display: block;
+  width: 3.11rem;
+  height: 0.8rem;
+  font-family: 'FZJTJW';
+  @extend .bg-cover;
+  background-image: url($prefix+'bg-button.png');
+  color: #fff7dc;
+  font-size: 0.4rem;
+  text-align: center;
+  line-height: 0.8rem;
+  transition: transform 0.3s;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+// 音乐icon
+.fixed-bar {
+  width: 0.8rem;
+  height: 0.8rem;
+  position: fixed;
+  top: 0.3rem;
+  right: 0.3rem;
+  z-index: 100;
+}
+.bgm-toggle {
+  display: none;
+  @extend .bg-cover;
+  background-image: url($prefix+'bgm_sprites.png');
+  width: 0.8rem;
+  height: 0.8rem;
+  animation: circle 3s linear infinite both;
+  &.show {
+    display: block;
+  }
+  &.stop {
+    animation-play-state: paused;
+    background-position-y: -0.8rem;
+  }
+}
+
+/* 加载页面 开始 */
+$colorLoading: #bc3769;
+.loading {
+  &-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4.5rem;
+    margin-top: -0.3rem;
+    margin-left: -2.25rem;
+  }
+
+  &-progress {
+    position: relative;
+    &-outer {
+      width: 4.5rem;
+      height: 0.1rem;
+      border: 1px solid $colorLoading;
+      border-radius: 10px;
+
+      // 两侧小圆点
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0.02rem;
+        width: 0.06rem;
+        height: 0.06rem;
+        background: $colorLoading;
+      }
+      &::before {
+        left: -0.04rem;
+        border-top-left-radius: 0.06rem;
+        border-bottom-left-radius: 0.06rem;
+      }
+      &::after {
+        right: -0.04rem;
+
+        border-top-right-radius: 0.06rem;
+        border-bottom-right-radius: 0.06rem;
+      }
+    }
+    &-inner {
+      position: relative;
+      background: $colorLoading;
+      width: 0%;
+      height: 100%;
+    }
+    &-img {
+      position: absolute;
+      right: 0;
+      bottom: 100%;
+      width: 0.44rem;
+      margin-right: -0.22rem;
+    }
+  }
+  &-percent {
+    text-align: center;
+    color: $colorLoading;
+    margin-top: 0.2rem;
+    font-size: 0.24rem;
+    font-family: 'FZJTJW';
+    font-weight: bold;
+  }
+  &-onlookers {
+    display: none;
+    animation: fadeInDown 0.8s ease both;
+    > img {
+      display: block;
+      margin: 0.3rem auto;
+      width: 2.5rem;
+      height: 0.5rem;
+    }
+    &.show {
+      display: block;
+    }
+  }
+}
+/* 加载页面 结束 */
+
+// 花瓣画布
+.flower-canvas {
+  canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background: rgba(0,0,0,0.5);
+  }
+}
+
+/* 启动页面 开始 */
+.section-start {
+  animation: fadeIn 0.8s ease both;
+}
+.start {
+  $startTime: 0.7s;
+  $stepTime: 0.8s;
+  &-light {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10.57rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'layer.png');
+    background-position:center  bottom ;
+  }
+  // 标题520
+  &-text-1 {
+    position: absolute;
+    top: 1.9rem;
+    left: 0.5rem;
+    width: 3.31rem;
+    height: 2.7rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'520.png');
+    animation: fadeInDown 1s ($startTime) ease both;
+  }
+  // 右侧文本
+  &-text-2 {
+    position: absolute;
+    bottom: 2.62rem;
+    left: 50%;
+    margin-left: -3.075rem;
+    width: 6.15rem;
+    height: 2.61rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'start-text.png');
+    animation: fadeInDown 1s ($startTime) ease both;
+  }
+  @keyframes shake {
+    0% {
+      transform: scale(1); /*开始为原始大小*/
+    }
+    25% {
+      transform: scale(1.1); /*放大1.1倍*/
+    }
+    50% {
+      transform: scale(1);
+    }
+    75% {
+      transform: scale(1.1);
+    }
+  }
+  // 按钮
+  &-btn-bar {
+    position: absolute;
+    left: 50%;
+    margin-left: -1.555rem;
+    bottom: 1.6rem;
+    width: 3.11rem;
+    animation: fadeInDown 1s ($startTime + $stepTime) ease both;
+  }
+  &-btn {
+    animation: shake 1.5s ($startTime + $stepTime + 1s) infinite both;
+  }
+
+  &-person {
+    position: absolute;
+    top: 3.48rem;
+    left: 0;
+    width: 100%;
+    // 唐太宗
+    &-1 {
+      position: absolute;
+      right: 0;
+      width: 6.1rem;
+      height: 10.7rem;
+      @extend .bg-cover;
+      background-image: url($prefix+'person_start_king.png');
+      animation: fadeInRight 1s $startTime ease both;
+    }
+    // 杨贵妃
+    &-2 {
+      position: absolute;
+      top: 1.74rem;
+      left: -0.4rem;
+      width: 7.91rem;
+      height: 9.64rem;
+      @extend .bg-cover;
+      background-image: url($prefix+'person_queen.png');
+      animation: fadeInLeft 1s $startTime ease both;
+    }
+  }
+}
+/* 启动页面 结束 */
+
+/* 思考页面 开始 */
+.section-think {
+  background: #614a4d;
+  animation: fadeIn 0.8s ease both;
+  z-index: 101;
+
+  &.hide {
+    animation: fadeIn 1s both alternate-reverse;
+  }
+  &.section-think-panta {
+    background: rgba(40, 4, 4, 0.8);
+  }
+}
+$popStartTime: 0.8s;
+
+.think {
+  &-bg {
+    position: absolute;
+  }
+  &-group {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 7.5rem;
+    margin-top: -8.12rem;
+    height: 16.24rem;
+  }
+  &-pop {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3.75rem;
+    width: 7.5rem;
+    height: 9.1rem;
+    transform-origin: 100% 80%;
+    z-index: 100;
+    &.show {
+      display: block;
+    }
+
+    .pop {
+      &-group {
+        position: absolute;
+        right: 0.66rem;
+        bottom: 5.88rem;
+        width: 1.3rem;
+        height: 1.7rem;
+      }
+      &-i {
+        position: absolute;
+        // top: 0;
+        // right: 0;
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid #c6a29e;
+        border-radius: 50%;
+        background: rgba(#c6a29e, 0.3);
+        animation: popup 0.4s ease backwards;
+        transition: transfrom 0.1s;
+        overflow: visible;
+        &-1 {
+          width: 1.2rem;
+          height: 1.2rem;
+          right: 0;
+          top: 0;
+          animation-delay: $popStartTime + 0.4s;
+        }
+        &-2 {
+          width: 0.6rem;
+          height: 0.6rem;
+          right: 0.62rem;
+          top: 0.93rem;
+          animation-delay: $popStartTime + 0.2s;
+        }
+        &-3 {
+          width: 0.36rem;
+          height: 0.36rem;
+          right: 0.88rem;
+          top: 1.3rem;
+          animation-delay: $popStartTime;
+        }
+      }
+    }
+  }
+  &-person {
+    position: absolute;
+    // top: 10.18rem;
+    bottom: -0.5rem;
+    right: 0;
+    // width: 7.5rem;
+    width: 7.5rem;
+    // height: 9.1rem;
+    height: 8.76rem;
+    @extend .bg-cover;
+    background-image: url($prefix + 'lianxiang.png');
+    animation: fadeIn 0.8s 0.5s both;
+  }
+  &-question {
+    position: absolute;
+    top: 1.33rem;
+    right: 0.88rem;
+    width: 2.2rem;
+    height: 2.4rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'pop_think.png');
+    animation: popQuest 0.8s 2s ease-in-out both infinite alternate;
+    transform-origin: 0 100%;
+  }
+
+  &-panta {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -5.33rem;
+    margin-left: -3.75rem;
+    animation: fadeIn 1.2s 0.8s ease both;
+    width: 7.5rem;
+    height: 10.66rem;
+    transform-origin: 100% 80%;
+    &.show {
+      display: block;
+    }
+    &-person {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 7.31rem;
+      height: 10.66rem;
+      @extend .bg-cover;
+      background-image: url($prefix+'person_panta.png');
+    }
+    &-t {
+      position: absolute;
+      width: 2.23rem;
+      height: 1.95rem;
+      @extend .bg-cover;
+      background-image: url($prefix+'panta_sprites.png');
+      animation: popQuest 1s 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) both
+        infinite alternate;
+      transform-origin: 50% 50%;
+      &-1 {
+        left: 3.23rem;
+        top: 0.47rem;
+      }
+    }
+  }
+
+  &-canvas {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3.75rem;
+    width: 7.5rem;
+    overflow: hidden;
+    @extend .bg-cover;
+    transform-origin: center;
+    &.show {
+      display: block;
+      animation: blurIn 1.5s both;
+      animation-delay: $popStartTime + 0.8s;
+    }
+    &#yanziBox.show {
+      animation: none;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: auto;
+      width: 100%;
+    }
+  }
+}
+@keyframes blurIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* 思考页面 结束 */
+
+/* 消息页面页面 开始 */
+.section-message {
+  animation: fadeInRight 0.8s ease both;
+}
+.message {
+  &-text {
+    position: absolute;
+    left: 0.74rem;
+    top: 1.66rem;
+    width: 1.3rem;
+    height: 4.4rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'message_text.png');
+    animation: fadeIn 0.5s 2s ease-in both;
+  }
+
+  &-canvas {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 7.5rem;
+    margin-left: -3.75rem;
+    height: 100%;
+    animation: fadeIn 0.5s 1s ease-in both;
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+  &-msg {
+    position: absolute;
+    bottom: 1.3rem;
+    left: 50%;
+    margin-left: -3.6rem;
+    width: 7.2rem;
+    height: 1.23rem;
+    
+    animation: fadeInDown 0.5s 4s ease-in both;
+    z-index: 10;
+  }
+
+  // qq消息弹窗
+  &-shake{
+    width: 100%;
+    height: 100%;
+    @extend .bg-cover;
+    background-image: url($prefix+'message_msg.png');
+    animation: msgShake 0.8s 5s  infinite;
+  }
+}
+
+/* 消息页面页面 结束 */
+
+/* svip页面 开始 */
+$svip_startTime: 0.5s;
+$svip_stepTime: 0.8s;
+.section-svip {
+  animation: fadeIn 0.8s ease both;
+  background: rgba(25, 4, 4, 0.7);
+}
+.svip {
+  @keyframes scaleDraw {  
+    0%{
+      opacity: 0;
+      transform: scale(0.5) translate3d(0, 3rem, 0);  
+    }
+    100%{
+      transform: scale(1) translate3d(0, 0, 0);
+      opacity: 1;
+    }
+}
+  &-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7.5rem;
+    height: 12.18rem;
+    margin-left: -3.75rem;
+    margin-top: -6.1rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'svip_gift.png');
+    padding-left: 0.92rem;
+    animation: scaleDraw 1s ease both;
+  }
+  &-title{
+    width: 3.97rem;
+    height: 1.08rem;
+    position: absolute;
+    top: 1.42rem;
+    left: 50%;
+    margin-left: -2.18rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'svip_title.png');
+  }
+  &-999{
+    width: 3.63rem;
+    height: 2.12rem;
+    position: absolute;
+    top: 3.76rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'svip_999.png');
+  }
+  &-text{
+    width: 5.65rem;
+    height: 3.35rem;
+    position: absolute;
+    top: 6.2rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'svip_text.png');
+  }
+}
+/* svip页面 结束 */
+
+/* 语音通话前页面 开始 */
+.section-call {
+  animation: fadeIn 0.8s ease both;
+  background-size: 100% 100%;
+}
+.call {
+  &-avatar {
+    position: absolute;
+    left: 50%;
+    margin-left: -3.75rem;
+    top: 1.5rem;
+    width: 7.5rem;
+    height: 5.61rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'person_call.png');
+    animation: fadeIn 0.5s 0.8s ease-in both;
+  }
+  &-answer-wrapper {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    margin-left: -3.75rem;
+    width: 7.5rem;
+    height: 3.2rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'call_other.png');
+    animation: fadeInDown 0.5s 1.5s ease both;
+  }
+  &-answer {
+    position: absolute;
+    bottom: 0.43rem;
+    right: 0.77rem;
+    margin: 0 auto;
+    width: 1.3rem;
+    height: 1.3rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'icon_call.png');
+    animation: tada 1s 1.5s both infinite;
+    transform-origin: 50% 70%;
+  }
+
+  &-canvas {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    margin: 1.1rem auto 0;
+    width: 7.5rem;
+    height: 0.52rem;
+    animation: fadeIn 0.5s 1.5s ease-in both;
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+/* 语音通话前页面 结束 */
+
+/* 语音通话中页面 开始 */
+.section-calling {
+  animation: fadeIn 0.8s ease both;
+  background-size: 100% 100%;
+}
+.calling {
+  &-king {
+    position: absolute;
+    top: 1.39rem;
+    left: 0;
+    width: 100%;
+    height: 14.85rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'person_king.png');
+    animation: fadeInLeft 0.5s 0.8s ease both;
+  }
+  &-queen {
+    position: absolute;
+    top: 8.5rem;
+    right: 0.3rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'calling_queen.png');
+    animation: fadeInRight 0.5s 0.8s ease both;
+  }
+
+  &-answer-wrapper {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    margin-left: -3.75rem;
+    width: 7.5rem;
+    height: 1.58rem;
+    @extend .bg-cover;
+    animation: fadeInDown 0.5s 0.8s ease both;
+    text-align: center;
+    
+  }
+  &-answer {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    margin-left: -0.65rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'icon_calling.png');
+    transform-origin: 50% 70%;
+    &.active {
+      animation: tada 1s 1.5s both infinite;
+    }
+  }
+
+  &-pop {
+    display: none;
+    position: absolute;
+    width: 3.15rem;
+    height: 2.28rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'pop_sprites.png');
+    transition: opacity 0.3s;
+    &.show {
+      display: block;
+      animation: popup 1s ease both;
+    }
+    &.hide {
+      animation: fadeIn 0.5s both alternate-reverse;
+    }
+    &-1{
+      top: 1.7rem;
+      left: 3.75rem;
+      transform-origin: 0 100%;
+    }
+    &-4 {
+      right: 0.37rem;
+      bottom: 0.3rem;
+      background-position-y: -2.84rem;
+      transform-origin: 100% 100%;
+    }
+  }
+  &-dropped {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 0.24rem;
+    font-family: 'FZJTJW';
+  }
+}
+/* 语音通话中页面 结束 */
+
+/* 落地页面 开始 */
+.section-end {
+  animation: fadeIn 0.8s ease both;
+}
+.end {
+  &-text {
+    position: absolute;
+    top: 1.88rem;
+    left: 0.86rem;
+    width: 1.3rem;
+    height: 4.68rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'end_text.png');
+    animation: fadeInDown 1s 1.7s ease both;
+  }
+  &-person {
+    position: absolute;
+    top: 2.41rem;
+    left: -3.77rem;
+    width: 14.59rem;
+    height: 17.8rem;
+    @extend .bg-cover;
+    background-image: url($prefix+'end_person.png');
+    animation: fadeInRight 0.8s 0.8s ease both;
+  }
+  &-btn-bar {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    bottom: 1.3rem;
+    width: 6.4rem;
+    margin-left: -3.2rem;
+    animation: fadeInDown 0.5s 2.5s ease both;
+  }
+}
+/* 落地页面 结束 */
+
+/* 动画效果 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-1.5rem, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(1.5rem, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes popup {
+  0% {
+    opacity: 0;
+    transform: scale3d(0, 0, 1);
+  }
+  98% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes popPerson {
+  0% {
+    opacity: 0.9;
+    transform: translate3d(0, 0.1rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes popQuest {
+  0% {
+    opacity: 0.9;
+    transform: scale3d(0.9, 0.9, 1) rotate(10deg) translate3d(0, 0.1rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1.1, 1.1, 1.1) rotate(0) translate3d(0, 0, 0);
+  }
+}
+@keyframes tada {
+  0% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate(-3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate(-3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05) rotate(3deg);
+    transform: scale3d(1.05, 1.05, 1.05) rotate(3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05) rotate(-3deg);
+    transform: scale3d(1.05, 1.05, 1.05) rotate(-3deg);
+  }
+
+  to {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+// 转圈循环
+@keyframes circle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+// 收到消息抖动效果
+@keyframes msgShake {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  14% {
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+  }
+
+  28% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  42% {
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+  }
+
+  70% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+// 向左退场
+@keyframes fadeInRightHide {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-1.5rem, 0, 0);
+  }
+}
+// 淡出退场
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fade-out {
+  display: block;
+  animation: fadeOut 1s ease both!important;
+}
+.fade-out-left{
+  display: block;
+  animation: fadeInRightHide 1s ease both!important;
+}
+// 聊天窗口
+#animation_container {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+// 聊天页面遮挡画布层
+#animateClickPad {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}

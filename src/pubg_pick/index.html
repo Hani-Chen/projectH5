@@ -1,0 +1,289 @@
+{% extends "./_njk/base.njk" %}
+{% block stylesheet %}
+<link rel="stylesheet" href="css/swiper.min.css">
+<link rel="stylesheet" href="css/style.min.css" />
+{% endblock %}
+
+<!-- 任务 -->
+{% set taskList = [
+  {
+    id: 1,
+    text: '分享本次活动页面',
+    status: 1
+  }, {
+    id: 2,
+    text: '关注下列任意一位主播',
+    status: 0
+  }, {
+    id: 3,
+    text: '点赞下列任意主播的一条视频',
+    status: 1
+  }, {
+    id: 4,
+    text: 'BIU下列任意主播的一条视频',
+    status: 0
+  }
+] %}
+
+<!-- 视频 -->
+{% set playerList = [
+  {
+    id: 1,
+    imgUrl: './img/player_ws.png',
+    videoUrl: 'http://www.w3school.com.cn/example/html5/mov_bbb.mp4'
+  }, {
+    id: 2,
+    imgUrl: './img/player_mz.png',
+    videoUrl: 'http://www.w3school.com.cn/example/html5/mov_bbb.mp4'
+  }, {
+    id: 3,
+    imgUrl: './img/player_xmm.png',
+    videoUrl: 'http://www.w3school.com.cn/example/html5/mov_bbb.mp4'
+  }, {
+    id: 4,
+    imgUrl: './img/player_zff.png',
+    videoUrl: 'http://www.w3school.com.cn/example/html5/mov_bbb.mp4'
+  }, {
+    id: 5,
+    imgUrl: './img/player_czh.png',
+    videoUrl: 'http://www.w3school.com.cn/example/html5/mov_bbb.mp4'
+  }
+] %}
+
+<!-- 视频 -->
+{% set player1List = [
+  {
+    id: 1,
+    imgUrl: './img/player_ws1.png',
+    number: 12312456
+  }, {
+    id: 2,
+    imgUrl: './img/player_mz1.png',
+    number: 12312456
+  }, {
+    id: 3,
+    imgUrl: './img/player_xmm1.png',
+    number: 12312456
+  }, {
+    id: 4,
+    imgUrl: './img/player_zff1.png',
+    number: 12312456
+  }, {
+    id: 5,
+    imgUrl: './img/player_czh1.png',
+    number: 12312456
+  }
+] %}
+{% block main %}
+<div class="wrap">
+  <!-- 头部 -->
+  <div class="header">
+    <!-- 头部 - logo -->
+    <div class="hd-logo">
+      <!-- 图片 - logo -->
+      <img src="./img/logo.png" alt="" />
+    </div>
+    <!-- 头部 - 标题 -->
+    <div class="hd-title">
+      <!-- 图片 - 标题 -->
+      <img src="./img/title_header.png" alt="" />
+    </div>
+    <!-- 头部 - 分享按钮 -->
+    <span class="hd-share"></span>
+  </div>
+  <!-- 内容 -->
+  <div class="center">
+    <!-- 内容 - 抽奖 -->
+    <div class="ct-lottery">
+      <!-- 抽奖 - 标题 -->
+      <div class="lt-title">
+        <!-- 图片 - 标题 -->
+        <img src="./img/title_lottery.png" alt="" />
+      </div>
+      <!-- 抽奖 - 奖池 -->
+      <div class="lt-prizepool">
+        <!-- 单个奖品 当前奖品高亮类为 prize" -->
+        <div class="prize-item">
+          <!-- 奖品图片容器 -->
+          <div class="prize-img-box">
+            <!-- 奖品图片 -->
+            <img class="prize-img-1" src="./img/lottery_qb.png" alt="" />
+          </div>
+          <!-- 奖品介绍文案 -->
+          <span class="prize-text">1QB</span>
+        </div>
+        <!-- 单个奖品 当前奖品高亮类为 prize" -->
+        <div class="prize-item">
+          <!-- 奖品图片容器 -->
+          <div class="prize-img-box">
+            <!-- 奖品图片 -->
+            <img class="prize-img-2" src="./img/lottery_qb2.png" alt="" />
+          </div>
+          <!-- 奖品介绍文案 -->
+          <span class="prize-text">88QB</span>
+        </div>
+        <!-- 单个奖品 当前奖品高亮类为 prize" -->
+        <div class="prize-item">
+          <!-- 奖品图片容器 -->
+          <div class="prize-img-box">
+            <!-- 奖品图片 -->
+
+            <img class="prize-img-3" src="./img/lottery_qb3.png" alt="" />
+          </div>
+          <!-- 奖品介绍文案 -->
+          <span class="prize-text">5QB</span>
+        </div>
+        <!-- 再接再厉 当前高亮类为 prize" -->
+        <div class="prize-item prize-keep">
+          <img src="./img/lottery_keep.png" alt="" />
+        </div>
+        <!-- 抽奖 -->
+        <div class="prize-lottery"></div>
+        <!-- 再来一次 当前高亮类为 prize" -->
+        <div class="prize-item prize-again">
+          <img src="./img/lottery_again.png" alt="" />
+        </div>
+      </div>
+      <!-- 抽奖 - 票数 -->
+      <div class="lt-voucher">
+        <span>总抽奖次数:
+          <i>0</i>
+        </span>
+        <span>剩余抽奖次数:
+          <i>0</i>
+        </span>
+      </div>
+      <!-- 抽奖 - 获取次数标题 -->
+      <div class="lt-odds">
+        <!-- 图片 - 标题 -->
+        <img src="./img/title_odds.png" alt="" />
+      </div>
+      <!-- 抽奖 - 任务 -->
+      <ul class="lt-task">
+        {% for item in taskList %}
+        <!-- 单个任务 -->
+        <li class="task-item">
+          <!-- 任务 - 序号 -->
+          <span class="task-serial">{{ item.id }}</span>
+          <!-- 任务 - 文案 -->
+          <span class="task-text">{{ item.text }}</span>
+          <!-- 任务 - 按钮 可领取的高亮类为 "task-btn-pending" -->
+          <span class="task-btn{% if item.status == 1 %} task-btn-pending{% endif %}">领取机会</span>
+        </li>
+        {% endfor %}
+      </ul>
+      <!-- 子弹 -->
+      <div class="bullet1"></div>
+    </div>
+    <!-- 内容 - 选手 -->
+    <div class="ct-player">
+      {% for item in playerList %}
+      <!-- 单个选手 -->
+      <div class="player-item player-item-{{ item.id }}">
+        <!-- 选手 - name && 选手 - 图片 -->
+        <div class="player-name">
+          <img src="{{ item.imgUrl }}" alt="" />
+        </div>
+        <!-- 视频 -->
+        <div class="player-videobox">
+          <video class="player-video" src="{{ item.videoUrl }}" webkit-playsinline="true" playsinline="true"></video>
+          <div class="player-play player-stop"></div>
+        </div>
+        <!-- 按钮 -->
+        <div class="player-btn">
+          <!-- 按钮 - 查看更多 -->
+          <span class="player-more"></span>
+          <!-- 按钮 - 互动领取 -->
+          <span class="player-collection"></span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- 内容 - 关注 -->
+    <div class="ct-attention">
+      <!-- 子弹 -->
+      <div class="bullet2"></div>
+      <!-- 标题 -->
+      <div class="at-title"></div>
+      <!-- 介绍 -->
+      <div class="at-introduce"></div>
+      <!-- 主播榜 -->
+      <ul class="at-ranking">
+        <span class="at-refresh">
+          <i class='icon-refresh'></i>刷新榜单</span>
+        {% for item in player1List %}
+        <!-- 单个主播 -->
+        <li class="rk-item">
+          <!-- 主播榜 - 序号 -->
+          <span class="rk-serial">{{ item.id }}</span>
+          <!-- 主播榜 - 图 -->
+          <span class="rk-name"><img src="{{ item.imgUrl }}" alt="" /></span>
+          <!-- 主播榜 - 获得 票数 -->
+          <div class="rk-poll">
+            <span class="poll-text">获得票数</span>
+            <span class="poll-number">{{ item.number }}</span>
+          </div>
+          <!-- 主播榜 - 按钮 -->
+          <div class="rk-btn">
+            <!-- 打榜 -->
+            <span class="rk-support">打榜</span>
+            <!-- 关注 -->
+            <span class="rk-attention">关注</span>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      <!-- 视频 -->
+      <div class="swiper-container at-videobox">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <video class="at-video" src="http://www.w3school.com.cn/example/html5/mov_bbb.mp4" webkit-playsinline="true"
+              playsinline="true"></video>
+            <div class="at-play at-stop"></div>
+          </div>
+          <div class="swiper-slide">
+            <video class="at-video" src="http://www.w3school.com.cn/example/html5/mov_bbb.mp4" webkit-playsinline="true"
+              playsinline="true"></video>
+            <div class="at-play at-stop"></div>
+          </div>
+          <div class="swiper-slide">
+            <video class="at-video" src="http://www.w3school.com.cn/example/html5/mov_bbb.mp4" webkit-playsinline="true"
+              playsinline="true"></video>
+            <div class="at-play at-stop"></div>
+          </div>
+        </div>
+        <!-- 如果需要分页器 -->
+      </div>
+      <div class="swiper-pagination"></div>
+      <!-- 活动规则 -->
+      <div class="at-rule"></div>
+    </div>
+  </div>
+  {# 页面所需所有弹窗 #}
+
+  <!-- 活动规则弹窗 -->
+  <div class="pop">
+    <div class="pop-rule">
+      <ul>
+        <li><span class="rule-serial">1</span><span class="rule-title">活动时间：</span></li>
+        <li><span class="rule-text">2019年8月12日 —— 8月15日</span></li>
+        <li><span class="rule-serial">2</span><span class="rule-title">活动规则：</span></li>
+        <li><span class="rule-text">1.活动期间关注活动中任意1位主播，可领取1次抽奖机会，单Q总限1次</span></li>
+        <li><span class="rule-text">2.活动期间点赞活动中任意1位主播发布的1条视频，可领取1次抽奖机会，单Q总限1次</span></li>
+        <li><span class="rule-text">3.活动期间分享活动页面，可领取1次抽奖机会，单Q总限1次</span></li>
+        <li><span class="rule-text">4.活动期间biu活动中任意1位主播发布的1条视频，可领取1次抽奖机会，单Q总限1次</span></li>
+        <li><span class="rule-text rule-bottom">腾讯公司保留在法律允许的范围内，对上述活动规则进行解释的权力。若出现非正当方式获取奖品的情况，腾讯公司有权取消恶意号码的获奖资格并给与惩罚。</span></li>
+      </ul>
+      <!-- 关闭按钮 -->
+      <div class="pop-shut">
+        <img src="./img/icon-shut.png" alt="">
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+  {% block javascript %}
+  <script src="js/swiper.min.js"></script>
+  <script src="js/zepto.min.js"></script>
+  <script src="js/index.js"></script>
+  {% endblock %}
+</div>

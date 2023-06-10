@@ -1,0 +1,175 @@
+{% extends "../_njk/base.njk" %} {% block adaption %}
+<script src="js/adaptive.js"></script>
+<script>
+  window['adaptive'].desinWidth = 750
+  window['adaptive'].maxRate = 0.75
+  window['adaptive'].baseFont = 24
+  window['adaptive'].init()
+</script>
+{% endblock %} {% block main %}
+<!-- 微视页面 -->
+<section class="section section-alert show">
+  <!-- 微视页面背景 -->
+  <div class="bg bg-weishi" style="background-image: url('./img/yrj_bg.jpg')">
+    <img src="./img/se.png" alt="" class="bg-weishi-se">
+    <img src="./img/index_right.png" alt="" class="bg-weishi-right">
+    <div class="bg-weishi-bottom">
+        <div class="bg-weishi-bottom-title">
+          <img src="./img/avatar1.png" alt="" class="bg-weishi-bottom-avatar1">
+          <div class="bg-weishi-bottom-box">
+            <h1>经纪人小微</h1>
+            <!-- <span class="bg-weishi-bottom-works">作品</span><span>362</span> -->
+          </div>
+          <img src="./img/attention.png" alt="" class="bg-weishi-bottom-attention">
+        </div>
+        <p>愿你一直保持好奇与开心</p>
+        <!-- <span><img src="./img/note.png" alt=""> 吃不胖娘的视频原声</span> -->
+        
+    </div>
+    <img src="./img/bottom.png" alt="" class="bg-weishi-bt">
+  </div>
+  
+  <!-- 两个弹窗 默认隐藏 通过js判断客户端后显示 -->
+  <!-- 微视解禁 非微视-->
+  <div class="modal" id="notWeishiModal">
+    <div class="modal-content">
+      <h3 class="modal-title">
+        解禁通知
+      </h3>
+      <p class="modal-text">
+        你的好友<span>Star</span>被多人举报，已被禁用微视请求你为他验证身份
+      </p>
+      <div class="modal-btn">立即查看</div>
+    </div>
+  </div>
+  <!-- 微视告警 微视 -->
+  <div class="modal" id="weishiModal">
+    <div class="modal-content">
+      <h3 class="modal-title">
+        微视告警
+      </h3>
+      <p class="modal-text">
+        <span>Star</span>，你的微视账号已被多人举报，请尽快查看，并对相关视频进行删除操作！
+      </p>
+      <div class="modal-btn">立即查看</div>
+    </div>
+  </div>
+</section>
+<!-- 视频列表页面 -->
+<section class="section section-video">
+  <div class="top-panel">
+    <!-- 顶部栏 -->
+    <div class="topbar">
+      <img src="./img/icon_left.png" alt="" class="topbar-icon-left" />
+      <img src="./img/icon_share.png" alt="" class="topbar-icon-right" />
+    </div>
+    
+  </div>
+  <div class="userinfo-panel">
+    <div class="userinfo-top">
+      <div class="userinfo-avatar">
+        <!-- 用户头像 -->
+        <img src="./img/avatar.png" alt="" />
+      </div>
+      <!-- 按钮图片 -->
+      <img class="userinfo-btnside" src="./img/btn_side.png" alt="" />
+    </div>
+    <!-- 用户信息 -->
+    <div class="userinfo-content">
+      <!-- 用户名 性别 等级 -->
+      <div class="userinfo-title">
+        <span class="userinfo-name">经纪人小微</span>
+        <span class="userinfo-gender"><img src="./img/sex.png" alt=""></span>
+        <span class="userinfo-level"><img src="./img/rank.png" alt=""></span>
+      </div>
+      <!-- 微视id -->
+      <div class="userinfo-id">
+        微视号：<span>April Fools Fools Fools</span>
+      </div>
+      <!-- 关注 粉丝 被赞 数据 -->
+      <div class="userinfo-data">
+        <div class="userinfo-data-item"><span class="userinfo-data-item-number">401</span><span>关注</span></div>
+        <div class="userinfo-data-item"><span class="userinfo-data-item-number">401</span><span>粉丝</span></div>
+        <div class="userinfo-data-item"><span class="userinfo-data-item-number">401</span><span>被赞</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- 视频列表图组 -->
+  <div class="video-list">
+    <!-- 页面提示 -->
+    <div class="top-tips">
+        <p><img src="./img/warn.png" alt="" />选择你认为被封禁的视频</p>
+      </div>
+    <!-- 视频列表项 [data-feed]->填写对应的视频链接 -->
+    <img
+      class="video-item"
+      data-feed="http://www.w3school.com.cn/example/html5/mov_bbb.mp4"
+      src="./img/pic_1.jpg"
+      alt=""
+    />
+    <img
+      class="video-item"
+      data-feed="http://www.w3school.com.cn/example/html5/mov_bbb.mp4"
+      src="./img/pic_2.jpg"
+      alt=""
+    />
+    <img
+      class="video-item"
+      data-feed="http://www.w3school.com.cn/example/html5/mov_bbb.mp4"
+      src="./img/pic_3.jpg"
+      alt=""
+    />
+    <img
+      class="video-item"
+      data-feed="http://www.w3school.com.cn/example/html5/mov_bbb.mp4"
+      src="./img/pic_4.jpg"
+      alt=""
+    />
+  </div>
+
+  <!-- 视频播放弹窗 -->
+  <div class="video-wrapper">
+    <!-- 视频弹窗关闭按钮 -->
+    <a href="javascript:void(0);" class="video-close"></a>
+    <!-- 视频播放器 -->
+    <video id="videoPlayer" src=""  x5-video-player-type="h5"></video>
+  </div>
+</section>
+<!-- 整蛊结果页面 -->
+<section class="section section-result">
+  <!-- 整蛊页背景 -->
+  <div class="bg bg-result"></div>
+  <!-- 整蛊结头部文字图片 -->
+  <div class="result-title-img">
+    <img src="./img/title.png" alt="">
+  </div>
+  <!-- 整蛊结果数据 -->
+  <div class="result-text">
+    已有<span>23549</span>人被整
+    <br />你和<span>23%</span>的人选择了同一视频
+  </div>
+  <div class="result-btn-group">
+    <!-- 整蛊好友按钮  配置分享组件功能 -->
+    javascript:void(0)" class="result-btn" id="btnShare">
+      <img src="./img/btn_pic_1.gif" alt="" />
+    </a>
+
+    <!-- 按钮默认隐藏 通过js判断客户端后显示 -->
+
+    <!-- 再玩一次按钮 -->
+    <a href="javascript:void(0)" class="result-btn" id="btnAgain">
+      <img src="./img/btn_pic_2.png" alt="" />
+    </a>
+    <!-- 查看更多整蛊视频按钮 微视客户端下载链接 -->
+    <a href="javascript:void(0)" class="result-btn" id="btnMoreLink">
+      <img src="./img/btn_pic_3.png" alt="" />
+    </a>
+  </div>
+</section>
+<span class="music-btn" id="musicBtn"></span>
+
+{% endblock %} {% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js" ></script>
+<script src="./js/main.js"></script>
+{% endblock %}

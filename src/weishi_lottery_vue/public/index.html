@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>微视夺宝</title>
+
+
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/eruda"></script>
+  <script>eruda.init();</script>
+  <script>
+    var encodeURIComponentFun = window.encodeURIComponent
+  </script>
+  <!-- <script src="http://qzonestyle.gtimg.cn/wesee/hybrid/app/weishi/lib/wsapi.js"></script> -->
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but weishi_lottery_vue doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <script>
+    function htmlSize() {
+      var winWidth = window.innerWidth;
+      var w = winWidth * 100 / 750;
+      var html = document.getElementsByTagName('html')[0];
+      html.style.fontSize = w + 'px'
+    }
+    htmlSize();
+    window.onresize = function () {
+      htmlSize();
+    }
+  </script>
+  <!-- 引入微视分享js -->
+  <!-- <script src="https://isee.weishi.qq.com/iseecdn/static/js/split/wslib-v1.6.8.js"></script> -->
+  <script>
+    var _mtac = { "autoReport": 0 };
+    (function () {
+      var mta = document.createElement("script");
+      mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500709148");
+      mta.setAttribute("cid", "500709152");
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
+
+  <!-- 引入微视分享js - 2 -->
+  <!-- <script src="http://qzonestyle.gtimg.cn/wesee/hybrid/app/weishi/lib/wsapi.js"></script> -->
+
+  <!-- 引入微信分享js -->
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+// 页面工具类 - 文字禁止选择
+@mixin text-forbid-cope {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+// 页面工具类 - 设置宽高
+@mixin size-set($width: null, $height: null) {
+  width: $width;
+  height: $height;
+}
+// 页面工具类 - 设置文字样式
+@mixin font-set($size, $color: #fff, $weight: normal, $lineHigh: null) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $lineHigh;
+}
+// 页面工具类 - 背景图片公共样式
+@mixin bg-set($url, $size: null, $repeat: no-repeat, $position: center, $color: null) {
+  display: block;
+  background: {
+    size: $size;
+    repeat: $repeat;
+    position: $position;
+    image: url($url);
+    color: $color;
+  }
+}
+// 页面工具类 - 定位属性
+@mixin layout-set(
+  $layout: null,
+  $position: absolute,
+  $top: null,
+  $bottom: null,
+  $left: null,
+  $right: null,
+  $zIndex: 1
+) {
+  position: $position;
+  @if $layout == null {
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+  }
+  @if $layout == "center" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  @if $layout == "layout" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  @if $layout == "leftCenter" {
+    left: 50%;
+    top: $top;
+    bottom: $bottom;
+    transform: translate3d(-50%, 0, 0);
+  }
+  @if $layout == "topCenter" {
+    left: $left;
+    right: $right;
+    top: 50%;
+    transform: translate3d(0,-50%,  0);
+  }
+  z-index: $zIndex;
+}
+// 弹性布局居中
+@mixin layout-flex($layout: null, $ai: null, $jc: null, $fw: null) {
+  display: flex;
+  @if $layout == null {
+    align-items: $ai;
+    justify-content: $jc;
+    flex-wrap: $fw;
+  }
+  @if $layout == "center" {
+    justify-content: center;
+    align-items: center;
+  }
+}

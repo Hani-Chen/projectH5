@@ -1,0 +1,267 @@
+@charset "utf-8";
+// 公共样式
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+body {
+    background: #080607;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif, 'Source Han Sans CN';
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+}
+
+// 页面样式
+// 导航模块 style
+.nav {
+    // 导航占位容器
+    &-wrap {
+        // position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1.38rem;
+        z-index: 50;
+    }
+    // 导航容器
+    &-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1.38rem;
+        background: rgba(#000, 0.75);
+        border-bottom: 0.02rem solid #f2a900;
+        display: flex;
+        padding: 0 0.2rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+    // 导航logo容器
+    &-logo-box {
+        width: 3.26rem;
+        height: 1.12rem;
+    }
+    // 导航logo
+    &-logo {
+        width: 3.26rem;
+        height: auto;
+    }
+    // 下载按钮容器
+    &-download-box {
+        text-transform: uppercase;
+        color: #000;
+    }
+    // 下载按钮
+    &-download {
+        display: block;
+        width: 2.3rem;
+        height: 0.6rem;
+        text-align: center;
+        line-height: 0.6rem;
+        font-size: 0.22rem;
+        background: #f2a900;
+    }
+    // 下拉列表容器
+    &-list-box {
+        width: 0.72rem;
+        height: 0.37rem;
+    }
+    // icon容器
+    &-icon-box {
+        display: block;
+        width: 0.72rem;
+        height: auto;
+    }
+    // icon
+    &-icon {
+        display: block;
+        width: 0.72rem;
+        height: auto;
+    }
+}
+// 内容模块 style
+.content {
+    &-wrap {
+        width: 100%;
+        height: 10.4rem;
+        position: relative;
+    }
+    // 内容区 头部
+    &-header {
+        width: 100%;
+        height: 100%;
+        background: {
+            image: url('../img/teamup_header_bg.jpg');
+            repeat: no-repeat;
+            size: 100% 100%;
+        }
+        .header {
+            // 头部 icon容器
+            &-icon-box {
+                padding: 0 0.15rem;
+                width: 100%;
+                height: 0.9rem;
+                position: absolute;
+                top: 1.55rem;
+                .icon {
+                    // pubg icon 容器
+                    &-pubg-box {
+                        position: absolute;
+                        right: 0.15rem;
+                        display: block;
+                        width: 1.2rem;
+                        height: 100%;
+                    }
+                    // pubg icon
+                    &-pubg {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+            // 头部logo 容器
+            &-logo-box {
+                width: 2.92rem;
+                height: 2.44rem;
+                position: absolute;
+                top: 1.58rem;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+            // 头部logo
+            &-logo {
+                width: 100%;
+                height: auto;
+            }
+            // title 容器
+            &-title-box {
+                z-index: 20;
+                width: 4.4rem;
+                height: 1.2rem;
+                position: absolute;
+                top: 3.4rem;
+                left: -0.15rem;
+                right: 0;
+                margin: 0 auto;
+            }
+            // title
+            &-title {
+                width: 100%;
+                height: auto;
+            }
+            // 文本 容器
+            &-text-box {
+                position: absolute;
+                bottom: 0.66rem;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                padding: 0 0.2rem;
+            }
+            // 文本
+            &-text {
+                font-size: 0.26rem;
+                color: #fff;
+                text-align: center;
+                font-family: 'MNR';
+                margin-bottom: 0.06rem;
+            }
+        }
+    }
+    // 内容区 中部
+    &-middle {
+        position: relative;
+        margin-top: -0.46rem;
+        padding-top: 0.2rem;
+        text-align: center;
+        z-index: 20;
+        width: 100%;
+        background: {
+            image: url('../img/teamup_bg.png');
+            repeat: no-repeat;
+            position: center top;
+            size: cover;
+        }
+        .middle {
+            // 活动规则按钮容器
+            &-rule-box {
+                width: 3.9rem;
+                height: 0.55rem;
+                color: #c39456;
+                text-align: center;
+                line-height: 0.55rem;
+                font-size: 0.32rem;
+                margin: 0 auto;
+            }
+            // 活动规则按钮
+            &-rule {
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: {
+                    image: url('../img/rules_bg.jpg');
+                    size: 100% 100%;
+                    repeat: no-repeat;
+                }
+            }
+            // tab切换 占位容器
+            &-tab-wrap {
+                position: relative;
+                width: 100%;
+                height: 1.9rem;
+            }
+            // tab切换 容器
+            &-tab-box {
+                position: absolute;
+                width: 100%;
+                height: 1.9rem;
+            }
+            // tab
+            &-tabbar {
+                white-space: nowrap;
+                width: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding-bottom: 0.27rem;
+                font-size: 0;
+                padding-right: 0.24rem;
+                // padding-right: 100%;
+                padding-left: 0.24rem;
+                -webkit-overflow-scrolling: touch;
+            }
+            // 单个tab按钮
+            &-tab-item {
+                display: inline-block;
+                letter-spacing: 0.02rem;
+                min-width: 2.1rem;
+                width: fit-content;
+                height: 0.74rem;
+                white-space: nowrap;
+                font-family: 'Arial';
+                font-size: 0.25rem;
+                text-transform: uppercase;
+                line-height: 0.74rem;
+                color: #8e8e8e;
+                text-align: center;
+                margin: 0 0.13rem;
+                background: #374061;
+                padding: 0 10px;
+                overflow: hidden;
+                &.active {
+                  color: #fff;
+                  position: relative;
+                  border: 1px solid #fff;
+                }
+            }
+        }
+    }
+}

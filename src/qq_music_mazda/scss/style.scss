@@ -1,0 +1,1147 @@
+@charset "utf-8";
+// 样式引入 - 引入默认样式
+@import "./global.import";
+@import "./ani";
+@function changePx($px) {
+  @return $px / 2;
+}
+// 公共样式 - 提示
+.toast_item {
+  position: fixed;
+  left: 50%;
+  bottom: 3%;
+  color: #fff;
+  font-size: changePx(0.18rem);
+  padding: changePx(0.12rem) changePx(0.16rem);
+  line-height: 1;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 999;
+  span {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    background: #000;
+    padding: changePx(0.1rem);
+    border-radius: changePx(0.1rem);
+  }
+  .ani {
+    animation: fadeInDown 0.5s;
+  }
+}
+
+@font-face {
+  font-family: "nscjb";
+  src: url("../fonts/NotoSansCJKsc-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.font_nscjb {
+  font-family: "nscjb";
+}
+@font-face {
+  font-family: "nscjm";
+  src: url("../fonts/NotoSansCJKsc-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.font_nscjm {
+  font-family: "nscjm";
+}
+@font-face {
+  font-family: "mtb";
+  src: url("../fonts/MazdaType-Bold.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.font_mtb {
+  font-family: "mtb", "nscjm";
+}
+/* 页面公共样式 */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.btn {
+  display: inline-block;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+/* 页面工具类 - 背景图片公共样式 */
+.bg-item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+/* 页面样式 */
+.wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch; /* 解决ios滑动不流畅问题 */
+  &.hidden {
+    overflow: hidden;
+  }
+  .logo {
+    position: absolute;
+    left: changePx(0.42rem);
+    top: 50%;
+    margin-top: changePx(-5.1rem);
+    width: changePx(4rem);
+    height: changePx(0.5rem);
+    background-image: url("../img/logo.png");
+    @extend .bg-item;
+    opacity: 0;
+    animation: fadeIn 0.3s 0.5s alternate;
+    animation-fill-mode: forwards;
+  }
+  .return {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: changePx(0.9rem);
+    height: changePx(0.88rem);
+    margin-top: changePx(-5.07rem);
+    margin-left: changePx(2.4rem);
+    background-image: url("../img/return.png");
+    @extend .bg-item;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 0.3s 0.5s alternate;
+    animation-fill-mode: forwards;
+  }
+  &_page {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    width: 100%;
+    height: changePx(16.25rem);
+    display: none;
+    animation: fadeIn 0.6s linear;
+    &.show {
+      display: block;
+    }
+  }
+}
+.home {
+  &_wrap {
+    .bg {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: changePx(16.25rem);
+      transform: translate3d(0, -50%, 0);
+      background-image: url("../img/home_bg.jpg");
+      @extend .bg-item;
+    }
+  }
+  &_content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &.forbid {
+      pointer-events: none;
+    }
+  }
+  // 圆盘动画 - 首页动画2
+  &_disc {
+    position: absolute;
+    left: changePx(-2.1rem);
+    top: 50%;
+    width: changePx(3.75rem);
+    height: changePx(3.75rem);
+    margin-top: changePx(-6.7rem);
+    background-image: url("../img/home_disc.png");
+    @extend .bg-item;
+    animation: rotate 4s 1s infinite linear;
+  }
+  // 首页指针 - 首页动画1
+  &_adorn {
+    position: absolute;
+    left: changePx(-2.1rem);
+    top: 50%;
+    width: changePx(2.6rem);
+    height: changePx(0.78rem);
+    margin-top: changePx(-6.3rem);
+    background-image: url("../img/home_adorn.png");
+    @extend .bg-item;
+    transform-origin: 0 -100%;
+    animation: pointer 1s alternate;
+    animation-fill-mode: forwards;
+  }
+  &_adorn1 {
+    position: absolute;
+    left: changePx(0.74rem);
+    top: 50%;
+    width: changePx(2.23rem);
+    height: changePx(1.19rem);
+    margin-top: changePx(-7.44rem);
+    background-image: url("../img/home_adorn1.png");
+    @extend .bg-item;
+  }
+  // 首页标题动画
+  &_title {
+    position: absolute;
+    left: changePx(0.64rem);
+    top: 50%;
+    width: changePx(6.56rem);
+    height: changePx(3.42rem);
+    margin-top: changePx(-4.67rem);
+    background-image: url("../img/home_titlt.png");
+    @extend .bg-item;
+    opacity: 0;
+    animation: fadeIn1 1s 0.5s linear;
+    animation-fill-mode: forwards;
+    // transform-origin: 50% 0;
+  }
+  // 首页喇叭动画
+  &_adorn2 {
+    position: absolute;
+    top: 0;
+    right: changePx(1.98rem);
+    width: changePx(0.4rem);
+    height: changePx(0.5rem);
+    background-image: url("../img/home_adorn2.png");
+    @extend .bg-item;
+    animation: fadeIn1 1s infinite alternate;
+  }
+  &_adorn3 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: changePx(10.14rem);
+    margin-top: changePx(-2.02rem);
+    background-image: url("../img/home_adorn3.png");
+    @extend .bg-item;
+    // animation: fadeIn1 0.6s infinite alternate;
+  }
+  // 首页车动画
+  &_car {
+    position: absolute;
+    left: changePx(0.84rem);
+    top: 50%;
+    width: changePx(6.14rem);
+    height: changePx(2.82rem);
+    margin-top: changePx(0.22rem);
+    background-image: url("../img/home_car.png");
+    @extend .bg-item;
+    opacity: 0;
+    animation: homeCar 0.8s 0.8s;
+    animation-fill-mode: forwards;
+  }
+  &_guide {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: changePx(2.16rem);
+    margin-top: changePx(2.94rem);
+    opacity: 0;
+    animation: fadeIn 0.3s 1.2s alternate;
+    animation-fill-mode: forwards;
+    .round {
+      &_wrap {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: changePx(1.4rem);
+        height: changePx(1.4rem);
+        margin-left: changePx(-0.7rem);
+        user-select: none;
+      }
+
+      &_item {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background-color: rgba($color: #fff, $alpha: 0.2);
+        border-radius: 50%;
+        animation: concertHaloAni1 1.5s ease-in infinite;
+      }
+      @for $i from 1 through 3 {
+        &_#{$i} {
+          animation-delay: ($i * 0.1s);
+        }
+      }
+      &_1 {
+        width: changePx(1.4rem);
+        height: changePx(1.4rem);
+        background-color: rgba($color: #fff, $alpha: 0.1);
+      }
+      &_2 {
+        width: changePx(0.92rem);
+        height: changePx(0.92rem);
+      }
+      &_3 {
+        width: changePx(0.6rem);
+        height: changePx(0.6rem);
+      }
+    }
+    .hand {
+      position: absolute;
+      left: 50%;
+      top: changePx(0.22rem);
+      margin-left: changePx(-0.64rem);
+      width: changePx(1.34rem);
+      height: changePx(1.52rem);
+      background-image: url("../img/home_hand.png");
+      animation: pulse 1.4s 0.2s linear infinite;
+      @extend .bg-item;
+    }
+    .text {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      margin-left: changePx(-1.72rem);
+      width: changePx(3.44rem);
+      height: changePx(0.5rem);
+      background-image: url("../img/home_guide_text.jpg");
+      @extend .bg-item;
+    }
+  }
+}
+.list {
+  &_wrap {
+    .bg {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: changePx(16.25rem);
+      transform: translate3d(0, -50%, 0);
+      background-image: url("../img/list_bg.jpg");
+      @extend .bg-item;
+    }
+  }
+  // 列表页圆盘动画
+  &_disc {
+    position: absolute;
+    top: changePx(-0.28rem);
+    right: changePx(-1.64rem);
+    width: changePx(4.72rem);
+    height: changePx(4.72rem);
+    background-image: url("../img/list_disc.png");
+    @extend .bg-item;
+    animation: rotate 4s 1s infinite linear;
+  }
+  // 列表页指针动画
+  &_adorn1 {
+    position: absolute;
+    right: changePx(-0.14rem);
+    top: changePx(0.18rem);
+    width: changePx(3.34rem);
+    height: changePx(1.04rem);
+    background-image: url("../img/list_adorn1.png");
+    @extend .bg-item;
+    transform-origin: changePx(0.44rem) changePx(0.62rem);
+    animation: pointer1 1s alternate;
+    animation-fill-mode: forwards;
+  }
+  // 列表页标题动画
+  &_title {
+    position: absolute;
+    left: changePx(0.42rem);
+    top: 50%;
+    margin-top: changePx(-4.22rem);
+    width: changePx(5.34rem);
+    height: changePx(1.74rem);
+    background-image: url("../img/list_title.png");
+    @extend .bg-item;
+
+    opacity: 0;
+    animation: singTitle 0.3s 0.8s alternate;
+    animation-fill-mode: forwards;
+  }
+  &_content {
+  }
+  // 列表页列表动画
+  &_inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: changePx(6.56rem);
+    margin-top: changePx(-2.34rem);
+    margin-left: changePx(-3.23rem);
+    background-color: #fff;
+    box-shadow: inset 0 0 0 changePx(0.06rem)#000, changePx(-0.1rem) changePx(0.04rem) 0 0 #000;
+    opacity: 0;
+    animation: fadeIn 0.5s 1s alternate;
+    animation-fill-mode: forwards;
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: changePx(1.25rem);
+      padding: 0 changePx(0.3rem);
+      box-shadow: inset 0 0 0 changePx(0.02rem )#000;
+      &_songname {
+        position: relative;
+        left: changePx(-0.16rem);
+        font-size: changePx(0.34rem);
+        color: #000;
+      }
+      &_name {
+        font-size: changePx(0.28rem);
+        color: rgba($color: #000000, $alpha: 0.6);
+      }
+      &_event {
+        display: flex;
+      }
+      &_btn {
+        position: relative;
+        width: changePx(0.76rem);
+        height: changePx(0.76rem);
+        font-size: changePx(0.3rem);
+        box-shadow: inset 0 0 0 changePx(0.04rem) #000, changePx(0.04rem) changePx(0.04rem) 0 0 #000;
+      }
+      &_play {
+        margin-right: changePx(0.32rem);
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate3d(-50%, -50%, 0);
+          width: changePx(0.4rem);
+          height: changePx(0.4rem);
+          background-image: url("../img/list_play.png");
+          @extend .bg-item;
+          background-size: changePx(0.8rem )changePx(0.4rem);
+          background-position: 0 0;
+        }
+        &.stop::after {
+          background-position: changePx(-0.4rem) 0;
+        }
+      }
+      &_sing {
+        position: relative;
+        
+        text-align: center;
+        line-height: changePx(0.76rem);
+        background-image: url('../img/list_record.png');
+        @extend .bg-item;
+        background-size: changePx(0.56rem) changePx(0.29rem);
+      }
+    }
+  }
+  // 列表页车动画
+  &_car {
+    position: absolute;
+    right: changePx(0.15rem);
+    top: 50%;
+    width: changePx(3.24rem);
+    height: changePx(1.34rem);
+    margin-top: changePx(-3.54rem);
+    background-image: url("../img/list_car.png");
+    @extend .bg-item;
+    opacity: 0;
+    animation: listCar 0.6s 0.8s;
+    animation-fill-mode: forwards;
+  }
+}
+
+.sing {
+  &_wrap {
+    .bg {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: changePx(16.25rem);
+      transform: translate3d(0, -50%, 0);
+      background-image: url("../img/list_bg.jpg");
+      @extend .bg-item;
+    }
+  }
+  &_disc {
+    position: absolute;
+    top: changePx(-0.28rem);
+    right: changePx(-1.64rem);
+    width: changePx(4.72rem);
+    height: changePx(4.72rem);
+    background-image: url("../img/list_disc.png");
+    @extend .bg-item;
+    animation: rotate 4s 1s infinite linear;
+  }
+  &_adorn1 {
+    position: absolute;
+    right: changePx(-0.14rem);
+    top: changePx(0.18rem);
+    width: changePx(3.34rem);
+    height: changePx(1.04rem);
+    background-image: url("../img/list_adorn1.png");
+    @extend .bg-item;
+    transform-origin: changePx(0.44rem) changePx(0.62rem);
+    animation: pointer1 1s alternate;
+    animation-fill-mode: forwards;
+  }
+  &_title {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    min-width: changePx(4.9rem);
+    height: changePx(1.28rem);
+    margin-top: changePx(-4.22rem);
+    background-image: url("../img/sing_title_bg1.jpg");
+    background-position: 0 0;
+    background-size: changePx(0.02rem) changePx(1.28rem);
+    padding-bottom: changePx(0.2rem);
+    // line-height: changePx(1.05rem);
+    text-align: center;
+    background-repeat: repeat-x;
+    font-size: changePx(0.46rem);
+    color: #fff;
+    padding-right: changePx(0.3rem);
+    opacity: 0;
+    animation: singTitle 0.3s 0.8s alternate;
+    animation-fill-mode: forwards;
+    user-select: none;
+    &::after {
+      content: "";
+      position: absolute;
+      right: changePx(-0.75rem);
+      top: 0;
+      width: changePx(0.75rem);
+      height: 100%;
+      background-image: url("../img/sing_title_bg2.png");
+      @extend .bg-item;
+    }
+    .song_name {
+      display: inline-block;
+      max-width: changePx(3.2rem);
+      overflow: hidden; //超出的文本隐藏
+      text-overflow: ellipsis; //溢出用省略号显示
+      white-space: nowrap; //溢出不换行
+    }
+  }
+  &_content {
+  }
+  &_inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: changePx(6.6rem);
+    height: changePx(7.08rem);
+    margin-left: changePx(-3.3rem);
+    margin-top: changePx(-2.6rem);
+    background-image: url("../img/sing_inner_bg.png");
+    @extend .bg-item;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.5s 0.8s alternate;
+    animation-fill-mode: forwards;
+  }
+  &_block {
+    position: absolute;
+    bottom: changePx(1.5rem);
+    right: changePx(0.02rem);
+    width: changePx(0.42rem);
+    height: changePx(2rem);
+
+    .block {
+      width: 100%;
+      height: changePx(0.22rem);
+      background-color: rgba($color: #000, $alpha: 1);
+      margin-bottom: changePx(0.12rem);
+      animation: fadeIn 1.5s ease-in infinite;
+      @for $i from 1 through 5 {
+        &#{$i} {
+          animation-delay: ($i * 0.2s);
+        }
+      }
+    }
+  }
+  &_lyric {
+    padding: changePx(0.48rem) changePx(0.46rem) 0 changePx(1.24rem);
+    font-size: changePx(0.36rem);
+    line-height: 1.7;
+    white-space: pre-line;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  &_hand {
+    position: absolute;
+    left: changePx(1.35rem);
+    top: 50%;
+    margin-top: changePx(2.65rem);
+    width: changePx(3.1rem);
+    height: changePx(5.75rem);
+    background-image: url("../img/sing_hand.png");
+    @extend .bg-item;
+    opacity: 0;
+    animation: singHand 0.4s 0.8s alternate;
+    animation-fill-mode: forwards;
+    .round {
+      &_wrap {
+        opacity: 0;
+        position: absolute;
+        right: changePx(-1.06rem);
+        top: changePx(-1.06rem);
+        width: changePx(3.2rem);
+        height: changePx(3.2rem);
+        user-select: none;
+        &.show {
+          opacity: 1;
+        }
+      }
+
+      &_item {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background-color: rgba($color: #fb6bcd, $alpha: 0.2);
+        border-radius: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        animation: concertHaloAni 1s ease-in infinite;
+        user-select: none;
+      }
+      @for $i from 1 through 3 {
+        &_#{$i} {
+          animation-delay: ($i * 0.1s);
+        }
+      }
+      &_1 {
+        width: changePx(2.48rem);
+        height: changePx(2.48rem);
+        background-color: rgba($color: #fb6bcd, $alpha: 0.1);
+      }
+      &_2 {
+        width: changePx(1.95rem);
+        height: changePx(1.95rem);
+      }
+      &_3 {
+        width: changePx(1.5rem);
+        height: changePx(1.5rem);
+      }
+    }
+  }
+  &_hint1 {
+    position: absolute;
+    left: changePx(0.1rem);
+    top: changePx(-0.32rem);
+    width: changePx(1.37rem);
+    height: changePx(6.75rem);
+    background-image: url("../img/sing_hint1.png");
+    @extend .bg-item;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: changePx(0.3rem);
+      width: 100%;
+      height: changePx(0.04rem);
+      background-color: #000;
+    }
+  }
+
+  &_time,
+  &_hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    box-shadow: inset 0 0 0 changePx(0.02rem) #000;
+    font-weight: 700;
+    font-size: changePx(0.2rem);
+    text-align: center;
+    line-height: 2.2;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 0.5s 0.9s linear;
+    animation-fill-mode: forwards;
+    user-select: none;
+  }
+  &_time {
+    margin-left: changePx(-0.57rem);
+    margin-top: changePx(4.22rem);
+    width: changePx(1.14rem);
+    height: changePx(0.4rem);
+  }
+  &_hint {
+    // width: changePx(2.46rem);
+    padding: changePx(0.02rem) changePx(0.08rem);
+    height: changePx(0.3rem);
+    font-size: changePx(0.14rem);
+    margin-left: changePx(-1.23rem);
+    margin-top: changePx(4.72rem);
+  }
+}
+
+.share {
+  &_wrap {
+    .bg {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: changePx(16.25rem);
+      transform: translate3d(0, -50%, 0);
+      background-image: url("../img/share_bg.jpg");
+      @extend .bg-item;
+    }
+  }
+  &_content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  // 圆盘动画 - 首页动画2
+  &_disc {
+    position: absolute;
+    left: changePx(-2.1rem);
+    top: 50%;
+    width: changePx(3.75rem);
+    height: changePx(3.75rem);
+    margin-top: changePx(-6.7rem);
+    background-image: url("../img/home_disc.png");
+    @extend .bg-item;
+    animation: rotate 4s 1s infinite linear;
+  }
+  // 首页指针 - 首页动画1
+  &_adorn {
+    position: absolute;
+    left: changePx(-2.1rem);
+    top: 50%;
+    width: changePx(2.6rem);
+    height: changePx(0.78rem);
+    margin-top: changePx(-6.3rem);
+    background-image: url("../img/home_adorn.png");
+    @extend .bg-item;
+    transform-origin: 0 -100%;
+    animation: pointer 1s alternate;
+    animation-fill-mode: forwards;
+  }
+  &_adorn1 {
+    position: absolute;
+    left: changePx(0.74rem);
+    top: 50%;
+    width: changePx(2.23rem);
+    height: changePx(1.19rem);
+    margin-top: changePx(-7.44rem);
+    background-image: url("../img/home_adorn1.png");
+    @extend .bg-item;
+  }
+  &_inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: changePx(6.6rem);
+    height: changePx(7.08rem);
+    margin-left: changePx(-3.3rem);
+    margin-top: changePx(-3.3rem);
+    padding-top: changePx(0.96rem);
+    background-image: url("../img/sing_inner_bg.png");
+    @extend .bg-item;
+    opacity: 0;
+    animation: fadeIn 0.3s 0.8s alternate;
+    animation-fill-mode: forwards;
+    user-select: none;
+    .adorn1 {
+      position: absolute;
+      left: changePx(0.3rem);
+      top: 0;
+      width: changePx(5.88rem);
+      height: changePx(0.7rem);
+      // background-image: url('../img/share_adorn1.jpg');
+      background-color: #000;
+      @extend .bg-item;
+    }
+  }
+  &_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    // position: absolute;
+    // left: changePx(0.77rem);
+    // top: 50%;
+    width: changePx(5.62rem);
+    height: changePx(1.6rem);
+    // margin-top: -changePx(2.35rem);
+    margin-left: changePx(0.32rem);
+
+    background-image: linear-gradient(#e258f1, #6ebea1);
+    box-shadow: inset 0 0 0 0.04rem #000, -0.04rem 0.04rem 0 0 #000;
+    white-space: pre-line;
+    font-size: changePx(0.44rem);
+    color: #fff;
+    line-height: changePx(0.6rem);
+    padding: 0.2rem changePx(0.16rem);
+    z-index: 2;
+    text-align: center;
+  }
+  &_text {
+    margin-top: changePx(0.34rem);
+    margin-left: changePx(0.76rem);
+    width: changePx(4.94rem);
+    font-size: changePx(0.32rem);
+    text-align: justify;
+  }
+  &_title__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: changePx(0.1rem);
+    top: 50%;
+    margin-top: changePx(-4.3rem);
+    width: changePx(6.1rem);
+    user-select: none;
+  }
+  &_title__inner {
+    position: relative;
+    height: changePx(1.18rem);
+    background-image: url("../img/share_title_bg3.png");
+    @extend .bg-item;
+    background-repeat: repeat-x;
+    background-size: changePx(0.02rem) 100%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: changePx(0.4rem);
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: changePx(0.4rem);
+      height: 100%;
+      background-image: url("../img/share_title_bg1.png");
+      @extend .bg-item;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: changePx(0.4rem);
+      height: 100%;
+      background-image: url("../img/share_title_bg2.png");
+      @extend .bg-item;
+    }
+  }
+  &_hand {
+    position: absolute;
+    right: changePx(0.02rem);
+    top: 50%;
+    margin-top: changePx(-4.2rem);
+    width: changePx(2.18rem);
+    height: changePx(3.03rem);
+    background-image: url("../img/share_hand.png");
+    @extend .bg-item;
+  }
+  &_car {
+    position: absolute;
+    left: changePx(-1.1rem);
+    top: 50%;
+    margin-top: changePx(1.14rem);
+    width: changePx(9.55rem);
+    height: changePx(3.28rem);
+    opacity: 0;
+    animation: fadeIn 0.8s 1.2s alternate;
+    animation-fill-mode: forwards;
+    user-select: none;
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      user-select: none;
+    }
+  }
+  &_label {
+    position: relative;
+    display: inline-block;
+    // width: 100%;
+    height: changePx(1rem);
+    text-align: center;
+    font-size: changePx(0.34rem);
+    color: #000;
+    line-height: changePx(1rem);
+    padding: 0rem changePx(0.25rem);
+    z-index: 2;
+  }
+  &_event {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: changePx(4.16rem);
+    width: 100%;
+    height: changePx(0.8rem);
+  }
+  &_btn {
+    width: changePx(2.86rem);
+    height: changePx(0.8rem);
+    background-color: #fff;
+    box-shadow: inset 0 0 0 0.03rem #000, -0.05rem 0.07rem 0 0 #000;
+    margin: 0rem changePx(0.2rem);
+    font-size: changePx(0.4rem);
+    line-height: changePx(0.8rem);
+    text-align: center;
+    opacity: 0;
+    animation: fadeInDown 0.3s 1.1s alternate;
+    animation-fill-mode: forwards;
+    user-select: none;
+  }
+  &_note {
+    opacity: 0;
+    animation: fadeIn 0.3s 1.3s alternate;
+    animation-fill-mode: forwards;
+  }
+
+  &_adorn4 {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: changePx(2.26rem);
+    height: changePx(3.48rem);
+    background-image: url("../img/share_adorn2.gif");
+    @extend .bg-item;
+    margin-top: changePx(-6.06rem);
+  }
+  &_block {
+    position: absolute;
+    bottom: changePx(1.5rem);
+    right: changePx(0.02rem);
+    width: changePx(0.42rem);
+    height: changePx(2rem);
+
+    .block {
+      width: 100%;
+      height: changePx(0.22rem);
+      background-color: rgba($color: #000, $alpha: 1);
+      margin-bottom: changePx(0.12rem);
+      animation: fadeIn 1.5s ease-in infinite;
+      @for $i from 1 through 5 {
+        &#{$i} {
+          animation-delay: ($i * 0.2s);
+        }
+      }
+    }
+  }
+}
+
+.form {
+  &_wrap {
+    user-select: none;
+    .bg {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: changePx(16.25rem);
+      transform: translate3d(0, -50%, 0);
+      background-image: url("../img/list_bg.jpg");
+      @extend .bg-item;
+    }
+  }
+  // 列表页圆盘动画
+  &_disc {
+    position: absolute;
+    top: changePx(-0.28rem);
+    right: changePx(-1.64rem);
+    width: changePx(4.72rem);
+    height: changePx(4.72rem);
+    background-image: url("../img/list_disc.png");
+    @extend .bg-item;
+    animation: rotate 4s 1s infinite linear;
+  }
+  // 列表页指针动画
+  &_adorn1 {
+    position: absolute;
+    right: changePx(-0.14rem);
+    top: changePx(0.18rem);
+    width: changePx(3.34rem);
+    height: changePx(1.04rem);
+    background-image: url("../img/list_adorn1.png");
+    @extend .bg-item;
+    transform-origin: 0.44rem changePx(0.62rem);
+    animation: pointer1 1s alternate;
+    animation-fill-mode: forwards;
+  }
+  &_title {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    min-width: changePx(5.14rem);
+    height: changePx(1.28rem);
+    margin-top: changePx(-4.22rem);
+    background-image: url("../img/sing_title_bg1.jpg");
+    background-position: 0 0;
+    background-size: changePx(0.02rem) changePx(1.28rem);
+    line-height: changePx(0.42rem);
+    background-repeat: repeat-x;
+    font-size: changePx(0.42rem);
+    color: #fff;
+    padding-left: changePx(0.68rem);
+    padding-top: changePx(0.1rem);
+    white-space: pre-line;
+    opacity: 0;
+    animation: singTitle 0.3s 0.8s alternate;
+    animation-fill-mode: forwards;
+    &::after {
+      content: "";
+      position: absolute;
+      right: changePx(-0.75rem);
+      top: 0;
+      width: changePx(0.75rem);
+      height: 100%;
+      background-image: url("../img/sing_title_bg2.png");
+      @extend .bg-item;
+    }
+  }
+  &_car {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: changePx(3.44rem);
+    height: changePx(1.77rem);
+    margin-top: changePx(-3.78rem);
+    background-image: url("../img/form_car.png");
+    @extend .bg-item;
+    opacity: 0;
+    animation: listCar 0.8s 1.1s;
+    animation-fill-mode: forwards;
+  }
+  &_content {
+  }
+  &_list {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    padding: 0 changePx(0.68rem);
+    margin-top: changePx(-2.08rem);
+    opacity: 0;
+    animation: fadeIn 0.3s 1.1s alternate;
+    animation-fill-mode: forwards;
+  }
+  &_group__multi {
+    display: flex;
+    justify-content: space-between;
+    .form_item {
+      width: 47%;
+    }
+  }
+  &_item {
+    width: 100%;
+    height: changePx(0.9rem);
+    box-shadow: inset 0 0 0 changePx(0.03rem) #000, 0 changePx(0.03rem) 0 0 #000;
+    margin-bottom: changePx(0.34rem);
+    background-color: #fff;
+    input {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0 changePx(0.32rem);
+      background: transparent;
+      line-height: 1.5;
+      font-size: changePx(0.28rem);
+      &::placeholder {
+        font-size: changePx(0.28rem);
+        color: #939598;
+      }
+    }
+    select {
+      appearance: none;
+      padding: 0 changePx(0.32rem);
+      border: 0;
+      background: transparent;
+      width: 100%;
+      height: 100%;
+      font-size: changePx(0.28rem);
+      color: #939598;
+      appearance: none;
+      outline: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      background: {
+        image: url("../img/icon_pulldown.png");
+        size: changePx(0.15rem) auto;
+        repeat: no-repeat;
+        position: center right changePx(0.2rem);
+      }
+    }
+  }
+  &_event {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: changePx(2.9rem);
+    width: 100%;
+    height: changePx(0.88rem);
+    padding: 0 changePx(0.68rem);
+    opacity: 0;
+    animation: fadeInDown 0.3s 1.1s alternate;
+    animation-fill-mode: forwards;
+    font-size: changePx(0.4rem);
+  }
+  &_btn {
+    width: changePx(2.86rem);
+    height: changePx(0.8rem);
+    line-height: changePx(0.8rem);
+    box-shadow: inset 0 0 0 changePx(0.04rem) #000, changePx(-0.05rem) changePx(0.05rem) 0 0 #000;
+    background-color: #fff;
+    text-align: center;
+    color: #000;
+    font-size: changePx(0.4rem);
+  }
+}
+/* Data: 2020-08-12; Edit: Hani; Describe: 添加隐私说明入口; Start v:1.0.0 */
+.form_privacy {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: 2.2rem;
+  transform: translate3d(-50%,0,0);
+  opacity: 0;
+  animation: fadeIn 0.3s 1.1s alternate;
+  animation-fill-mode: forwards;
+  a {
+    display: block;
+    font-size: 0.12rem;
+    color: #000;
+    border-bottom: 1px solid #000;
+    line-height: 1.1;
+  }
+}
+/* Data: 2020-08-12; Edit: Hani; Describe: 添加隐私说明入口; Ennd v:1.0.0 */

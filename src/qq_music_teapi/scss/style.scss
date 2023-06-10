@@ -1,0 +1,936 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import 'global.import.css';
+
+@import './modal';
+
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24rem);
+ */
+@function changePx($px) {
+  @return $px / 2;
+}
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: 'PingFang', 'PingFang SC', Helvetica, Tahoma, Arial,
+  'Hiragino Sans GB', 'Heiti SC', STXihei, 'Microsoft YaHei', SimHei,
+  'WenQuanYi Micro Hei';
+
+// 公共样式 - 提示
+.toast_item {
+  position: fixed;
+  left: 50%;
+  bottom: 3%;
+  color: #fff;
+  font-size: changePx(0.18rem);
+  padding: changePx(0.12rem) changePx(0.16rem);
+  line-height: 1;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 999;
+  span {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    background: rgba($color: #000000, $alpha: 0.5);
+    padding: changePx(0.1rem);
+    border-radius: changePx(0.1rem);
+  }
+  .ani {
+    animation: fadeInDown 0.5s;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+/* 页面工具类 - 文字禁止选择 */
+.text_forbid__cope {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* 页面工具类 - 绝对定位 */
+.layout_item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, 0, 0);
+}
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+  -webkit-touch-callout: none;
+  -moz-user-select: none; /*火狐*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -ms-user-select: none; /*IE10*/
+  -khtml-user-select: none; /*早期浏览器*/
+  user-select: none;
+}
+
+@font-face {
+  font-family: 'fzdinpro';
+  src: url('../fonts/DINPro-Bold.ttf');
+}
+.font_fzdinpro {
+  font-family: 'fzdinpro';
+}
+/* 页面公共样式 - End */
+
+/* 页面动效 - start */
+// 播放icon转圈圈动效
+@keyframes circling {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes start {
+  0%,
+  30% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+}
+/* 页面动效 - End */
+/* 页面样式 - Start 【*注意* ：QQ音乐规定类名命名，必须以下划线形式命名】
+ * 类名用法示例：
+ * .test_box {}
+ * .test_box__wrap {}
+ */
+
+.item {
+  //logo
+  .logo {
+    width: changePx(3rem);
+    height: changePx(0.4rem);
+    @extend .bg_item;
+    background-image: url(../img/logo.png);
+  }
+  .iocn_song {
+    width: changePx(0.5rem);
+    height: changePx(0.5rem);
+    @extend .bg_item;
+    background: {
+      image: url(../img/icon_song.png);
+      position: 0 0;
+      size: changePx(1rem) changePx(0.5rem);
+    }
+    animation: circling 2s linear 0s infinite;
+    animation-play-state: running;
+    &.stop {
+      animation-play-state: paused;
+      background-position: changePx(-0.5rem) 0;
+    }
+  }
+  .box {
+    position: relative;
+    height: 100%;
+    // overflow: auto;
+  }
+  //  启动页样式
+  &_start {
+    position: relative;
+    //logo
+    .logo {
+      @extend .layout_item;
+      margin-top: changePx(-5.54rem);
+    }
+    .iocn_song {
+      position: absolute;
+      top: 50%;
+      right: changePx(0.04rem);
+      margin-top: changePx(-5.54rem);
+    }
+    //  启动页 - 背景
+    .bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      @extend .bg_item;
+      width: 100%;
+      height: 100%;
+      background: {
+        image: url(../img/start_bg.png);
+        size: changePx(7.5rem) changePx(0.14rem);
+        repeat: repeat-y;
+      }
+    }
+    .start {
+      // 启动页 - 标题
+      &_title {
+        @extend .layout_item;
+        margin-top: changePx(-4.94rem);
+        width: changePx(5.6rem);
+        height: changePx(1.6rem);
+        @extend .bg_item;
+        background-image: url(../img/start_title.png);
+      }
+      // 启动页 - 内容
+      &_content {
+        @extend .layout_item;
+        margin-top: changePx(-3.34rem);
+        width: changePx(6.38rem);
+        height: changePx(8.4rem);
+        @extend .bg_item;
+        background-image: url(../img/start_content.png);
+      }
+      &_adorn__top,
+      &_adorn__base {
+        position: absolute;
+        height: changePx(1.8rem);
+        left: 0;
+        @extend .bg_item;
+      }
+      // 启动页 - 顶部装饰
+      &_adorn__top {
+        top: 0;
+        width: changePx(1.1rem);
+        height: changePx(1.8rem);
+        background-image: url(../img/start_adorn_top.png);
+      }
+      // 启动页 - 底部装饰
+      &_adorn__base {
+        bottom: 0;
+        width: 100%;
+        height: changePx(1.7rem);
+        background-image: url(../img/start_adorn_base.png);
+      }
+      // 启动页 - 提示下滑
+      &_hint {
+        @extend .layout_item;
+        margin-top: changePx(4.96rem);
+        // 启动页 - 提示下滑icon
+        &__arrows {
+          width: changePx(0.3rem);
+          height: changePx(0.3rem);
+          @extend .bg_item;
+          background-image: url(../img/icon_slide.png);
+          margin: 0 auto;
+          animation: start 1.5s infinite ease-in-out;
+        }
+        // 启动页 - 提示下滑文案
+        &__text {
+          position: relative;
+          top: changePx(-0.04rem);
+          font-size: changePx(0.22rem);
+          color: #333333;
+        }
+      }
+    }
+  }
+  // 互动页样式
+  &_interactive {
+    position: relative;
+
+    //  互动页 - 背景
+    .bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      @extend .bg_item;
+      background: {
+        image: url(../img/interactive_bg.jpg);
+        size: changePx(7.5rem) changePx(0.1rem);
+        repeat: repeat-y;
+      }
+    }
+    // 互动页 - 内容容器
+    .box {
+      overflow: auto;
+    }
+    // 互动页 - 内容
+    .interactive {
+      // 互动页 - 顶部
+      &_head {
+        height: changePx(4.28rem);
+        &__inner {
+          position: fixed;
+          width: 100%;
+          height: changePx(4.28rem);
+          left: 0;
+          top: 0;
+          padding-top: changePx(0.64rem);
+          box-sizing: border-box;
+          @extend .bg_item;
+          z-index: 2;
+          background: {
+            image: url(../img/interactive_bg.jpg);
+            size: changePx(7.5rem) changePx(0.1rem);
+            repeat: repeat-y;
+          }
+        }
+        &__top {
+          position: relative;
+          .logo {
+            margin: 0 auto;
+          }
+          .iocn_song {
+            position: absolute;
+            top: 0;
+            right: changePx(0.04rem);
+          }
+        }
+        &__content {
+          position: relative;
+          width: changePx(6.7rem);
+          height: changePx(2.75rem);
+          @extend .bg_item;
+          background-image: url(../img/interactive_title.png);
+          margin-top: changePx(0.28rem);
+          .progress {
+            position: absolute;
+            left: changePx(0.88rem);
+            top: changePx(1.18rem);
+            height: changePx(1.1rem);
+            line-height: changePx(1rem);
+            @extend .font_fzdinpro;
+            font-size: changePx(1.4rem);
+            color: #000;
+          }
+        }
+      }
+      // 互动页 - 卡片
+      &_content {
+      }
+      &_list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-items: center;
+        padding-top: changePx(0.24rem);
+      }
+      &_item {
+        width: changePx(1.8rem);
+        text-align: center;
+        // margin: 0 changePx(0.18rem);
+        margin-left: changePx(0.38rem);
+        &.active {
+          .item_img__wrap {
+            -webkit-filter: grayscale(0);
+            -moz-filter: grayscale(0);
+            -ms-filter: grayscale(0);
+            -o-filter: grayscale(0);
+            filter: grayscale(0);
+          }
+        }
+        .item_img__wrap {
+          border-radius: 50%;
+          overflow: hidden;
+          border-radius: 50%;
+          width: 100%;
+          -webkit-filter: grayscale(100%);
+          -moz-filter: grayscale(100%);
+          -ms-filter: grayscale(100%);
+          -o-filter: grayscale(100%);
+          filter: grayscale(100%);
+          transition: all 0.3s;
+        }
+        // .item_img {
+        //   display: block;
+        //   border-radius: 50%;
+        //   width: 100%;
+        //   -webkit-filter: grayscale(100%);
+        //   -moz-filter: grayscale(100%);
+        //   -ms-filter: grayscale(100%);
+        //   -o-filter: grayscale(100%);
+        //   filter: grayscale(100%);
+        //   transition: all 0.3s;
+        // }
+        .item_text {
+          height: changePx(0.96rem);
+          font-size: changePx(0.24rem);
+          color: #000;
+          margin-top: changePx(0.1rem);
+          line-height: changePx(0.3rem);
+        }
+      }
+      // 互动页 - 底部装饰
+      &_base {
+        position: relative;
+        width: 100%;
+        height: changePx(1.9rem);
+        &__inner {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: changePx(1.9rem);
+          @extend .bg_item;
+          background: {
+            image: url(../img/interactive_bg.jpg);
+            size: changePx(7.5rem) changePx(0.1rem);
+            repeat: repeat-y;
+          }
+        }
+        &__content {
+          width: 100%;
+          height: 100%;
+          @extend .bg_item;
+          background-image: url(../img/interactive_adorn_base.png);
+        }
+      }
+    }
+    .interactive_btn {
+      position: fixed;
+      right: changePx(0.2rem);
+      top: 50%;
+      margin-top: changePx(2.6rem);
+      width: changePx(2.08rem);
+      height: changePx(0.67rem);
+      @extend .bg_item;
+      background-image: url(../img/interactive_btn_bg.png);
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      filter: grayscale(100%);
+      transition: all 0.3s;
+      &.active {
+        -webkit-filter: grayscale(0);
+        -moz-filter: grayscale(0);
+        -ms-filter: grayscale(0);
+        -o-filter: grayscale(0);
+        filter: grayscale(0);
+      }
+    }
+    .interactive_hint {
+      position: fixed;
+      right: changePx(0.2rem);
+      top: 50%;
+      margin-top: changePx(-0.98rem);
+      &__arrows {
+        width: changePx(0.3rem);
+        height: changePx(0.3rem);
+        @extend .bg_item;
+        background-image: url(../img/icon_slide.png);
+        margin-bottom: changePx(0.1rem);
+        animation: start 1.5s infinite ease-in-out;
+      }
+      &__text {
+        width: changePx(0.22rem);
+        height: changePx(1.7rem);
+        @extend .bg_item;
+        background-image: url(../img/interactive_hint_text.png);
+        margin: 0 auto;
+      }
+    }
+    // 弹窗样式
+    .modal_user {
+      position: relative;
+      .user_content {
+        position: relative;
+        width: changePx(7.5rem);
+        min-height: changePx(3.3rem);
+        @extend .bg_item;
+        background-image: url(../img/pop_bg.png);
+      }
+      // 弹窗关闭按钮
+      .modal_close {
+        margin: changePx(0.42rem) auto 0;
+        width: changePx(0.7rem);
+        height: changePx(0.7rem);
+        @extend .bg_item;
+        background-image: url(../img/modal_close.png);
+      }
+      .user_img {
+        width: 100%;
+        display: block;
+        // height: 100%;
+      }
+    }
+    .user_name {
+      position: absolute;
+      left: changePx(1.02rem);
+      top: changePx(1.42rem);
+      font-size: changePx(0.24rem);
+      background: none;
+      outline: none;
+      border: 0px;
+      width: changePx(4rem);
+      height: changePx(0.7rem);
+      padding: 0 changePx(0.2rem);
+      box-sizing: border-box;
+      &:focus {
+        outline: none;
+      }
+    }
+    .btn_get__user {
+      position: absolute;
+      right: changePx(1.24rem);
+      top: changePx(1.42rem);
+      width: changePx(1.22rem);
+      height: changePx(0.7rem);
+      line-height: changePx(0.7rem);
+      background-color: #e7e6e3;
+      font-size: changePx(0.26rem);
+      text-align: center;
+      transition: all 0.3s;
+      &.active {
+        background-color: #ffb3e4;
+      }
+    }
+    .btn_skip {
+      position: absolute;
+      left: 50%;
+      bottom: changePx(0.54rem);
+      transform: translate3d(-60%, 0, 0);
+      width: changePx(1.28rem);
+      height: changePx(0.4rem);
+    }
+  }
+  // 加载页
+  &_load {
+    //  加载页 - 背景
+    .bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      @extend .bg_item;
+      background: {
+        image: url(../img/start_bg.png);
+        size: changePx(7.5rem) changePx(0.14rem);
+        repeat: repeat-y;
+      }
+    }
+    //logo
+    .logo {
+      @extend .layout_item;
+      margin-top: changePx(-6rem);
+    }
+    .iocn_song {
+      position: absolute;
+      top: 50%;
+      right: changePx(0.04rem);
+      margin-top: changePx(-6rem);
+    }
+    // 首页帧动画 画布
+    @at-root #canvasLoad {
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      transform: translate3d(-50%, -50%, 0);
+      width: 100%;
+      height: changePx(13.34rem);
+      z-index: 5;
+    }
+    .load {
+      &_content {
+        // position: relative;
+        @extend .layout_item;
+        margin-top: changePx(-5.04rem);
+        width: changePx(6.5rem);
+        height: changePx(11.3rem);
+        @extend .bg_item;
+        background-image: url(../img/load_content_bg.png);
+      }
+      &_base__color {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: #a8e1fe;
+        width: 100%;
+        height: changePx(1.64rem);
+      }
+      &_base__img {
+        @extend .layout_item;
+        margin-top: changePx(1.67rem);
+        width: 100%;
+        height: changePx(4.6rem);
+        @extend .bg_item;
+        background-image: url(../img/load_adron_base.png);
+        z-index: 2;
+      }
+      &_adron_1,
+      &_adron_2 {
+        position: absolute;
+        @extend .bg_item;
+      }
+      &_adron_1 {
+        right: changePx(-0.5rem);
+        top: changePx(0.74rem);
+        width: changePx(1.07rem);
+        height: changePx(1.06rem);
+        background-image: url(../img/load_adron_1.png);
+      }
+      &_adron_2 {
+        left: 0;
+        top: changePx(6.21rem);
+        width: changePx(0.89rem);
+        height: changePx(0.96rem);
+        background-image: url(../img/load_adron_2.png);
+      }
+    }
+  }
+  &_end {
+    position: relative;
+    background-color: #ffe47e;
+    //logo
+    .logo {
+      position: fixed;
+      @extend .layout_item;
+      top: changePx(0.62rem);
+      z-index: 4;
+    }
+    .iocn_song {
+      position: fixed;
+      top: changePx(0.62rem);
+      right: changePx(0.04rem);
+      z-index: 4;
+    }
+    .end {
+      &_title {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: changePx(5.5rem);
+        &__content {
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: changePx(5.5rem);
+          @extend .bg_item;
+          background-image: url(../img/end_title.jpg);
+        }
+      }
+      &_name {
+        position: absolute;
+        left: changePx(0.6rem);
+        top: changePx(2.44rem);
+        height: changePx(0.35rem);
+        border-image-source: url(../img/end_name_bg.png);
+        border-image-slice: 20 20 20 70 fill;
+        border-image-width: changePx(0.2rem) changePx(0.2rem) changePx(0.2rem)
+          changePx(0.7rem);
+        border-image-repeat: repeat;
+        border-image-outset: changePx(0.2rem) changePx(0.2rem) changePx(0.2rem)
+          changePx(0.2rem);
+        &__text {
+          position: relative;
+          display: block;
+          top: changePx(-0.1rem);
+          left: changePx(0.1rem);
+          font-size: changePx(0.28rem);
+          padding-right: changePx(0.24rem);
+          font-weight: bold;
+        }
+      }
+      &_number {
+        position: absolute;
+        left: changePx(2rem);
+        top: changePx(3rem);
+        font-size: changePx(0.42rem);
+        line-height: changePx(0.64rem);
+        span {
+          font-size: changePx(0.88rem);
+        }
+      }
+      &_content {
+        position: relative;
+        // top: 1px;
+        width: changePx(6.85rem);
+        height: calc(100vh - 5.35rem);
+        @extend .bg_item;
+        // @extend .bg_item;
+        overflow: auto;
+        background: {
+          image: url(../img/end_bg.png);
+          size: 100% changePx(0.1rem);
+          repeat: repeat-y;
+        }
+        margin: 0 auto;
+      }
+      &_label {
+        position: fixed;
+        left: changePx(0.68rem);
+        top: changePx(4.78rem);
+        line-height: changePx(0.5rem);
+        &_title {
+          font-weight: bold;
+          font-size: changePx(0.36rem);
+        }
+        &_text {
+          font-size: changePx(0.26rem);
+        }
+      }
+      &_list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: changePx(0.08rem);
+      }
+      &_item {
+        width: changePx(1.37rem);
+        text-align: center;
+        // margin: 0 changePx(0.18rem);
+        margin: 0 changePx(0.1rem);
+        // margin-left: changePx(0.20rem);
+        .item_img__wrap {
+          border-radius: 50%;
+          overflow: hidden;
+        }
+        .item_img {
+          display: block;
+          border-radius: 50%;
+          width: 100%;
+        }
+        .item_text {
+          height: changePx(0.96rem);
+          font-size: changePx(0.24rem);
+          color: #000;
+          margin-top: changePx(0.04rem);
+          line-height: changePx(0.3rem);
+        }
+      }
+      &_base {
+        width: 100%;
+        height: changePx(5.16rem);
+        &__content {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: changePx(5.2rem);
+          @extend .bg_item;
+          background-image: url(../img/end_base.jpg);
+        }
+      }
+    }
+    .btn_share,
+    .btn_return {
+      position: absolute;
+      top: changePx(0.48rem);
+      width: changePx(3rem);
+      height: changePx(0.8rem);
+    }
+    .btn_return {
+      left: changePx(0.64rem);
+    }
+    .btn_share {
+      right: changePx(0.64rem);
+    }
+    .modal_share {
+      position: relative;
+      width: changePx(6.82rem);
+      height: changePx(8.58rem);
+      @extend .bg_item;
+      background-image: url(../img/share_pop_bg.png);
+    }
+    .share_content {
+      height: changePx(7.8rem);
+      // margin-bottom: changePx(0.95rem);
+    }
+    .share_inner {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: changePx(6rem);
+      height: changePx(7.8rem);
+      overflow: auto;
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+    .modal_hint {
+      // position: absolute;
+      // left: 0;
+      // bottom: 0;
+      text-align: center;
+      font-size: changePx(0.24rem);
+      width: 100%;
+      bottom: changePx(1rem);
+      color: #fff;
+      margin-top: changePx(0.7rem);
+    }
+    // 弹窗关闭按钮
+    .modal_close {
+      margin: changePx(0.3rem) auto 0;
+      width: changePx(0.7rem);
+      height: changePx(0.7rem);
+      @extend .bg_item;
+      background-image: url(../img/modal_close.png);
+    }
+    .modal_load__wrap {
+      .modal_bg {
+        background-color: rgba($color: #000000, $alpha: 0);
+      }
+    }
+    .load_gif {
+      position: absolute;
+      left: 50%;
+      top: changePx(0.78rem);
+      transform: translate3d(-50%, 0, 0);
+      width: changePx(0.86rem);
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+    .load_text {
+      position: absolute;
+      left: 50%;
+      top: changePx(1.6rem);
+      transform: translate3d(-50%, 0, 0);
+      color: #fff;
+      font-size: changePx(0.24rem);
+    }
+    .modal_load {
+      position: relative;
+      width: changePx(2.4rem);
+      height: changePx(2.4rem);
+      background-color: rgba($color: #000000, $alpha: 0.8);
+      border-radius: changePx(0.2rem);
+    }
+  }
+}
+.interactive_icon {
+  width: changePx(1.8rem);
+  height: changePx(1.8rem);
+  background-image: url(../img/interactive_icon_1.png);
+  background: {
+    position: 0 0;
+    size: changePx(7.2rem) changePx(7.2rem);
+    repeat: no-repeat;
+  }
+  @for $i from 1 through 15 {
+    &__#{$i} {
+      background-image: url(../img/interactive_icon_1.png);
+      background-position: changePx(-(($i % 4) * 1.8rem))
+        changePx(-(floor($i / 4) * 1.8rem));
+    }
+  }
+  @for $i from 0 through 15 {
+    &__#{$i + 16} {
+      background-image: url(../img/interactive_icon_2.png);
+      background-position: changePx(-(($i % 4) * 1.8rem))
+        changePx(-(floor($i / 4) * 1.8rem));
+    }
+  }
+  @for $i from 0 through 15 {
+    &__#{$i + 32} {
+      background-image: url(../img/interactive_icon_3.png);
+      background-position: changePx(-(($i % 4) * 1.8rem))
+        changePx(-(floor($i / 4) * 1.8rem));
+    }
+  }
+  @for $i from 0 through 15 {
+    &__#{$i + 48} {
+      background-image: url(../img/interactive_icon_4.png);
+      background-position: changePx(-(($i % 4) * 1.8rem))
+        changePx(-(floor($i / 4) * 1.8rem));
+    }
+  }
+  @for $i from 0 through 1 {
+    &__#{$i + 64} {
+      background-size: changePx(3.6rem) changePx(1.8rem);
+      background-image: url(../img/interactive_icon_5.png);
+      background-position: changePx(-(($i % 2) * 1.8rem))
+        changePx(-(floor($i / 2) * 1.8rem));
+    }
+  }
+  &__end {
+    width: changePx(1.37rem);
+    height: changePx(1.37rem);
+    background: {
+      image: url(../img/interactive_icon_1.png);
+      position: 0 0;
+      size: changePx(7.2rem) changePx(7.2rem);
+      repeat: no-repeat;
+    }
+    background-size: changePx(5.48rem) changePx(5.48rem);
+  }
+
+  @for $i from 1 through 15 {
+    &__end#{$i} {
+      background-image: url(../img/interactive_icon_1.png);
+      background-position: changePx(-(($i % 4) * 1.37rem))
+        changePx(-(floor($i / 4) * 1.37rem));
+    }
+  }
+  @for $i from 0 through 15 {
+    &__end#{$i + 16} {
+      background-image: url(../img/interactive_icon_2.png);
+      background-position: changePx(-(($i % 4) * 1.37rem))
+        changePx(-(floor($i / 4) * 1.37rem));
+    }
+  }
+  @for $i from 0 through 15 {
+    &__end#{$i + 32} {
+      background-image: url(../img/interactive_icon_3.png);
+      background-position: changePx(-(($i % 4) * 1.37rem))
+        changePx(-(floor($i / 4) * 1.37rem));
+    }
+  }
+  @for $i from 0 through 15 {
+    &__end#{$i + 48} {
+      background-image: url(../img/interactive_icon_4.png);
+      background-position: changePx(-(($i % 4) * 1.37rem))
+        changePx(-(floor($i / 4) * 1.37rem));
+    }
+  }
+  @for $i from 0 through 1 {
+    &__end#{$i + 64} {
+      background-size: changePx(3.6rem) changePx(1.37rem);
+      background-image: url(../img/interactive_icon_5.png);
+      background-position: changePx(-(($i % 2) * 1.37rem))
+        changePx(-(floor($i / 2) * 1.37rem));
+    }
+  }
+}
+
+
+/* Data: 20210616; Describe: 添加外链跳转按钮样式; Edit: Gianni; Start */
+.btn_linke {
+  position: absolute;
+  top: changePx(2.48rem);
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: changePx(6.2rem);
+  height: changePx(0.8rem);
+}
+/* Data: 20210616; Describe: 添加外链跳转按钮样式; Edit: Gianni; Start */
+/* 页面样式 - End */

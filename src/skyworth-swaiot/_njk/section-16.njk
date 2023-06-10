@@ -1,0 +1,36 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_6.png',
+    'heading': '随时随地 掌控全屋',
+    'text': '全新的Swaiot APP让您随时随地远程管理与控制Swaiot智能设备，这样，您在回家的路上就可以提前打开空调、点亮灯光以及做好一切归家准备。'
+  }
+%}
+
+{# 产品图 #}
+{% set productImg = {
+    'product': '/section16_product.jpg'
+  }
+%}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+<div class="content-wrap animation-box">
+  <a class="android download" href="javascript:;"><img src="./img/section16_android.png" alt=""></a>
+  <div class="qrcode"><img src="./img/qrcode.jpg" alt=""></div>
+  <a  class="ios download" href="javascript:;"><img src="./img/section16_ios.png" alt=""></a>
+</div>
+{# 产品图 #}
+{# {% import "./components/title.njk" as title %}
+{{ title.product(productImg) }} #}
+
+
+
+<div class="product-img-wrap animation-box">
+  <canvas id="section16canvas2"></canvas>
+  <img class="product-img product-img-pc img-block" src="{{baseUrl}}/section16_product.jpg" alt="">
+  <canvas id="section16canvas1"></canvas>
+</div>

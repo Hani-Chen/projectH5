@@ -1,0 +1,759 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import "global.import.css";
+// @说明：边框样式基础样式
+// ========================================================================*/
+.border,
+.border_radius,
+.border_round {
+  position: relative;
+}
+
+.border::after,
+.border_radius::after,
+.border_round::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-style: solid;
+  border-color: currentColor;
+  border-width: 1px;
+} /*请自己配置边框颜色*/
+.border_radius::after {
+  border-radius: 4px;
+} /*自己配置圆角*/
+.border_round::after {
+  border-radius: 999px;
+}
+
+/*上，下，左，右边框*/
+.border_t,
+.border_b,
+.border_l,
+.border_r {
+  position: relative;
+}
+
+.border_t::after,
+.border_b::after,
+.border_l::after,
+.border_r::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  pointer-events: none;
+  border-style: solid;
+  border-color: currentColor;
+} /*请自己配置边框颜色*/
+
+.border_t::after {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-width: 1px 0 0 0;
+}
+.border_b::after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-width: 0 0 1px 0;
+}
+.border_l::after {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-width: 0 0 0 1px;
+}
+.border_r::after {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  border-width: 0 1px 0 0;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  /*方形边框，圆角边框，圆弧边框*/
+  .border::after,
+  .border_radius::after,
+  .border_round::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(0.5);
+  }
+  .border_radius::after {
+    border-radius: 8px;
+  } /*自己配置圆角,为默认情况的2倍*/
+  .border_round::after {
+    border-radius: 999px;
+  }
+
+  /*上，下，左，右边框*/
+  .border_t::after,
+  .border_b::after {
+    -webkit-transform: scaleY(0.5);
+  }
+  .border_l::after,
+  .border_r::after {
+    -webkit-transform: scaleX(0.5);
+  }
+}
+
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24rem);
+ */
+@function changePx($px) {
+  @return $px / 2;
+}
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei,
+  "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+/* 页面工具类 - 文字禁止选择 */
+@mixin text-forbid-cope() {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+  background-color: #0c070d;
+  overflow: hidden;
+  @include text-forbid-cope;
+}
+
+// 公共样式 - 提示
+.toast_item {
+  position: fixed;
+  left: 50%;
+  // bottom: 10%;
+  top: 50%;
+  font-size: changePx(0.18rem);
+  line-height: 1;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 999;
+  // overflow: hidden;
+  @include text-forbid-cope;
+  // margin-top: changePx(5.9rem);
+  margin-top: changePx(1.2rem);
+  span {
+    position: relative;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    padding: changePx(0.1rem) changePx(0.1rem);
+    border-radius: changePx(0.1rem);
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    &.ani {
+      animation: fadeInDown 0.5s;
+    }
+  }
+}
+// 宽高
+@mixin size-set($width: 100%, $height: 100%) {
+  width: $width;
+  height: $height;
+}
+
+// 文字
+@mixin font-set($size, $color: #fff, $weight: normal, $layout: center, $lineHigh: null) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $lineHigh;
+  text-align: $layout;
+}
+
+/* 页面工具类 - 背景图片公共样式 */
+@mixin bg-set($url, $width: 100%, $height: auto, $repeat: no-repeat, $position: center, $color: null) {
+  display: block;
+  background: {
+    size: $width $height;
+    repeat: $repeat;
+    position: $position;
+    image: url($url);
+    color: $color;
+  }
+}
+@mixin layout-set(
+  $layout: null,
+  $position: absolute,
+  $top: null,
+  $bottom: null,
+  $left: null,
+  $right: null,
+  $zIndex: null
+) {
+  position: $position;
+  @if $layout == null {
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+  }
+  @if $layout == "center" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  @if $layout == "layout" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  z-index: $zIndex;
+}
+@mixin page-set-adorn($size, $top: null, $bottom: null, $left: null, $right: null) {
+  @include layout-set($top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($size, $size);
+  background-color: #d7b358;
+  border-radius: 50%;
+}
+@mixin page-set-img(
+  $layout: null,
+  $width: null,
+  $height: null,
+  $top: null,
+  $left: null,
+  $right: null,
+  $bottom: null,
+  $url: ""
+) {
+  @include layout-set($layout: $layout, $top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($width, $height);
+  @include bg-set($url);
+}
+/* 页面公共样式 - End */
+
+/* 页面样式 - Start 【*注意* ：QQ音乐规定类名命名，必须以下划线形式命名】
+ * 类名用法示例：
+ * .test_box {}
+ * .test_box__wrap {}
+ */
+.page {
+  &_item {
+    position: relative;
+    @include size-set(100%, 100%);
+    display: none;
+    &.show {
+      display: block;
+      animation: fadeIn 1s linear;
+    }
+  }
+  // 页面 - logo
+  &_logo {
+    @include layout-set("layout");
+    margin-top: changePx(-5.58rem);
+    @include size-set(changePx(3.4rem), changePx(0.5rem));
+    @include bg-set("../img/page_logo.png");
+  }
+  // 页面 - 返回
+  &_return {
+    @include layout-set($left: changePx(0.3rem), $top: 50%);
+    margin-top: changePx(-5.66rem);
+    @include size-set(changePx(0.8rem), changePx(0.8rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(10rem),
+      $height: changePx(8rem),
+      $position: changePx(-2.1rem) changePx(-3.1rem)
+    );
+  }
+  // 页面 - 装饰容器
+  &_decorate {
+    @include layout-set("center");
+    @include size-set(changePx(7.5rem), changePx(16.25rem));
+    pointer-events: none;
+  }
+  // 页面 - 背景
+  &_bg {
+    @include layout-set("center");
+    @include size-set(100%, 100%);
+    @include bg-set("../img/page_bg.jpg");
+  }
+}
+// 首页
+.home {
+  // 首页 - 背景
+  &_bg {
+    @include layout-set("center");
+    @include size-set(100%, 100%);
+    @include bg-set("../img/home_bg.jpg");
+  }
+  // 首页 - 按钮容器
+  &_btn__wrap {
+    @include layout-set("layout");
+    margin-top: changePx(3.54rem);
+  }
+  // 首页 - 按钮
+  &_btn {
+    position: relative;
+    @include size-set(changePx(5rem), changePx(2rem));
+    animation: btnZoom 0.5s linear alternate infinite;
+    @include bg-set("../img/page_sprite.png", $width: changePx(10rem), $height: changePx(8rem), $position: 0 0);
+  }
+  // 首页装饰 - 按钮装饰 - 小手
+  &_btn__decorate {
+    @include layout-set($top: changePx(1.18rem), $right: changePx(0.48rem));
+    @include size-set(changePx(1rem), changePx(1rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(10rem),
+      $height: changePx(8rem),
+      $position: changePx(-4rem) changePx(-3rem)
+    );
+    animation: btnZoom 0.5s linear alternate infinite;
+  }
+  // 首页装饰 - 左边小人
+  &_decorate1 {
+    @include layout-set($bottom: changePx(0.5rem), $left: changePx(-0.72rem));
+    @include size-set(changePx(3.4rem), changePx(4rem));
+    @include bg-set("../img/page_decorate1.png");
+    transform: scale(0.64);
+  }
+  // 首页装饰 - 右边小人
+  &_decorate2 {
+    @include layout-set($bottom: changePx(1.62rem), $right: changePx(-0.4rem));
+    @include size-set(changePx(3.4rem), changePx(4rem));
+    @include bg-set("../img/page_decorate1.png");
+    transform: scale(0.83);
+  }
+}
+// 视频页
+.video {
+  // 装饰 - 内容后
+  &_decorate__under {
+    @include bg-set("../img/video_decorate_under.png");
+  }
+  // 视频页装饰 - 左边小人
+  &_decorate1 {
+    @include layout-set($bottom: changePx(0.38rem), $left: changePx(-0.58rem));
+    @include size-set(changePx(3.4rem), changePx(4rem));
+    @include bg-set("../img/page_decorate1.png");
+    transform: scale(0.62);
+  }
+  // 视频页装饰 - 右边小人
+  &_decorate2 {
+    @include layout-set($bottom: changePx(1.04rem), $right: changePx(0.18rem));
+    @include size-set(changePx(3.4rem), changePx(4rem));
+    @include bg-set("../img/page_decorate1.png");
+  }
+  // 视频页装饰 - 灯光
+  &_decorate3 {
+    @include layout-set($bottom: 0, $right: 0);
+    @include size-set(changePx(4.6rem), changePx(5rem));
+    @include bg-set("../img/video_decorate_1.png");
+    animation: fadeIn 1.2s linear;
+  }
+  // 视频页装饰 - 视频播放背景
+  &_decorate4 {
+    @include layout-set("layout");
+    margin-top: changePx(-4.2rem);
+    @include size-set(changePx(7rem), changePx(7rem));
+    @include bg-set("../img/video_decorate_2.png");
+  }
+  // 视频页 - 视频容器
+  &_item__wrap {
+    @include layout-set($left: 50%, $top: changePx(1.55rem));
+    transform: translate3d(-50%, 0, 0);
+    @include size-set(changePx(6.1rem), changePx(5rem));
+    overflow: hidden;
+  }
+  // 视频页 - 视频
+  &_item {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  // 视频页 - 视频蒙层
+  &_item__shade {
+    @include layout-set($left: 0, $top: 0);
+    @include size-set(100%, 100%);
+    background-color: rgba($color: #000, $alpha: 0.7);
+    display: none;
+    &.show {
+      display: block;
+      animation: fadeIn 1s linear;
+    }
+  }
+  // 视频页 - 视频icon
+  &_item__icon {
+    @include layout-set("center");
+    @include size-set(changePx(1rem), changePx(1rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(10rem),
+      $height: changePx(8rem),
+      $position: changePx(-2rem) changePx(-2rem)
+    );
+    &::after {
+      content: "";
+      @include layout-set("center");
+      @include size-set(changePx(6.1rem), changePx(5rem));
+    }
+    &.play {
+      background-position: changePx(-4rem) changePx(-2rem);
+      animation: fadeIn 1s linear reverse;
+      animation-fill-mode: forwards;
+    }
+  }
+  // 视频页 - 跳过
+  &_skip {
+    @include layout-set("layout");
+    margin-top: (changePx(4.68rem));
+    @include size-set(changePx(3rem), changePx(1rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(10rem),
+      $height: changePx(8rem),
+      $position: changePx(-7rem) changePx(-5rem)
+    );
+  }
+}
+// 演唱页
+.sing {
+  // 装饰 - 内容后
+  &_decorate__under {
+    @include bg-set("../img/sing_decorate_under.png");
+  }
+  // 歌词
+  &_lyric {
+    @include layout-set($left: changePx(2.04rem), $top: 50%);
+    margin-top: changePx(-2.3rem);
+    @include font-set(changePx(0.44rem), $lineHigh: changePx(0.76rem));
+    @include text-forbid-cope;
+  }
+  // 演唱区域
+  &_area {
+    @include layout-set("layout");
+    margin-top: changePx(1.28rem);
+    @include size-set(100%, changePx(4.3rem));
+  }
+  // 播放&收藏
+  &_operation {
+    width: changePx(1.2rem);
+    // icon
+    .sing_icon {
+      margin: 0 auto;
+      @include size-set(changePx(1rem), changePx(1rem));
+      @include bg-set(
+        "../img/page_sprite.png",
+        $width: changePx(10rem),
+        $height: changePx(8rem),
+        $position: changePx(-4rem) changePx(-4rem)
+      );
+    }
+    .sing_text {
+      @include font-set(changePx(0.26rem), $color: #ffe070);
+      margin-top: changePx(0.02rem);
+      @include text-forbid-cope;
+    }
+  }
+  //  播放原唱
+  &_play {
+    @include layout-set($bottom: changePx(0.08rem), $left: changePx(0.9rem));
+    // icon
+    .sing_icon {
+      &.active {
+        background-position: changePx(-3rem) changePx(-3rem);
+      }
+    }
+  }
+  // 麦克风
+  &_microphone {
+    @include layout-set($left: 50%, $top: 0);
+    transform: translate3d(-50%, 0, 0);
+    @include size-set(changePx(2rem), changePx(4rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(10rem),
+      $height: changePx(8rem),
+      $position: 0 changePx(-2rem)
+    );
+  }
+  // 收藏
+  &_like {
+    @include layout-set($bottom: changePx(0.08rem), $right: changePx(0.94rem));
+    // icon
+    .sing_icon {
+      background-position: changePx(-9rem) 0;
+      &.active {
+        background-position: changePx(-2rem) changePx(-4rem);
+      }
+    }
+  }
+  // 提示录制时长
+  &_hint {
+    @include layout-set($bottom: changePx(0.02rem), $left: 50%);
+    transform: translate3d(-50%, 0, 0);
+    display: inline-block;
+    padding: changePx(0.04rem) changePx(0.18rem);
+    background-color: rgba($color: #000, $alpha: 0.7rem);
+    @include font-set(changePx(0.24rem), $color: #bfbfbf);
+    @include text-forbid-cope;
+    box-sizing: border-box;
+  }
+  // 录制时光晕动效容器
+  &_circle__wrap {
+    @include layout-set("center");
+    margin-top: changePx(-0.74rem);
+    @include size-set(changePx(2.3rem), changePx(2.3rem));
+  }
+  // 录制时光晕动效
+  &_circle {
+    @include layout-set("center");
+    border-radius: 50%;
+    transform-origin: 0 0;
+    animation: circleZoom 0.5s linear alternate infinite;
+    opacity: 0;
+    &.show {
+      opacity: 1;
+    }
+
+    &__1 {
+      @include size-set(changePx(0.3rem), changePx(0.3rem));
+      background-color: #f02f23;
+    }
+    &__2 {
+      @include size-set(changePx(0.6rem), changePx(0.6rem));
+      background-color: rgba($color: #f02f23, $alpha: 0.5);
+    }
+    &__3 {
+      @include size-set(changePx(1rem), changePx(1rem));
+      background-color: rgba($color: #f02f23, $alpha: 0.4);
+    }
+    &__4 {
+      @include size-set(changePx(1.62rem), changePx(1.62rem));
+      background-color: rgba($color: #ffdc00, $alpha: 0.3);
+    }
+    &__5 {
+      @include size-set(changePx(2.3rem), changePx(2.3rem));
+      background-color: rgba($color: #ffdc00, $alpha: 0.2);
+    }
+    @for $i from 1 through 5 {
+      &__#{$i} {
+        animation-delay: ($i * 0.1s) + 0.4;
+      }
+    }
+  }
+  &_time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include layout-set($bottom: changePx(0.8rem), $left: 50%);
+    transform: translate3d(-50%, 0, 0);
+    @include size-set(changePx(1.4rem), changePx(0.4rem));
+    border-radius: changePx(0.25rem);
+    background-color: rgba($color: #eb6300, $alpha: 0.8rem);
+    @include font-set(changePx(0.24rem), $color: #fff);
+    @include text-forbid-cope;
+  }
+}
+.over {
+  // 装饰 - 内容后
+  &_decorate__under {
+    @include bg-set("../img/over_decorate_under.png");
+  }
+  &_user__wrap {
+    display: flex;
+    align-items: center;
+    @include layout-set($left: changePx(0.7rem), $top: 50%);
+    margin-top: changePx(-3.64rem);
+    @include size-set(100%, changePx(0.8rem));
+  }
+  &_portrait {
+    @include layout-set($left: changePx(0.64rem), $top: 50%);
+    transform: translate3d(0, -50%, 0);
+    @include size-set(changePx(0.8rem), changePx(0.8rem));
+    overflow: hidden;
+    border-radius: 50%;
+    // @extend .border;
+    // border-color: #e2d6c3;
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(10rem),
+      $height: changePx(8rem),
+      $position: changePx(-3.1rem) changePx(-2.1rem)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__img {
+      border-radius: 50%;
+      @include size-set(changePx(0.74rem), changePx(0.74rem));
+    }
+  }
+  // 用户昵称
+  &_name {
+    display: block;
+    background-image: linear-gradient(90deg, rgba($color: #ad8865, $alpha: 0.62), rgba($color: #543b2b, $alpha: 0.62));
+    min-width: changePx(3rem);
+    max-width: changePx(4.28rem);
+    height: changePx(0.45rem);
+    line-height: changePx(0.45rem);
+    border-radius: changePx(0.25rem);
+    @include font-set(changePx(0.32rem), $color: #ffe7c0);
+    padding: 0 changePx(0.4rem) 0 changePx(1.58rem);
+    box-sizing: border-box;
+    overflow: hidden; //超出的文本隐藏
+    text-overflow: ellipsis; //溢出用省略号显示
+    white-space: nowrap; //溢出不换行
+  }
+  // 装饰 - cd杆子
+  &_decorate1 {
+    @include layout-set($top: 50%, $left: changePx(0.18rem));
+    margin-top: changePx(-3.76rem);
+    @include size-set(changePx(3rem), changePx(3rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(10rem),
+      $height: changePx(8rem),
+      $position: changePx(-5rem) changePx(-0rem)
+    );
+  }
+  &_item {
+    @include layout-set($top: 50%, $left: changePx(0.1rem));
+    margin-top: changePx(-1.32rem);
+    width: 100%;
+    &__title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include font-set(changePx(0.24rem), $color: #faf8ea, $lineHigh: 1.1);
+      margin-bottom: changePx(0.04rem);
+      .name {
+        font-weight: bold;
+        font-size: changePx(0.3rem);
+      }
+    }
+    &__text {
+      @include font-set(changePx(0.24rem),  $lineHigh: 1.1);
+      margin-bottom: 0;
+    }
+    &__percent {
+      @include font-set(changePx(0.28rem), $color: #f16622, $lineHigh: 1.1, $weight: bold);
+    }
+  }
+  &_first {
+    .over_item__title {
+      @include font-set(changePx(0.4rem), $color: #faf8ea, $lineHigh: 1.1);
+      margin-bottom: changePx(0.1rem);
+      .name {
+        font-size: changePx(0.4rem);
+      }
+    }
+    .over_item__text {
+      @include font-set(changePx(0.3rem), $lineHigh: 1.1);
+      margin-bottom: changePx(0.1rem);
+    }
+    .over_item__percent {
+      @include font-set(changePx(0.44rem), $color: #f16622, $lineHigh: 1.1, $weight: bold);
+    }
+  }
+  &_second {
+    @include layout-set($top: 50%, $left: changePx(2.28rem));
+    margin-top: changePx(-3.24rem);
+    .over_item__percent {
+      margin-top: changePx(0.04rem);
+    }
+  }
+  &_thirdly {
+    @include layout-set($top: 50%, $left: changePx(-2.34rem));
+    margin-top: changePx(0.68rem);
+    .over_item__title {
+      @include font-set(changePx(0.28rem), $color: #faf8ea, $lineHigh: 1.1);
+      margin-bottom: changePx(0.04rem);
+    }
+    .over_item__percent {
+      @include font-set(changePx(0.32rem), $color: #f16622, $lineHigh: 1.1, $weight: bold);
+      margin-top: changePx(0.04rem);
+    }
+  }
+  &_brn__share {
+    @include layout-set($top: 50%, $left: changePx(1.28rem));
+    margin-top: changePx(2.26rem);
+    @include size-set(changePx(5rem), changePx(2rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(10rem),
+      $height: changePx(8rem),
+      $position: changePx(-5rem) changePx(-6rem)
+    );
+    &.ani {
+      animation: btnZoom 0.5s linear alternate infinite;
+    }
+    &.active {
+      background-position: 0 changePx(-6rem);
+    }
+  }
+  &_brn__link {
+    @include layout-set($left: changePx(1.92rem), $top: 50%);
+    margin-top: changePx(4rem);
+    @include size-set(changePx(4rem), changePx(1rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(10rem),
+      $height: changePx(8rem),
+      $position: changePx(-6rem) changePx(-4rem)
+    );
+  }
+  &_brn__anew {
+    @include layout-set($left: changePx(1.92rem), $top: 50%);
+    margin-top: changePx(4.9rem);
+    @include size-set(changePx(4rem), changePx(1rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(10rem),
+      $height: changePx(8rem),
+      $position: changePx(-6rem) changePx(-3rem)
+    );
+  }
+  &_btn__decorate {
+    @include layout-set($top: changePx(1rem), $right: changePx(0.18rem));
+    transform: scale(0.6);
+    @include size-set(changePx(1rem), changePx(1rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(10rem),
+      $height: changePx(8rem),
+      $position: changePx(-4rem) changePx(-3rem)
+    );
+  }
+}
+@import "ani";
+/* 页面样式 - End */

@@ -1,0 +1,37 @@
+<!--
+ * @Author: Gianni
+ * @Date: 2021-08-20 11:24:32
+ * @LastEditTime: 2021-08-20 17:50:37
+ * @LastEditors: Gianni
+ * @Description: *
+ * @FilePath: \H5-Project\src\qq_music_johnnie_walker_visitor\index.html
+-->
+{% extends "./_njk/base.njk" %} {% block main %}
+<section class="wrap">
+  <div class="visitor_wrap">
+    <div class="visitor_img">
+      <!-- 动态数据 - 歌曲封面 -->
+      <img
+        class="visitor_album"
+        src="https://qpic.y.qq.com/music_cover/OgCriaBUhCkBZmhEuP4OI4rTq7nEvhfN6ejlhWFStShtqr5TIGxSUbQ/600?n=1"
+        alt=""
+      />
+    </div>
+    <!-- 动态数据 - data-id【歌曲id】 -->
+    <div class="visitor_song" data-id="4830150">
+      <!-- 动态数据 - 歌曲信息 -->
+      <div class="visitor_song__text">
+        <div class="visitor_song__songname">听海</div>
+        <div class="visitor_song__name">张惠妹</div>
+      </div>
+      <div class="visitor_song__like"></div>
+    </div>
+    <div class="visitor_btn"></div>
+  </div>
+</section>
+{% endblock %} {% block javascript %}
+<!-- 音乐播放器 -->
+<script src="//y.gtimg.cn/music/h5/player/player.js?max_age=2592000"></script>
+<script src="./js/zepto.min.js"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

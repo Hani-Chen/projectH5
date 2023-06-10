@@ -1,0 +1,118 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<section class="wrap">
+  <!-- 启动页 -->
+  <div class="page_item page_start show">
+    <!-- 启动页 - 王俊凯图片 -->
+    <div class="start_bg"></div>
+    <!-- 启动页 - logo -->
+    <div class="logo"></div>
+    <!-- 启动页 - 文案 -->
+    <div class="start_text__wrap">
+      <div class="start_text__title decorate_note"></div>
+    </div>
+    <!-- 启动页 - 开启元气跳转按钮 -->
+    <div class="start_btn btn_item font_shscnl text_forbid__cope">开启元气挑战 ></div>
+  </div>
+  <!-- 录制页 -->
+  <div class="page_item page_record ">
+    <!-- 录制页 - logo -->
+    <div class="logo"></div>
+    <!-- 录制页 - 歌词 -->
+    <div class="record_lyric"></div>
+    <!-- 录制页 - 操作区 -->
+    <div class="record_operation">
+      <!-- 录制页 - 播放原唱 -->
+      <div class="record_play">
+        <div class="record_play__icon"></div>
+        <div class="record_play__text text_forbid__cope">点击播放原唱</div>
+        <div class="audiopalyer"></div>
+      </div>
+      <!-- 录制页 - 麦克风 -->
+      <div class="record_sing " id="recordSing">
+        <div class="record_mic"></div>
+        
+        <div class="circle circle_5"></div>
+        <div class="circle circle_4"></div>
+        <div class="circle circle_3"></div>
+        <div class="circle circle_2"></div>
+        <div class="circle circle_1"></div>
+      </div> 
+      <!-- 录制页 - 录制时长 -->
+      <div class="record_time text_forbid__cope">00:00:00</div>
+    </div>
+    <!-- 录制页 - 提示 -->
+    <div class="record_hint text_forbid__cope">
+      <!-- 录制页 - 提示演唱文案 -->
+      <div class="record_hint__text">请长按麦克风演唱</div>
+      <!-- 录制页 - 活动规则 -->
+      <div class="record_hint__rule border_b">活动规则</div>
+    </div>
+  </div>
+  <!-- 评分页 -->
+  <div class="page_item page_grade ">
+    <!-- 评分页 - logo -->
+    <div class="logo"></div>
+    <!-- 评分页 - 标题 -->
+    <div class="grade_title font_shscnn text_forbid__cope"><div class="text decorate_note">声纹元气值</div></div>
+    <!-- 评分页 - 数据 -->
+    <div class="grade_data text_forbid__cope">
+      <div class="grade_data__user">
+        <div class="portrait">
+          <img class="portrait_img" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2319772070,3114389419&fm=26&gp=0.jpg" alt="">
+        </div>
+        <div class="name">Amy</div>
+      </div>
+      <div class="grade_score number_style font_shscnr">55.75</div>
+    </div>
+    <!-- 评分页 - 评语 -->
+    <div class="grade_comment text_forbid__cope"><text>不要灰心！ <br/>快试一试小凯同款「元气姜」粉精华， <br/>一起元气发光！</text></div>
+    <!-- 评分页 - 按钮 -->
+    <div class="grade_btn__wrap font_shscnl text_forbid__cope">
+      <div class="btn_item grade_btn__item go_list">查看元气声纹榜单></div>
+      <div class="btn_item grade_btn__item">GET小凯同款></div>
+      <div class="btn_item grade_btn__item share_btn">分享元气战绩></div>
+    </div>
+  </div>
+  <!-- 排名页 -->
+  <div class="page_item page_list">
+    <!-- Data: 2021年3月12日10:15:29; Edit: Hani; Describe: 排行页添加返回按钮 Start -->
+    <div class="return"></div>
+    <!-- Data: 2021年3月12日10:15:29; Edit: Hani; Describe: 排行页添加返回按钮 End -->
+    <!-- 排行页 - logo -->
+    <div class="logo"></div>
+    <!-- 排行页 - 文案 -->
+    <div class="list_text__wrap text_forbid__cope">
+      <div class="list_title font_shscnr"><div class="text decorate_note">元气声纹榜单</div> </div>
+      <div class="list_text font_shscnl">TOP10*可获得小凯同款「元气姜」粉精华以及签名照一份 </div>
+    </div>
+    <!-- 排行页 - 排行榜 -->
+    <div class="list_ranking text_forbid__cope">
+      <div class="list_ranking__title font_shscnr">王俊凯《元气发光》</div>
+      <div class="list_ranking__inner"></div>
+    </div>
+    <!-- 排行页 - 提示文案 -->
+    <div class="list_hint font_shscne text_forbid__cope">很遗憾，您目前暂未上榜，快来「再次挑战」吧！</div>
+    <div class="btn_item list_btn__item font_shscnl text_forbid__cope">再次挑战></div>
+    <div class="list_expiration font_shscnl show text_forbid__cope">*排名截止至2021年3月21日24点。 </div>
+  </div>
+
+    <div class="modal" id="modalShore">
+      <div class="modal_content">
+        <div class="modal_bg"></div>
+        <div class="modal_body modal_share">
+          <div class="share_content">
+            <img src="./img/share_img.jpg" class="share_img" alt="">
+          </div>
+          <div class="modal_close"></div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<script src="./js/fx.js"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

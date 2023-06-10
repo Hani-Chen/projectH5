@@ -1,0 +1,559 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+}
+
+i {
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body,
+html {
+  height: 100%;
+}
+
+@-webkit-keyframes showSection {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showSection {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 7.5rem;
+  height: 100%;
+  -webkit-animation: showSection 0.3s ease 0.2s both;
+          animation: showSection 0.3s ease 0.2s both;
+}
+
+.section:not(.show) {
+  display: none;
+}
+
+.hide {
+  display: none !important;
+}
+
+.bgm {
+  position: fixed;
+  z-index: 10;
+  top: 0.59rem;
+  left: 6.51rem;
+  width: 0.6rem;
+}
+
+.bgm > img {
+  position: absolute;
+  width: 0.6rem;
+  overflow: hidden;
+}
+
+.bgm > .play {
+  -webkit-animation: circling 2s linear 0s infinite;
+          animation: circling 2s linear 0s infinite;
+  display: inline-block;
+}
+
+.bgm > .stop {
+  opacity: 0;
+  display: none;
+}
+
+.bgm .playStyle {
+  opacity: 0;
+  display: none;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.bgm > .stopStyle {
+  opacity: 1;
+  display: inline-block;
+}
+
+@-webkit-keyframes circling {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes circling {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.loading-receptacle {
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: fixed;
+  width: 7.5rem;
+  height: 100%;
+  background-image: url(../img/bg-loading.jpg);
+}
+
+.loading-img {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 60%;
+  height: 60px;
+}
+
+.loading-img > i {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #bc3769;
+  position: absolute;
+  top: -webkit-calc(50% + 8px);
+  top: calc(50% + 8px);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: -6px;
+}
+
+.loading-img > i:nth-child(3) {
+  left: 100%;
+}
+
+.loading-img > div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: -webkit-calc(50% + 8px);
+  top: calc(50% + 8px);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 100%;
+  height: 10px;
+  border-radius: 25px;
+  border: 1px solid #bc3769;
+  right: 0;
+}
+
+.loading-img > div > span {
+  position: relative;
+  display: block;
+  height: 100%;
+  background: #bc3769;
+  border-radius: 25px;
+  -webkit-transition: width .25s;
+  transition: width .25s;
+}
+
+.loading-img > div > span > img {
+  position: absolute;
+  top: -60px;
+  height: 60px;
+  right: -20px;
+}
+
+.loading-img > .percentage {
+  position: absolute;
+  top: 60px;
+  display: block;
+  font-size: 24px;
+  color: #bc3769;
+  width: 100%;
+  text-align: center;
+}
+
+.publicity-fromTheBottomUp {
+  -webkit-animation: fadeInindex 1s both;
+          animation: fadeInindex 1s both;
+}
+
+.publicity-fromLeftBottomRight {
+  -webkit-animation: fadeInText 0.5s both;
+          animation: fadeInText 0.5s both;
+}
+
+.publicity-animationQueen {
+  -webkit-animation: fadeInQueen 0.5s both;
+          animation: fadeInQueen 0.5s both;
+}
+
+.publicity-receptacle {
+  background-image: url(../img/bg-index.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.publicity-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.publicity-cartoon {
+  width: 100%;
+  position: absolute;
+  top: 2rem;
+  left: 0.48rem;
+}
+
+.publicity-img {
+  position: absolute;
+}
+
+.publicity-padishah {
+  width: 6.1rem;
+  top: 1.5rem;
+  right: 0.48rem;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.publicity-queen {
+  height: 9.64rem;
+  top: 3.27rem;
+  right: 0.48rem;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.publicity-title {
+  width: 3.11rem;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+
+.publicity-text {
+  width: 0.73rem;
+  top: 1.12rem;
+  right: 0.84rem;
+  -webkit-animation-delay: 2.6s;
+          animation-delay: 2.6s;
+}
+
+.publicity-onlookers {
+  font-size: 0.4rem;
+  color: #fff;
+  width: 3.12rem;
+  height: 0.8rem;
+  position: absolute;
+  left: 50%;
+  margin-left: -1.56rem;
+  bottom: 1.16rem;
+  line-height: 0.8rem;
+  text-align: center;
+  background-image: url(../img/bg-button.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  -webkit-animation-delay: 3.4s;
+          animation-delay: 3.4s;
+}
+
+@-webkit-keyframes fadeInindex {
+  0% {
+    -webkit-transform: translateY(70px);
+            transform: translateY(70px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInindex {
+  0% {
+    -webkit-transform: translateY(70px);
+            transform: translateY(70px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInText {
+  0% {
+    -webkit-transform: translateX(70px);
+            transform: translateX(70px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    -webkit-transform: translateX(70px);
+            transform: translateX(70px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInQueen {
+  0% {
+    -webkit-transform: translateX(-70px);
+            transform: translateX(-70px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInQueen {
+  0% {
+    -webkit-transform: translateX(-70px);
+            transform: translateX(-70px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+#animation_container {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.inform-receptacle {
+  background-image: url(../img/bg_SVIP.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.inform-box {
+  position: absolute;
+  top: 18.56%;
+  left: 0.36rem;
+}
+
+.inform-pic {
+  display: block;
+  position: absolute;
+  -webkit-animation: fadeInDown 1s both;
+          animation: fadeInDown 1s both;
+}
+
+.inform-svip {
+  top: 0;
+  width: 4.96rem;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.inform-clothing {
+  top: 3.56rem;
+  width: 4.39rem;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.inform-cosmetics {
+  top: 4.27rem;
+  width: 5.82rem;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+
+.inform-nameplate {
+  top: 4.97rem;
+  width: 6.33rem;
+  -webkit-animation-delay: 2.6s;
+          animation-delay: 2.6s;
+}
+
+.inform-bubble {
+  top: 6.03rem;
+  width: 6.33rem;
+  -webkit-animation-delay: 3.4s;
+          animation-delay: 3.4s;
+}
+
+.inform-reminder {
+  top: 7.11rem;
+  width: 5.65rem;
+  -webkit-animation-delay: 4.2s;
+          animation-delay: 4.2s;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    -webkit-transform: translateY(70px);
+            transform: translateY(70px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    -webkit-transform: translateY(70px);
+            transform: translateY(70px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.lastPageLabel-receptacle {
+  background-image: url(../img/ld-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.lastPageLabel-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.lastPageLabel-cartoon {
+  width: 100%;
+  position: absolute;
+  top: 1.11rem;
+}
+
+.lastPageLabel-reginal {
+  position: absolute;
+  width: 7.5rem;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.lastPageLabel-text_ {
+  width: 1.3rem;
+  left: 0.90rem;
+  position: absolute;
+  top: 0.75rem;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+
+.lastPageLabel-button {
+  position: absolute;
+  bottom: 1.32rem;
+  width: 6.48rem;
+  height: 0.8rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.lastPageLabel-button > span {
+  font-size: 0.4rem;
+  color: #fff;
+  width: 3.12rem;
+  height: 0.8rem;
+  position: absolute;
+  bottom: 1.16rem;
+  line-height: 0.8rem;
+  text-align: center;
+  background-image: url(../img/bg-button.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.lastPageLabel-button > span:nth-child(1) {
+  left: 0;
+  -webkit-animation-delay: 2.6s;
+          animation-delay: 2.6s;
+}
+
+.lastPageLabel-button > span:nth-child(2) {
+  right: 0;
+  -webkit-animation-delay: 3.4s;
+          animation-delay: 3.4s;
+}
+
+/*# sourceMappingURL=../maps/css/style.min.css.map */

@@ -1,0 +1,203 @@
+{% extends "./_njk/base.njk" %}
+<!-- 页面 内容模块 -->
+{% block main %}
+  <!-- 活动主页 -->
+  <section class="section section-index ">
+    <!-- 头部 公共 -->
+    <div class="index-header">
+      <!-- logo -->
+      <div class="logo"></div>
+      <!-- 标题 -->
+      <div class="title"></div>
+      <!-- 主题 -->
+      <div class="theme"></div>
+    </div>
+    <!-- 首页 - 内容 -->
+    <div class="section-content show index-content">
+      <!-- 信封 -->
+      <div class="envelope">
+        <!-- 头像 - 容器 -->
+        <div class="envelope-portrait">
+          <!-- 头像 -->
+          <div class="portrait"></div>
+        </div>
+        <!-- 标题 -->
+        <p class="envelope-title">社保卡 保民生</p>
+        <!-- 文案 -->
+        <p class="envelope-text">请收下你的健康金</p>
+        <!-- 领取按钮 -->
+        <div class="envelope-btn">领取健康金</div>
+      </div>
+      <p class="envelope-rule">领取全国统一电子社保卡,畅享智慧人社服务,后续还可用于线上社保查询、参保缴费、考试缴费、医疗费结算等。</p>
+    </div>
+    <!-- 领取页 - 内容 -->
+    <div class="section-content get-content">
+
+      <!-- 红包 - 领取页 -->
+      <div class="content-redpackets redpackets">
+        <!-- 头像 -->
+        <div class="redpackets-portrait">
+          <div class="portrait"></div>
+        </div>
+        <!-- 标题 -->
+        <p class="redpackets-title">恭喜你！领取</p>
+        <!-- 文案 -->
+        <p class="redpackets-text">
+          <span>999</span><i>元</i>
+        </p>
+        <!-- 提现 -->
+        <div class="redpackets-btn">提现到零钱</div>
+      </div>
+
+      {# <!-- 红包 - 提现规则页 -->
+    <div class="content-redpackets condition">
+      <!-- 头像 -->
+      <div class="condition-portrait">
+        <div class="portrait"></div>
+      </div>
+      <!-- 文案 -->
+      <p class="condition-text condition-text1">1、提现金额达到50元，需审核通过后提现，请耐心等待。</p>
+      <!-- 文案 -->
+      <p class="condition-text condition-text2">2、提现次数达到当日上限(一天限两次)，请明天再来哦!</p>
+      <!-- 提现 -->
+      <div class="condition-btn">提现到零钱</div>
+    </div> #}
+
+      <!-- 红包 - 活动结束页 -->
+      <div class="content-redpackets activityend">
+        <!-- 头像 -->
+        <div class="activityend-portrait">
+          <div class="portrait"></div>
+        </div>
+        <!-- 文案 -->
+        <p class="activityend-title">你这次来晚了，活动已结束。</p>
+        <!-- 文案 -->
+        <p class="activityend-text">领取电子社保卡，下次参加活动更便捷。</p>
+        <!-- 提现 -->
+        <div class="activityend-btn">绑定社保卡</div>
+      </div>
+
+      <!-- 红包 - 查看我的电子社保卡 -->
+      <div class="content-redpackets examine">
+        <!-- 头像 -->
+        <div class="examine-portrait">
+          <div class="portrait"></div>
+        </div>
+        <!-- 文案 -->
+        <p class="examine-title">您已绑定电子社保卡啦!</p>
+        <!-- 文案 -->
+        <p class="examine-text">如此便捷的服务，快告诉你的好友吧!</p>
+        <!-- 提现 -->
+        <div class="examine-btn">查看我的电子社保卡</div>
+      </div>
+
+      <p class="redpackets-rule1">领取全国统一电子社保卡,畅享智慧人社服务,后续还可用于线上社保查询、参保缴费、考试缴费、医疗费结算等。</p>
+      <!-- 社保答疑 -->
+      <div class="redpackets-question">
+        <!-- 标题文案 -->
+        <div class="title">
+          <span class="title-wire"></span>
+          <div class="title-text">社保答疑</div>
+          <span class="title-wire"></span>
+        </div>
+        <!-- 问答 -->
+        <div class="question">
+          <p class="ask">Q：为什么我无法申领“电子社保卡”？</p>
+          <p class="answer">A：首先请检查实体卡：</p>
+          <p class="answer">1、请确认是否已经领取实体社保卡；</p>
+          <p class="answer">2、如已领取，请确认社保卡是否有以下情况：未激活、已挂失、已注销。</p>
+        </div>
+        <!-- 问答 -->
+        <div class="question">
+          <p class="ask">Q：实体卡挂失、锁定后，电子社保卡能否继续使用？</p>
+          <p class="answer">实体卡无效，电子社保卡也不可用。</p>
+          <p class="answer">社保卡无效或者不可用的情况：封存、挂失、锁定、注销。</p>
+        </div>
+      </div>
+      <!-- 活动规则-->
+      <div class="redpackets-rule">
+        <!-- 标题文案 -->
+        <div class="title">
+          <span class="title-wire"></span>
+          <div class="title-text">活动规则</div>
+          <span class="title-wire"></span>
+        </div>
+        <!-- 规则 -->
+        <div class="rule">
+          <p class="rule-item">
+            <i>1、</i>本次活动限武汉、青岛、厦门、深圳、郑州、成都、合肥、武汉、青岛、沈阳、长沙、延安、宁波、苏州、常熟、永康、白城、嘉兴等城市微信医保支付用户参加。
+          </p>
+          <p class="rule-item">
+            <i>2、</i>尚未开通微信医保支付的用户，点击“立即领取”后，按引导提示开通微信医保支付即可成功领取健康金；已开通微信医保支付的用户，在活动页面选择“立即领取”后，健康金将在30分钟内转入“微信零钱” 。
+          </p>
+          <p class="rule-item">
+            <i>3、</i>活动用户可以通过邀请好友帮忙，赢取更多健康金，好友帮忙次数上限为50次；每个用户最多可以帮助3个好友提额健康金。
+          </p>
+        </div>
+      </div>
+
+      <!-- 绑卡弹窗 -->
+      <div class="modal" id="modalBinding">
+        <div class="modal-content">
+          <div class="modal-bg"></div>
+          <div class="modal-binding-body">
+            <div class="modal-binding-title">
+              <p class="title">温馨提醒</p>
+              <p class="text">本次活动限指地区参保用户参加，提现前请先绑定社保卡.
+              </p>
+            </div>
+            <!-- 绑定社保卡按钮 -->
+            <div class="modal-binding-btn" id="modalBindingBtn">绑定社保卡</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 提现规则弹窗1 -->
+      <div class="modal" id="modalRules1">
+        <div class="modal-content">
+          <div class="modal-bg modal-rules1-bg"></div>
+          <div class="modal-rules1-body">
+            <!-- 文案 -->
+            <p class="condition-text condition-text1">提现金额达到50元，需审核通过后提现，请耐心等待。
+            </p>
+            <!-- 确定按钮 -->
+            <div class="modal-confirm-btn">确定</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 提现规则弹窗2 -->
+      <div class="modal" id="modalRules2">
+        <div class="modal-content">
+          <div class="modal-bg modal-rules1-bg"></div>
+          <div class="modal-rules1-body">
+            <!-- 文案 -->
+            <p class="condition-text condition-text1">提现次数达到当日上限(一天限两次)，请明天再来哦!
+            </p>
+            <!-- 确定按钮 -->
+            <div class="modal-confirm-btn">确定</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 提现成功弹窗 -->
+      <div class="modal" id="modalWithdraw">
+        <div class="modal-content">
+          <div class="modal-bg modal-rules1-bg"></div>
+          <div class="modal-rules1-body">
+            <!-- 文案 -->
+            <p class="modal-withdraw-text">提现成功
+            </p>
+            <!-- 确定按钮 -->
+            <div class="modal-confirm-btn">确定</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  {% endblock %}
+  <!-- 引入js -->
+  {% block javascript %}
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/index.js"></script>
+  {% endblock %}

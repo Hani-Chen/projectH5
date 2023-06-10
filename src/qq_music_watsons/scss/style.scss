@@ -1,0 +1,778 @@
+@charset "utf-8";
+// 样式引入 - 引入默认样式
+@import "./global.import";
+@import "./modal";
+@import "./ani";
+
+/* 页面公共样式 */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item_top {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: 0 0;
+  }
+}
+.btn {
+  display: inline-block;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+/* 页面样式 */
+.section {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; /* 解决ios滑动不流畅问题 */
+  background-color: #160055;
+  &.hidden {
+    overflow: hidden;
+  }
+  // 页面公共样式
+  &_page {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 100%;
+    height: 100%;
+    display: none;
+    animation: fadeIn 0.1s linear;
+    &.show {
+      display: block;
+    }
+    .bg {
+      width: 100%;
+      height: 100%;
+      background-image: url("../img/page_bg.jpg");
+      @extend .bg_item;
+    }
+    .home {
+      &_test {
+        position: absolute;
+        left: 2.3rem;
+        bottom: 2.1rem;
+        width: 1.8rem;
+        height: 1.2rem;
+      }
+      &_wrap {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 11.24rem;
+        margin-top: -5.62rem;
+        background-image: url("../img/mainpart.png");
+        @extend .bg_item;
+        background-position: 0 0.7rem;
+      }
+      &_title {
+        position: absolute;
+        left: 0;
+        top: -0.1rem;
+        width: 100%;
+        height: 2.8rem;
+        background-image: url("../img/home_title.png");
+        @extend .bg_item_top;
+        &__active {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url("../img/home_title_active.png");
+          @extend .bg_item_top;
+          animation: fadeIn 0.6s infinite alternate;
+        }
+      }
+      &_all__drinks {
+        position: absolute;
+        left: 2.6rem;
+        top: 2.62rem;
+        width: 3.34rem;
+        height: 5.02rem;
+        background-image: url("../img/home_all_drinks.png");
+        @extend .bg_item_top;
+        .active_wrap {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+        .active {
+          position: absolute;
+          left: -0.22rem;
+          top: 1.02rem;
+          width: 1.44rem;
+          height: 0.56rem;
+          background-image: url("../img/home_drinks_active.png");
+          @extend .bg_item_top;
+          // transition: opacity 0.01s;
+          opacity: 0;
+          &.show {
+            opacity: 1;
+          }
+        }
+        .active1 {
+          left: -0.22rem;
+          top: 1.02rem;
+        }
+        .active2 {
+          left: 0.96rem;
+          top: 1.02rem;
+        }
+        .active3 {
+          left: 2.1rem;
+          top: 1.02rem;
+        }
+        .active4 {
+          left: -0.22rem;
+          top: 2.72rem;
+        }
+        .active5 {
+          left: 0.96rem;
+          top: 2.72rem;
+        }
+        .active6 {
+          left: 2.1rem;
+          top: 2.72rem;
+        }
+        .active7 {
+          left: -0.22rem;
+          top: 4.44rem;
+        }
+        .active8 {
+          left: 0.96rem;
+          top: 4.44rem;
+        }
+        .active9 {
+          left: 2.1rem;
+          top: 4.44rem;
+        }
+        .semicircle {
+          position: absolute;
+          left: 0.28rem;
+          top: 1.29rem;
+          width: 2.85rem;
+          height: 3.72rem;
+          background-image: url("../img/home_semicircle.png");
+          @extend .bg_item_top;
+        }
+        .star {
+          position: absolute;
+          left: 1.1rem;
+          top: 1.84rem;
+          width: 1.15rem;
+          height: 1.08rem;
+          background-image: url("../img/home_star.png");
+          @extend .bg_item;
+        }
+        .glass {
+          position: absolute;
+          left: 0.85rem;
+          bottom: 0;
+          width: 2.87rem;
+          height: 5.02rem;
+          background-image: url("../img/home_glass.png");
+          @extend .bg_item;
+        }
+      }
+      &_loote {
+        position: absolute;
+        right: 1.2rem;
+        bottom: 1rem;
+        width: 2.1rem;
+        height: 0.8rem;
+        .loote {
+          position: absolute;
+          left: 0;
+          top: -0.05rem;
+          width: 100%;
+          height: 0.6rem;
+          overflow: hidden;
+          z-index: 2;
+            &::after {
+              content: '';
+              z-index: -1;
+              background-color: hsla(0, 0%, 100%, 0.6);
+              position: absolute;
+              top: -50%;
+              bottom: -50%;
+              width: 1.25em;
+            }
+            &.ani {
+              &::after {
+                animation: test 1s ease-in-out infinite;
+              }
+            }
+        }
+        .hand {
+          position: absolute;
+          right: -0.46rem;
+          top: 0.5rem;
+          width: 0.84rem;
+          height: 1.18rem;
+          background-image: url("../img/home_hand.png");
+          @extend .bg_item;
+          &.ani {
+            animation: pulse 0.5s ease-in-out infinite;
+          }
+        }
+      }
+      &_textroll {
+        position: absolute;
+        left: 0.75rem;
+        top: 3rem;
+        width: 0.85rem;
+        height: 3.55rem;
+        .textroll {
+          &_wrap {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+          }
+          &_inner {
+            width: 0.62rem;
+          }
+          &_item {
+            width: 100%;
+            height: 3.42rem;
+            margin: 0.1rem auto;
+            // transition: all 0.1s;
+            background-image: url("../img/home_textroll.png");
+            @extend .bg_item_top;
+          }
+        }
+      }
+      &_winning {
+        position: absolute;
+        right: 1.4rem;
+        bottom: 2.15rem;
+        width: 1.7rem;
+        height: 0.9rem;
+        &__item {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1.7rem;
+          height: 0.9rem;
+          background-image: url("../img/home_winning.png");
+          @extend .bg_item_top;
+          background-position: 0 0;
+          background-size: 5.1rem 2.7rem;
+          display: none;
+          &.show {
+            display: block;
+          }
+        }
+        .item_1 {
+          background-position: 0 0;
+          animation: bounceInDown 0.6s;
+        }
+        .item_2 {
+          background-position: -1.7rem 0;
+          animation: bounceInDown 0.6s;
+        }
+        .item_3 {
+          background-position: -3.4rem 0;
+          animation: bounceInDown 0.6s;
+        }
+        .item_4 {
+          background-position: 0 -0.9rem;
+          animation: bounceInDown 0.6s;
+        }
+        .item_5 {
+          background-position: -1.7rem -0.9rem;
+          animation: bounceInDown 0.6s;
+        }
+        .item_6 {
+          background-position: -3.4rem -0.9rem;
+          animation: bounceInDown 0.6s;
+        }
+        .item_7 {
+          background-position: 0 -1.8rem;
+          animation: bounceInDown 0.6s;
+        }
+        .item_8 {
+          background-position: -1.7rem -1.8rem;
+          animation: bounceInDown 0.6s;
+        }
+        .item_9 {
+          background-position: -3.4rem -1.8rem;
+          animation: bounceInDown 0.6s;
+        }
+      }
+    }
+    .list {
+      &_return {
+        position: absolute;
+        left: 0.57rem;
+        top: 0.06rem;
+        width: 1.05rem;
+        height: 0.52rem;
+        background-image: url("../img/return_home.png");
+        @extend .bg_item;
+      }
+      &_wrap {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 10.78rem;
+        margin-top: -5.39rem;
+        background-image: url("../img/list_bg.png");
+        @extend .bg_item;
+        background-position: 0 0;
+      }
+      &_glass {
+        position: absolute;
+        left: 0.24rem;
+        top: 0.28rem;
+        width: 3.08rem;
+        height: 5.2rem;
+        background-image: url("../img/list_glass.png");
+        @extend .bg_item;
+      }
+      &_textroll {
+        position: absolute;
+        left: 1.1rem;
+        top: 2.8rem;
+        width: 0.64rem;
+        height: 4.6rem;
+        background-color: rgba($color: #f00, $alpha: 0.2);
+        .textroll {
+          &_wrap {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+          }
+          &_inner {
+            width: 0.58rem;
+          }
+          &_item {
+            width: 100%;
+            height: 3.14rem;
+            margin: 0.1rem auto;
+            background-image: url("../img/list_textroll.png");
+            @extend .bg_item_top;
+          }
+        }
+      }
+      &_title {
+        position: absolute;
+        left: 1.85rem;
+        top: -0.04rem;
+        width: 4.3rem;
+        height: 2rem;
+        background-image: url("../img/list_title.png");
+        @extend .bg_item_top;
+        background-size: 12.9rem 6rem;
+        background-position: -8.6rem 0;
+
+        &__active {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url("../img/list_title_active.png");
+          @extend .bg_item_top;
+          animation: fadeIn 0.6s infinite alternate;
+          background-size: 12.9rem 6rem;
+          background-position: -8.6rem 0;
+        }
+        &__1 {
+          background-position: 0 0;
+        }
+        &__2 {
+          background-position: -4.3rem 0;
+        }
+        &__3 {
+          background-position: -8.6rem 0;
+        }
+        &__4 {
+          background-position: 0 -2rem;
+        }
+        &__5 {
+          background-position: -4.3rem -2rem;
+        }
+        &__6 {
+          background-position: -8.6rem -2rem;
+        }
+        &__7 {
+          background-position: 0 -4rem;
+        }
+        &__8 {
+          background-position: -4.3rem -4rem;
+        }
+        &__9 {
+          background-position: -8.6rem -4rem;
+        }
+      }
+      // 网格背景
+      &_gridding {
+        position: absolute;
+        left: 2.1rem;
+        bottom: 0.68rem;
+        width: 3.65rem;
+        height: 7.81rem;
+        @extend .bg_item;
+        // 网格
+
+        &.gridding2,
+        &.gridding3 {
+          background-image: url("../img/list_gridding4.png");
+        }
+        // 波浪
+        &.gridding4,
+        &.gridding9 {
+          background-image: url("../img/list_gridding3.png");
+        }
+        // 三角
+        &.gridding1,
+        &.gridding6 {
+          background-image: url("../img/list_gridding2.png");
+        }
+        // 竖线
+        &.gridding7,
+        &.gridding8 {
+          background-image: url("../img/list_gridding1.png");
+        }
+      }
+      &_jar {
+        position: absolute;
+        left: 2.34rem;
+        bottom: 1.8rem;
+        width: 3.69rem;
+        height: 6.56rem;
+        @extend .bg_item;
+        background-image: url("../img/list_jar_bg.png");
+        z-index: 3;
+      }
+      &_btn__wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        left: 2.4rem;
+        bottom: 1.05rem;
+        width: 3.6rem;
+        height: 0.6rem;
+        background-image: url("../img/btn_bg.png");
+        @extend .bg_item;
+        .btn_item {
+          width: 1.7rem;
+          height: 0.6rem;
+        }
+      }
+      &_inner {
+        margin-top: 0.5rem;
+        padding: 0.1rem 0.4rem 0.2rem 0.3rem;
+        max-height: 5.86rem;
+        overflow-x: auto;
+        .item {
+          position: relative;
+          line-height: 1.2;
+          margin-bottom: 0.5rem;
+          &_title {
+            max-width: 65%;
+            font-size: 0.24rem;
+            color: #fff;
+            margin-bottom: 0.1rem;
+            overflow: hidden; //超出的文本隐藏
+            text-overflow: ellipsis; //溢出用省略号显示
+            white-space: nowrap; //溢出不换行
+          }
+          &_text {
+            width: 65%;
+            font-size: 0.18rem;
+            color: #fff;
+            overflow: hidden; //超出的文本隐藏
+            text-overflow: ellipsis; //溢出用省略号显示
+            white-space: nowrap; //溢出不换行
+          }
+          &_collect {
+            position: absolute;
+            top: 50%;
+            right: 0.6rem;
+            margin-top: -0.25rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-image: url("../img/list_iocn.png");
+            @extend .bg_item;
+            background-position: 0 0;
+            background-size: 1rem 1rem;
+            &.active {
+              background-position: -0.5rem 0;
+            }
+          }
+          &_play {
+            position: absolute;
+            top: 50%;
+            right: 0.08rem;
+            margin-top: -0.25rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-image: url("../img/list_iocn.png");
+            @extend .bg_item;
+            background-position: 0 -0.5rem;
+            background-size: 1rem 1rem;
+            &.active {
+              background-position: -0.5rem -0.5rem;
+            }
+          }
+        }
+        .item:last-child {
+          margin-bottom: 0;
+        }
+      }
+      &_decorate {
+        position: absolute;
+        left: 1rem;
+        bottom: -0.32rem;
+        width: 2.7rem;
+        width: 2.7rem;
+        height: 2.7rem;
+        @extend .bg_item;
+        background-size: 5.4rem 5.4rem;
+        background-image: url("../img/list_decorate.png");
+        background-position: 0 0;
+        // 电子吉他
+        &.decorate2,
+        &.decorate3 {
+          background-image: url("../img/list_decorate.png");
+          background-position: -2.7rem -2.7rem;
+        }
+        // 耳机
+        &.decorate4,
+        &.decorate9 {
+          background-image: url("../img/list_decorate.png");
+          background-position: 0 -2.7rem;
+        }
+        // 手势
+        &.decorate1,
+        &.decorate6 {
+          background-image: url("../img/list_decorate.png");
+          background-position: 0 0;
+        }
+        // 乐器
+        &.decorate7,
+        &.decorate8 {
+          background-image: url("../img/list_decorate.png");
+          background-position: -2.7rem 0;
+        }
+      }
+    }
+  }
+}
+
+.modal_prize {
+  position: relative;
+  width: 4.5rem;
+  height: 6.9rem;
+  background-image: url("../img/modal_bg.png");
+  @extend .bg_item;
+  .prize {
+    &_textroll {
+      position: absolute;
+      left: 0.12rem;
+      top: 2.05rem;
+      width: 0.5rem;
+      height: 2.75rem;
+      background-color: rgba($color: #000000, $alpha: 0.2);
+
+      .textroll {
+        &_wrap {
+          display: flex;
+          justify-content: center;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
+        &_inner {
+          width: 0.5rem;
+        }
+        &_item {
+          width: 100%;
+          height: 2.5rem;
+          margin: 0.05rem auto;
+          background-image: url("../img/modal_textroll.png");
+          @extend .bg_item_top;
+        }
+      }
+    }
+    &_cdkey {
+      position: absolute;
+      left: 1.4rem;
+      top: 50%;
+      margin-top: -0.1rem;
+      width: 2.18rem;
+      height: 0.36rem;
+      border-radius: 0.3rem;
+      background-color: #fff;
+      line-height: 0.36rem;
+      text-align: center;
+      font-size: 0.15rem;
+      color: #b8b8b8;
+      border: 0;
+      outline: none;
+    }
+  }
+  .btn_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    left: 1.2rem;
+    bottom: 0.62rem;
+    width: 2.8rem;
+    height: 0.5rem;
+  }
+  .btn_item {
+    width: 1.3rem;
+    height: 100%;
+  }
+  .btn_copy {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: 0.54rem;
+    margin-left: -0.12rem;
+    width: 0.8rem;
+    height: 0.3rem;
+  }
+}
+
+.section_page .home_all__drinks .star {
+  left: 1.15rem;
+  top: 1.9rem;
+  width: 1.25rem;
+  height: 1.18rem;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/home_star_active.png");
+    @extend .bg_item;
+    animation: fadeIn 0.4s infinite alternate;
+  }
+}
+.section_home, .section_list {
+  .star_bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/home_star_bg.png");
+    @extend .bg_item;
+    animation: fadeIn 0.8s infinite alternate;
+  }
+  .globe_bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/home_globe_bg.png");
+    @extend .bg_item;
+    overflow: hidden;
+  }
+  .coconut_letf {
+    position: absolute;
+    left: -0.2rem;
+    top: 2.12rem;
+    width: 3.55rem;
+    height: 6.19rem;
+    background-image: url("../img/home_coconut_letf.png");
+    @extend .bg_item;
+    transform-origin: 0 100%;
+    animation: rotateInDownLeft 1.5s infinite alternate;
+  }
+  .coconut_right {
+    position: absolute;
+    right: -0.2rem;
+    top: 7.55rem;
+    width: 1.66rem;
+    height: 2.98rem;
+    background-image: url("../img/home_coconut_right.png");
+    @extend .bg_item;
+    transform-origin: 100% 100%;
+    animation: rotateInDownLeft 1s infinite alternate;
+  }
+}
+@keyframes rotateInDownLeft {
+  0% {
+    transform: rotate(0.1deg)scale(1);
+    transform: rotate(0.6deg)scale(1);
+  }
+  to {
+    transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* Data: 2020-08-07; Edit: Hani; Describe: 添加活动规则按钮和我的奖品按钮; Start 1.0.1 */
+.home_btn {
+  position: absolute;
+  left: 0.68rem;
+  top: 50%;
+  margin-top: 1.36rem;
+  width: 0.5rem;
+  height: 2.7rem;
+  background-image: url('../img/home_btn.png');
+  @extend .bg_item;
+  &__item {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1.2rem;
+  }
+  &__rule {
+    top: 0;
+  }
+  &__prize {
+    bottom: 0;
+  }
+}
+/* Data: 2020-08-07; Edit: Hani; Describe: 添加活动规则按钮和我的奖品按钮; End 1.0.1 */

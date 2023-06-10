@@ -1,0 +1,33 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_1.png',
+    'heading': '智能设备一键秒连',
+    'text': '得益于创维独家专利技术（专利号:201910146855.8），新的智能设备可以一键秒连实时加入Swaiot生态，从此配网不再繁琐。'
+  }
+%}
+
+{# 产品图 #}
+{# {% set productImg = {
+    'product': '/section11_product.jpg'
+  }
+%} #}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+{# 产品图 #}
+{# {% import "./components/title.njk" as title %}
+{{ title.product(productImg) }} #}
+
+<div class="product-img-wrap animation-box">
+  <img class="product-img product-img-pc img-block" src="{{baseUrl}}/section11_product.jpg" alt="">
+  <canvas id="section11canvas"></canvas>
+  <div class="content-box">
+    <div class="text"></div>
+    <div class="text2"></div>
+  </div>
+</div>

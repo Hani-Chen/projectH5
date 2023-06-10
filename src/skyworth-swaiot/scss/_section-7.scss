@@ -1,0 +1,109 @@
+// 第七屏容器
+.section-7 {
+  .product-img-wrap {
+    position: relative;
+    width: 100%;
+    margin: 125px 0 0;
+  }
+  .after-wrap {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 62.45%;
+    background: rgba($color: #000000, $alpha: 0.4);
+  }
+  .logo1 {
+    position: absolute;
+    left: 15.8%;
+    top: 5.2%;
+    width: 17%;
+  }
+  .logo2 {
+    position: absolute;
+    right: 24.1%;
+    bottom: 28.7%;
+    width: 6.6%;
+  }
+  .before-wrap {
+    position: absolute;
+    right: 23.5%;
+    bottom: 23.8%;
+    width: 8.1%;
+    height: 11.73%;
+    background: rgba($color: #000000, $alpha: 0.7);
+    border-radius: 50%;
+  }
+  .product-img {
+    width: 75%;
+    margin: 0 auto;
+    height: auto;
+  }
+}
+
+@media (max-width: 1600px) {
+  //$rate: 1600 / 1920;
+  $zoom: 0.833;
+  .section-7 {
+    .product-img-wrap {
+      margin: round(125px * $zoom) 0 0;
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  //$rate: 1440 / 1920;
+  $zoom: 0.75;
+  .section-7 {
+    .product-img-wrap {
+      margin: round(125px * $zoom) 0 0;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  //$rate: 1200 / 1920;
+  $zoom: 0.625;
+  .section-7 {
+    .product-img-wrap {
+      margin: round(125px * $zoom) 0 0;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  //$rate: 992 / 1920;
+  $zoom: 0.517;
+  .section-7 {
+    .product-img-wrap {
+      margin: round(125px * $zoom) 0 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  //$rate: 768 / 1920;
+  $zoom: 0.4;
+  .section-7 {
+    .product-img-wrap {
+      margin: 20px 0 0;
+    }
+    .after-wrap {
+      width: 90.6667%;
+    }
+    .product-img {
+      width: 90.6667%;
+    }
+    .before-wrap {
+      right: 18.1%;
+      bottom: 23.8%;
+      width: 9.5%;
+    }
+    .logo2 {
+      right: 18.5%;
+      bottom: 28.7%;
+      width: 8.6%;
+    }
+  }
+}

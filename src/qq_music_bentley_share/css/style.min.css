@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/* 页面公共样式 - Start */
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import url(global.import.css);
+.share_wrap {
+  position: relative;
+  width: 750px;
+  height: 1100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.share_wrap_1 {
+  background-image: url(../img/share_bg1.jpg);
+}
+
+.share_wrap_2 {
+  background-image: url(../img/share_bg2.jpg);
+}
+
+.share_wrap_3 {
+  background-image: url(../img/share_bg3.jpg);
+}
+
+.share_wrap_4 {
+  background-image: url(../img/share_bg4.jpg);
+}
+
+.share_type {
+  position: absolute;
+  left: 78px;
+  top: 740px;
+  font-size: 40px;
+  color: #fff;
+  letter-spacing: 8px;
+}
+
+.share_title {
+  position: absolute;
+  left: 78px;
+  top: 806px;
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 3px;
+}
+
+.share_text {
+  position: absolute;
+  left: 118px;
+  top: 894px;
+  font-size: 28px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.share_text2 {
+  position: absolute;
+  left: 78px;
+  top: 930px;
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.share_qrcode {
+  position: absolute;
+  right: 37px;
+  top: 960px;
+  width: 104px;
+  height: 104px;
+}
+
+.share_qrcode img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@font-face {
+  font-family: BentleyRegular;
+  src: url(../fonts/Bentley-Regular.otf);
+}
+
+@font-face {
+  font-family: simhei;
+  src: url(../fonts/simhei.ttf);
+}
+
+.share_type, .share_text, .share_text2 {
+  font-family: BentleyRegular, simhei;
+}
+
+/*# sourceMappingURL=../maps/css/style.min.css.map */

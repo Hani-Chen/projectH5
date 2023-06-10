@@ -1,0 +1,65 @@
+// 公共样式
+* {
+  box-sizing: border-box;
+}
+// 默认字体
+$baseFont: Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB',
+  'Heiti SC', STXihei, 'Microsoft YaHei', SimHei, 'WenQuanYi Micro Hei';
+/* 禁止长按链接与图片弹出菜单 */
+a,
+img {
+  -webkit-touch-callout: none;
+}
+img {
+  display: block;
+}
+body,
+div,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+b,
+i,
+img {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+i {
+  font-style: normal;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 0;
+}
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+body {
+  font-family: $baseFont;
+}

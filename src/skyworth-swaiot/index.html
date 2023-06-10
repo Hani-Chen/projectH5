@@ -1,0 +1,64 @@
+{% extends "./_njk/base.njk" %}
+
+{% block main %}
+  {% set sectionList = {
+    "section-1": "第1屏",
+    "section-2": "第2屏",
+    "section-3": "第3屏",
+    "section-4": "第4屏",
+    "section-5": "第5屏",
+    "section-6": "第6屏",
+    "section-7": "第7屏",
+    "section-8": "第8屏",
+    "section-9": "第9屏",
+    "section-10": "第10屏",
+    "section-11": "第11屏",
+    "section-12": "第12屏",
+    "section-13": "第13屏",
+    "section-14": "第14屏",
+    "section-15": "第15屏",
+    "section-16": "第16屏",
+    "section-17": "第17屏",
+    "section-18": "第18屏"
+  } %}
+
+  <!-- 定义基础引用路径 -->
+  {% set baseUrl = "./" %}
+
+  <div class="swaiot-wrap">
+    {% for section, desc in sectionList %}
+      <!-- {{section}} - {{desc}} -->
+      <div class="section section-{{loop.index}}">
+        {% include "./_njk/" + section + ".njk" %}
+      </div>
+    {% endfor %}
+
+    <div class="section section-20">
+      {% include "./_njk/section-20.njk" %}
+    </div>
+    <div class="section section-19">
+      {% include "./_njk/section-19.njk" %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascript %}
+
+  {# jquery #}
+  <script src="./js/jquery.min.js"></script>
+  <!-- 预加载资源插件 -->
+  <script type="text/javascript" src="./js/preloadjs.min.js"></script>
+  <!-- 帧动画参数 -->
+  <script type="text/javascript" src="./js/canvasData.js"></script>
+  <!-- 帧动画模块配置 -->
+  <script type="text/javascript" src="./js/canvasAni.js"></script>
+  
+  <!-- 动画插件引入 -->
+  <script src="./js/TweenMax.min.js"></script>
+  <script src="./js/ScrollMagic.js"></script>  
+  <script src="./js/ScrollToPlugin.min.js"></script>
+  <script src="./js/animation.gsap.js"></script>
+  
+  <script src="./js/swiper.min.js"></script>
+  <script src="./js/main.js"></script>
+{% endblock %}

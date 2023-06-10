@@ -1,0 +1,93 @@
+{% extends "../_njk/base.njk" %}
+<!-- 引入js -->
+{% block adaption %}
+  <script src="js/adaptive.js"></script>
+  <script>
+    window['adaptive'].desinWidth = 750
+    window['adaptive'].maxRate = 0.75
+    window['adaptive'].baseFont = 24
+    window['adaptive'].init()
+  </script>
+{% endblock %}
+<!-- 页面 内容模块 -->
+{% block main %}
+  <section class="section">
+    <!-- 导航模块 -->
+    <div class="nav-wrap">
+      <div class="nav-box">
+        <!-- 头部 图标 -->
+        <a href="javascript:;" class='nav-logo-box'>
+          <img class='nav-logo' src="./img/logo_icon.png"/>
+        </a>
+        <!-- 头部 下载按钮 -->
+        <a href="javascript:;" class='nav-download-box'>
+          <span class='nav-download'>download</span>
+        </a>
+        <!-- 头部 下拉列表按钮 -->
+        <div class="nav-list-box">
+          <!-- 列表 icon -->
+          <span class="nav-icon-box">
+            <img class='nav-icon' src="./img/nav_icon.png"/>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- 内容模块 -->
+    <div class="content-wrap">
+      <!-- 内容模块 头部 -->
+      <div class="content-header">
+        <!-- 头部 icon -->
+        <div class="header-icon-box">
+          <a href="javascript:;" class='icon-pubg-box'><img src="./img/simple_logo.png" alt="" class='icon-pubg'></a>
+        </div>
+        <!-- 头部 logo -->
+        <div class="header-logo-box">
+          <img src="./img/logo.png" alt="" class='header-logo'  onclick="return false">
+        </div>
+        <!-- 头部 title -->
+        <div class="header-title-box">
+          <img src="./img/title.png" alt="" class='header-title'  onclick="return false">
+        </div>
+        <!-- 活动介绍 -->
+        <div class='header-text-box'>
+          <p class='header-text'>全球玩家票选PUBG MOBILE天团，最强9人由你PICK！</p>
+          <p class='header-text'>每天参与投票，丰富奖励周周送！</p>
+        </div>
+      </div>
+      <!-- 内容模块 中部 -->
+      <div class="content-middle">
+        <!-- 活动规则按钮容器 -->
+        <div class="middle-rule-box">
+          <span class="middle-rule">详细规则</span>
+        </div>
+        <!-- tab 切换模块 占位容器 -->
+        <div class="middle-tab-wrap">
+          <!-- tab 切换模块 容器 -->
+          <div class="middle-tab-box">
+            <div class="middle-tabbar">
+              <span class="middle-tab-item">all</span>
+              <span class="middle-tab-item">mena</span>
+              <span class="middle-tab-item">n_a</span>
+              <span class="middle-tab-item">europe</span>
+              <span class="middle-tab-item">jp</span>
+              <span class="middle-tab-item">korea</span>
+              <span class="middle-tab-item">india</span>
+              <span class="middle-tab-item">thailand</span>
+              <span class="middle-tab-item">vietnam</span>
+              <span class="middle-tab-item">indonesia</span>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-container" id="page">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="rank-box">
+                <div  class="rank-content-box"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

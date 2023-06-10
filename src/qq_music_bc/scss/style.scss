@@ -1,0 +1,1221 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'hy';
+  src: url('../fonts/hy.ttf') format("truetype");
+}
+
+// 英文字体
+@font-face {
+  font-family: 'msr';
+  src: url('../fonts/msr.otf') format("truetype");
+}
+
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import './global.import.scss';
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: 'STSongti-TC-Regular', 'STSongti-TC', Simsun, 'PingFang', 'PingFang SC', Helvetica, Tahoma, Arial,
+'Hiragino Sans GB', 'Heiti SC', STXihei, 'Microsoft YaHei', SimHei,
+'WenQuanYi Micro Hei';
+
+//hint: QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2;函数用法示例（750设计稿字体大小24）：font-size: changePx(0.24rem);
+@function changePx($px) {
+  @return $px / 2;
+}
+
+html,
+body,
+.wrap {
+  //width: 100%;
+  height: 100vh;
+  position: relative;
+  font-family: hy, $baseFont;
+  user-select: none;
+  //overflow: hidden;
+  //touch-action: pan-y;
+}
+
+body {
+  height: 100vh;
+  //overflow: auto;
+  overflow: hidden;
+}
+
+/* 测试样式 - 项目开始删除 */
+.wrap {
+  //position: relative;
+  font-size: 0.12rem;
+  height: 100vh;
+  overflow: auto;
+  //overflow: visible;
+}
+
+.page {
+  position: relative;
+  height: 100vh;
+}
+
+.logo {
+  display: block;
+  height: 0.22rem;
+}
+
+.start {
+  position: relative;
+  background-color: #0e2567;
+
+  .bg {
+    display: block;
+    width: 100%;
+  }
+
+  .page-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 0.32rem;
+    padding-bottom: 0.26rem;
+  }
+
+  .start-desc {
+    margin-top: 3.18rem;
+    padding: 0 0.25rem;
+    margin-bottom: 0.23rem;
+  }
+
+  .start-desc-wrapper {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.05rem;
+    border-bottom: 1px solid rgba(122, 155, 246, 0.5);
+  }
+
+  .start-desc-text {
+    display: block;
+    width: changePx(4.58rem);
+    height: 1.08rem;
+    flex: 1;
+    padding-right: 0.1rem;
+    box-sizing: border-box;
+  }
+
+  .start-desc-list {
+    width: 0.91rem;
+    padding-top: 0.15rem;
+    box-sizing: border-box;
+  }
+
+  .start-desc-btn {
+    display: block;
+    height: 0.24rem;
+    margin-bottom: 0.11rem;
+    background: {
+      image: url('../img/index_btn.png');
+      size: 0.91rem 0.75rem;
+      position: 0 0;
+      repeat: no-repeat;
+    };
+
+    &.start-desc-btn-1 {
+      background: {
+        position: 0 0;
+      };
+    }
+
+    &.start-desc-btn-2 {
+      background: {
+        position: 0 -0.25rem;
+      };
+    }
+
+    &.start-desc-btn-3 {
+      background: {
+        position: 0 -0.5rem;
+      };
+      margin-bottom: 0.2rem;
+    }
+
+  }
+
+  // 活动
+  .start-activity {
+    .start-activity-item {
+      margin-bottom: 0.25rem;
+
+      &:last-child {
+        margin-bottom: 0.25rem;
+      }
+    }
+
+    .start-activity-text {
+      margin: 0 auto 0.08rem;
+      width: changePx(5rem);
+      height: changePx(0.58rem);
+      color: #9cb0de;
+      font-size: 0.12rem;
+      line-height: 0.15rem;
+      //width: 2.8rem;
+      text-align: center;
+      background: {
+        image: url('../img/start_text.png');
+        size: changePx(5rem) 0.86rem;
+        position: 0 0;
+        repeat: no-repeat;
+      };
+
+      &.start-activity-text2 {
+        height: 0.58rem;
+        background-position: 0 changePx(-0.58rem);
+        margin-bottom: changePx(0.02rem);
+      }
+    }
+
+    .start-activity-btn {
+      margin: 0 auto;
+      width: 1.6rem;
+      height: 0.37rem;
+      background: {
+        image: url('../img/btns.png');
+        position: 0 0;
+        repeat: no-repeat;
+        size: 1.71rem 2.22rem;
+      };
+
+      &.start-activity-btn-2 {
+        background: {
+          position: 0 -0.37rem;
+        };
+      }
+    }
+  }
+
+  .start-activity2 {
+    .start-activity2-content {
+
+    }
+
+    .start-activity2-music {
+      margin: 0 auto 0.02rem;
+      width: 3.3rem;
+      height: 2.2rem;
+      background: {
+        image: url("../img/start_activity2_bg.png");
+        size: 100%;
+        position: 0 0;
+        repeat: no-repeat;
+      };
+    }
+
+    .start-activity2-music-item {
+      color: #fff;
+      font-size: 0.13rem;
+      font-family: $baseFont;
+      height: 0.44rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 0.29rem;
+      padding-right: 0.26rem;
+    }
+
+    .start-activity2-music-prefix {
+      width: 0.2rem;
+      height: 0.2rem;
+      margin-right: 0.04rem;
+      background: {
+        image: url('../img/icon.png');
+        size: 0.4rem 1rem;
+        position: 0 -0.4rem;
+        repeat: no-repeat;
+      };
+    }
+
+    .start-activity2-music-name {
+      position: relative;
+      //padding-left: 0.2rem;
+      //background-color: #f90;
+      margin-right: auto;
+      width: 1.84rem;
+      overflow: hidden;
+    }
+
+    .start-activity2-music-inner {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .start-activity2-music-action {
+      display: flex;
+    }
+
+    .start-activity2-music-icon {
+      width: 0.2rem;
+      height: 0.2rem;
+      background: {
+        image: url('../img/icon.png');
+        size: 0.4rem 1rem;
+        position: 0 0;
+        repeat: no-repeat;
+      };
+
+      &.start-activity2-music-play {
+        margin-right: 0.13rem;
+        background: {
+          position: 0 0;
+        };
+
+        &.active {
+          background: {
+            position: -0.2rem 0;
+          };
+        }
+      }
+
+
+      &.start-activity2-music-favicon {
+        background: {
+          position: 0 -0.2rem;
+        };
+
+        &.active {
+          background: {
+            position: -0.2rem -0.2rem;
+          };
+        }
+      }
+    }
+
+    .start-activity2-replace {
+      margin-left: auto;
+      margin-right: 0.2rem;
+      width: 0.6rem;
+      padding-left: 0.06rem;
+      font-size: 0.12rem;
+      font-family: $baseFont;
+      color: #9cb0de;
+      background: {
+        image: url('../img/icon.png');
+        size: 0.4rem 1rem;
+        position: 0.4rem  -0.8rem;
+        repeat: no-repeat;
+      };
+    }
+
+    .start-activity2-btn {
+      margin: 0 auto 0.08rem;
+      width: 1.60rem;
+      height: 0.37rem;
+      background: {
+        image: url('../img/btns.png');
+        size: 1.71rem 2.22rem;
+        position: 0 -0.37rem;
+        repeat: no-repeat;
+      };
+
+      &.start-activity2-btn2 {
+        margin-bottom: 0.26rem;
+        background: {
+          position: 0 0;
+        };
+      }
+    }
+
+    .start-activity2-more {
+      display: block;
+      margin: 0 auto 0.2rem;
+      width: 0.92rem;
+      height: 0.25rem;
+    }
+
+    .start-activity2-comment {
+      position: relative;
+      margin: 0 auto;
+      width: 3.3rem;
+      height: 1.05rem;
+      padding: 0.12rem 0.06rem 0.04rem;
+      box-sizing: border-box;
+      background: {
+        image: url('../img/start_activity2_bg2.png');
+        size: 3.3rem 1.05rem;
+        position: 0 0;
+      };
+
+      .start-activity2-comment-item {
+        position: relative;
+        font-size: 0.12rem;
+        line-height: 0.18rem;
+        color: #fff;
+        padding-left: 0.08rem;
+
+        &::before {
+          content: '';
+          display: block;
+          width: 0.05rem;
+          height: 0.05rem;
+          position: absolute;
+          left: 0;
+          top: 0.07rem;
+          background: #5573d8;
+          border-radius: 50%;
+          border: 0.01rem solid #fff;
+          box-sizing: border-box;
+        }
+
+        &:first-child {
+          margin-bottom: 0.08rem;
+        }
+      }
+    }
+  }
+
+  .start-activity3 {
+    .start-activity3-music {
+      margin: 0 auto 0.21rem;
+      width: 3.3rem;
+      height: 2.2rem;
+      background: {
+        image: url("../img/start_activity2_bg.png");
+        size: 100%;
+        position: 0 0;
+        repeat: no-repeat;
+      };
+    }
+
+    .start-activity3-music-item {
+      color: #fff;
+      font-size: 0.13rem;
+      font-family: $baseFont;
+      height: 0.44rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 0.24rem;
+      padding-right: 0.26rem;
+    }
+
+    .start-activity3-music-avatar {
+      width: 0.3rem;
+      height: 0.3rem;
+      border-radius: 50%;
+      background: rgba(85, 115, 216, 0.4);
+      overflow: hidden;
+      margin-right: 0.02rem;
+    }
+
+    .start-activity3-music-prefix {
+      width: 0.2rem;
+      height: 0.2rem;
+      margin-right: 0.02rem;
+      background: {
+        image: url('../img/icon.png');
+        size: 0.4rem 1rem;
+        position: 0 -0.4rem;
+        repeat: no-repeat;
+      };
+    }
+
+    .start-activity3-music-name {
+      display: flex;
+      align-items: flex-end;
+      margin-right: auto;
+      width: 1.64rem;
+
+      &-sub {
+        font-size: 0.12rem;
+        color: #c9caca;
+      }
+    }
+
+    .start-activity3-music-outer {
+      overflow: hidden;
+      max-width: 1rem;
+    }
+
+    .start-activity3-music-inner {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .start-activity3-music-wait {
+      font-size: 0.14rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 auto;
+    }
+
+    .start-activity3-music-action {
+      display: flex;
+    }
+
+    .start-activity3-music-icon {
+      width: 0.2rem;
+      height: 0.2rem;
+      background: {
+        image: url('../img/icon.png');
+        size: 0.4rem 1rem;
+        position: 0 0;
+        repeat: no-repeat;
+      };
+
+      &.start-activity3-music-play {
+        margin-right: 0.13rem;
+        background: {
+          position: 0 0;
+        };
+
+        &.active {
+          background: {
+            position: -0.2rem 0;
+          };
+        }
+      }
+
+
+      &.start-activity3-music-favicon {
+        background: {
+          position: 0 -0.2rem;
+        };
+
+        &.active {
+          background: {
+            position: -0.2rem -0.2rem;
+          };
+        }
+      }
+    }
+
+    .start-activity3-logo {
+      margin: 0 auto 0.18rem;
+      display: block;
+      width: 1.82rem;
+      height: 0.78rem;
+    }
+
+    // 试听
+    .start-activity3-try {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0.02rem;
+
+      .start-activity3-try-item {
+        position: relative;
+        width: 1.63rem;
+        height: 0.9rem;
+        background: {
+          image: url('../img/start_activity3_bg3.png');
+          size: 1.63rem 0.9rem;
+          position: 0 0;
+          repeat: no-repeat;
+        };
+        padding: 0.2rem;
+        padding-left: 0.1rem;
+        padding-right: 0.06rem;
+        padding-top: 0.31rem;
+        box-sizing: border-box;
+
+        &.start-activity3-try-item-1 {
+          margin-right: 0.02rem;
+        }
+      }
+
+      .start-activity3-try-content {
+        margin-bottom: 0.04rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0.02rem;
+        box-sizing: border-box;
+        background: {
+          image: linear-gradient(90deg, rgba(85, 115, 216, 1) 0%, rgba(85, 115, 216, 0) 94%, rgb(39, 53, 118) 100%);
+          size: 100% 0.01rem;
+          position: 0 100%;
+          repeat: no-repeat;
+        };
+      }
+
+      .start-activity3-try-sign {
+        margin: 0 auto;
+        width: 0.2rem;
+        height: 0.2rem;
+        background: {
+          image: url('../img/icon.png');
+          size: 0.4rem 1rem;
+          position: 0 -0.6rem;
+          repeat: no-repeat;
+        };
+      }
+
+      .start-activity3-try-name {
+        font-size: 0.12rem;
+        color: #fff;
+        font-family: $baseFont;
+        width: 1rem;
+        overflow: hidden;
+      }
+
+      .start-activity3-try-inner {
+        white-space: nowrap;
+        display: inline-block;
+      }
+
+      .start-activity3-try-action {
+        display: flex;
+      }
+
+      .start-activity3-try-icon {
+        width: 0.15rem;
+        height: 0.15rem;
+        background: {
+          image: url('../img/icon.png');
+          position: 0 0;
+          repeat: no-repeat;
+          size: 0.3rem 0.75rem;
+        };
+
+        &.start-activity3-try-icon-1 {
+          margin-right: 0.1rem;
+          background: {
+            position: 0 0;
+          };
+
+          &.active {
+            background: {
+              position: -0.15rem 0;
+            };
+          }
+        }
+
+        &.start-activity3-try-icon-2 {
+          background: {
+            position: 0 -0.15rem;
+          };
+
+          &.active {
+            background: {
+              position: -0.15rem  -0.15rem;
+            };
+          }
+        }
+
+      }
+    }
+
+    // 换一批
+    .start-activity3-replace {
+      margin: 0 auto 0.17rem;
+      width: 0.6rem;
+      color: #9cb0de;
+      font-size: 0.12rem;
+      padding-left: 0.06rem;
+      box-sizing: border-box;
+      font-family: $baseFont;
+      background: {
+        image: url('../img/icon.png');
+        size: 0.4rem 1rem;
+        position: 0.4rem -0.8rem;
+        repeat: no-repeat;
+      };
+    }
+
+    // 评论
+    .start-activity3-comment {
+      margin: 0 auto 0.04rem;
+      width: 3.3rem;
+      height: 0.88rem;
+      font-size: 0.12rem;
+      line-height: 0.18rem;
+      color: #fff;
+      padding: 0.16rem 0.12rem 0;
+      box-sizing: border-box;
+      background: {
+        image: url('../img/start_activity2_bg2.png');
+        size: 3.3rem 0.88rem;
+        position: 0 0;
+      };
+    }
+
+    // 演出
+    .start-activity3-show {
+      position: relative;
+      margin: 0 auto 0.25rem;
+      width: 3.28rem;
+
+      .start-activity3-show-img {
+        display: block;
+        width: 100%;
+      }
+
+      .start-activity3-show-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: 0.92rem;
+        box-sizing: border-box;
+      }
+
+      .start-activity3-show-title {
+        font-size: 0.2rem;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 0.02rem;
+        font-family: msr, $baseFont;
+      }
+
+      .start-activity3-show-btns {
+        display: flex;
+        justify-content: center;
+      }
+
+      .start-activity3-show-btn {
+        width: 0.75rem;
+        height: 0.2rem;
+        margin-right: 0.05rem;
+        background: {
+          image: url('../img/start_activity3_btn.png');
+          size: 0.75rem 0.8rem;
+          position: 0 0;
+          repeat: no-repeat;
+        };
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      @for $i from 0 through 3 {
+        .start-activity3-show-btn#{$i+1} {
+          background: {
+            position: 0 $i*-0.2rem;
+          };
+        }
+      }
+    }
+  }
+
+  .start-activity-logo {
+    display: block;
+    margin: 0 auto 0.28rem;
+    margin-left: changePx(2.22rem);
+    width: 1.64rem;
+    height: 0.85rem;
+  }
+
+  // 人物列表
+  .start-person {
+    margin-bottom: 0.13rem;
+  }
+
+  .start-person-link {
+    display: block;
+    margin: 0 auto 0.05rem;
+    width: 3.6rem;
+    height: 1.15rem;
+    background: {
+      image: url('../img/start_person.png');
+      size: 3.6rem 5.75rem;
+      position: 0 0;
+      repeat: no-repeat;
+    };
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @for $i from 0 through 4 {
+      &.start-person-link-#{$i + 1} {
+        background: {
+          position: 0 ($i * -1.15rem);
+        };
+      }
+
+    }
+
+  }
+
+  .start-person-avatar {
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    position: absolute;
+    left: 0.2rem;
+    top: 0.22rem;
+  }
+
+  .start-person-text {
+    display: block;
+    width: 2.3rem;
+    position: absolute;
+    left: 1.14rem;
+    top: 0.62rem;
+  }
+
+  .start-person-info {
+    position: absolute;
+    width: 1.8rem;
+    height: 0.34rem;
+    left: 1.15rem;
+    top: 0.125rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.06rem;
+
+    .start-person-name {
+      font-size: 0.16rem;
+    }
+
+    .start-person-desc {
+      white-space: pre-line;
+      color: #9cb0de;
+      font-size: 0.12rem;
+      line-height: 0.13rem;
+      text-align: right;
+      //letter-spacing: -0.01rem;
+      letter-spacing: -1px;
+
+      .start-person-desc-en {
+        font-family: msr;
+      }
+    }
+  }
+
+  // swiper
+  .start-swiper {
+    margin: 0 auto;
+    width: 3.28rem;
+    height: 1.2rem;
+    overflow: hidden;
+    background-color: #5573d8;
+
+    .start-wrap {
+      height: 100%;
+    }
+
+    .start-item {
+    }
+
+    .start-item-link {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .start-item-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .start-item-img-btn {
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: 0.06rem;
+      margin-left: -0.675rem;
+      width: 1.35rem;
+      height: 0.3rem;
+    }
+  }
+
+  .start-fixed {
+    position: fixed;
+    left: 0.03rem;
+    top: 2.5rem;
+
+    .start-fixed-icon {
+      width: 0.37rem;
+      height: 0.37rem;
+      background: {
+        image: url('../img/start_fixed.png');
+        size: 0.37rem auto;
+        position: 0 -0.37rem;
+      };
+
+      &:first-child {
+        margin-bottom: .15rem;
+        background: {
+          position: 0 0;
+        };
+      }
+    }
+  }
+}
+
+// 项目介绍
+.project-intro,
+.person-intro {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: {
+    image: url('../img/intro_bg.jpg');
+    size: 100% 8.125rem;
+    repeat: no-repeat;
+    position: center;
+  };
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s linear;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .intro-content {
+    position: relative;
+    height: 5.5rem;
+    padding-top: 0.27rem;
+    box-sizing: border-box;
+  }
+
+  .intro-logo {
+    display: block;
+    width: 3.75rem;
+    margin: 0 auto 1.84rem;
+  }
+
+  .intro-link {
+    display: block;
+    width: 0.73rem;
+    height: 0.32rem;
+    margin-left: auto;
+    margin-right: 0.1rem;
+    background: {
+      image: url('../img/intro_btn.png');
+      size: 0.73rem 0.64rem;
+      position: 0 0;
+      repeat: no-repeat;
+    };
+  }
+
+}
+
+// 人物介绍
+.person-intro {
+  .intro-person-bg {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -4.0625rem;
+    display: block;
+    width: 100%;
+    height: 8.125rem;
+  }
+
+  .intro-content {
+    padding-top: 0.76rem;
+  }
+
+  .intro-logo {
+    margin-bottom: 0.34rem;
+  }
+
+  .person-intro-video {
+    position: relative;
+    width: 3.42rem;
+    height: 1.92rem;
+    background: #0a0f0e;
+    margin: 0 auto 0.1rem;
+    overflow: hidden;
+    border-width: 1px;
+    border-color: rgba(224, 98, 238, 0.6);
+    border-style: solid;
+
+    .person-intro-video-el {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .person-intro-video-cover {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .person-intro-video-icon {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0.5rem;
+      height: 0.5rem;
+      margin-left: -0.25rem;
+      margin-top: -0.25rem;
+    }
+  }
+
+  .intro-link {
+    background: {
+      position: 0 -0.32rem;
+    };
+  }
+}
+
+// 填写歌词
+.page.write {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: {
+    image: url('../img/write_bg.jpg');
+    size: 100% 8.125rem;
+    repeat: no-repeat;
+    position: center;
+  };
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s linear;
+
+  .write-logo {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: changePx(-5.32rem);
+    display: block;
+    // margin: 0 auto 0.15rem;
+    width: changePx(7.5rem);
+    height: changePx(0.44rem);
+    background: {
+      image: url("../img/logo.png");
+      size: 100%;
+      repeat: no-repeat;
+      position: 0 0;
+    }
+  }
+  &.active {
+    position: fixed;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .write-content {
+    position: relative;
+    height: 5.5rem;
+    padding-top: 0.48rem;
+    box-sizing: border-box;
+  }
+
+  .write-logo {
+    display: block;
+    // margin: 0 auto 0.15rem;
+    width: 3.75rem;
+  }
+
+  .write-input {
+    position: relative;
+    height: 0.95rem;
+    margin-bottom: 0.06rem;
+    background: {
+      image: url('../img/write_input.png');
+      size: 100%;
+      repeat: no-repeat;
+      position: 0 0;
+    };
+  }
+
+  .write-text {
+    position: absolute;
+    left: 0.64rem;
+    top: 0.36rem;
+    display: block;
+    width: 2.4rem;
+    font-size: 0.125rem;
+    color: #fefefe;
+    background: none;
+    font-family: $baseFont;
+    height: 0.46rem;
+    border: 0 none;
+    resize: none;
+  }
+
+  .write-btns-submit {
+    margin: 0 auto 0;
+    display: block;
+    width: 1.7rem;
+    height: 0.37rem;
+    background: {
+      image: url('../img/btns.png');
+      size: 1.71rem 2.22rem;
+      position: 0 -1.48rem;
+    };
+
+    &.disable {
+      background: {
+        position: 0 -1.85rem;
+      };
+    }
+  }
+
+  .write-btns-group {
+    display: flex;
+    justify-content: center;
+  }
+
+  .write-btn {
+    background: {
+      image: url('../img/write_btn2.png');
+      size: changePx(1.86rem) changePx(1.2rem);
+      position: 0 0;
+      repeat: no-repeat;
+    };
+
+    &.write-btn-back {
+      width: changePx(1.86rem);
+      height: changePx(0.6rem);
+      // margin-right: 0.1rem;
+      margin-left: changePx(0.06rem);
+    }
+
+    &.write-btn-rule {
+      width: changePx(1.86rem);
+      height: changePx(0.6rem);
+      margin-left: changePx(-0.28rem);
+      background: {
+        position: 0 -0.3rem;
+      };
+    }
+  }
+}
+
+.page.result {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: {
+    image: url('../img/result_bg.jpg');
+    size: 100% 8.125rem;
+    repeat: no-repeat;
+    position: center;
+  };
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s linear;
+
+  &.active {
+    position: fixed;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .result-content {
+    position: relative;
+    height: 5.5rem;
+    padding-top: 0.1rem;
+    box-sizing: border-box;
+  }
+
+  .result-logo {
+    display: block;
+    margin: 0 auto 0.42rem;
+    width: 3.75rem;
+  }
+
+  .result-text {
+    position: relative;
+  }
+
+  .result-text-bg {
+    display: block;
+    width: 2.05rem;
+    margin-left: 0.96rem;
+  }
+
+  .result-text-content {
+    white-space: pre-line;
+    color: #fefefe;
+    font-size: 0.12rem;
+    line-height: 0.18rem;
+    font-family: $baseFont;
+    margin-top: -0.37rem;
+    margin-left: 1.67rem;
+    width: 1.55rem;
+    word-break: break-all;
+  }
+
+  .result-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0.37rem;
+    position: absolute;
+    top: 4.94rem;
+
+    .result-btn-back {
+      display: block;
+      width: 0.69rem;
+      height: 0.37rem;
+      margin-right: 0.1rem;
+      background: {
+        image: url('../img/result_back.png');
+        size: 0.69rem 0.37rem;
+        position: 0 0;
+        repeat: no-repeat;
+      };
+    }
+
+    .result-btn-green {
+      display: block;
+      width: 1.6rem;
+      height: 0.37rem;
+      background: {
+        image: url('../img/btns.png');
+        size: 1.7rem 2.22rem;
+        position: 0 -0.74rem;
+        repeat: no-repeat;
+      };
+
+      &.share {
+        background: {
+          position: 0 -1.11rem;
+        };
+      }
+    }
+  }
+
+
+}
+
+
+/* 页面样式 - End */
+
+
+
+// .start {
+//   display: none;
+// }
+// .page.write {
+//   visibility: visible;
+//   opacity: 1;
+// }

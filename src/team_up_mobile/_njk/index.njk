@@ -1,0 +1,827 @@
+{% extends "./base.njk" %}
+{% import "./lang.njk" as lang %}
+{% set langV = lang[langCode] %}
+
+{% macro text(key) %}
+  {% if langOutput %}
+    {% raw %}
+      {# {% endraw %}{{key | safe}}{% raw %} #}
+    {% endraw %}
+  {% else %}{{langV[key] | safe}}
+  {% endif %}
+{% endmacro %}
+{% block facebook %}
+  <meta property="og:url" content=""/>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{text('title')}}">
+  <meta property="og:description" content="">
+  <meta property="og:image" content=""/>
+{% endblock %}
+{% block title %}
+  {{text('title')}}
+{% endblock %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="./css/style.min.css"/>
+  <link href="https://cdn.bootcss.com/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet">
+{% endblock %}
+
+{# 全部 #}
+{% set allList = [
+  {
+    id: 1,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker '
+  }, {
+    id: 2,
+    img: './img/rink2.jpg ',
+    name: 'Alan Walker'
+  }, {
+    id: 3,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 4,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 5,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 6,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 7,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 8,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }
+] %}
+{# 中东 #}
+{% set eameList = [
+  {
+    id: 1,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker '
+  }, {
+    id: 2,
+    img: './img/rink2.jpg ',
+    name: 'Alan Walker'
+  }, {
+    id: 3,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 4,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 5,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 6,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 7,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 8,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }
+] %}
+{# 北美 #}
+{% set americaList = [
+  {
+    id: 1,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker '
+  }, {
+    id: 2,
+    img: './img/rink2.jpg ',
+    name: 'Alan Walker'
+  }, {
+    id: 3,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 4,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 5,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 6,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 7,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 8,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }
+] %}
+{# 欧洲 #}
+{% set europeList = [
+  {
+    id: 1,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker '
+  }, {
+    id: 2,
+    img: './img/rink2.jpg ',
+    name: 'Alan Walker'
+  }, {
+    id: 3,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 4,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 5,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 6,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 7,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 8,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }
+] %}
+{# 日本 #}
+{% set jpList = [
+  {
+    id: 1,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker '
+  }, {
+    id: 2,
+    img: './img/rink2.jpg ',
+    name: 'Alan Walker'
+  }, {
+    id: 3,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 4,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 5,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 6,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 7,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 8,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }
+] %}
+{# 韩国 #}
+{% set koreaList = [
+  {
+    id: 1,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker '
+  }, {
+    id: 2,
+    img: './img/rink2.jpg ',
+    name: 'Alan Walker'
+  }, {
+    id: 3,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 4,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 5,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 6,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 7,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 8,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }
+] %}
+{# 印度 #}
+{% set IndiaList = [
+  {
+    id: 1,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker '
+  }, {
+    id: 2,
+    img: './img/rink2.jpg ',
+    name: 'Alan Walker'
+  }, {
+    id: 3,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 4,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 5,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 6,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 7,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 8,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }
+] %}
+{# 泰国 #}
+{% set thList = [
+  {
+    id: 1,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker '
+  }, {
+    id: 2,
+    img: './img/rink2.jpg ',
+    name: 'Alan Walker'
+  }, {
+    id: 3,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 4,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 5,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 6,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 7,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 8,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }
+] %}
+{# 越南 #}
+{% set vieList = [
+  {
+    id: 1,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker '
+  }, {
+    id: 2,
+    img: './img/rink2.jpg ',
+    name: 'Alan Walker'
+  }, {
+    id: 3,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 4,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 5,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 6,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 7,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 8,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }
+] %}
+{# 印尼 #}
+{% set JakartaList = [
+  {
+    id: 1,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker '
+  }, {
+    id: 2,
+    img: './img/rink2.jpg ',
+    name: 'Alan Walker'
+  }, {
+    id: 3,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 4,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 5,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 6,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 7,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 8,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }, {
+    id: 9,
+    img: './img/rink2.jpg',
+    name: 'Alan Walker'
+  }
+] %}
+{# 选手 #}
+{% macro
+rank(item) %}
+  <div class="rank-item">
+    <div class="rank-avator-box">
+      <div class="rank-img" data-id="rank-{{ item.id }}">
+        <img src="{{ item.img }}"/>
+      </div>
+      <img src="./img/rankinglist.png" alt="" class="rank-rankinglist"/>
+      <span class="rank-standing">{{ item.id }}</span>
+      <span class="rank-name">{{ item.name }}</span>
+    </div>
+    <span class="rank-btn" data-id="rank-{{ item.id }}">{{text('vote')}}</span>
+  </div>
+
+{% endmacro %}
+
+<!-- 内容区 -->
+{% block main %}
+  <div class="teamup">
+    <!-- 头部 -->
+    <div class="teamup-header">
+      <div class="swiper-container swiper-header">
+        <!-- 轮播图片 当前为自动轮播 当只有一张时停止自动轮播 -->
+        <div class="swiper-wrapper">
+          <!-- 轮播图片 当前为自动轮播 当只有一张时停止自动轮播 -->
+          <div class="swiper-slide"><img src="./img/teamup_header_bg.jpg" alt=""  onclick="return false">
+            <!-- 头部 logo -->
+            <div class="logo-box">
+              <img src="./img/logo.png" alt="" class='logo'  onclick="return false">
+            </div>
+            <!-- 头部 title -->
+            <div class="title-box">
+              <img src="./img/title.png" alt="" class='title'  onclick="return false">
+            </div>
+          </div>
+          <div class="swiper-slide"><img src="./img/teamup_header_bg2.jpg" alt=""  onclick="return false">
+            <!-- 头部 logo -->
+            <div class="logo-box">
+              <img src="./img/logo2.png" alt="" class='logo'  onclick="return false">
+            </div>
+            <!-- 头部 title -->
+            <div class="title-box">
+              <img src="./img/title2.png" alt="" class='title'  onclick="return false">
+            </div>
+          </div>
+        </div>
+
+        <div class="simplelogo-box">
+          <a href="javascript:void(0)"><img src="./img/simple_logo.png" alt="" class='simplelogo'></a>
+        </div>
+        <!-- 头部 玩家id || 玩家选票数 -->
+        <div class="vote-box">
+          <p>{{text('id')}}
+            <span id="player-id">123456789</span></p>
+          <p>{{text('residue')}}
+            <span id="vote-num">8</span></p>
+        </div>
+        <!-- 活动介绍 -->
+        <div class='text-box'>
+          <p class='text'>{{text('pick')}}</p>
+          <p class='text'>
+            {{text('giver')}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- 内容区 -->
+    <div class="teamup-content">
+      <div class="teamup-rules">{{text('rules')}}</div>
+      <div class="teamup-tabbar-wrapper">
+        <div class="teamup-tabbar-affix">
+          <div id="top">
+            <!-- 导航栏 -->
+            <div class="tabbar">
+              <span onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_nation_all'});" class="tab-item active">{{text('all')}}</span>
+              <span onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_nation_mena'});" class="tab-item vfx">{{text('mena')}}</span>
+              <span onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_nation_na'});" class="tab-item">{{text('n_a')}}</span>
+              <span onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_nation_eu'});" class="tab-item">{{text('europe')}}</span>
+              <span onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_nation_jp'});" class="tab-item">{{text('jp')}}</span>
+              <span onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_nation_kr'});" class="tab-item">{{text('korea')}}</span>
+              <span onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_nation_in'});" class="tab-item">{{text('india')}}</span>
+              <span onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_nation_th'});" class="tab-item">{{text('thailand')}}</span>
+              <span onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_nation_vi'});" class="tab-item">{{text('vietnam')}}</span>
+              <span onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_nation_indonesia'});" class="tab-item">{{text('indonesia')}}</span>
+            </div>
+          </div>
+          <div class="arrows"></div>
+        </div>
+      </div>
+      <div class="swiper-container" id="page">
+        <div class="swiper-wrapper">
+          <!-- 全部 -->
+          <div class="swiper-slide slidepage">
+            <div class="rank-box">
+              <div  class="rank-content-box">
+                {% for item in allList %}
+                  {{ rank(item) }}
+
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          <!-- 中东 -->
+          <div class="swiper-slide slidepage">
+            <div class="rank-box">
+
+              <div  class="rank-content-box">
+                {% for item in eameList %}
+                  {{ rank(item) }}
+
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          <!-- 北美 -->
+          <div class="swiper-slide slidepage">
+            <div class="rank-box">
+              <div  class="rank-content-box">
+                {% for item in americaList %}
+                  {{ rank(item) }}
+
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          <!-- 欧洲 -->
+          <div class="swiper-slide slidepage">
+            <div class="rank-box">
+              <div  class="rank-content-box">
+                {% for item in europeList %}
+                  {{ rank(item) }}
+
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          <!-- 日本 -->
+          <div class="swiper-slide slidepage">
+            <div class="rank-box">
+              <div  class="rank-content-box">
+                {% for item in jpList %}
+                  {{ rank(item) }}
+
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          <!-- 韩国 -->
+          <div class="swiper-slide slidepage">
+            <div class="rank-box">
+              <div  class="rank-content-box">
+                {% for item in koreaList %}
+                  {{ rank(item) }}
+
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          <!-- 印度 -->
+          <div class="swiper-slide slidepage">
+            <div class="rank-box">
+              <div  class="rank-content-box">
+                {% for item in IndiaList %}
+                  {{ rank(item) }}
+
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          <!-- 泰国 -->
+          <div class="swiper-slide slidepage">
+            <div class="rank-box">
+              <div  class="rank-content-box">
+                {% for item in thList %}
+                  {{ rank(item) }}
+
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          <!-- 越南 -->
+          <div class="swiper-slide slidepage">
+            <div class="rank-box">
+              <div  class="rank-content-box">
+                {% for item in vieList %}
+                  {{ rank(item) }}
+
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          <!-- 印尼 -->
+          <div class="swiper-slide slidepage">
+            <div class="rank-box">
+              <div  class="rank-content-box">
+                {% for item in JakartaList %}
+                  {{ rank(item) }}
+
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  {# 页面所需所有弹窗 #}
+
+  <!-- 活动规则弹窗 -->
+  <div class="pop" data-rule>
+    <div class="pop-rule-content">
+      <h1 class="pop-title">{{text('rules')}}</h1>
+      <ul class="rule-list">
+        <li>{{text('presentation')}}</li>
+        <li>{{text('presentation1')}}</li>
+        <li>{{text('presentation2')}}</li>
+        <li>{{text('presentation3')}}</li>
+        <li>{{text('presentation4')}}</li>
+        <li>{{text('presentation5')}}</li>
+        <li>{{text('presentation6')}}</li>
+        <li>{{text('presentation7')}}</li>
+        <li>{{text('presentation8')}}</li>
+        <li>{{text('presentation9')}}</li>
+        <li>{{text('presentation10')}}</li>
+      </ul>
+      <img src="./img/shut.png" alt=""  class="pop-shut" data-shut/>
+    </div>
+  </div>
+
+  <!-- 活动结束 弹窗 -->
+  <div class="pop" data-over>
+    <div class="pop-none-content">
+      <p class="pop-none-text">当前活动已经结束</p>
+      <img src="./img/shut.png" alt="" class="pop-shut"  onclick="return false" data-shut/>
+    </div>
+  </div>
+
+  <!-- 操作错误 弹窗 -->
+  <div class="pop" data-err>
+    <div class="pop-none-content">
+      <p class="pop-none-text">操作错误</p>
+      <img src="./img/shut.png" alt="" class="pop-shut"  onclick="return false" data-shut/>
+    </div>
+  </div>
+
+  <!-- 没有选票弹窗 -->
+  <div class="pop" data-none>
+    <div class="pop-none-content">
+      <p class="pop-none-text">{{text('gone')}}</p>
+      <img src="./img/shut.png" alt="" class="pop-shut"  onclick="return false" data-shut/>
+    </div>
+  </div>
+
+  <!-- 分享弹窗 -->
+  <div class="pop" data-share>
+    <div class="pop-share-content">
+      <p class="pop-share-text">{{text('share_via')}}</p>
+      <div class="pop-share-iconbox">
+        <!-- facebook分享 参数u为要分享的页面链接 
+      需要在对应的页面网页meta属性中配置以下facebook分享属性项：
+      <meta property="og:title" content="The Rock"/>分享标题
+      <meta property="og:image" content="http://ia.media-imdb.com/rock.jpg"/>分享图片
+      <meta property="og:description" content="blar blar blar blar blar"/>分享描述
+     -->
+        <a
+        href="https://www.facebook.com/sharer/sharer.php?u=https://google.com"
+        class="header-right-facebook"
+        target="_blank" onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_share_facebook'});"
+      >
+          <img src="./img/share_1.png" alt=""/>
+        </a>
+        <!-- twitter 需配置链接中的url属性和text属性 
+      可参考 https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/guides/web-intent.html
+     -->
+        <a
+        href="https://twitter.com/intent/tweet?url=https://google.com&text=分享標題"
+        class="header-right-twitter"
+        target="_blank" onclick="gtag('event', 'x_jump', {'event_category': '20190617teamup','event_label': 'm_share_twitter'});"
+      >
+          <img src="./img/share_2.png" alt=""/>
+        </a>
+      </div>
+      <img src="./img/shut.png" alt="" class="pop-shut" data-shut  onclick="return false"/>
+    </div>
+  </div>
+
+  <!-- 点赞弹窗 -->
+  <div class="pop" data-like>
+    <div class="pop-like-content">
+      <div class="pop-like-header">
+        <img src="./img/rink2.jpg" class="pop-like-img"  onclick="return false"/>
+        <span class="pop-like-name">Alan Walker</span>
+      </div>
+      <div class="pop-like-middle">
+        <p class="pop-like-text">
+          {{text('raid')}}<br/>
+          {{text('mail')}}
+        </p>
+
+      </p>
+      <img src="./img/tu.jpg" alt="" class="pop-like-treasure"  onclick="return false"/>
+    </div>
+    <div class="pop-like-bottom">
+      <span class="pop-like-button" data-continue>{{text('continue')}}</span>
+      <span  onclick="gtag('event','x_click',{'event_category':'20190617teamup','event_label':'m_share_btn'});" class="pop-like-button" data-shareplay>{{text('share')}}</span>
+    </div>
+    <img src="./img/shut.png" alt="" class="pop-shut" data-shut  onclick="return false"/>
+  </div>
+</div>
+
+<!-- 个人详情弹窗 -->
+{# <div class="pop" data-introduce>
+  <div class="pop-introduce-content">
+    <div class="pop-introduce-header">
+      <img src="./img/rink2.jpg" class="pop-introduce-img" onclick="return false"/>
+      <div class="box">
+        <span class="pop-introduce-name">Alan Walker</span>
+        <span class="pop-introduce-region">Norway</span>
+        <span>DJ</span>
+      </div>
+    </div>
+    <div class="pop-introduce-bottom">
+      <p class="manifesto">{{text('manifesto')}}</p>
+      <p>Team Up and Win. Follow me.</p>
+      <p>and Win. Follow me.</p>
+    </div>
+  </div>
+</div> #}
+<!-- 个人详情弹窗 -->
+<div class="pop" data-introduce>
+  <div class="pop-introduce-content">
+    <img src="./img/rink2.jpg" class="pop-introduce-img" onclick="return false"/>
+    <span class="pop-introduce-name">Alan Walker</span>
+    <span class="pop-introduce-region">Norway</span>
+    <span class="pop-introduce-dj">DJ</span>
+    <p class="manifesto">{{text('manifesto')}}</p>
+    <p class="manifesto-text">Team Up and Win. Follow me.</p>
+    <p class="manifesto-text">and Win. Follow me.</p>
+  </div>
+</div>
+{% endblock %}
+
+<!-- js区 -->
+{% block javascript %}
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<!-- swiper -->
+<script src="https://cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js"></script>
+<!-- 引入页面js -->
+<script src="./js/index.js"></script>
+{% endblock %}

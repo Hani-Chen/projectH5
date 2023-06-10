@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+
+//hint: QQ音乐规定 - 引入QQ音乐默认样式
+@import "global.import.css";
+
+//hint: 1px像素解决方案 - 按需引入
+// @import "./_border.import.css";
+
+//hint: 工具类 - 按需引入
+@import "./toolScss";
+
+//hint: QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2;函数用法示例（750设计稿字体大小24）：font-size: changePx(0.24rem);
+@function changePx($px) {
+  @return $px / 2;
+}
+
+//hint: h5默认字体 - 可根据默认不同的默认字体修改字体顺序
+$baseFont: "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei,
+  "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+}
+
+/* 页面公共样式 - End */
+
+/* 页面样式 - Start */
+//! 【*注意* ：QQ音乐规定类名命名，必须以下划线形式命名】
+// 类名用法示例：
+//hint:  .test_box {}
+//hint:  .test_box__wrap {}
+//!  .test_box__wrap___*** 命名禁止超过三级
+//!  .test1 .test2 .test3 .test4 {} 嵌套禁止超过三级
+
+/* 页面样式 - End */
+
+.test-canvas {
+  width:100%;
+  height:changePx(7.2rem);
+  margin-bottom: 0.3rem;
+}
+.test-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100%;
+  background: #000;
+}
+.img-test,.img-test-box {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.img-test {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.img-2 {
+  opacity: 0;
+  transition: all 3s;
+  &.active {
+    opacity: 1;
+  }
+}
+.test-button {
+  width: changePx(3.2rem);
+  height: changePx(0.8rem);
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  bottom: 0.5rem;
+  transform: translate3d(-50%, 0, 0);
+}

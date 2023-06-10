@@ -1,0 +1,46 @@
+@charset "utf-8";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  position: relative;
+  height: 100%;
+  background-color: #5faeff;
+  font-family: Helvetica, Tahoma, Arial, PingFang SC, Hiragino Sans GB, Heiti SC,
+    STXihei, Microsoft YaHei, SimHei, WenQuanYi Micro Hei;
+}
+
+
+.main-bg {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  img {
+    position: relative;
+    left: 50%;
+    margin-left: -960px;
+    pointer-events: none;
+    width: 1920px;
+  }
+}
+
+.qrcode-hover {
+  position: fixed;
+  top: 60px;
+  right: 40px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 35px 0 rgba(71, 192, 159, 0.46);
+  width: 147px;
+  z-index: 1;
+  text-align: center;
+  overflow: hidden;
+}
+.qrcode-pic {
+  display: block;
+  margin: 0 auto 5px;
+  width: 100%;
+}

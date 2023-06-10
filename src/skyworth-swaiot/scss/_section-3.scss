@@ -1,0 +1,131 @@
+// 第三屏容器
+.section-3 {
+  position: relative;
+  padding-top: 129px;
+  // height: 1600px;
+  overflow: hidden;
+  background: {
+    image: url($baseUrl+"img/section3_bg.png");
+    size: auto 100%;
+    position: center 0;
+    repeat: no-repeat;
+  }
+  .product-img-wrap {
+    width: 100%;
+    margin: 75px 0px 68px;
+    padding-bottom: 61px;
+  }
+  // .product-img {
+  //   width: 100%;
+  //   margin: 0 auto;
+  //   height: auto;
+  // }
+
+  .content-wrap {
+    position: relative;
+    width: 100%;
+    margin-top: 77px;
+    img {
+      position: relative;
+      width: 100%;
+      height: auto;
+      z-index: 2;
+    }
+  }
+  .product-img-pc {
+    display: block;
+  }
+  .product-img-android {
+    display: none;
+  }
+}
+#section3Canvas1,#section3Canvas2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 1600px) {
+  //$rate: 1600 / 1920;
+  $zoom: 0.833;
+  .section-3 {
+    padding-top: round(129px * $zoom);
+    .product-img-wrap {
+      margin: round(75px * $zoom) 0px round(68px * $zoom);
+      padding-bottom: round(61px * $zoom);
+    }
+    .content-wrap {
+      margin-top: round(77px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  //$rate: 1440 / 1920;
+  $zoom: 0.75;
+  .section-3 {
+    padding-top: round(129px * $zoom);
+    .product-img-wrap {
+      margin: round(75px * $zoom) 0px round(68px * $zoom);
+      padding-bottom: round(61px * $zoom);
+    }
+    .content-wrap {
+      margin-top: round(77px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  //$rate: 1200 / 1920;
+  $zoom: 0.625;
+  .section-3 {
+    padding-top: round(129px * $zoom);
+    .product-img-wrap {
+      margin: round(75px * $zoom) 0px round(68px * $zoom);
+      padding-bottom: round(61px * $zoom);
+    }
+    .content-wrap {
+      margin-top: round(77px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  //$rate: 992 / 1920;
+  $zoom: 0.517;
+  .section-3 {
+    padding-top: round(129px * $zoom);
+    .product-img-wrap {
+      margin: round(75px * $zoom) 0px round(68px * $zoom);
+      padding-bottom: round(61px * $zoom);
+    }
+    .content-wrap {
+      margin-top: round(77px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  //$rate: 768 / 1920;
+  $zoom: 0.4;
+  .section-3 {
+    padding-top: 0;
+    background: {
+      position: center 20px;
+    }
+    .product-img-wrap {
+      margin: round(75px * $zoom) 0px round(68px * $zoom);
+      padding-bottom: round(61px * $zoom);
+    }
+    .content-wrap {
+      margin-top: 20px;
+    }
+    .product-img-pc {
+      display: none;
+    }
+    .product-img-android {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{% extends "../_njk/base.njk" %}
+{% block title %}
+情人节，皇上也发愁了
+{% endblock %}
+{% block adaption %}
+<!-- <script src="js/adaptive.js"></script> -->
+<script src="./js/adaptive.js"></script>
+<script>
+  window['adaptive'].desinWidth = 750;
+  window['adaptive'].baseFont = 24;
+  window['adaptive'].init();
+</script>
+{% endblock %}
+{% block main %}
+
+<!-- 加载页面 -->
+<section class="section section-loading">
+  <div class="loading-wrapper">
+    <div class="loading-progress">
+      <div class="loading-progress-outer">
+        <div class="loading-progress-inner">
+          <img src="./img/loading.gif" class="loading-progress-img" />
+        </div>
+      </div>
+    </div>
+    <div class="loading-percent">0%</div>
+  </div>
+</section>
+
+<!-- 启动页面 -->
+<section class="section section-start">
+  <!-- 人物动画 -->
+  <div class="start-person">
+    <div class="start-person-1"></div>
+    <div class="start-person-2"></div>
+  </div>
+  <!-- 页面光效 -->
+  <div class="start-light"></div>
+  <!-- 花瓣雨效果 -->
+  <div class="flower-canvas">
+    <canvas id="canvasStart"></canvas>
+  </div>
+
+  <!-- 标题文本 -->
+  <div class="start-text-1"></div>
+  <!-- 右边文本 -->
+  <div class="start-text-2"></div>
+  <!-- 按钮 加入群聊 -->
+  <div class="start-btn-bar">
+    <div class="btn start-btn">
+      加入群聊
+    </div>
+  </div>
+</section>
+
+<!-- 动画页面 - 对话框页面 -->
+<section class="section section-chat">
+  <div id="animation_container" style="width:750px; height:1624px">
+    <canvas id="chatCanvas" width="750" height="1624" style="position: absolute; display: block;"></canvas>
+    <div id="dom_overlay_container"
+      style="pointer-events:none; overflow:hidden; width:750px; height:1624px; position: absolute; left: 0px; top: 0px; display: block;">
+    </div>
+  </div>
+  <div id="animateClickPad"></div>
+</section>
+
+<!-- 动画页面 - 对话流程中 联想页面 -->
+<section class="section section-think">
+  <div class="think-bg"></div>
+  <div class="think-group">
+    <!-- 第一个联想 -->
+    <div class="think-pop" id="gardenPop">
+      <!-- 皇上 -->
+      <div class="think-person"></div>
+      <div class="pop-group">
+        <div class="pop-i pop-i-1"></div>
+        <div class="pop-i pop-i-2"></div>
+        <div class="pop-i pop-i-3"></div>
+      </div>
+    </div>
+    <!-- 第一次联想视频 -->
+    <div class="think-canvas" id="gardenBox">
+      <canvas id="gardenCanvas" width="750" height="1334"></canvas>
+    </div>
+
+  </div>
+  <!-- 盘他 -->
+  <div class="think-panta" id="pantaPop">
+    <div class="think-box">
+      <div class="think-panta-person"></div>
+      <div class="think-panta-t think-panta-t-1"></div>
+    </div>
+  </div>
+
+  <!-- 第二次联想视频 -->
+  <div class="think-canvas" id="yanziBox">
+    <canvas id="yanziCanvas"></canvas>
+    <canvas id="yanziPopCanvas"></canvas>
+  </div>
+</section>
+
+<!-- 动画页面 - 杨贵妃收到消息页面 -->
+<section class="section section-message">
+  <div class="message-canvas">
+    <canvas id="msgDqqCanvas"></canvas>
+  </div>
+  <!-- 花瓣雨效果 -->
+  <div class="flower-canvas">
+    <canvas id="canvasMessage"></canvas>
+  </div>
+  <div class="message-text"></div>
+  <div class="message-msg">
+    <div class="message-shake"></div>
+  </div>
+</section>
+
+<!-- 年费SVIP通知 -->
+<section class="section section-svip">
+  <div class="svip-wrapper">
+    <div class="svip-title"></div>
+    <div class="svip-999"></div>
+    <div class="svip-text"></div>
+  </div>
+</section>
+
+<!-- 动画页面 - 杨贵妃通话前 -->
+<section class="section section-call">
+  <!-- 波形canvas -->
+  <div class="call-canvas">
+    <canvas id="waveCanvas"></canvas>
+  </div>
+  <!-- 唐玄宗头像 -->
+  <div class="call-avatar"></div>
+  <!-- 底部框 -->
+  <div class="call-answer-wrapper">
+    <!-- 接听按钮 -->
+    <div class="call-answer"></div>
+  </div>
+</section>
+
+<!-- 动画页面 - 通话中 -->
+<section class="section section-calling">
+  <!-- 唐玄宗 -->
+  <div class="calling-king">
+    <div class="calling-pop calling-pop-1"></div>
+  </div>
+  <!-- 杨贵妃 -->
+  <div class="calling-queen">
+    <div class="calling-pop calling-pop-4"></div>
+  </div>
+  <!-- 底部框 -->
+  <div class="calling-answer-wrapper">
+    <!-- 挂断按钮 -->
+    <div class="calling-answer"></div>
+    <span class="calling-dropped">挂断</span>
+  </div>
+</section>
+
+<!-- 落地页面 -->
+<section class="section section-end">
+  <div class="end-text"></div>
+  <div class="end-person"></div>
+  <div class="flower-canvas">
+    <canvas id="canvasEnd"></canvas>
+  </div>
+
+  <div class="end-btn-bar">
+    <div class="btn svip-btn">开通SVIP</div>
+    <div class="btn share-btn">分享给好友</div>
+  </div>
+</section>
+
+<section class="fixed-bar">
+  <div class="bgm-toggle" id="bgmBtn"></div>
+</section>
+{% endblock %} {% block javascript %}
+<script>
+  var staticPrefix = './'
+
+</script>
+<script src="https://qzs.qzone.qq.com/qzone/qzact/common.m/qzact.lib/index.js"></script>
+<script src="./js/zepto.min.js"></script>
+
+<script src="./js/animatedata.js"></script>
+<script src="./js/create.js"></script>
+
+<!-- 引入动画模板js -->
+<script src="./js/main-h5.js"></script>
+<!-- 引入页面js -->
+<script src="./js/build.js"></script>
+
+{% endblock %}

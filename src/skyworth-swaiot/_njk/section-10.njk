@@ -1,0 +1,28 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_5.png',
+    'heading': 'Swaiot OS开放生态',
+    'text': 'Swaiot OS定制化服务助力传统设备快速升级成为智慧屏幕，与合作伙伴共享酷开系统的各项服务能力，携手共建智慧屏幕应用生态。'
+  }
+%}
+
+{# 产品图 #}
+{# {% set productImg = {
+    'product': '/section10_product.png'
+  }
+%} #}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+{# 产品图 #}
+{# {% import "./components/title.njk" as title %}
+{{ title.product(productImg) }} #}
+
+<div class="product-img-wrap animation-box">
+  <img class="product-img product-img-pc img-block" src="{{baseUrl}}/section10_product.png" alt="">
+  <img class="product-img product-img-android img-block" src="{{baseUrl}}/section10_product1.png" alt="">
+</div>

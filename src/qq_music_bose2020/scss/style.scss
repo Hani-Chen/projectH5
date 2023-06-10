@@ -1,0 +1,803 @@
+@charset "utf-8";
+@import 'global.import.css';
+
+// 公共样式
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffdb82;
+}
+
+.toast_item {
+  position: absolute;
+  max-width: 60%;
+  left: 50%;
+  bottom: 2.45rem;
+  background: rgba(255, 255, 255, 1);
+  color: #000;
+  font-size: 0.18rem;
+  padding: 0.12rem 0.16rem;
+  line-height: 1;
+  transform: translate3d(-50%, -50%, 0);
+  animation: i 0.5s backwards;
+  z-index: 11;
+  user-select:none;
+}
+// 公共样式 - 背景图片公共样式
+.bg-item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+// 页面样式
+.page_item {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 16.24rem;
+  margin-top: -8.12rem;
+  display: none;
+  &.show {
+    display: block;
+    animation: pageShow 0.5s linear;
+  }
+  .logo {
+    position: absolute;
+    right: 0.34rem;
+    top: 2.6rem;
+    width: 4.4rem;
+    height: 0.6rem;
+    @extend .bg-item;
+    background-image: url('../img/logo.png');
+    z-index: 2;
+  }
+  // 装饰 - cd
+  .decorate_cd {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5.38rem;
+    height: 4.78rem;
+    @extend .bg-item;
+    background-image: url('../img/select_cd.png');
+  }
+  .btn {
+    width: 1.2rem;
+    height: 1.2rem;
+    overflow: hidden;
+    // @extend .bg-item;
+    background: {
+      image: url('../img/icon_bg.png');
+      size: 3.6rem 2.4rem;
+      position: 0 0;
+      repeat: no-repeat;
+    }
+    // 暂停
+    &.btn_stop {
+      background-position: -1.2rem 0;
+    }
+    // 录制
+    &.btn_record {
+      background-position: -2.4rem 0;
+    }
+    // 上一页
+    &.btn_prev {
+      background-position: 0 -1.2rem;
+    }
+    // 下一页
+    &.btn_next {
+      background-position: -1.2rem -1.2rem;
+    }
+  }
+}
+// 首页
+.page_home {
+  > .bg,
+  .bg_item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    // @extend .bg-item;
+    // background-position: left 0 bottom 0;
+    // opacity: 0;
+    // animation: homeHumanCut 5s linear infinite;
+    // background-image: url('../img/home_bg_girl.png');
+  }
+
+  // 背景切换 - 动画1
+  .bg_item {
+    transition: opacity 2s linear;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    &.ani {
+      opacity: 100;
+      filter: alpha(opacity=100);
+    }
+    img {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+  // 麦克风 - 动画2
+  .home_microphone {
+    position: absolute;
+    left: 50%;
+    bottom: -0.2rem;
+    width: 2.2rem;
+    height: 6.77rem;
+    margin-left: -1.1rem;
+    @extend .bg-item;
+    background-image: url('../img/microphone.png');
+    background-size: auto 6.77rem;
+    transform: translate3d(0, 6.6rem, 0);
+    animation: homeMicrophone 0.5s 5s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  .aureole_wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 5.8rem;
+    height: 5.7rem;
+    margin-left: -2.9rem;
+    margin-top: -0.1rem;
+    @extend .bg-item;
+    background-size: auto 5.7rem;
+    animation-fill-mode: forwards;
+    &.forbid {
+      pointer-events: none;
+    }
+    .bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.85;
+    }
+    // 圆圈动画 - 动画3
+    .circle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1rem;
+      height: 1rem;
+      background: rgba(#f00, 1);
+      border-radius: 100%;
+      animation: haloAni 1.2s both 1;
+    }
+    @for $i from 1 through 5 {
+      .circle_#{$i} {
+        width: $i + rem;
+        height: $i + rem;
+        animation-delay: ($i * 0.15s) + 5;
+      }
+    }
+    .circle_1 {
+      background-color: #ae1b29;
+    }
+    .circle_2 {
+      background-color: #ba2128;
+    }
+    .circle_3 {
+      background-color: #eb4037;
+    }
+    .circle_4 {
+      background-color: #f17632;
+    }
+    .circle_5 {
+      background-color: #f29443;
+    }
+    // 圆圈外文字动画 - 动画4
+    .aureoletext {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      @extend .bg-item;
+      background-image: url('../img/home_aureoletext.png');
+      animation: homeAureoletext 1s 6.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation-fill-mode: forwards;
+    }
+    // display: none;
+    // 光圈文案 - 动画5
+    .home_title {
+      position: absolute;
+      left: 50%;
+      top: 1.55rem;
+      width: 3.6rem;
+      height: 2.5rem;
+      margin-left: -1.8rem;
+      opacity: 0;
+      @extend .bg-item;
+      background-image: url('../img/aureole_title.png');
+      animation: homeAureoletext 1s 7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation-fill-mode: forwards;
+    }
+    // 手势 - 动画6
+    .home_gesture {
+      position: absolute;
+      right: 0;
+      bottom: -0.8rem;
+      width: 1.6rem;
+      height: 1.6rem;
+      opacity: 0;
+      @extend .bg-item;
+      background-image: url('../img/gesture.png');
+      animation: homeHeartBeat 1s 8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+        infinite;
+      // animation-fill-mode: forwards;
+    }
+  }
+}
+
+// 选择歌曲页
+.page_select {
+  .select_content {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 11.2rem;
+    margin-top: -5.19rem;
+    @extend .bg-item;
+    background-image: url('../img/select_bg.png');
+    opacity: 0;
+    animation: pageShow 0.8s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  .select_list {
+    position: absolute;
+    left: 0;
+    top: 3rem;
+    width: 100%;
+    padding-left: 1.05rem;
+  }
+  .select_item {
+    position: relative;
+    width: 5.85rem;
+    padding-left: 0.4rem;
+    color: #000;
+    padding: 0.3rem 0.2rem 0;
+    height: 1.48rem;
+    opacity: 0;
+    animation: pageShow 0.7s 0.2s ease-in;
+    animation-fill-mode: forwards;
+    .title {
+      font-size: 0.35rem;
+      font-weight: bold;
+      line-height: 1.3;
+      letter-spacing: 0.02rem;
+    }
+    .text {
+      font-size: 0.28rem;
+      font-weight: bold;
+      text-indent: 0.4rem;
+    }
+    .item_btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 2.4rem;
+      height: 1.2rem;
+      margin-top: -0.6rem;
+    }
+  }
+
+  // $taktTime: 0.7s;
+  // @for $i from 1 through 5 {
+  //   .select_item#{$i} {
+  //     animation: pageShow $taktTime ($i * 0.2s + 0.3s) ease-in;
+  //     animation-fill-mode: forwards;
+  //   }
+  // }
+  .select_item:first-child {
+    height: 1.25rem;
+  }
+  .paging_wrap {
+    position: absolute;
+    right: 0.6rem;
+    bottom: -0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    width: 2.4rem;
+    height: 1.2rem;
+  }
+}
+// 演唱页
+.page_concert {
+  .concert {
+    &_content {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 9.27rem;
+      margin-top: -5.04rem;
+      // padding: 2.5rem 1.65rem 0 1.45rem;
+      padding: 2.5rem 1.55rem 0 1.15rem;
+      @extend .bg-item;
+      background-image: url('../img/concert_bg.png');
+      color: #000;
+      font-weight: bold;
+      user-select: none;
+      animation: pageShow 0.8s ease-in-out;
+      animation-fill-mode: forwards;
+      .title {
+        // font-size: 0.46rem;
+        // line-height: 0.6rem;
+        // margin-bottom: 0.05rem;
+        // white-space: pre-wrap;
+        // word-break: break-all;
+
+        font-size: 0.43rem;
+        line-height: 0.6rem;
+        margin-bottom: 0.05rem;
+        white-space: pre-wrap;
+        word-break: break-all;
+        // letter-spacing: -0.02rem;
+      }
+      .text {
+        white-space: nowrap;
+        font-size: 0.25rem;
+        line-height: 0.48rem;
+        letter-spacing: 0.02rem;
+      }
+    }
+    &_microphone {
+      position: absolute;
+      left: 50%;
+      bottom: -0.4rem;
+      width: 2.2rem;
+      height: 6.77rem;
+      margin-left: -1.1rem;
+      @extend .bg-item;
+      background-image: url('../img/microphone.png');
+      background-size: auto 6.77rem;
+      user-select: none;
+      transform: translate3d(0, 6.8rem, 0);
+      animation: homeMicrophone 0.5s 1s ease-in-out;
+      animation-fill-mode: forwards;
+
+      // 圆圈动画 - 动画3
+      .circle {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0.75rem;
+        height: 0.75rem;
+        background-color: #ae1b29;
+        border-radius: 100%;
+        animation: concertHaloAni 0.8s ease-in infinite;
+        transform: scale(0) translate3d(-50%, -50%, 0);
+        transform-origin: 0 0;
+        &.show {
+          display: block;
+        }
+      }
+      @for $i from 1 through 5 {
+        .circle_#{$i} {
+          animation-delay: ($i * 0.1s);
+        }
+      }
+      .circle_2 {
+        width: 1.35rem;
+        height: 1.35rem;
+        background-color: #a72329;
+      }
+      .circle_3 {
+        width: 1.95rem;
+        height: 1.95rem;
+        background-color: #eb4037;
+      }
+      .circle_4 {
+        width: 2.55rem;
+        height: 2.55rem;
+        background-color: #f27631;
+      }
+      .circle_5 {
+        width: 3.15rem;
+        height: 3.15rem;
+        background-color: #f7953f;
+      }
+
+      .aureole {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -0.6rem;
+        left: 50%;
+        width: 3.2rem;
+        height: 3.2rem;
+        margin-left: -1.6rem;
+        opacity: 0.85;
+      }
+      .number {
+        font-size: 1.64rem;
+        color: #fff;
+        z-index: 2;
+      }
+      .indicate {
+        position: absolute;
+        left: 50%;
+        top: 2.67rem;
+        width: 0.34rem;
+        height: 0.31rem;
+        margin-left: -0.17rem;
+        @extend .bg-item;
+        background-image: url('../img/indicate.png');
+        z-index: 2;
+        animation: downward 0.5s infinite alternate linear;
+      }
+    }
+    &_time {
+      position: absolute;
+      bottom: 3.55rem;
+      left: 50%;
+      margin-left: -0.775rem;
+      width: 1.55rem;
+      height: 0.55rem;
+      background: #fff;
+      border: 0.04rem solid #000;
+      font-weight: 700;
+      font-size: 0.28rem;
+      text-align: center;
+      line-height: 1.8;
+    }
+  }
+}
+// 结果页
+.page_end {
+  .end {
+    &_content {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 9.53rem;
+      margin-top: -5.06rem;
+      @extend .bg-item;
+      background-image: url('../img/end_bg.png');
+      .score {
+        position: absolute;
+        left: 0.85rem;
+        top: 1.6rem;
+        font-size: 0.6rem;
+        font-weight: bold;
+      }
+      .decimals {
+        font-size: 0.45rem;
+      }
+      .unit {
+        position: relative;
+        top: -0.03rem;
+        font-weight: bold;
+        font-size: 0.38rem;
+        line-height: 0.37rem;
+        margin-left: 0.05rem;
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0.75rem;
+        top: 3.2rem;
+        font-size: 0.58rem;
+        line-height: 0.7rem;
+        color: #000;
+        letter-spacing: 0.02rem;
+        font-weight: 700;
+        white-space: pre-wrap;
+        word-break: break-all;
+        text-align: center;
+
+        width: 3.2rem;
+        height: 1.85rem;
+        padding: 0 0.2rem;
+      }
+      .text {
+        position: absolute;
+        left: 1rem;
+        top: 5rem;
+        font-size: 0.47rem;
+        line-height: 0.7rem;
+        color: #000;
+        // white-space: pre-line;
+        white-space: pre-wrap;
+        word-break: break-all;
+        max-width: 4.3rem;
+        text-align: justify;
+        .space {
+          display: block;
+          height: 0.15rem;
+        }
+      }
+      .name {
+        color: #f27430;
+      }
+    }
+  }
+  .btn_wrap {
+    position: absolute;
+    left: 0;
+    bottom: -1.5rem;
+    width: 100%;
+    height: 1.5rem;
+  }
+  .btn_share {
+    position: absolute;
+    left: 0.3rem;
+    top: 0;
+    width: 3rem;
+    height: 100%;
+    @extend .bg-item;
+    background-image: url('../img/btn_share.png');
+  }
+  .btn_jd {
+    position: absolute;
+    right: 0.22rem;
+    top: 0;
+    width: 3.8rem;
+    height: 100%;
+    @extend .bg-item;
+    background-image: url('../img/btn_jd.png');
+    z-index: 2;
+  }
+  .btn_list {
+    position: absolute;
+    right: 0.48rem;
+    top: -0.5rem;
+    width: 1.84rem;
+    height: 0.74rem;
+    @extend .bg-item;
+    background-image: url('../img/btn_list.png');
+  }
+}
+
+// 排行榜
+.page_example {
+  .example_return {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0.34rem;
+    top: 2.6rem;
+    height: .6rem;
+    @extend .bg-item;
+    z-index: 2;
+    font-size: 0.24rem;
+    font-weight: bold;
+  }
+  .example {
+    &_content {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 10.4rem;
+      margin-top: -4.52rem;
+      @extend .bg-item;
+      background-image: url('../img/example_bg.png');
+      .title {
+        padding: 1.55rem 2.15rem 0 2.25rem;
+        font-size: 0.19rem;
+        text-align: justify;
+        font-weight: bold;
+      }
+      .btn_restart {
+        position: absolute;
+        left: 1.32rem;
+        bottom: -0.1rem;
+        width: 2.2rem;
+        height: 1.3rem;
+        @extend .bg-item;
+        background-image: url('../img/btn_restart.png');
+      }
+
+      .paging_wrap {
+        position: absolute;
+        right: 1.5rem;
+        bottom: 0.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        width: 2.4rem;
+        height: 1.2rem;
+      }
+    }
+    &_list {
+      position: absolute;
+      left: 0;
+      top: 3.3rem;
+      width: 100%;
+      height: 5rem;
+      // background: rgba($color: #000000, $alpha: 0.5);
+      padding: 0 1.8rem 0 1.7rem;
+      &__title {
+        font-size: 0.35rem;
+        line-height: 0.52rem;
+        color: #000;
+        font-weight: bold;
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+        letter-spacing: 0.02rem;
+        white-space: nowrap;
+      }
+      &__item {
+        display: flex;
+        padding-left: 0.05rem;
+        font-size: 0.35rem;
+        line-height: 0.48rem;
+        letter-spacing: 0.02rem;
+        color: rgba($color: #000000, $alpha: 0.6);
+        opacity: 0;
+        animation: pageShow 0.7s 0.2s ease-in;
+        animation-fill-mode: forwards;
+        .name {
+          flex: 1;
+          padding-left: 0.4rem;
+        }
+      }
+      // $taktTime: 0.7s;
+      // @for $i from 1 through 10 {
+      //   &__item#{$i} {
+      //     animation: pageShow $taktTime ($i * 0.2s + 0.3s) ease-in;
+      //     animation-fill-mode: forwards;
+      //   }
+      // }
+    }
+  }
+}
+
+// 引入动画
+@import './ani';
+
+/* 响应式 当用户是小屏手机时 */
+@media (min-aspect-ratio: 375 / 620) {
+  .page_home {
+    .aureole_wrap {
+      // width: 5rem;
+      // height: 4.9rem;
+      transform: scale(0.8);
+    }
+    
+  }
+  .page_select {
+    .select_content {
+      margin-top: -5.7rem;
+  }
+  }
+  .page_concert {
+    .concert_microphone {
+      bottom: 0;
+      background-size: auto 6rem;
+    }
+    .aureole {
+      transform: scale(0.8);
+    }
+    .concert_microphone .number {
+      font-size: 1.4rem;
+    }
+  }
+  .page_end .end_content {
+    margin-top: -5.5rem;
+  }
+  .page_example .example_content {
+    margin-top: -5rem;
+  }
+}
+
+/* Data: 2020-05-28; Edit: Hani; Describe: 1. 去除分数中的分字 2. 文字阴影方向更改; 3. 榜单页文案修改 Start */
+.page_end .end_content .score {
+  left: 0.9rem;
+  top: 1.4rem;
+  font-size: .96rem;
+}
+.page_end .end_content .decimals {
+  position: relative;
+  top: -0.02rem;
+  font-size: 0.48rem;
+}
+.page_end .end_content .text {
+  font-weight: 700;
+}
+
+.rules {
+  color: #f27430;
+}
+.page_example .example_content {
+  margin-top: -4.62rem;
+}
+.page_example .example_content .title {
+  padding: 1.15rem 2.05rem 0 2.15rem;
+}
+/* Data: 2020-05-28; Edit: Hani; Describe: 去除分数中的分字; End */
+
+/* Data: 2020-05-28; Edit: Hani; Describe: 修改反馈 Start */
+// 切换歌单的透明度显示有点慢，需要缩短延迟等待时间;
+.page_example .example_list__item {
+  animation: pageShow 0.5s ease-in;
+  animation-fill-mode: forwards;
+}
+.page_select .select_item {
+  animation: pageShow 0.5s 0.1s ease-in;
+  animation-fill-mode: forwards;
+}
+// 添加按钮置灰
+.page_item .btn {
+  background-size: 3.6rem 3.6rem;
+  &.btn_prev_gray {
+    background-position: 0 -2.4rem;
+  }
+  &.btn_next_gray {
+    background-position: -1.2rem -2.4rem;
+  }
+}
+
+// 首页
+.page_home {
+
+  // 麦克风 - 动画2
+  .home_microphone {
+    animation: homeMicrophone 0.4s 4s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  .aureole_wrap {
+    // 圆圈动画 - 动画3
+    .circle {
+      animation: haloAni 1.2s both 1;
+    }
+    @for $i from 1 through 5 {
+      .circle_#{$i} {
+        width: $i + rem;
+        height: $i + rem;
+        animation-delay: ($i * 0.12s) + 4;
+      }
+    }
+    // 圆圈外文字动画 - 动画4
+    .aureoletext {
+      animation: homeAureoletext 1s 5.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation-fill-mode: forwards;
+    }
+    // display: none;
+    // 光圈文案 - 动画5
+    .home_title {
+      animation: homeAureoletext 1s 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation-fill-mode: forwards;
+    }
+    // 手势 - 动画6
+    .home_gesture {
+      animation: homeHeartBeat 1s 7s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    }
+  }
+}
+/* Data: 2020-05-28; Edit: Hani; Describe: 修改反馈 End */

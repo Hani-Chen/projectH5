@@ -1,0 +1,32 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_3.png',
+    'heading': '应用场景无处不在',
+    'text': '未来智慧屏幕将无处不在，Swaiot OS全面支持家用及商用场景，以全场景体验为空间赋能。'
+  }
+%}
+
+{# 产品图 #}
+{# {% set productImg = {
+    'product': '/section6_product.jpg'
+  }
+%} #}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+{# 产品图
+{% import "./components/title.njk" as title %}
+{{ title.product(productImg) }} #}
+
+
+
+<div class="product-img-wrap animation-box">
+  <img class="product-img product-img-pc img-block" src="{{baseUrl}}/section6_product.jpg" alt="">
+  <canvas class="more more-1" id="more1"></canvas>
+  <img class="product-img product-img-android img-block" src="{{baseUrl}}/section6_product1.jpg" alt="">
+  <canvas class="more more-2" id="more2"></canvas>
+</div>

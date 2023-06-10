@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+.modal-body {
+  //position: relative;
+  height: 7.62rem;
+  width: 100%;
+  margin-top: -3.81rem;
+  background: {
+    image: url(~@/assets/img/modal_success.png);
+    size: 100%;
+    position: center center;
+    repeat: no-repeat;
+  };
+  animation: modalScale 0.5s linear;
+  &.pulse {
+    animation-name: pulse;
+  }
+}
+
+.content {
+  position: relative;
+  padding-left: 0.97rem;
+  padding-right: 0.97rem;
+  padding-top: 1.22rem;
+  height: 100%;
+
+  .modal-title {
+    margin: 0 auto;
+    width: 3.1rem;
+    height: .5rem;
+    margin-bottom: .26rem;
+    background: {
+      image: url(~@/assets/img/modal_success_title.png);
+      size: 100%;
+      repeat: no-repeat;
+      position: center center;
+    };
+  }
+
+  .modal-subtitle {
+    font-size: .26rem;
+    color: #ec2825;
+    font-weight: bold;
+    margin-bottom: 0.28rem;
+
+    span {
+      font-size: .32rem;
+      color: #df1b18;
+    }
+  }
+
+  // 号码
+  .modal-num {
+    position: relative;
+
+    .modal-num-box {
+      position: relative;
+      margin: 0 auto;
+      width: 4.76rem;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      font-size: 0;
+
+      &.modal-num-list-1 {
+        .modal-num-box-bg {
+          width: 4.76rem;
+          height: 2.5rem;
+          background: {
+            image: url(~@/assets/img/modal_success_bg_1.png);
+            size: 100%;
+            position: top center;
+            repeat: no-repeat;
+          };
+        }
+
+        .modal-num-box-repeat {
+          display: none;
+        }
+
+        .modal-num-box-bottom {
+          display: none;
+        }
+
+        .modal-num-list:last-child {
+          margin-top: .4rem;
+        }
+      }
+      &.modal-num-list-2 {
+        .modal-num-box-bg {
+          width: 4.76rem;
+          height: 2.5rem;
+          background: {
+            image: url(~@/assets/img/modal_success_bg_1.png);
+            size: 100%;
+            position: top center;
+            repeat: no-repeat;
+          };
+        }
+
+        .modal-num-box-repeat {
+          display: none;
+        }
+
+        .modal-num-box-bottom {
+          display: none;
+        }
+
+        .modal-num-list:last-child {
+          margin-top: .58rem;
+        }
+      }
+
+      .modal-num-box-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4.76rem;
+        height: 2.58rem;
+        background: {
+          image: url(~@/assets/img/modal_success_bg.png);
+          size: 100%;
+          position: top center;
+          repeat: no-repeat;
+        };
+      }
+
+      .modal-num-box-repeat {
+        position: absolute;
+        left: 0;
+        top: 2.56rem;
+        bottom: 0.4rem;
+        width: 4.76rem;
+        background: {
+          image: url(~@/assets/img/modal_success_repeat.png);
+          size: 4.76rem 0.26rem;
+          position: top center;
+          repeat: repeat-y;
+        };
+      }
+
+      .modal-num-box-bottom {
+        position: absolute;
+        left: 0;
+        bottom: 1px;
+        width: 4.76rem;
+        height: .4rem;
+        background: {
+          image: url(~@/assets/img/modal_success_bottom.png);
+          size: 4.76rem 0.4rem;
+          position: top center;
+          repeat: repeat-y;
+        };
+      }
+    }
+
+    .modal-num-list-box {
+      max-height: 2.8rem;
+      overflow-y: auto;
+    }
+
+    .modal-num-list {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+
+      & + .modal-num-list {
+        margin-top: .4rem;
+      }
+
+      span {
+        display: inline-block;
+        width: .35rem;
+        height: .5rem;
+        line-height: .5rem;
+        background-color: #ea6752;
+        color: #fff;
+        font-size: .32rem;
+        font-weight: bold;
+        border-radius: .04rem;
+
+        & + span {
+          margin-left: .12rem;
+        }
+      }
+    }
+
+  }
+
+  .modal-btn {
+    width: 2.8rem;
+    height: .8rem;
+    bottom: 0.3rem;
+    background: {
+      image: url(~@/assets/img/modal_btn.png);
+      size: 9rem 3.3rem;
+      position: -3.1rem -0.1rem;
+      repeat: no-repeat;
+    };
+  }
+}
+
+
+

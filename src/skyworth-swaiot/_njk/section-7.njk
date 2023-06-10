@@ -1,0 +1,23 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_4.png',
+    'heading': '小维智联生态中心',
+    'text': 'Swaiot CENTER是Swaiot小维智联生态中心,同时搭载了Swaiot OS和酷开系统,具备智慧屏幕与智能电视双重属性。Q80系列电视是全球首台Swaiot CENTER。'
+  }
+%}
+
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+
+<div class="product-img-wrap animation-box">
+  <div class="after-wrap"></div>
+  <img class=" img-block logo1" src="{{baseUrl}}/icon_logo.png" alt="">
+  <img class="product-img img-block" src="{{baseUrl}}/section7_product.png" alt="">
+  <div class="before-wrap"></div>
+  <img class="img-block logo2" src="{{baseUrl}}/icon_logo2.png" alt="">
+</div>

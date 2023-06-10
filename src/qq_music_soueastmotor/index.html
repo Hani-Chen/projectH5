@@ -1,0 +1,196 @@
+{% extends "./_njk/base.njk" %}
+{% set
+  singerList = [
+  {
+    id: 1,
+    text: '张靓颖：声线 35%'
+  }, {
+    id: 2,
+    text: '林俊杰：声线  67%'
+  }, {
+    id: 3,
+    text: '吴青峰：声线  53%'
+  }
+] %}
+{% set
+  endList = [
+  {
+    id: 1,
+    text: '我的天空'
+  }, {
+    id: 2,
+    text: '那些你很冒险的梦'
+  }, {
+    id: 3,
+    text: '对的时间点'
+  }, {
+    id: 4,
+    text: '修炼爱情'
+  }, {
+    id: 5,
+    text: '可惜没如果'
+  }
+] %}
+{% block main %}
+<!--Body下的根元素 S-->
+<section class="wrap">
+  <!-- 内容 -->
+  <div class="motor_main">
+    <!-- 头部 - logo -->
+    <div class="main_head_logo"></div>
+    <!-- 内容 - 首页-->
+    <div class="main_content main_index show">
+      <!-- 标题 -->
+      <div class="main_index_title"></div>
+      <!-- 音符 背景 -->
+      <div class="main_index_notebg"></div>
+      <!-- 文案 -->
+      <p class="main_index_text">即刻唱响，抢豪华绿钻</p>
+      <!-- 汽车 -->
+      <div class="main_index_car"></div>
+      <!-- 一键启动按钮 -->
+      <div class="main_index_btn bounce"></div>
+    </div>
+    <!-- 内容 - 选择页 && 声纹识别 -->
+    <div class="main_content main_two">
+      <!-- 标题 -->
+      <div class="main_two_title"></div>
+      <!-- 音符 背景 -->
+      <div class="main_two_notebg"></div>
+      <!-- 文案 -->
+      <p class="main_two_text">为自己的未来代言</p>
+      <!-- 内容 - 选择页 -->
+      <div class="main_two_item main_select show">
+        <!-- 选择框 -->
+        <div class="main_select_wrap">
+          <label for="select" class="main_select_label">
+            <div class="song_text">
+              <span id="selectText1">只要我还有梦</span>
+              <span id="selectText2">就会看到彩虹</span>
+            </div>
+          </label>
+          <select class="main_select_box" id="songSelect">
+            <option value="0">
+              再见我的过去 I want a new life
+            </option>
+            <option value="1">
+              原来黎明的起点 就在我心里面
+            </option>
+            <option value="2">
+              至少我还有梦 也为你而感动
+            </option>
+            <option value="3" selected>
+              只要我还有梦 就会看到彩虹
+            </option>
+          </select>
+          <!-- 下拉按钮 -->
+          <div class="main_select_btn heartBeat"></div>
+        </div>
+        <!-- 文案 -->
+        <p class="main_select_text">下拉选择你的梦想宣言</p>
+        <!-- 汽车 -->
+        <div class="main_select_car"></div>
+        <!-- 下一步按钮 -->
+        <div class="main_select_nextbtn"></div>
+      </div>
+      <!-- 内容 - 声纹识别页 -->
+      <div class="main_two_item main_recognize ">
+        <!-- 选择框 -->
+        <div class="main_recognize_wrap">
+          <div class="song_text">
+            <span id="resultText1">只要我还有梦</span>
+            <span id="resultText2">就会看到彩虹</span>
+          </div>
+        </div>
+        <!-- 文案 -->
+        <p class="main_recognize_text">Tips：唱/念出你的梦想宣言，解锁你的专属标签与歌单</p>
+        <!-- 麦克风 -->
+        <div class="main_recognize_microphone"></div>
+        <!-- 提示语 -->
+        <div class="main_recognize_reminder">长按麦克风开始录音（3s以上）</div>
+      </div>
+    </div>
+    <!-- 内容 - 歌手 页 -->
+    <div class="main_content main_singer">
+      <!-- 标题文案 -->
+      <div class="main_singer_title">选择与你声音相似的歌手 开启梦想宣言</div>
+      <!-- 波纹 -->
+      <div class="main_singer_ripple"></div>
+      <!-- 音符 背景 -->
+      <div class="main_singer_notebg"></div>
+      {% for item in singerList %}
+      <!-- 单个歌手 -->
+      <div class="main_singer_item main_singer_item{{item.id}}">
+        <!-- 唱片 -->
+        <div class="item_record item_record{{item.id}}"></div>
+        <!-- 描述 -->
+        <div class="item_describe">
+          <div class="out"></div>
+          <p>{{item.text}}</p>
+          <div class="in"></div>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- 重新录制按钮 -->
+      <div class="main_singer_restart">
+        <div class="restart_btn"></div>
+      </div>
+    </div>
+    <!-- 内容 - 歌单结束页 -->
+    <div class="main_content main_end ">
+      <div class="bg"></div>
+      <!-- 重新选择 -->
+      <div class="restart_btn2"></div>
+      <!-- 文案 -->
+      <div class="main_end_text">
+        <div class="text1">你的梦想宣言是：</div>
+        <div class="text2">#<span id="endText2">佛系睿智</span>#</div>
+        <div class="text3">
+          <p id="endText3">冷静聪明，智能领航</p>
+          <p id="endText4">精致品质，有品位不追随</p>
+        </div>
+      </div>
+      <!-- 歌曲列表 -->
+      <div class="main_end_list">
+        <!-- 按钮 -->
+        <div class="btn">
+          <!-- 全部播放 -->
+          <div class="btn_play"><i class="btn_icon btn_icon1"></i>全部播放</div>
+          <!-- 全部收藏 -->
+          <div class="btn_collect"><i class="btn_icon btn_icon2"></i>全部收藏</div>
+        </div>
+        <!-- 列表容器 -->
+        <div class="list_wrap">
+          {% for item in endList %}
+          <!-- 单首歌曲 {{item.text}} -->
+          <div class="item">
+            <!-- 序号 -->
+            <i class="item_serial">{{item.id}}</i>
+            <!-- 名字 -->
+            <div class="item_name">
+              <p>{{item.text}}</p>
+              <i class="item_icon"></i>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- 按钮 -->
+      <div class="main_end_share">
+        <!-- 预约按钮 -->
+        <a href="javascript:;" class="subscribe"></a>
+        <!-- 邀请按钮 -->
+        <a href="javascript:;" class="invite"></a>
+      </div>
+    </div>
+    <!-- 底部 - logo -->
+    <div class="main_bottom_logo"></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="./js/zepto.min.js"></script>
+<!-- 主程序 -->
+<script type="text/javascript" src="./js/index.js"></script>
+{% endblock %}

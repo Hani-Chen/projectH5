@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: #080607;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif, 'Source Han Sans CN';
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+}
+
+.nav-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1.38rem;
+  z-index: 50;
+}
+
+.nav-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1.38rem;
+  background: rgba(0, 0, 0, 0.75);
+  border-bottom: 0.02rem solid #f2a900;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 0.2rem;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav-logo-box {
+  width: 3.26rem;
+  height: 1.12rem;
+}
+
+.nav-logo {
+  width: 3.26rem;
+  height: auto;
+}
+
+.nav-download-box {
+  text-transform: uppercase;
+  color: #000;
+}
+
+.nav-download {
+  display: block;
+  width: 2.3rem;
+  height: 0.6rem;
+  text-align: center;
+  line-height: 0.6rem;
+  font-size: 0.22rem;
+  background: #f2a900;
+}
+
+.nav-list-box {
+  width: 0.72rem;
+  height: 0.37rem;
+}
+
+.nav-icon-box {
+  display: block;
+  width: 0.72rem;
+  height: auto;
+}
+
+.nav-icon {
+  display: block;
+  width: 0.72rem;
+  height: auto;
+}
+
+.content-wrap {
+  width: 100%;
+  height: 10.4rem;
+  position: relative;
+}
+
+.content-header {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/teamup_header_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.content-header .header-icon-box {
+  padding: 0 0.15rem;
+  width: 100%;
+  height: 0.9rem;
+  position: absolute;
+  top: 1.55rem;
+}
+
+.content-header .header-icon-box .icon-pubg-box {
+  position: absolute;
+  right: 0.15rem;
+  display: block;
+  width: 1.2rem;
+  height: 100%;
+}
+
+.content-header .header-icon-box .icon-pubg {
+  width: 100%;
+  height: auto;
+}
+
+.content-header .header-logo-box {
+  width: 2.92rem;
+  height: 2.44rem;
+  position: absolute;
+  top: 1.58rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.content-header .header-logo {
+  width: 100%;
+  height: auto;
+}
+
+.content-header .header-title-box {
+  z-index: 20;
+  width: 4.4rem;
+  height: 1.2rem;
+  position: absolute;
+  top: 3.4rem;
+  left: -0.15rem;
+  right: 0;
+  margin: 0 auto;
+}
+
+.content-header .header-title {
+  width: 100%;
+  height: auto;
+}
+
+.content-header .header-text-box {
+  position: absolute;
+  bottom: 0.66rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 0 0.2rem;
+}
+
+.content-header .header-text {
+  font-size: 0.26rem;
+  color: #fff;
+  text-align: center;
+  font-family: 'MNR';
+  margin-bottom: 0.06rem;
+}
+
+.content-middle {
+  position: relative;
+  margin-top: -0.46rem;
+  padding-top: 0.2rem;
+  text-align: center;
+  z-index: 20;
+  width: 100%;
+  background-image: url("../img/teamup_bg.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+.content-middle .middle-rule-box {
+  width: 3.9rem;
+  height: 0.55rem;
+  color: #c39456;
+  text-align: center;
+  line-height: 0.55rem;
+  font-size: 0.32rem;
+  margin: 0 auto;
+}
+
+.content-middle .middle-rule {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/rules_bg.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.content-middle .middle-tab-wrap {
+  position: relative;
+  width: 100%;
+  height: 1.9rem;
+}
+
+.content-middle .middle-tab-box {
+  position: absolute;
+  width: 100%;
+  height: 1.9rem;
+}
+
+.content-middle .middle-tabbar {
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.27rem;
+  font-size: 0;
+  padding-right: 0.24rem;
+  padding-left: 0.24rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content-middle .middle-tab-item {
+  display: inline-block;
+  letter-spacing: 0.02rem;
+  min-width: 2.1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 0.74rem;
+  white-space: nowrap;
+  font-family: 'Arial';
+  font-size: 0.25rem;
+  text-transform: uppercase;
+  line-height: 0.74rem;
+  color: #8e8e8e;
+  text-align: center;
+  margin: 0 0.13rem;
+  background: #374061;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.content-middle .middle-tab-item.active {
+  color: #fff;
+  position: relative;
+  border: 1px solid #fff;
+}
+
+/*# sourceMappingURL=../maps/css/style.min.css.map */

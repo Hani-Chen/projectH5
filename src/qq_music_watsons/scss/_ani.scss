@@ -1,0 +1,60 @@
+// 显示动画
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// 易拉罐掉落动画
+@keyframes bounceInDown {
+  0%,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0) scaleY(2);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 10px, 0) scaleY(0.9);
+  }
+  75% {
+    transform: translate3d(0, -2px, 0) scaleY(0.95);
+  }
+  90% {
+    transform: translate3d(0, 0px, 0) scaleY(1);
+  }
+  to {
+    transform: translateZ(0);
+  }
+}
+
+// 手缩放动效
+@keyframes pulse {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+// 点击投币动效
+@keyframes test {
+  0% {
+    transform: translate3d(-200%, 0, 0) rotate(35deg);
+  }
+  100% {
+    transform: translate3d(1000%, 0, 0) rotate(35deg);
+  }
+}

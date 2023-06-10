@@ -1,0 +1,76 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<section class="wrap">
+  <!-- 页面顶部内容 -->
+  <div class="page_home">
+    <div class="home_head">
+      <img src="./img/home_head_bg.jpg" alt="" class="page_img">
+    </div>
+    <div class="home_content text_forbid__cope">
+      <div class="home_data__wrap">
+        <div class="home_data__item">
+          <div class="home_data__text"></div>
+          <div class="home_data__ranking">最近我在周杰伦歌中走过</div>
+          <div class="home_data__time">
+            <!-- 可配置的值 - 听歌总时长 -->
+            <div class="home_data__number">44640</div>
+            <div class="home_data__minute">分钟</div>
+          </div>
+          <div class="home_data__icon"></div>
+        </div>
+        <div class="home_data__item">
+          <div class="home_data__ranking">我在周杰伦歌迷中的听歌排名</div>
+          <div class="home_data__time">
+            <!-- 可配置的值 - 听歌排名 -->
+            <div class="home_data__number">99999</div>
+            <div class="home_data__minute">名</div>
+          </div>
+          <div class="home_data__icon home_data__icon2"></div>
+        </div>
+      </div>
+      <div class="home_list__wrap">
+        <div class="home_list__title">我最爱听的周杰伦歌曲.... </div>
+        <!-- 可配置值 - top3排名数据 -->
+        <div class="home_list__inner">
+          <div class="home_list__item">
+            <div class="home_list__img">
+              <img src="https://i.kfs.io/album/global/78211105,0v1/fit/500x500.jpg" alt="" class="page_img">
+            </div>
+            <div class="home_list__data">
+              <div class="home_list__ranking">TOP1 陪伴我次数最多的</div>
+              <div class="home_list__name">Mojito</div>
+            </div>
+          </div>
+          <div class="home_list__item">
+            <div class="home_list__img">
+              <img src="https://i.kfs.io/album/global/78211105,0v1/fit/500x500.jpg" alt="" class="page_img">
+            </div>
+            <div class="home_list__data">
+              <div class="home_list__ranking">TOP2 经常循环播放的</div>
+              <div class="home_list__name">告白气球</div>
+            </div>
+          </div>
+          <div class="home_list__item">
+            <div class="home_list__img">
+              <img src="https://i.kfs.io/album/global/78211105,0v1/fit/500x500.jpg" alt="" class="page_img">
+            </div>
+            <div class="home_list__data">
+              <div class="home_list__ranking">TOP3 总在我的歌单中的</div>
+              <div class="home_list__name">说好不哭</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 页面底部内容 -->
+    <div class="home_base">
+      <img src="./img/home_base_bg.jpg" alt="" class="page_img">
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

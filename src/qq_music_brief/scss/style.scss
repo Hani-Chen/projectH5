@@ -1,0 +1,614 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import "global.import.css";
+
+/* QQ音乐规定 - 使用1px边框解决方案所调用的CSS文件 */
+/*========================================================================
+      @说明：边框样式基础样式
+========================================================================*/
+.border,
+.border_radius,
+.border_round {
+  position: relative;
+}
+
+.border::after,
+.border_radius::after,
+.border_round::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-style: solid;
+  border-color: currentColor;
+  border-width: 1px;
+} /*请自己配置边框颜色*/
+.border_radius::after {
+  border-radius: 4px;
+} /*自己配置圆角*/
+.border_round::after {
+  border-radius: 999px;
+}
+
+/*上，下，左，右边框*/
+.border_t,
+.border_b,
+.border_l,
+.border_r {
+  position: relative;
+}
+
+.border_t::after,
+.border_b::after,
+.border_l::after,
+.border_r::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  pointer-events: none;
+  border-style: solid;
+  border-color: currentColor;
+} /*请自己配置边框颜色*/
+
+.border_t::after {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-width: 1px 0 0 0;
+}
+.border_b::after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-width: 0 0 1px 0;
+}
+.border_l::after {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-width: 0 0 0 1px;
+}
+.border_r::after {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  border-width: 0 1px 0 0;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  /*方形边框，圆角边框，圆弧边框*/
+  .border::after,
+  .border_radius::after,
+  .border_round::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(0.5);
+  }
+  .border_radius::after {
+    border-radius: 8px;
+  } /*自己配置圆角,为默认情况的2倍*/
+  .border_round::after {
+    border-radius: 999px;
+  }
+
+  /*上，下，左，右边框*/
+  .border_t::after,
+  .border_b::after {
+    -webkit-transform: scaleY(0.5);
+  }
+  .border_l::after,
+  .border_r::after {
+    -webkit-transform: scaleX(0.5);
+  }
+}
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24rem);
+ */
+@function changePx($px) {
+  @return $px / 2;
+}
+
+// 公共样式 - 提示
+.toast_item {
+  position: fixed;
+  left: changePx(1.35rem);
+  top: 50%;
+  font-size: changePx(0.18rem);
+  line-height: 1;
+  z-index: 999;
+  margin-top: changePx(5.8rem);
+  // overflow: hidden;
+  span {
+    position: relative;
+    background-color: rgba($color: #000, $alpha: 0.8);
+    padding: changePx(0.2rem) changePx(0.2rem);
+    font-size: changePx(0.24rem);
+    border-radius: changePx(0.1rem);
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    opacity: 0;
+    &.ani {
+      animation: fadeInDown 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+    }
+  }
+}
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei,
+  "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+  overflow: hidden;
+  background-color: #8e9fa0;
+}
+
+/* 页面工具类 - 文字禁止选择 */
+@mixin text-forbid-cope {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+// 宽高
+@mixin size-set($width: 100%, $height: 100%) {
+  width: $width;
+  height: $height;
+}
+
+// 文字
+@mixin font-set($size, $color: #fff, $weight: normal, $lineHigh: null) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $lineHigh;
+}
+
+/* 页面工具类 - 背景图片公共样式 */
+@mixin bg-set($url, $width: 100%, $height: auto, $repeat: no-repeat, $position: center, $color: null) {
+  display: block;
+  background: {
+    size: $width $height;
+    repeat: $repeat;
+    position: $position;
+    image: url($url);
+    color: $color;
+  }
+}
+@mixin layout-set(
+  $layout: null,
+  $position: absolute,
+  $top: null,
+  $bottom: null,
+  $left: null,
+  $right: null,
+  $zIndex: null
+) {
+  position: $position;
+  @if $layout == null {
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+  }
+  @if $layout == "center" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  @if $layout == "layout" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  z-index: $zIndex;
+}
+@mixin page-set-adorn($size, $top: null, $bottom: null, $left: null, $right: null) {
+  @include layout-set($top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($size, $size);
+  background-color: #d7b358;
+  border-radius: 50%;
+}
+@mixin page-set-img(
+  $layout: null,
+  $width: null,
+  $height: null,
+  $top: null,
+  $left: null,
+  $right: null,
+  $bottom: null,
+  $url: ""
+) {
+  @include layout-set($layout: $layout, $top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($width, $height);
+  @include bg-set($url);
+}
+/* 页面公共样式 - End */
+
+/* 页面样式 - Start 【*注意* ：QQ音乐规定类名命名，必须以下划线形式命名】
+ * 类名用法示例：
+ * .test_box {}
+ * .test_box__wrap {}
+ */
+//  背景装饰动画时间
+$bgAdornTime: 1s;
+// 标题动画时间
+$titleTime: 1s;
+// 手机内容动画时间
+$contentTime: 1s;
+// 手机阴影动画时间
+$shadowTime: 1s;
+
+.page {
+  &_box {
+    position: relative;
+    @include size-set(100%, 100%);
+  }
+  &_item {
+    position: relative;
+    @include size-set(100%, 100%);
+    @include bg-set("../img/page_bg.jpg", $width: changePx(7.5rem), $height: changePx(16.24rem));
+    &__adorn {
+      @include size-set(100%, 100%);
+      @include bg-set("../img/page_bg_adorn1.png", $width: changePx(7.5rem), $height: changePx(16.24rem));
+      &2 {
+        background-image: url(../img/page_bg_adorn2.png);
+      }
+      &3 {
+        background-image: url(../img/page_bg_adorn3.png);
+      }
+    }
+
+    &__title {
+      @include layout-set($top: 50%, $left: 0);
+      margin-top: changePx(-6.36rem);
+      @include size-set(100%, changePx(2rem));
+      @include bg-set("../img/page_title.png", $width: changePx(7.5rem), $height: changePx(6rem), $position: 0 0);
+      opacity: 0;
+      &2 {
+        background-position: 0 changePx(-2rem);
+      }
+      &3 {
+        background-position: 0 changePx(-4rem);
+      }
+    }
+    &__mobile {
+      @include layout-set($left: 50%, $top: 50%);
+      margin-top: changePx(-4.1rem);
+      margin-left: changePx(-2.5rem);
+      @include size-set(changePx(5rem), changePx(10rem));
+      @include bg-set("../img/page_mobile.png");
+    }
+    &__bg {
+      @include layout-set($left: 50%, $top: 50%);
+      transform: translate3d(-50%, -50%, 0);
+      @include size-set(100%, 100%);
+      &2 {
+        @include bg-set("../img/page_mobile_content1.png");
+      }
+      &3 {
+        @include bg-set("../img/page_mobile_content2.png");
+      }
+    }
+    &__content {
+      @include layout-set($left: 50%, $top: 50%);
+      transform: translate3d(-50%, -50%, 0);
+      z-index: 2;
+      @include size-set(100%, 100%);
+      @include bg-set("../img/page_mobile_content1.png");
+      &1 {
+        animation: fadeIn $shadowTime cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation-fill-mode: forwards;
+      }
+      &2 {
+        @include bg-set("../img/page_mobile_content2.png");
+        animation: setBgContent1 $contentTime cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation-fill-mode: forwards;
+      }
+      &3 {
+        @include bg-set("../img/page_mobile_content3.png");
+        animation: setBgContent2 $contentTime cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation-fill-mode: forwards;
+      }
+    }
+    &__shadow {
+      @include layout-set($top: 50%, $left: 0);
+      margin-top: changePx(3.7rem);
+      @include size-set(changePx(7.5rem), changePx(3rem));
+      @include bg-set("../img/page_shadow.png", $width: changePx(7.5rem), $height: changePx(12rem), $position: 0 0);
+      &2 {
+        background-position: 0 changePx(-3rem);
+      }
+      &3 {
+        background-position: 0 changePx(-6rem);
+      }
+    }
+  }
+  // 第一屏
+  &_item1 {
+    &.ani {
+      // 标题动画
+      .page_item__title {
+        animation: textShowRight $titleTime cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+  // 第二屏
+  &_item2 {
+    &.ani {
+      // 标题动画
+      .page_item__title {
+        animation: textShowLeft $titleTime cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+  // 第一屏
+  &_item3 {
+    &.ani {
+      // 标题动画
+      .page_item__title {
+        animation: textShowRight $titleTime cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+  &_protocol {
+    background-image: url(../img/page_bg2.jpg);
+    .page_protocol__obscuration {
+      display: block;
+    }
+    .page_rule {
+      display: flex;
+      animation: fadeIn $shadowTime cubic-bezier(0.39, 0.575, 0.565, 1);
+    }
+    .page_item__mobile {
+      animation: zoom 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+      animation-fill-mode: forwards;
+      transform-origin: top center;
+    }
+    .page_item__title.page_item__title3 {
+      background-position: 0 changePx(-6rem);
+      animation: titleZoom 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+      animation-fill-mode: forwards;
+      transform-origin: top center;
+      opacity: 1;
+    }
+    .page_item__shadow3 {
+      // transform: scale(0.5);
+      margin-top: changePx(-2rem);
+      transform-origin: top center;
+      background-position: 0 changePx(-9rem);
+    }
+    .page_protocol__wrap {
+      display: block;
+    }
+    &__wrap {
+      @include layout-set($top: 50%, $left: 0);
+      margin-top: changePx(-1.35rem);
+      @include size-set(100%, changePx(9.48rem));
+      display: none;
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+      animation: moveUp 0.5s 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
+      animation-fill-mode: forwards;
+    }
+    &__title {
+      @include layout-set($top: changePx(0.4rem), $left: 50%);
+      transform: translate3d(-50%, 0, 0);
+      @include size-set(changePx(6rem), changePx(5rem));
+      @include bg-set("../img/protocol_title.png");
+    }
+    &__obscuration {
+      animation: fadeIn $shadowTime cubic-bezier(0.39, 0.575, 0.565, 1);
+      @include layout-set("center");
+      @include size-set(100%, changePx(16.24rem));
+      background-image: linear-gradient(rgba(0, 0, 0, 0), #12191c);
+      display: none;
+    }
+    &__prize {
+      @include layout-set($top: changePx(5.4rem), $left: 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      .prize_item {
+        @include size-set(changePx(1rem), changePx(1rem));
+        @include bg-set("../img/prize_bg.png");
+        margin: 0 changePx(0.05rem);
+        &__img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    &__btn {
+      @include layout-set($left: 50%, $bottom: changePx(1.74rem));
+      transform: translate3d(-50%, 0, 0);
+      @include size-set(changePx(5.3rem), changePx(0.9rem));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include font-set(changePx(0.36rem), $weight: bold);
+      background-color: #22d59c;
+      border-radius: changePx(0.45rem);
+      // @include bg-set("../img/protocol_btn.png");
+    }
+    &__text {
+      @include layout-set($left: 50%, $bottom: changePx(1.2rem));
+      transform: translate3d(-50%, 0, 0);
+      width: 100%;
+      // height: changePx(0.24rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include font-set(changePx(0.24rem));
+      z-index: 3;
+      line-height: 1.1;
+    }
+    &__circle {
+      position: relative;
+      // display: block;
+      display: inline-block;
+      @include size-set(changePx(0.4rem), changePx(0.4rem));
+      transform: scale(0.5);
+      pointer-events:none;
+      // border-radius: 50%;
+      // overflow: hidden;
+      line-height: 1.1;
+      @extend .border;
+      margin-right: changePx(-0.05rem);
+      &::after {
+        border-radius: 50%;
+        border-color: #fff;
+      }
+      &.active {
+        // background-color: #22d59c;
+        @include bg-set("../img/protocol_check.png", $position: 0 0);
+        &::after {
+          border-color: transparent;
+        }
+      }
+    }
+    &__url {
+      color: #22d59c;
+    }
+    &__select {
+      opacity: 0;
+      @include layout-set($left: 0, $top: 0);
+      @include size-set(100%, 100%);
+      &:after {
+        content: "";
+        @include layout-set("center");
+        @include size-set(100%, 200%);
+      }
+    }
+  }
+  &_rule {
+    @include layout-set($position: fixed, $right: 0, $top: 0);
+    @include size-set(changePx(1.34rem), changePx(0.52rem));
+    @include font-set(changePx(0.24rem), $color: rgba(255, 255, 255, 0.8));
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 0 changePx(0.36rem);
+    background-color: rgba($color: #0c2d36, $alpha: 0.7);
+    display: none;
+  }
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.wrap .swiper-container .swiper-pagination {
+  bottom: auto;
+  top: 50%;
+  margin-top: changePx(6.68rem);
+  pointer-events:none;
+  span {
+    pointer-events: auto;
+  }
+}
+.wrap .swiper-container .swiper-pagination-bullet {
+  background: rgba($color: #393939, $alpha: 0.3);
+  opacity: 1;
+}
+.wrap .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #0c2d36;
+}
+@media (min-aspect-ratio: 375 / 750) {
+  .page_protocol__prize {
+    top: changePx(5.2rem);
+  }
+  .page_protocol__btn {
+    bottom: changePx(2.2rem);
+  }
+  .page_protocol__text {
+    bottom: changePx(1.6rem);
+  }
+  .toast_item {
+    margin-top: changePx(5.2rem);
+  }
+}
+@media (min-aspect-ratio: 375 / 720) {
+  .page_item__title {
+    margin-top: changePx(-5.76rem);
+  }
+  .page_item__mobile {
+    transform: scale(0.9);
+    margin-top: changePx(-3.52rem);
+    transform-origin: top center;
+  }
+  .page_item__shadow {
+    // transform: scale(0.75);
+    // transform-origin: top center;
+    height: changePx(2.1rem);
+    background-position: 0 changePx(-0.9rem);
+    &2 {
+      background-position: 0 changePx(-3.9rem);
+    }
+    &3 {
+      background-position: 0 changePx(-6.9rem);
+    }
+  }
+  .page_protocol {
+    // background-position: 0 changePx(-2.2rem);
+    // background-position: center;
+    background-image: url(../img/page_bg3.jpg);
+    .page_item__shadow3 {
+      transform: scale(0.6);
+      margin-top: changePx(-2.8rem);
+      // background-position: 0 changePx(-9rem);
+    }
+    .page_item__adorn3 {
+      background-position: 0 changePx(-2.1rem);
+    }
+    .page_item__mobile {
+      animation: zoom2 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+      animation-fill-mode: forwards;
+    }
+    .page_item__title.page_item__title3 {
+      animation: titleZoom2 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+      animation-fill-mode: forwards;
+      background-position: 0 changePx(-6rem);
+    }
+  }
+  .page_protocol__wrap {
+    // bottom: changePx(-0.28rem);
+    margin-top: changePx(-2.35rem);
+  }
+  .toast_item {
+    margin-top: changePx(4.38rem);
+  }
+
+  .wrap .swiper-container .swiper-pagination {
+    margin-top: changePx(5.7rem);
+  }
+}
+@import "ani";
+
+/* 页面样式 - End */

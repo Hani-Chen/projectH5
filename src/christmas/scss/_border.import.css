@@ -1,0 +1,45 @@
+@charset "utf-8";
+/*========================================================================
+      @说明：边框样式基础样式
+========================================================================*/
+.border,
+.border_radius,
+.border_round{position:relative;}
+
+.border::after,
+.border_radius::after,
+.border_round::after{content:"";position:absolute;top:0;left:0;z-index:1;-webkit-box-sizing:border-box;width:100%;height:100%;pointer-events:none;border-style:solid;border-color:currentColor;border-width:1px;}/*请自己配置边框颜色*/
+.border_radius::after{border-radius:4px;}/*自己配置圆角*/
+.border_round::after{border-radius:999px;}
+
+/*上，下，左，右边框*/
+.border_t,
+.border_b,
+.border_l,
+.border_r{position:relative;}
+
+.border_t::after,
+.border_b::after,
+.border_l::after,
+.border_r::after{content:"";position:absolute;z-index:1;-webkit-box-sizing:border-box;pointer-events:none;border-style:solid;border-color:currentColor;}/*请自己配置边框颜色*/
+
+.border_t::after{top:0;left:0;right:0;height:0;border-width:1px 0 0 0;}
+.border_b::after{bottom:0;left:0;right:0;height:0;border-width:0 0 1px 0;}
+.border_l::after{top:0;bottom:0;left:0;width:0;border-width:0 0 0 1px;}
+.border_r::after{top:0;bottom:0;right:0;width:0;border-width:0 1px 0 0;}
+
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+    /*方形边框，圆角边框，圆弧边框*/
+	.border::after,
+	.border_radius::after,
+	.border_round::after{width:200%;height:200%;-webkit-transform-origin:0 0;-webkit-transform:scale(.5);}
+	.border_radius::after{border-radius:8px;}/*自己配置圆角,为默认情况的2倍*/
+	.border_round::after{border-radius:999px;}
+
+	/*上，下，左，右边框*/
+	.border_t::after,
+	.border_b::after{-webkit-transform:scaleY(.5);}
+	.border_l::after,
+	.border_r::after{-webkit-transform:scaleX(.5);}
+	
+}

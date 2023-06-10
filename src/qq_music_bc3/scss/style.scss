@@ -1,0 +1,724 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: "hy";
+  src: url("../fonts/hy.ttf") format("truetype");
+}
+
+// 英文字体
+@font-face {
+  font-family: "msr";
+  src: url("../fonts/msr.otf") format("truetype");
+}
+
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import "./global.import.scss";
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: "STSongti-TC-Regular", "STSongti-TC", Simsun, "PingFang", "PingFang SC", Helvetica, Tahoma, Arial,
+  "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+
+//hint: QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2;函数用法示例（750设计稿字体大小24）：font-size: changePx(0.24rem);
+@function changePx($px) {
+  @return $px / 2;
+}
+
+// 页面工具类 - 定位属性
+@mixin layout-set(
+  $layout: null,
+  $position: absolute,
+  $top: null,
+  $bottom: null,
+  $left: null,
+  $right: null,
+  $zIndex: 1
+) {
+  position: $position;
+  @if $layout == null {
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+  }
+  @if $layout == "center" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  @if $layout == "layout" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  @if $layout == "leftCenter" {
+    left: 50%;
+    top: $top;
+    bottom: $bottom;
+    transform: translate3d(-50%, 0, 0);
+  }
+  @if $layout == "topCenter" {
+    left: $left;
+    right: $right;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+  }
+  z-index: $zIndex;
+}
+html,
+body,
+.wrap {
+  width: 100%;
+  // height: 100vh;
+  position: relative;
+  font-family: hy, $baseFont;
+  user-select: none;
+  overflow-x: hidden;
+  height: 100%;
+  overflow-y: auto;
+  //overflow: hidden;
+  //touch-action: pan-y;
+}
+
+// body {
+//   // height: 100vh;
+//   //overflow: auto;
+//   overflow: hidden;
+// }
+
+// .wrap {
+//   font-size: 0.12rem;
+//   // height: 100vh;
+//   overflow: auto;
+// }
+
+.page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  // height: 100vh;
+}
+
+.logo {
+  position: absolute;
+  left: 0;
+  top: changePx(0.68rem);
+  display: block;
+  height: 0.22rem;
+}
+
+.start {
+  position: relative;
+  background-color: #0e2567;
+
+  .bg {
+    display: block;
+    width: 100%;
+  }
+  &.hide {
+    display: none;
+  }
+
+  .page-inner {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // width: 100%;
+    // height: 100%;
+    // padding-top: 0.32rem;
+    // padding-bottom: 0.26rem;
+  }
+
+  .start-desc {
+    @include layout-set(leftCenter, $top: changePx(1.08rem));
+    margin-top: 3.18rem;
+    padding: 0 0.25rem;
+    margin-bottom: 0.23rem;
+  }
+
+  .start-desc-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.05rem;
+    // height: changePx(2.2rem);
+  }
+
+  .start-desc-text {
+    display: block;
+    width: changePx(4.49rem);
+    height: 1.17rem;
+    flex: 1;
+    padding-right: 0.1rem;
+  }
+
+  .start-desc-list {
+    width: 0.91rem;
+    padding-top: 0.15rem;
+    margin-left: changePx(4.7rem);
+    // background-color: #f00;
+    box-sizing: border-box;
+  }
+
+  .start-desc-btn {
+    display: block;
+    height: 0.24rem;
+    margin-bottom: 0.11rem;
+
+    &.start-desc-btn-1 {
+      background: {
+        position: 0 0;
+      }
+    }
+
+    &.start-desc-btn-2 {
+      background: {
+        position: 0 -0.25rem;
+      }
+    }
+
+    &.start-desc-btn-3 {
+      background: {
+        position: 0 -0.5rem;
+      }
+      margin-bottom: 0.2rem;
+    }
+  }
+
+  // 活动
+  .start-activity {
+    .start-activity-item {
+      margin-bottom: 0.25rem;
+
+      &:last-child {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+
+  .start-activity3 {
+    .start-activity3-music {
+      @include layout-set(leftCenter, $top: changePx(10.58rem));
+      margin: 0 auto changePx(0.6rem);
+      width: 3.3rem;
+      height: 2.2rem;
+      background: {
+        size: 100%;
+        position: 0 0;
+        repeat: no-repeat;
+      }
+    }
+
+    .start-activity3-music-item {
+      color: #fff;
+      font-size: 0.13rem;
+      font-family: $baseFont;
+      height: 0.44rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 0.24rem;
+      padding-right: 0.26rem;
+    }
+
+    .start-activity3-music-avatar {
+      width: 0.3rem;
+      height: 0.3rem;
+      border-radius: 50%;
+      background: rgba(85, 115, 216, 0.4);
+      overflow: hidden;
+      margin-right: 0.02rem;
+    }
+
+    .start-activity3-music-prefix {
+      width: 0.2rem;
+      height: 0.2rem;
+      margin-right: 0.02rem;
+      background: {
+        image: url("../img/icon.png");
+        size: 0.4rem 1.2rem;
+        position: 0 -0.4rem;
+        repeat: no-repeat;
+      }
+    }
+
+    .start-activity3-music-name {
+      display: flex;
+      align-items: flex-end;
+      margin-right: auto;
+      width: 1.64rem;
+      white-space: nowrap;
+
+      &-sub {
+        font-size: 0.12rem;
+        color: #c9caca;
+      }
+    }
+
+    .start-activity3-music-outer {
+      overflow: hidden;
+      max-width: 1rem;
+    }
+
+    .start-activity3-music-inner {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .start-activity3-music-wait {
+      font-size: 0.14rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 auto;
+    }
+
+    .start-activity3-music-action {
+      display: flex;
+    }
+
+    .start-activity3-music-icon {
+      width: 0.2rem;
+      height: 0.2rem;
+      background: {
+        image: url("../img/icon.png");
+        size: 0.4rem 1.2rem;
+        position: 0 0;
+        repeat: no-repeat;
+      }
+
+      &.start-activity3-music-play {
+        margin-right: 0.13rem;
+        background: {
+          position: 0 0;
+        }
+
+        &.active {
+          background: {
+            position: -0.2rem 0;
+          }
+        }
+      }
+
+      &.start-activity3-music-favicon {
+        background: {
+          position: 0 -0.2rem;
+        }
+
+        &.active {
+          background: {
+            position: -0.2rem -0.2rem;
+          }
+        }
+      }
+    }
+
+    .start-activity3-logo {
+      margin: 0 auto 0.18rem;
+      display: block;
+      width: 1.82rem;
+      height: 0.78rem;
+    }
+
+    // 试听
+    .start-activity3-try {
+      @include layout-set(leftCenter, $top: changePx(24.35rem));
+
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0.02rem;
+
+      .start-activity3-try-item {
+        position: relative;
+        width: 1.63rem;
+        height: 0.9rem;
+        padding: 0.2rem;
+        padding-left: 0.1rem;
+        padding-right: 0.06rem;
+        padding-top: 0.31rem;
+        box-sizing: border-box;
+
+        &.start-activity3-try-item-1 {
+          margin-right: 0.02rem;
+        }
+      }
+
+      .start-activity3-try-content {
+        margin-bottom: 0.04rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0.02rem;
+        box-sizing: border-box;
+        background: {
+          image: linear-gradient(90deg, rgba(85, 115, 216, 1) 0%, rgba(85, 115, 216, 0) 94%, rgb(39, 53, 118) 100%);
+          size: 100% 0.01rem;
+          position: 0 100%;
+          repeat: no-repeat;
+        }
+      }
+
+      .start-activity3-try-sign {
+        margin: 0 auto;
+        width: 0.2rem;
+        height: 0.2rem;
+      }
+
+      .start-activity3-try-name {
+        font-size: 0.12rem;
+        color: #fff;
+        font-family: $baseFont;
+        width: 1rem;
+        overflow: hidden;
+      }
+
+      .start-activity3-try-inner {
+        white-space: nowrap;
+        display: inline-block;
+      }
+
+      .start-activity3-try-action {
+        display: flex;
+      }
+
+      .start-activity3-try-icon {
+        position: relative;
+        top: changePx(0.06rem);
+        // left: changePx(0.06rem);
+        width: 0.2rem;
+        height: 0.2rem;
+        background: {
+          image: url("../img/icon.png");
+          position: 0 0;
+          repeat: no-repeat;
+          size: 0.4rem 1.2rem;
+        }
+
+        &.start-activity3-try-icon-1 {
+          position: relative;
+          top: changePx(-0.01rem);
+          margin-right: 0.05rem;
+          background: {
+            position: 0 -1rem;
+          }
+
+          &.active {
+            background: {
+              position: -0.2rem -1rem;
+            }
+          }
+        }
+
+        &.start-activity3-try-icon-2 {
+          position: relative;
+          top: changePx(-0.01rem);
+          width: changePx(0.4rem);
+          height: changePx(0.4rem);
+          background: {
+            position: changePx(-0.4rem) changePx(-0.8rem);
+            size: changePx(0.8rem) changePx(2.4rem);
+          }
+
+          &.active {
+            background: {
+              position: changePx(-0.4rem) changePx(-1.2rem);
+              size: changePx(0.8rem) changePx(2.4rem);
+            }
+          }
+        }
+      }
+    }
+
+    // 换一批
+    .start-activity3-replace {
+      @include layout-set(leftCenter, $top: changePx(28.65rem));
+      margin: 0 auto 0.17rem;
+      width: 0.6rem;
+      height: changePx(0.4rem);
+      color: #9cb0de;
+      font-size: 0.12rem;
+      padding-left: 0.06rem;
+      box-sizing: border-box;
+      font-family: $baseFont;
+      &1 {
+        @include layout-set(leftCenter, $top: changePx(26.15rem));
+        margin: 0 auto 0.08rem;
+      }
+    }
+
+    // 评论
+    .start-activity3-comment {
+      @include layout-set(leftCenter, $top: changePx(26.75rem));
+      margin: 0 auto 0.04rem;
+      width: 3.3rem;
+      height: 0.88rem;
+      font-size: 0.12rem;
+      line-height: 0.18rem;
+      color: #fff;
+      padding: 0.16rem 0.12rem 0;
+      box-sizing: border-box;
+    }
+
+    // 演出
+    .start-activity3-show {
+      @include layout-set(leftCenter, $top: changePx(29.35rem));
+      margin: 0 auto 0.25rem;
+      width: 3.28rem;
+      height: changePx(4.68rem);
+
+      .start-activity3-show-img {
+        display: block;
+        width: 100%;
+      }
+
+      .start-activity3-show-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: changePx(3.4rem);
+        box-sizing: border-box;
+      }
+
+      .start-activity3-show-title {
+        font-size: 0.2rem;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 0.02rem;
+        font-family: msr, $baseFont;
+        height: changePx(0.6rem);
+      }
+
+      .start-activity3-show-btns {
+        // background-color: #fff;
+        display: flex;
+        justify-content: center;
+      }
+
+      .start-activity3-show-btn {
+        width: 0.75rem;
+        height: 0.2rem;
+        margin-right: 0.05rem;
+        // background: {
+        //   image: url("../img/start_activity3_btn.png");
+        //   size: 0.75rem 0.8rem;
+        //   position: 0 0;
+        //   repeat: no-repeat;
+        // }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      // @for $i from 0 through 3 {
+      //   .start-activity3-show-btn#{$i + 1} {
+      //     background: {
+      //       position: 0 $i * -0.2rem;
+      //     }
+      //   }
+      // }
+    }
+  }
+
+  // swiper
+  .start-swiper {
+    @include layout-set(leftCenter, $top: changePx(34.54rem));
+    width: 3.28rem;
+    height: 1.2rem;
+    overflow: hidden;
+    background-color: #5573d8;
+
+    .start-wrap {
+      height: 100%;
+    }
+
+    .start-item {
+    }
+
+    .start-item-link {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .start-item-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .start-item-img-btn {
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: 0.06rem;
+      margin-left: -0.675rem;
+      width: 1.35rem;
+      height: 0.3rem;
+    }
+  }
+}
+
+// 项目介绍
+.project-intro,
+.person-intro {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: {
+    image: url("../img/intro_bg.jpg");
+    size: 100% 8.125rem;
+    repeat: no-repeat;
+    position: center;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s linear;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .intro-content {
+    position: relative;
+    height: 5.5rem;
+    padding-top: 0.27rem;
+    box-sizing: border-box;
+  }
+
+  .intro-logo {
+    display: block;
+    width: 3.75rem;
+    margin: 0 auto 1.84rem;
+  }
+
+  .intro-link {
+    display: block;
+    width: 0.73rem;
+    height: 0.32rem;
+    margin-left: auto;
+    margin-right: 0.1rem;
+    background: {
+      image: url("../img/intro_btn.png");
+      size: 0.73rem 0.64rem;
+      position: 0 0;
+      repeat: no-repeat;
+    }
+  }
+}
+
+// 新增模块 - mv
+.start-mv {
+  @include layout-set(leftCenter, $top: changePx(15.55rem));
+  width: changePx(6.56rem);
+  height: changePx(3.68rem);
+  background-color: #0e2567;
+  margin: 0 auto;
+  border-radius: changePx(0.23rem);
+  overflow: hidden;
+  margin-bottom: changePx(0.56rem);
+  // background: {
+  //   image: url("../img/page_kv.jpg");
+  //   position: 0 0;
+  //   repeat: no-repeat;
+  //   size: 100% auto;
+  // }
+  &::after {
+    content: "";
+    @include layout-set(center);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.77);
+  }
+  &-title {
+    @include layout-set($left: changePx(0.42rem), $top: changePx(2.45rem), $zIndex: 2);
+    font-size: changePx(0.28rem);
+    line-height: changePx(0.48rem);
+    color: rgba(255, 255, 255, 0.6);
+  }
+  &-img {
+    @include layout-set(center);
+    width: 100%;
+    height: 100%;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-video {
+    @include layout-set(center, $zIndex: 2);
+    width: 100%;
+    height: 100%;
+  }
+}
+// 新增模块 - 音乐跳转
+.start-music {
+  @include layout-set(leftCenter, $top: changePx(19.84rem));
+  width: changePx(6.56rem);
+  height: changePx(1.77rem);
+  margin: 0 auto;
+  margin-bottom: changePx(2.76rem);
+  // background:rgb(39, 53, 118);
+  .start-music-play {
+    position: absolute;
+    right: changePx(2.74rem);
+    top: changePx(0.72rem);
+    width: 0.15rem;
+    height: 0.15rem;
+    background: {
+      image: url("../img/icon.png");
+      position: 0 0;
+      repeat: no-repeat;
+      size: 0.4rem 1.2rem;
+    }
+    width: changePx(0.4rem);
+    height: changePx(0.4rem);
+    background: {
+      position: changePx(-0) changePx(-2rem);
+      size: changePx(0.8rem) changePx(2.4rem);
+    }
+
+    &.active {
+      background: {
+        position: -0.2rem -1rem;
+        size: changePx(0.8rem) changePx(2.4rem);
+      }
+    }
+  }
+  .start-music-icon {
+    position: absolute;
+    right: changePx(2.22rem);
+    top: changePx(0.72rem);
+    width: 0.15rem;
+    height: 0.15rem;
+    background: {
+      image: url("../img/icon.png");
+      position: 0 0;
+      repeat: no-repeat;
+      size: 0.4rem 1.2rem;
+    }
+    width: changePx(0.4rem);
+    height: changePx(0.4rem);
+    background: {
+      position: changePx(-0.4rem) changePx(-0.8rem);
+      size: changePx(0.8rem) changePx(2.4rem);
+    }
+
+    &.active {
+      background: {
+        position: changePx(-0.4rem) changePx(-1.2rem);
+        size: changePx(0.8rem) changePx(2.4rem);
+      }
+    }
+  }
+}
+/* 页面样式 - End */

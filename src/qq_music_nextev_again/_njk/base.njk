@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  {% block meta %}
+  <meta charset="UTF-8">
+  <title>你有多久没有仰望天空</title>
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Language" content="zh-cn" />
+  <meta name="author" content="Tencent-Music" />
+  <meta name="Copyright" content="Tencent" />
+  <meta name="description" content="蔚来汽车 - QQ音乐" />
+  <meta name="keywords" content="蔚来汽车,qq音乐,qqmusic,腾讯,绿钻贵族,特权,等级,绿钻活动,绿钻豪华版,付费,音乐包" />
+
+  <meta name="qqmusic-set" content="share=1">
+  <meta itemprop="name" content="与蔚来EC6一起仰望最美天空" show_share=1 />
+  <meta itemprop="description" content="智能电动轿跑SUV蔚来EC6，现已开放预订"  />
+  <meta itemprop="image" content=""  />
+  {% endblock %}
+
+  {% block stylesheet %}
+  <link rel="stylesheet" href="css/style.min.css">
+  {% endblock %}
+  {% block adaption %}
+  <script src="js/adaptive.js"></script>
+  <script>
+    window['adaptive'].desinWidth = 750;
+    window['adaptive'].maxRate = 0.63;
+    window['adaptive'].baseFont = 24;
+    window['adaptive'].init();
+  </script>
+  {% endblock %}
+</head>
+
+<body>
+  {% block main %}
+  hello world
+  {% endblock %}
+  {% block javascript %}
+
+  {% endblock %}
+</body>
+
+</html>

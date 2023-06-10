@@ -1,0 +1,120 @@
+@charset "utf-8";
+// 页面默认字体
+$baseFont: Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB',
+  'Heiti SC', STXihei, 'Microsoft YaHei', SimHei, 'WenQuanYi Micro Hei';
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+body,
+html {
+  position: relative;
+  font-family: $baseFont;
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+}
+
+input {
+  border: 0;
+  background: 0;
+}
+
+// 字体引入
+@font-face {
+  font-family: 'HYYKH';
+  src: url('~@/assets/fonts/HYYKH.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-hyykh {
+  font-family: 'HYYKH';
+}
+// 公共样式 - 去除button默认样式
+button {
+  border: 1px solid transparent;
+  outline: none;
+  background: transparent;
+}
+
+// 公共样式 - 页面最大容器
+.page-wrap {
+  position: relative;
+  width: 100%;
+  user-select: none;
+  background: #ffb673;
+}
+// 公共样式 - 页面基本样式
+.page {
+  // display: none;
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  &.show {
+    display: block;
+  }
+}
+
+// 公共样式 - 金币装饰一基本样式
+.ornament-gold1 {
+  position: absolute;
+  width: 1.05rem;
+  height: 0.7rem;
+  @extend .bg-item;
+  background-image: url('~@/assets/img/ornament_gold1.png');
+}
+// 公共样式 - 金币装饰二基本样式
+.ornament-gold2 {
+  position: absolute;
+  width: 1.27rem;
+  height: 1.01rem;
+  @extend .bg-item;
+  background-image: url('~@/assets/img/ornament_gold2.png');
+}
+// 公共样式 - 树叶装饰一基本样式
+.ornament-leaf1 {
+  position: absolute;
+  width: 0.97rem;
+  height: 0.93rem;
+  @extend .bg-item;
+  background-image: url('~@/assets/img/ornament_leaf1.png');
+}
+// 公共样式 - 树叶装饰二基本样式
+.ornament-leaf2 {
+  position: absolute;
+  width: 1.4rem;
+  height: 0.97rem;
+  @extend .bg-item;
+  background-image: url('~@/assets/img/ornament_leaf2.png');
+}
+// 公共样式 - 树叶装饰二基本样式
+.ornament-leaf3 {
+  position: absolute;
+  width: 0.86rem;
+  height: 0.73rem;
+  @extend .bg-item;
+  background-image: url('~@/assets/img/ornament_leaf3.png');
+}
+// 公共样式 - 提示
+.toast-item {
+  position: fixed;
+  max-width: 60%;
+  left: 50%;
+  bottom: 6%;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  font-size: 0.18rem;
+  padding: 0.12rem 0.16rem;
+  line-height: 1;
+  border-radius: 0.3rem;
+  transform: translate3d(-50%, -50%, 0);
+  animation: fadeInDown 0.5s backwards;
+  z-index: 999;
+}

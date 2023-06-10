@@ -1,0 +1,69 @@
+<!-- Data: 2020-04-14 Edit: Hani Describe: 梦想倒计时重构 -->
+{% extends "./_njk/base.njk" %}
+
+<!-- title -->
+{% block title %}
+文件上传自动生成二维码
+{% endblock %}
+<!-- html -->
+{% block main %}
+<div class="page-wrap">
+  <form enctype="multipart/form-data">
+    <div class="upload-wrap">
+      <div class="upload-inner">
+        <div class="">
+          <div class="upload-demo">
+
+            <div class="btn-wrap">
+              <div class="btn-item">
+                <button type="button" class="btn-item btn-select">
+                  <span>选取文件</span>
+                </button>
+                <input type="file" id="csv_file" multiple="multiple" name="csv_file" class="btn-input btn-select-input"
+                  onchange="UpladFile();">
+              </div>
+              <div class="btn-item btn-upload-wrap">
+                <button type="button" class="btn-item btn-upload" id="import">
+                  <span>上传到七牛</span>
+                </button>
+              </div>
+            </div>
+            <div class="upload-tip">上传文件介绍</div>
+            <ul class="upload-list">
+              <!-- <li class="upload-item">
+                <div class="progress" style="width: 20%;"></div>
+                <div class="upload-item-img">
+                  <img src="https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100" alt="" class="img">
+                </div>
+                <a class="upload-item-name">
+                  hhhhh.jpg
+                </a>
+                <label class="upload-item-label"><i class="el-icon-upload-success el-icon-check"></i></label>
+                <i></i>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="success-wrap">
+        <i class="success-icon"></i>
+        <ul class="success-list">
+          
+        </ul>
+        <div class="success-icon-wrap">
+          <i></i><span>显示已经上传的资源</span>
+        </div>
+      </div> -->
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+<!-- JavaScript -->
+{% block javascript %}
+<!-- jquery 引入 -->
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/qrcode.min.js"></script>
+<script src="./js/index.js"></script>
+
+{% endblock %}

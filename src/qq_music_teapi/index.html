@@ -1,0 +1,524 @@
+{% extends "./_njk/base.njk" %}
+
+{% set interactiveList = [
+  {
+    id: 0,
+    img: './img/icon/interactive_icon_0.png',
+    text: '做兼职'
+
+  },{
+    id: 1,
+    img: './img/icon/interactive_icon_1.png',
+    text: '组织一次团体活动'
+
+  },{
+    id: 2,
+    img: './img/icon/interactive_icon_2.png',
+    text: '在澡堂放声K歌'
+
+  },{
+    id: 3,
+    img: './img/icon/interactive_icon_3.png',
+    text: '在学校论坛发帖'
+
+  },{
+    id: 4,
+    img: './img/icon/interactive_icon_4.png',
+    text: '在宿舍偷偷小火锅'
+
+  },{
+    id: 5,
+    img: './img/icon/interactive_icon_5.png',
+    text: '在宿舍看线上演唱会'
+
+  },{
+    id: 6,
+    img: './img/icon/interactive_icon_6.png',
+    text: '在校园里给游客指路'
+
+  },{
+    id: 7,
+    img: './img/icon/interactive_icon_7.png',
+    text: '在食堂吃出虫子'
+
+  },{
+    id: 8,
+    img: './img/icon/interactive_icon_8.png',
+    text: '在QQ音乐为爱豆氪金'
+
+  },{
+    id: 9,
+    img: './img/icon/interactive_icon_9.png',
+    text: '月底吃土'
+
+  },{
+    id: 10,
+    img: './img/icon/interactive_icon_10.png',
+    text: '用学生证薅羊毛'
+
+  },{
+    id: 11,
+    img: './img/icon/interactive_icon_11.png',
+    text: '勇敢的去表白'
+
+  },{
+    id: 12,
+    img: './img/icon/interactive_icon_12.png',
+    text: '迎新活动帮助学弟学妹'
+
+  },{
+    id: 13,
+    img: './img/icon/interactive_icon_13.png',
+    text: '遗失饭卡学生卡'
+
+  },{
+    id: 14,
+    img: './img/icon/interactive_icon_14.png',
+    text: '一次有价值的实习'
+
+  },{
+    id: 15,
+    img: './img/icon/interactive_icon_15.png',
+    text: '一次说走就走的旅行'
+
+  },{
+    id: 16,
+    img: './img/icon/interactive_icon_16.png',
+    text: '学习舍友方言'
+
+  },{
+    id: 17,
+    img: './img/icon/interactive_icon_17.png',
+    text: '宿舍一起看球赛'
+
+  },{
+    id: 18,
+    img: './img/icon/interactive_icon_18.png',
+    text: '笑到打嗝'
+
+  },{
+    id: 19,
+    img: './img/icon/interactive_icon_19.png',
+    text: '享受第二杯半价'
+
+  },{
+    id: 20,
+    img: './img/icon/interactive_icon_20.png',
+    text: '献血'
+
+  },{
+    id: 21,
+    img: './img/icon/interactive_icon_21.png',
+    text: '喜提奖学金'
+
+  },{
+    id: 22,
+    img: './img/icon/interactive_icon_22.png',
+    text: '为Ta买一瓶农夫山泉茶π'
+
+  },{
+    id: 23,
+    img: './img/icon/interactive_icon_23.png',
+    text: '晚上在草坪上分享心事'
+
+  },{
+    id: 24,
+    img: './img/icon/interactive_icon_24.png',
+    text: '投喂校园流浪猫狗'
+
+  },{
+    id: 25,
+    img: './img/icon/interactive_icon_25.png',
+    text: '通宵肝论文'
+
+  },{
+    id: 26,
+    img: './img/icon/interactive_icon_26.png',
+    text: '通宵复习'
+
+  },{
+    id: 27,
+    img: './img/icon/interactive_icon_27.png',
+    text: '探索学校神秘建筑'
+
+  },{
+    id: 28,
+    img: './img/icon/interactive_icon_28.png',
+    text: '谈一场恋爱'
+
+  },{
+    id: 29,
+    img: './img/icon/interactive_icon_29.png',
+    text: '肆无忌惮地大醉一场'
+
+  },{
+    id: 30,
+    img: './img/icon/interactive_icon_30.png',
+    text: '刷遍学校黑暗料理'
+
+  },{
+    id: 31,
+    img: './img/icon/interactive_icon_31.png',
+    text: '拼手速抢选修'
+
+  },{
+    id: 32,
+    img: './img/icon/interactive_icon_32.png',
+    text: '拍一组创意毕业照'
+
+  },{
+    id: 33,
+    img: './img/icon/interactive_icon_33.png',
+    text: '拿到驾照'
+
+  },{
+    id: 34,
+    img: './img/icon/interactive_icon_34.png',
+    text: '美化校园清除小广告'
+
+  },{
+    id: 35,
+    img: './img/icon/interactive_icon_35.png',
+    text: '每次低分，从来不挂科'
+
+  },{
+    id: 36,
+    img: './img/icon/interactive_icon_36.png',
+    text: '卖课本给学弟学妹'
+
+  },{
+    id: 37,
+    img: './img/icon/interactive_icon_37.png',
+    text: '裸考四/六级顺利通过'
+
+  },{
+    id: 38,
+    img: './img/icon/interactive_icon_38.png',
+    text: '论文查重惊险通过'
+
+  },{
+    id: 39,
+    img: './img/icon/interactive_icon_39.png',
+    text: '看完50本课外书'
+
+  },{
+    id: 40,
+    img: './img/icon/interactive_icon_40.png',
+    text: '开宿舍深夜卧谈会'
+
+  },{
+    id: 41,
+    img: './img/icon/interactive_icon_41.png',
+    text: '经历一次失恋'
+
+  },{
+    id: 42,
+    img: './img/icon/interactive_icon_42.png',
+    text: '借书忘还'
+
+  },{
+    id: 43,
+    img: './img/icon/interactive_icon_43.png',
+    text: '接待来旅游的外地朋友'
+
+  },{
+    id: 44,
+    img: './img/icon/interactive_icon_44.png',
+    text: '教室第一排听课'
+
+  },{
+    id: 45,
+    img: './img/icon/interactive_icon_45.png',
+    text: '骄傲地入党'
+
+  },{
+    id: 46,
+    img: './img/icon/interactive_icon_46.png',
+    text: '交换出国学习'
+
+  },{
+    id: 47,
+    img: './img/icon/interactive_icon_47.png',
+    text: '加入社团'
+
+  },{
+    id: 48,
+    img: './img/icon/interactive_icon_48.png',
+    text: '化身志愿者'
+
+  },{
+    id: 49,
+    img: './img/icon/interactive_icon_49.png',
+    text: '和校门合影'
+
+  },{
+    id: 50,
+    img: './img/icon/interactive_icon_50.png',
+    text: '和舍友通宵开黑'
+
+  },{
+    id: 51,
+    img: './img/icon/interactive_icon_51.png',
+    text: '和TA一起为出国考研学习'
+
+  },{
+    id: 52,
+    img: './img/icon/interactive_icon_52.png',
+    text: '单车被偷'
+
+  },{
+    id: 53,
+    img: './img/icon/interactive_icon_53.png',
+    text: '待到图书馆闭馆'
+
+  },{
+    id: 54,
+    img: './img/icon/interactive_icon_54.png',
+    text: '带爸妈逛校园'
+
+  },{
+    id: 55,
+    img: './img/icon/interactive_icon_55.png',
+    text: '大哭一场'
+
+  },{
+    id: 56,
+    img: './img/icon/interactive_icon_56.png',
+    text: '打卡200部以上的电影'
+
+  },{
+    id: 57,
+    img: './img/icon/interactive_icon_57.png',
+    text: '促成一段姻缘'
+
+  },{
+    id: 58,
+    img: './img/icon/interactive_icon_58.png',
+    text: '春运抢票硬座回家'
+
+  },{
+    id: 59,
+    img: './img/icon/interactive_icon_59.png',
+    text: '床上玩手机砸到脸'
+
+  },{
+    id: 60,
+    img: './img/icon/interactive_icon_60.png',
+    text: '吃遍每个饭堂'
+
+  },{
+    id: 61,
+    img: './img/icon/interactive_icon_61.png',
+    text: '参加一次校园演出'
+
+  },{
+    id: 62,
+    img: './img/icon/interactive_icon_62.png',
+    text: '参加学校运动会'
+
+  },{
+    id: 63,
+    img: './img/icon/interactive_icon_63.png',
+    text: '被校医院的低价震惊'
+
+  },{
+    id: 64,
+    img: './img/icon/interactive_icon_64.png',
+    text: '帮舍友拿快递'
+
+  }, {
+    id: 65,
+    img: './img/icon/interactive_icon_65.png',
+    text: '帮朋友签到点名'
+  }
+] %}
+{% block main %}
+<div class="wrap">
+  <!-- start 页面  页面切换加类 play -->
+  <div class="item item_start">
+    <!-- 启动页 - 背景 -->
+    <div class="bg"></div>
+    <div class="box">
+      <!-- 启动页 - logo -->
+      <div class="logo"></div>
+      <!-- 启动页 - 歌曲播放暂停icon -->
+      <div class="iocn_song stop"></div>
+      <!-- 启动页 - 标题 -->
+      <div class="start_title"></div>
+      <!-- 启动页 - 内容 -->
+      <div class="start_content"></div>
+      <!-- 启动页 - 顶部装饰 -->
+      <div class="start_adorn__top"></div>
+      <!-- 启动页 - 底部装饰 -->
+      <div class="start_adorn__base"></div>
+      <!-- 启动页 - 提示下滑 -->
+      <div class="start_hint">
+        <!-- 启动页 - 提示下滑icon -->
+        <div class="start_hint__arrows"></div>
+        <!-- 启动页 - 提示下滑文案 -->
+        <div class="start_hint__text">向上滑动打开相册</div>
+      </div>
+    </div>
+  </div>
+  <!-- 互动页  页面切换加类 play -->
+  <div class="item item_interactive">
+    <div class="bg"></div>
+    <div class="box">
+      <div class="interactive_head">
+        <div class="interactive_head__inner">
+          <div class="interactive_head__top">
+            <!-- 互动页 - logo -->
+            <div class="logo"></div>
+            <!-- 互动页 - 歌曲播放暂停icon -->
+            <div class="iocn_song stop"></div>
+          </div>
+          <div class="interactive_head__content">
+            <!-- 选中进度 -->
+            <div class="progress">0</div>
+          </div>
+        </div>
+      </div>
+      <div class="interactive_content">
+        <div class="interactive_list">
+          
+          {% for item in interactiveList %}
+          <div class="interactive_item" data-id="{{item.id}}" data-text="{{item.text}}">
+            <div class="item_img__wrap interactive_icon interactive_icon__{{item.id}}">
+              <!-- <img class="item_img"
+                src="{{item.img}}"
+                alt="" srcset=""> -->
+            </div>
+            <div class="item_text">{{item.text}}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- 提示滑动 -->
+      <div class="interactive_hint">
+        <div class="interactive_hint__arrows"></div>
+        <div class="interactive_hint__text"></div>
+      </div>
+      <!-- 选好了按钮 -->
+      <div class="interactive_btn"></div>
+      <div class="interactive_base">
+        <div class="interactive_base__inner">
+          <div class="interactive_base__content"></div>
+        </div>
+      </div>
+      <!-- 输入昵称弹窗 -->
+      <div class="modal" id="modalGetUser">
+        <div class="modal_content">
+          <div class="modal_bg"></div>
+          <div class="modal_body modal_user">
+            <div class="user_content">
+              <input type="text" placeholder="请输入昵称" maxlength="8" class="user_name" />
+              <!-- 确认昵称按钮 -->
+              <div class="btn_get__user">确定</div>
+              <!-- 跳过此步骤按钮 -->
+              <!-- <div class="btn_skip"></div> -->
+            </div>
+            <div class="modal_close"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 加载页  页面切换加类 play -->
+  <div class="item item_load">
+    <!-- 加载页 - 背景 -->
+    <div class="bg"></div>
+    <div class="box">
+      <!-- 加载页 - logo -->
+      <div class="logo"></div>
+      <!-- 加载页 - 歌曲播放暂停icon -->
+      <div class="iocn_song stop"></div>
+      <div class="load_content">
+        <div class="load_adron_1"></div>
+        <div class="load_adron_2"></div>
+      </div>
+      <!-- 加载 动画 -->
+      <canvas id="canvasLoad" width="750" height="1334"></canvas>
+      <div class="load_base">
+        <div class="load_base__img"></div>
+        <div class="load_base__color"></div>
+      </div>
+    </div>
+  </div>
+  <div class="item item_end">
+    <div class="bg"></div>
+    <div class="box">
+      <!-- 结果页 - logo -->
+      <div class="logo"></div>
+      <!-- 结果页 - 歌曲播放暂停icon -->
+      <div class="iocn_song stop"></div>
+      <div class="end_title">
+        <div class="end_title__content">
+          <!-- 用户昵称 -->
+          <div class="end_name"><span class="end_name__text">孙阳Sunny.</span></div>
+          <div class="end_number">解锁了<span class="font_fzdinpro end_num">4</span>个姿势</div>
+        </div>
+        <div class="end_label"><span class="end_label_title">佛系毕业：</span><span class="end_label_text">不争也不抢，低调发着光</span></div>
+      </div>
+      <div class="end_content">
+        <div class="end_list"></div>
+      </div>
+      <div class="end_base">
+        <div class="end_base__content">
+          <div class="btn_return"></div>
+          <div class="btn_share"></div>
+          <!-- Data: 20210616; Describe: 添加外链跳转按钮; Edit: Gianni; Start -->
+          <a href="JavaScript:;" class="btn_linke"></a>
+          <!-- Data: 20210616; Describe: 添加外链跳转按钮; Edit: Gianni; End -->
+        </div>
+      </div>
+      <!-- 分享弹窗 -->
+      <div class="modal" id="modalGetShare">
+        <div class="modal_content">
+          <div class="modal_bg"></div>
+          <div class="modal_body modal_share">
+            <div class="share_content">
+              <div class="share_inner">
+                <img src="./img/share_img_test.jpg" class="share_img" alt="">
+              </div>
+            </div>
+            <div class="modal_hint">长按保存分享</div>
+            <div class="modal_close"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 加载弹窗 -->
+      <div class="modal modal_load__wrap" id="modalLoad">
+        <div class="modal_content">
+          <div class="modal_bg"></div>
+          <div class="modal_body modal_load">
+            <div class="load_content">
+              <div class="load_gif">
+                <img src="./img/load.gif" alt="">
+              </div>
+              <div class="load_text">加载中...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<script src="./js/fx.js"></script>
+<!-- 预加载资源插件 -->
+<script type="text/javascript" src="js/preloadjs.min.js"></script>
+<!-- 帧动画参数 -->
+<script type="text/javascript" src="js/canvasData.js"></script>
+<!-- 帧动画模块配置 -->
+<script type="text/javascript" src="js/canvasAni.js"></script>
+<!-- 音乐播放器 -->
+<script src="./js/player.js"></script>
+<!-- QQ音乐 - 刷屏插件 -->
+<script type="text/javascript" src="js/iSlider.min.js"></script>
+<!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/eruda"></script>
+<script>eruda.init();</script> -->
+<script src="./js/index.js?time=1"></script>
+{% endblock %}

@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+// .box {
+//   width: 100%;
+//   height: 13.34rem;
+// }
+.center {
+  padding-bottom: 2rem;
+}
+.at-videobox {
+  width: 7rem;
+  padding-top: 2rem;
+  overflow: hidden;
+}
+.at-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.my-bullet-active {
+  background: #e9ba19 ;
+  opacity: 1;
+}

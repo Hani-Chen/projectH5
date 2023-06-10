@@ -1,0 +1,36 @@
+@keyframes slideInUp {
+  0% {
+    transform: translate3d(0, -3%, 0);
+    visibility: visible
+  }
+  
+  to {
+    transform: translate3d(0, 0, 0)
+  }
+}
+
+@keyframes cdRotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes circle {
+  from {transform: rotateZ(0deg)}
+  to {transform: rotateZ(360deg)}
+  }
+
+// 显示动画
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

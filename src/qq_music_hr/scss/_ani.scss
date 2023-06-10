@@ -1,0 +1,47 @@
+@keyframes myRotate{
+  0%{ transform: rotate(0deg);}
+  50%{ transform: rotate(180deg);}
+  100%{ transform: rotate(360deg);}
+}
+// 显示动画
+@keyframes fadeInShow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// 显示动画
+@keyframes textShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+// // 显示动画
+// @keyframes pageOffset {
+//   0% {
+//     transform: translateY(0);
+//   }
+//   50% {
+//     transform: translateY(33.3333%);
+//   }
+//   75% {
+//     transform: translateY(66.6666%);
+//   }
+//   100% {
+//     transform: translateY(100%);
+//   }
+// }

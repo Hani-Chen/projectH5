@@ -1,0 +1,127 @@
+{% extends "./_njk/base.njk" %} {% block main %}
+<div class="page-wrap">
+  <div class="page-item page-item0">
+    <img src="./img/page_bg0.jpg" alt="" class="page-item-img" />
+  </div>
+  <div class="page-item page-item1">
+    <div class="label-item">
+      <canvas class="label-item-ani" id="labelItem"></canvas>
+    </div>
+    <img src="./img/page_bg1.jpg" alt="" class="page-item-img" />
+  </div>
+  <div class="page-item page-item2">
+    <div class="time-item">
+      <canvas class="time-item-ani" id="timeItemAni"></canvas>
+    </div>
+    <img src="./img/page_bg2.jpg" alt="" class="page-item-img" />
+  </div>
+  <div class="page-item page-item3">
+    <img src="./img/page_bg3.jpg" alt="" class="page-item-img" />
+  </div>
+  <div class="page-item page-item4">
+    <img
+      src="./img/page_bg4_1.jpg"
+      alt=""
+      class="page-swiper-item page-swiper-item1 page-item-img show"
+    />
+    <img
+      src="./img/page_bg4_2.jpg"
+      alt=""
+      class="page-swiper-item page-swiper-item2 page-item-img"
+    />
+    <img
+      src="./img/page_bg4_3.jpg"
+      alt=""
+      class="page-swiper-item page-swiper-item3 page-item-img"
+    />
+  </div>
+  <div class="page-item page-item5">
+    <img src="./img/page_bg5.jpg" alt="" class="page-item-img" />
+  </div>
+  <div class="page-item page-item6">
+    <img src="./img/page_bg6.jpg" alt="" class="page-item-img" />
+  </div>
+  <div class="page-item page-item7">
+    <img src="./img/page_bg7.jpg" alt="" class="page-item-img" />
+  </div>
+  <div class="page-item page-item8 hide-scrollbar">
+    <!-- <div class="page-item-wrap">
+
+    </div> -->
+    <div class="page-item-inner">
+      <div class="arrows-wrap">
+        <canvas class="arrows-ani" id="arrowsAni"></canvas>
+      </div>
+      <div class="arrows-item arrows-item1">
+        <canvas class="arrows-item-ani" id="arrowsItemAni1"></canvas>
+      </div>
+      <div class="arrows-item arrows-item2">
+        <canvas class="arrows-item-ani" id="arrowsItemAni2"></canvas>
+      </div>
+      <div class="arrows-item arrows-item3">
+        <canvas class="arrows-item-ani" id="arrowsItemAni3"></canvas>
+      </div>
+      <div class="arrows-item arrows-item4">
+        <canvas class="arrows-item-ani" id="arrowsItemAni4"></canvas>
+      </div>
+      <div class="arrows-item arrows-item5">
+        <canvas class="arrows-item-ani" id="arrowsItemAni5"></canvas>
+      </div>
+      <div class="arrows-item arrows-item6">
+        <canvas class="arrows-item-ani" id="arrowsItemAni6"></canvas>
+      </div>
+      <div class="arrows-item arrows-item7">
+        <canvas class="arrows-item-ani" id="arrowsItemAni7"></canvas>
+      </div>
+      <div class="arrows-item arrows-item8">
+        <canvas class="arrows-item-ani" id="arrowsItemAni8"></canvas>
+      </div>
+      <div class="arrows-item arrows-item9">
+        <canvas class="arrows-item-ani" id="arrowsItemAni9"></canvas>
+      </div>
+      <div class="arrows-item arrows-item10">
+        <canvas class="arrows-item-ani" id="arrowsItemAni10"></canvas>
+      </div>
+      <!-- <img src="./img/page_bg8_1.jpg" alt="" class="page-item-img" />
+      <img src="./img/page_bg8_2.jpg" alt="" class="page-item-img" />
+      <img src="./img/page_bg8_3.jpg" alt="" class="page-item-img" />
+      <img src="./img/page_bg8_4.jpg" alt="" class="page-item-img" />
+      <img src="./img/page_bg8_5.jpg" alt="" class="page-item-img" />
+      <img src="./img/page_bg8_6.jpg" alt="" class="page-item-img" /> -->
+      <!-- <img src="./img/test.png" alt="" class="page-item-img" /> -->
+      <div class="page-item-img page-item-img1"></div>
+      <div class="page-item-img page-item-img2"></div>
+      <div class="page-item-img page-item-img3"></div>
+      <div class="page-item-img page-item-img4"></div>
+      <div class="page-item-img page-item-img5"></div>
+      <div class="page-item-img page-item-img6"></div>
+      <div class="page-item-img page-item-img7"></div>
+    </div>
+  </div>
+  <div class="page-item page-item9">
+    <img src="./img/page_bg9.jpg" alt="" class="page-item-img" />
+  </div>
+  <div class="page-item page-item10">
+    <!-- <div class="hide">
+      <canvas class="hide-ani" id="hideItemAni"></canvas>
+    </div> -->
+    <div class="page-item10-img page-item10-img1 show">
+      <img src="./img/page_bg10.jpg" alt="" class="page-item-img" />
+      <div class="go-linke"><img src="./img/page_bg10.jpg" alt="" class="page-item-img" /></div>
+    </div>
+    <div class="page-item10-img page-item10-img2">
+      <img src="./img/page_bg10_2.jpg" alt="" class="page-item-img" />
+      <div class="go-linke"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}{% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<!-- 预加载资源插件 -->
+<script type="text/javascript" src="js/preloadjs.min.js"></script>
+<!-- 帧动画参数 -->
+<script type="text/javascript" src="js/canvasData.js"></script>
+<!-- 帧动画模块配置 -->
+<script type="text/javascript" src="js/canvasAni.js"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends "./_njk/base.njk" %}
+{% set  
+  List = [
+    {
+      id: 1,
+      name: '答治茜',
+      url: 'https://app.ma.scrmtech.com/svip/sapIndex/SapSourceData?pf_uid=14440_1645&sid=10747&source=1&pf_type=3',
+      text: '腾讯SaaS生态“千帆计划”'
+    },
+    {
+      id: 2,
+      name: '段永朝',
+      url: 'https://app.ma.scrmtech.com/svip/sapIndex/SapSourceData?pf_uid=14440_1645&sid=10745&source=1&pf_type=3',
+      text: '认知重启 数字化转型的根本问题'
+    },
+    {
+      id: 3,
+      name: '高人伯',
+      url: 'https://app.ma.scrmtech.com/svip/sapIndex/SapSourceData?pf_uid=14440_1645&sid=10748&source=1&pf_type=3',
+      text: 'SaaS生态“千帆计划”数字化营销获客解决方案'
+    },
+    {
+      id: 4,
+      name: '孙涛勇',
+      url: 'https://app.ma.scrmtech.com/svip/sapIndex/SapSourceData?pf_uid=14440_1645&sid=10742&source=1&pf_type=3',
+      text: '零售企业如何快速恢复生意零售企业如何快速恢复生意'
+    },
+    {
+      id: 5,
+      name: '史彦泽',
+      url: 'https://app.ma.scrmtech.com/svip/sapIndex/SapSourceData?pf_uid=14440_1645&sid=10746&source=1&pf_type=3',
+      text: '疫情后 如何追回全年销售业绩'
+    },
+    {
+      id: 6,
+      name: '张星亮',
+      url: 'https://app.ma.scrmtech.com/svip/sapIndex/SapSourceData?pf_uid=14440_1645&sid=10743&source=1&pf_type=3',
+      text: '数字化销售部 中国企业的标配'
+    },
+    {
+      id: 7,
+      name: '喻煊',
+      url: 'https://app.ma.scrmtech.com/svip/sapIndex/SapSourceData?pf_uid=14440_1645&sid=10741&source=1&pf_type=3',
+      text: '京翰教育OMO物种数字化转型'
+    },
+    {
+      id: 8,
+      name: '黄翔',
+      url: 'https://app.ma.scrmtech.com/svip/sapIndex/SapSourceData?pf_uid=14440_1645&sid=10740&source=1&pf_type=3',
+      text: '电子合同助力企业数字化升级'
+    },
+    {
+      id: 9,
+      name: '彭双全',
+      url: 'https://app.ma.scrmtech.com/svip/sapIndex/SapSourceData?pf_uid=14440_1645&sid=10744&source=1&pf_type=3',
+      text: '房地产需要什么样的数字化建设'
+    }
+  ] 
+%}
+
+{% block title %}
+  云上直播间独家干货 
+{% endblock %}
+{% block main %}
+  <section class="section wrap">
+    {# 首页 #}
+    <div class="section-page home-wrap item">
+      {# logo #}
+      <div class="logo"></div>
+      {# title #}
+      <div class="item-ani title">
+        {# 小icon文件夹 #}
+        <div class="folder"></div>
+        {# 小icon tv #}
+        <div class="tv"></div>
+      </div>
+      {# subhead #}
+      <div class="subhead item-ani">解构企业数字化<br/>转型的实战秘籍</div>
+      {# text #}
+      <div class="text item-ani">九大行业领军者全方位洞见<br/>助力企业转危为机，追回生意！</div>
+      {# 按钮 #}
+      {# <div class="btn">点击迈开数字化转型第一步</div> #}
+      <div class="next"></div>
+    </div>
+    {# 内页 #}
+    <div class="section-page inside-wrap show item">
+      {# 人物展示 #}
+      <div class="personage-wrap">
+        {% for item in List %}
+          <div data-text="{{item.text}}" class="personage-item personage-item-{{item.id}}">
+            <a onclick="statistics({{item.id}})" href="{{item.url}}" data-url="{{item.url}}" data-id="{{item.id}}" class="item-btn">下载课件</a>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="next"></div>
+      <a href="https://app.ma.scrmtech.com/svip/sapIndex/SapSourceData?pf_uid=14440_1645&sid=10765&source=1&pf_type=3" onclick="statistics(10)" class="btn-all">一键下载所有课件</a>
+    </div>
+    {# 结果页 #}
+    <div class="section-page home-wrap end-wrap item">
+      {# logo #}
+      <div class="logo"></div>
+      {# title #}
+      <div class="item-ani title">
+        {# 小icon文件夹 #}
+        <div class="folder"></div>
+        {# 小icon tv #}
+        <div class="tv"></div>
+      </div>
+      {# 二维码 #}
+      <div class="item-ani qrcode-wrap">
+        <img src="./img/qrcode.jpg" alt="">
+      </div>
+      {# text #}
+      <div class="item-ani text">关注腾讯云上服务号<br/>收获一手数字化升级工具包</div>
+    </div>
+
+  </section>
+  <!-- 弹窗 -->
+  <div class="modal modal-introduce">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <!-- 提示内容 -->
+        <div class="modal-introduce-wrap">
+          <div class="title">实用工具箱业绩增长包</div>
+          <div class="text">认知重启，理解生态与共生演化，洞悉企业数字化转型根本问题。</div>
+          <a  href="" class="btn">点击下载课件</a>
+        </div>
+        <!-- 关闭按钮 -->
+        <div class="modal-close"></div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block javascript %}
+  <script src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+  <script type="text/javascript" src="./js/zepto.min.js"></script>
+  <script type="text/javascript" src="./js/iSlider.min.js"></script>
+  <script type="text/javascript" src="./js/wechatConfig.js?version=0.0.1"></script>
+  <script>
+      var _mtac = {"senseHash":0,"autoReport":0};
+      (function() {
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500720525");
+        mta.setAttribute("cid", "500720534");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+      })();
+  </script>
+  <script type="text/javascript" src="./js/index.js?version=0.0.1"></script>
+{% endblock %}

@@ -1,0 +1,798 @@
+@charset "UTF-8";
+/* 公共样式 */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+i {
+  font-style: normal;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: Helvetica,Tahoma,Arial,PingFang SC,Hiragino Sans GB,Heiti SC,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  padding-bottom: 0.2rem;
+  background-image: url(../img/activity_bg.png);
+  background-size: 100% 7.4rem;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: #63b0ff;
+}
+
+.section-content {
+  display: none;
+}
+
+.section-content.show {
+  display: block;
+}
+
+.content-redpackets {
+  display: none;
+}
+
+.content-redpackets.show {
+  display: block;
+}
+
+.index-header {
+  position: relative;
+  width: 100%;
+  height: 7.5rem;
+}
+
+.index-header .logo {
+  position: absolute;
+  left: 50%;
+  top: 0.18rem;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 4.07rem;
+  height: 0.4rem;
+  background-image: url(../img/logo.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.index-header .title {
+  position: absolute;
+  left: 50%;
+  top: 0.75rem;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 4.4rem;
+  height: 2.15rem;
+  background-image: url(../img/activity_title.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.index-header .theme {
+  position: absolute;
+  left: 50%;
+  top: 3.05rem;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 6.04rem;
+  height: 4.14rem;
+  background-image: url(../img/activity_theme.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.index-content {
+  position: relative;
+}
+
+.index-content .envelope {
+  position: relative;
+  left: 50%;
+  top: 0.5rem;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 6.8rem;
+  height: 4.7rem;
+  background-image: url(../img/bg_envelope.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.index-content .envelope-portrait {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1.02rem;
+  height: 1.02rem;
+  border-radius: 50%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#9dceff), to(#afdcfd));
+  background: -webkit-linear-gradient(#9dceff, #afdcfd);
+  background: linear-gradient(#9dceff, #afdcfd);
+}
+
+.index-content .envelope-portrait .portrait {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  margin: 0.06rem auto;
+  background-image: url(https://picsum.photos/200/200);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.index-content .envelope-title {
+  position: absolute;
+  left: 0;
+  top: 0.63rem;
+  width: 100%;
+  font-size: 0.36rem;
+  text-align: center;
+  color: #fffef9;
+}
+
+.index-content .envelope-text {
+  position: absolute;
+  left: 0;
+  top: 1.06rem;
+  width: 100%;
+  font-size: 0.3rem;
+  text-align: center;
+  color: #fffef9;
+}
+
+.index-content .envelope-btn {
+  position: absolute;
+  left: 50%;
+  top: 2.92rem;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 2.8rem;
+  height: 0.88rem;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 0.88rem;
+  color: #fff;
+  background-image: url(../img/btn-index.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.index-content .envelope-rule {
+  width: 6.8rem;
+  margin: 0 auto;
+  font-size: 0.24rem;
+  line-height: 1.5;
+  color: #fff;
+  padding: 0.4rem 0 0;
+}
+
+.get-content {
+  position: relative;
+}
+
+.get-content .redpackets {
+  position: relative;
+  width: 6.8rem;
+  height: 5.23rem;
+  margin: 0.4rem auto 0;
+  font-size: 0;
+  background-image: url(../img/bg_redpackets.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .redpackets-portrait {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1.02rem;
+  height: 1.02rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.get-content .redpackets-portrait .portrait {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  margin: 0.06rem auto;
+  background-image: url(https://picsum.photos/200/200);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .redpackets-title {
+  position: absolute;
+  left: 0;
+  top: 0.89rem;
+  width: 100%;
+  font-size: 0.48rem;
+  text-align: center;
+  color: #fff;
+}
+
+.get-content .redpackets-text {
+  position: absolute;
+  left: 0;
+  top: 1.2rem;
+  width: 100%;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #fff35a;
+  text-align: center;
+}
+
+.get-content .redpackets-text i {
+  font-size: 0.36rem;
+}
+
+.get-content .redpackets-btn {
+  position: absolute;
+  left: 50%;
+  top: 3.95rem;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 2.8rem;
+  height: 0.88rem;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 0.88rem;
+  color: #fff;
+  background-image: url(../img/btn-withdraw.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .redpackets-btn.withdraw {
+  background-image: url(../img/btn-withdraw2.png);
+}
+
+.get-content .condition {
+  position: relative;
+  width: 6.8rem;
+  height: 5.23rem;
+  margin: 0.4rem auto 0;
+  font-size: 0;
+  background-image: url(../img/bg_redpackets.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .condition-portrait {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1.02rem;
+  height: 1.02rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.get-content .condition-portrait .portrait {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  margin: 0.06rem auto;
+  background-image: url(https://picsum.photos/200/200);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .condition-text {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 1.2rem;
+  width: 4.05rem;
+  font-size: 0.3rem;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.get-content .condition-text1 {
+  top: 0.8rem;
+}
+
+.get-content .condition-text2 {
+  top: 1.9rem;
+}
+
+.get-content .condition-btn {
+  position: absolute;
+  left: 50%;
+  top: 3.95rem;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 2.8rem;
+  height: 0.88rem;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 0.88rem;
+  color: #fff;
+  background-image: url(../img/btn-withdraw.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .activityend {
+  position: relative;
+  width: 6.8rem;
+  height: 5.23rem;
+  margin: 0.4rem auto 0;
+  font-size: 0;
+  background-image: url(../img/bg_redpackets.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .activityend-portrait {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1.02rem;
+  height: 1.02rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.get-content .activityend-portrait .portrait {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  margin: 0.06rem auto;
+  background-image: url(https://picsum.photos/200/200);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .activityend-title {
+  position: absolute;
+  left: 0;
+  top: 1.1rem;
+  width: 100%;
+  font-size: 0.42rem;
+  text-align: center;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.get-content .activityend-text {
+  position: absolute;
+  left: 0;
+  top: 1.85rem;
+  width: 100%;
+  font-size: 0.28rem;
+  text-align: center;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.get-content .activityend-btn {
+  position: absolute;
+  left: 50%;
+  top: 3.95rem;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 2.8rem;
+  height: 0.88rem;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 0.88rem;
+  color: #fff;
+  background-image: url(../img/btn-withdraw.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .examine {
+  position: relative;
+  width: 6.8rem;
+  height: 5.23rem;
+  margin: 0.4rem auto 0;
+  font-size: 0;
+  background-image: url(../img/bg_redpackets.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .examine-portrait {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1.02rem;
+  height: 1.02rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.get-content .examine-portrait .portrait {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  margin: 0.06rem auto;
+  background-image: url(https://picsum.photos/200/200);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .examine-title {
+  position: absolute;
+  left: 0;
+  top: 1.1rem;
+  width: 100%;
+  font-size: 0.42rem;
+  text-align: center;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.get-content .examine-text {
+  position: absolute;
+  left: 0;
+  top: 1.85rem;
+  width: 100%;
+  font-size: 0.28rem;
+  text-align: center;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.get-content .examine-btn {
+  position: absolute;
+  left: 50%;
+  top: 3.95rem;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 3.6rem;
+  height: 0.88rem;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 0.88rem;
+  color: #fff;
+  background-image: url(../img/btn-withdraw.png);
+  background-size: 100% 0.88rem;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.get-content .redpackets-rule1 {
+  width: 6.8rem;
+  margin: 0 auto;
+  font-size: 0.24rem;
+  line-height: 1.5;
+  color: #fff;
+  padding: 0.4rem 0 0;
+}
+
+.get-content .redpackets-question {
+  position: relative;
+  width: 6.8rem;
+  margin: 0.37rem auto 0;
+  padding-bottom: 0.7rem;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.get-content .redpackets-question .title {
+  width: 5.85rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 0.45rem;
+  color: #63b0ff;
+  font-size: 0.4rem;
+}
+
+.get-content .redpackets-question .title-wire {
+  display: block;
+  width: 1.45rem;
+  height: 0.02rem;
+  background: #63b0ff;
+}
+
+.get-content .redpackets-question .question {
+  width: 100%;
+  padding: 0.47rem 0.2rem 0 0.5rem;
+  font-size: 0.3rem;
+}
+
+.get-content .redpackets-question .ask {
+  color: #63b0ff;
+  margin-bottom: 0.3rem;
+}
+
+.get-content .redpackets-question .answer {
+  color: #888;
+  line-height: 1.5;
+}
+
+.get-content .redpackets-rule {
+  position: relative;
+  width: 6.8rem;
+  margin: 0.4rem auto 0;
+  padding-bottom: 0.7rem;
+  background: #fff;
+  border-radius: 4px;
+  margin-bottom: 1.12rem;
+}
+
+.get-content .redpackets-rule .title {
+  width: 5.85rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 0.45rem;
+  color: #63b0ff;
+  font-size: 0.4rem;
+}
+
+.get-content .redpackets-rule .title-wire {
+  display: block;
+  width: 1.45rem;
+  height: 0.02rem;
+  background: #63b0ff;
+}
+
+.get-content .redpackets-rule .rule {
+  padding: 0.47rem 0.45rem 0 0.4rem;
+  text-align: justify;
+  line-height: 1.5;
+  font-size: 0.3rem;
+  color: #888;
+}
+
+.get-content .redpackets-rule .rule-item {
+  margin-bottom: 0.2rem;
+  list-style-position: inside;
+  padding-left: 0.35rem;
+}
+
+.get-content .redpackets-rule .rule-item > i {
+  display: inline-block;
+  width: 0.35rem;
+  margin-left: -0.35rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  height: 100%;
+  z-index: 1000;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 40px;
+}
+
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.modal-binding-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: #f2f2f2;
+  z-index: 2;
+  -webkit-animation: show 0.5s;
+          animation: show 0.5s;
+}
+
+.modal-binding-title {
+  width: 100%;
+  min-height: 1.16rem;
+  font-size: 0.26rem;
+  color: #ff0000;
+  padding: 0 0.35rem;
+}
+
+.modal-binding-title .title {
+  padding-top: 0.3rem;
+}
+
+.modal-binding-title .text {
+  padding-top: 0.1rem;
+  text-align: left;
+}
+
+.modal-binding-btn {
+  width: 100%;
+  height: 1.1rem;
+  font-size: 0.36rem;
+  line-height: 1.1rem;
+  color: #63b0ff;
+  background: #fff;
+  margin-top: 0.2rem;
+}
+
+.modal-rules1-bg {
+  background: rgba(255, 255, 255, 0);
+}
+
+.modal-rules1-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 6.17rem;
+  height: 3.87rem;
+  text-align: center;
+  background-image: url(../img/bg_pop.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  z-index: 2;
+  -webkit-animation: show 0.5s;
+          animation: show 0.5s;
+}
+
+.modal-rules1-body .condition-text {
+  top: 0.8rem;
+  color: #0091f6;
+  line-height: 1.2;
+}
+
+.modal-confirm-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 0.9rem;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 1.8rem;
+  height: 0.60rem;
+  font-size: 0.30rem;
+  text-align: center;
+  line-height: 1.8;
+  color: #fff;
+  background-image: url(../img/btn-index.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.modal-withdraw-text {
+  position: absolute;
+  top: 1.2rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 0.48rem;
+  color: #0091f6;
+}
+
+/*# sourceMappingURL=../maps/css/style.min.css.map */

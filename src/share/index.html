@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试跳转</title>
+    <style>
+      .btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -60px;
+        width: 120px;
+        height: 36px;
+        background-color: #efc5a5;
+        text-align: center;
+        line-height: 36px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn" id="btn">点击跳转微视</div>
+
+    <script src="http://code.jquery.com/jquery-latest.js" ?v="1.00"></script>
+    <script src="https://isee.weishi.qq.com/iseecdn/static/js/split/ws-schema-v1.6.8.js"></script>
+<script src="https://isee.weishi.qq.com/iseecdn/static/js/split/wslib-v1.6.8.js"></script>
+<script src="https://isee.weishi.qq.com/iseecdn/static/js/split/ws-share-v1.6.8.js"></script>
+<script src="https://isee.weishi.qq.com/iseecdn/static/js/split/ws-report-v1.6.2.js"></script>
+    <script>
+      
+        function openWS(feedId) {
+          alert(444)
+          /**
+          * 打开微视视频
+          * @param {string} feedId 微视视频ID
+          */
+          if (WSLib.wsHybrid.browser.client === 'ws') {
+            alert(123)
+            WSLib.wsSchema.openSchema('feed', {feed_id: feedId})
+          } else {
+            
+            alert(456)
+            WSLib.wsSchema.openUrl('https://h5.weishi.qq.com/weishi/feed/' + feedId + '/wsfeed?id=' + feedId + '&_proxy=1&_wv=1&logsour=1000370520')
+          }
+        }
+        // 右btn点击
+        $('#btn').on('click', function () {
+          WSLib.wsSchema.openSchema(
+            'weishi://feed?feed_id=76lyGuBuo1II98j9F&logsour=1000370520'
+          )
+        })
+    </script>
+  </body>
+</html>

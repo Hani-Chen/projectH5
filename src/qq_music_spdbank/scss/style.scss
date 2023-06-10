@@ -1,0 +1,1251 @@
+@charset "utf-8";
+
+$rate: 750/1080;
+$time: 0.8s;
+$taktTime: 0.6s;
+@function changeRem($number) {
+  @return $number * $rate;
+}
+
+// 引入公共样式
+@import 'global.import.css';
+* {
+  user-select: none;
+}
+img {
+  pointer-events: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #afd0d7;
+}
+@font-face {
+  font-family: 'FZY3';
+  src: url('../fonts/FZY3JW.TTF');
+}
+.fzy3 {
+  font-family: 'FZY3';
+}
+
+@font-face {
+  font-family: 'FZTZH';
+  src: url('../fonts/方正兰亭中黑_GBK.TTF');
+}
+.fztzh {
+  font-family: 'FZTZH';
+}
+
+@font-face {
+  font-family: 'FZTH';
+  src: url('../fonts/FZLTZHUNHJW.TTF');
+}
+
+.fzth {
+  font-family: 'FZTH';
+}
+
+@font-face {
+  font-family: 'FZLTZCH';
+  src: url('../fonts/FZLTZCHK_0.TTF');
+}
+.fztzch {
+  font-family: 'FZLTZCH';
+}
+
+@font-face {
+  font-family: 'FZTCHJ';
+  src: url('../fonts/FZLTCHJW_0.TTF');
+}
+
+.fztchj {
+  font-family: 'FZTCHJ';
+}
+// 页面样式
+.wrap {
+  // display: none;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  // position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: opacity 0.7s;
+  background: {
+    size: 100% auto;
+    position: 0 bottom;
+    repeat: no-repeat;
+  }
+  &.show {
+    opacity: 1;
+    z-index: 30;
+  }
+  &_preload {
+    background: #8fbdff;
+    overflow: hidden;
+  }
+  // loading接听页面 - 背景
+  &_loading {
+    background-image: url(../img/bg_page1.jpg);
+    background-color: #afd0d7;
+    overflow: hidden;
+  }
+  // 首页- 背景
+  &_index {
+    background-image: url(../img/bg_page2.jpg);
+    background-color: #6499a6;
+  }
+  // 问题1页面 - 背景
+  &_question1 {
+    background-image: url(../img/bg_page3.jpg);
+    background-color: #aacbd2;
+    overflow: hidden;
+  }
+  // 问题2页面 - 背景
+  &_question2 {
+    background-image: url(../img/bg_page4.jpg);
+    background-color: #a7d0d4;
+    overflow: hidden;
+  }
+  // 问题3页面 - 背景
+  &_question3 {
+    background-image: url(../img/bg_page3.jpg);
+    background-color: #abccd2;
+    overflow: hidden;
+  }
+  // 办理页面1 - 背景
+  &_handle {
+    background-image: url(../img/bg_page5.jpg);
+    background-color: #afd0d7;
+    background-position: 0 center;
+    overflow: hidden;
+    &.active {
+      background-image: url(../img/bg_page6.jpg);
+      background-color: #98c0c8;
+    }
+  }
+  &_home {
+    display: none;
+    background: #76a3e3;
+    height: auto;
+    &.show {
+      display: block;
+      animation: fadeIn $time ease both;
+    }
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+// 接听电话 - 动画
+@keyframes answer {
+  0% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate(-3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate(-3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05) rotate(3deg);
+    transform: scale3d(1.05, 1.05, 1.05) rotate(3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05) rotate(-3deg);
+    transform: scale3d(1.05, 1.05, 1.05) rotate(-3deg);
+  }
+
+  to {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+// 准备好了按钮 - 动画
+@keyframes shake {
+  0% {
+    transform: scale(1); /*开始为原始大小*/
+  }
+  25% {
+    transform: scale(1.1); /*放大1.1倍*/
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+// 底部联合logo
+.logo {
+  width: 100%;
+  height: changeRem(0.51rem);
+  position: absolute;
+  bottom: changeRem(0.23rem);
+  left: 0;
+  z-index: 3;
+  > img {
+    display: block;
+    width: changeRem(5.64rem);
+    height: changeRem(0.51rem);
+    margin: 0 auto;
+  }
+}
+
+.preload {
+  height: 1.37rem;
+  width: 5.37rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -90%);
+  &_box {
+    width: 100%;
+    border-radius: 25px;
+    // border: 2px solid #fff;
+    // padding: 2px;
+    background-color: #417bcc;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #417bcc;
+      border-radius: 25px;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 2px solid #fff;
+      border-radius: 25px;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      z-index: 3;
+    }
+  }
+  &_schedule {
+    position: relative;
+    display: block;
+    width: 0%;
+    max-width: 100%;
+    height: 0.32rem;
+    // margin: -1px;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      background: {
+        color: #417bcc;
+        repeat: repeat-x;
+        size: auto 100%;
+        position: 0 0;
+        image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAcCAMAAADY3iYuAAAAgVBMVEUAAAD/rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc//rc+n08YyAAAAKnRSTlMABPy5cRL48u7p4NfRyZ6VgGlfUEtDOC8qHxgNCfXk2sK+r6qlj4h5ViWauRiPAAAAmUlEQVQoz5XTRw6EQAwAwR1gSEvOaSOZ/z+Qs/uC8LnUkiX7wTEPORZBAfBUAOoDUTBhAZgEnSOB0VBESMwEtSGBpym+SKQEG0DATQcfomQiARgJ2pcEdksxIZEQVADvHkCFEBkTGUBI0HsQFcUCEBHstgROR/FHYiUoAfyBmwYQORMpwI9Auzi9miJGIiZocHquvv1k+dWTnc6HSPQRWaApAAAAAElFTkSuQmCC);
+      }
+      z-index: 4;
+      border-radius: 25px;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      min-width: 1rem;
+      height: 100%;
+      background: {
+        color: #417bcc;
+      }
+      z-index: 3;
+      border-radius: 25px;
+    }
+    // margin-top: 0.545rem;
+    z-index: 3;
+  }
+  &_holder {
+    position: relative;
+    width: 100%;
+    min-width: 1rem;
+    // z-index: 2;
+  }
+  &_img {
+    width: 0.79rem;
+    height: 1.08rem;
+    position: absolute;
+    top: -0.9rem;
+    right: 0.2rem;
+    z-index: 1;
+  }
+  &_text {
+    position: absolute;
+    top: 0.9rem;
+    width: 100%;
+    text-align: right;
+    font-size: 0.26rem;
+    line-height: 0.3rem;
+    height: 0.3rem;
+    font-weight: bold;
+    color: #ffadcf;
+    background: {
+      image: url('../img/icon_loading.png');
+      repeat: no-repeat;
+      position: center center;
+      size: auto 0.19rem;
+    }
+  }
+}
+
+// loading接听页面
+.loading {
+  // 按钮
+  &_header {
+    width: changeRem(9.92rem);
+    height: changeRem(0.94rem);
+    position: absolute;
+    top: changeRem(0.33rem);
+    left: 50%;
+    margin-left: changeRem(-4.96rem);
+    background: {
+      image: url(../img/loadding_header.png);
+      // size: 100% auto;
+      size: changeRem(9.92rem) changeRem(0.94rem);
+      position: 100% auto;
+      repeat: no-repeat;
+    }
+  }
+  // 接听
+  &_answer {
+    width: 100%;
+    position: absolute;
+    bottom: changeRem(1.86rem);
+    left: 0;
+    text-align: center;
+    font-size: 0;
+
+    // 接听按钮 - 容器
+    .answer_box {
+      width: changeRem(2.22rem);
+      height: changeRem(2.22rem);
+      margin: 0 auto;
+    }
+    // 接听按钮 - img
+    .answer {
+      display: block;
+      width: 100%;
+      height: 100%;
+      // animation: answer 1s 1.2s ease both infinite;
+      &_text {
+        display: block;
+        margin-top: changeRem(0.4rem);
+        line-height: 1;
+        font-size: changeRem(0.51rem);
+        color: #fff;
+      }
+    }
+    &.animation {
+      animation: fadeInDown $time 0.5s ease both;
+      .answer {
+        animation: answer 1s 1s ease both infinite;
+      }
+    }
+  }
+}
+// 首页
+.index {
+  &_header {
+    width: changeRem(9.92rem);
+    height: changeRem(0.94rem);
+    position: absolute;
+    top: changeRem(0.33rem);
+    left: 50%;
+    margin-left: changeRem(-4.96rem);
+  }
+  // 内容
+  &_center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    .title {
+      // 标题容器
+      &_box {
+        width: changeRem(7.26rem);
+        height: changeRem(6.44rem);
+        padding: changeRem(0.8rem);
+        letter-spacing: changeRem(0.08rem);
+        font-size: changeRem(0.76rem);
+        line-height: 1.6;
+        color: #fff;
+        position: relative;
+        &.animation {
+          animation: fadeInDown $time $taktTime ease both;
+        }
+        background: {
+          image: url(../img/bg_circular_bead.png);
+          size: 100% auto;
+          // size: 10.80rem 18.20rem;
+          position: 0 center;
+          repeat: no-repeat;
+        }
+      }
+
+      &_text1 {
+        position: absolute;
+        bottom: changeRem(0.92rem);
+        left: changeRem(0.8rem);
+      }
+    }
+    // 按钮
+    .ibtn {
+      &_box {
+        margin-top: changeRem(3.06rem);
+        &.animation {
+          animation: fadeInDown $time ($taktTime * 2) ease both;
+        }
+        > span {
+          margin: 0 auto;
+          display: block;
+          width: changeRem(5.3rem);
+          height: changeRem(1.52rem);
+          background: {
+            size: changeRem(10.6rem) changeRem(9.12rem);
+            repeat: no-repeat;
+          }
+        }
+      }
+      // 按钮 - 准备好了
+      &_ok {
+        // transition: all 10s;
+        // transition: background-position 0.1s;
+        animation: shake 2s 1s infinite both;
+        background: {
+          image: url(../img/btn.png);
+          position: changeRem(-5.3rem) changeRem(-3.04rem);
+        }
+
+        &.active {
+          background: {
+            image: url(../img/btn.png);
+            position: changeRem(-5.3rem) changeRem(-4.56rem);
+          }
+        }
+      }
+      // 按钮 - 自己了解
+      &_discovery {
+        margin: changeRem(0.05rem) auto 0;
+        background: {
+          image: url(../img/btn.png);
+          position: 0 changeRem(-6.08rem);
+        }
+        &.active {
+          background: {
+            image: url(../img/btn.png);
+            position: 0 changeRem(-7.6rem);
+          }
+        }
+      }
+    }
+  }
+}
+
+// 问题
+.question {
+  overflow: hidden;
+  // 内容
+  &_center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-height: changeRem(14rem);
+    z-index: 2;
+    padding-bottom: changeRem(2.5rem);
+    .tape {
+      width: changeRem(10.5rem);
+      height: changeRem(6.94rem);
+      position: relative;
+      margin-left: changeRem(0.3rem);
+      &.animation {
+        animation: fadeInDown ($time * 2) $taktTime ease both;
+      }
+      background: {
+        image: url(../img/bg_tape.png);
+        // size: 100% auto;
+        size: changeRem(10.5rem) changeRem(6.94rem);
+        position: 100% auto;
+        repeat: no-repeat;
+      }
+      &_text {
+        position: absolute;
+        width: 100%;
+        display: block;
+        font-size: changeRem(0.55rem);
+        color: #ac7f7f;
+        line-height: 1.24;
+        text-align: center;
+        left: 0;
+        bottom: changeRem(0.4rem);
+        &.text1 {
+          bottom: changeRem(0.7rem);
+        }
+      }
+      &_serial {
+        width: changeRem(0.66rem);
+        height: changeRem(0.66rem);
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: changeRem(0.8rem);
+        margin-left: changeRem(-0.5rem);
+      }
+    }
+    // 按钮
+    .qbtn {
+      &_box {
+        margin-top: changeRem(0.78rem);
+        > span {
+          // transition: background-position 0.1s;
+          margin: changeRem(0.05rem) auto;
+          display: block;
+          width: changeRem(5.3rem);
+          height: changeRem(1.52rem);
+          background: {
+            image: url(../img/btn_color.png);
+            size: changeRem(10.6rem) changeRem(6.08rem);
+            repeat: no-repeat;
+          }
+        }
+      }
+
+      // 按钮 - 蓝色
+      &_1 {
+        background-position: 0 0;
+        &.active {
+          background-position: 0 changeRem(-1.52rem);
+        }
+        &.animation {
+          animation: fadeInDown $time ($taktTime * 2) ease both;
+        }
+      }
+      // 按钮 - 粉红色
+      &_2 {
+        background-position: changeRem(-5.3rem) 0;
+        &.active {
+          background-position: changeRem(-5.3rem) changeRem(-1.52rem);
+        }
+        &.animation {
+          animation: fadeInDown $time ($taktTime * 2) ease both;
+        }
+      }
+      // 按钮 - 黑色
+      &_3 {
+        background-position: 0 changeRem(-3.04rem);
+        &.active {
+          background-position: 0 changeRem(-4.56rem);
+        }
+        &.animation {
+          animation: fadeInDown $time ($taktTime * 2) ease both;
+        }
+      }
+      // 按钮 - 棕色
+      &_4 {
+        background-position: changeRem(-5.3rem) changeRem(-3.04rem);
+        &.active {
+          background-position: changeRem(-5.3rem) changeRem(-4.56rem);
+        }
+        &.animation {
+          animation: fadeInDown $time ($taktTime * 2) ease both;
+        }
+      }
+    }
+  }
+  &_bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    .logo {
+      bottom: changeRem(2.16rem);
+    }
+    .tape {
+      width: 100%;
+      height: changeRem(6.89rem);
+      position: absolute;
+      left: 0;
+      bottom: changeRem(-1rem);
+      &_img {
+        width: changeRem(10.4rem);
+        height: changeRem(7.96rem);
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+// 问题 2
+.question2 {
+  // 内容
+  &_center {
+    // 按钮
+    .qbtn_box {
+      > span {
+        background: {
+          image: url(../img/btn_constellation.png);
+        }
+      }
+    }
+  }
+}
+// 问题 3
+.question3 {
+  // 内容
+  &_center {
+    // 按钮
+    .qbtn_box {
+      > span {
+        background: {
+          image: url(../img/btn.png);
+          size: changeRem(10.6rem) changeRem(9.12rem);
+        }
+      }
+    }
+  }
+  &_bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    .logo {
+      bottom: changeRem(2.16rem);
+    }
+    .tape {
+      width: 100%;
+      height: changeRem(7.96rem);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      &_img {
+        width: changeRem(10.4rem);
+        height: changeRem(7.96rem);
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+// 办卡
+.handle {
+  // 内容
+  &_center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    // min-height: 14rem;
+    // 弹窗
+    .handle_pop {
+      width: changeRem(10.23rem);
+      height: changeRem(12.61rem);
+      margin-left: -0.11rem;
+      &.animation {
+        animation: fadeInDown $time $taktTime ease both;
+      }
+      background: {
+        // size: 100% auto;
+        size: changeRem(10.23rem) changeRem(12.61rem);
+        position: 100% auto;
+        repeat: no-repeat;
+      }
+    }
+    // 弹窗1
+    .pop1 {
+      background: {
+        image: url(../img/bg_pop1.png);
+      }
+    }
+    // 弹窗2
+    .pop2 {
+      background: {
+        image: url(../img/bg_pop2.png);
+      }
+    }
+    // 立即办卡按钮
+    .hbtn {
+      margin: changeRem(0.5rem) auto 0;
+      display: block;
+      width: changeRem(5.3rem);
+      height: changeRem(1.52rem);
+      // transition: background-position 0.1s;
+      &.animation {
+        animation: fadeInDown $time ($taktTime * 2) ease both;
+      }
+      background: {
+        image: url(../img/btn.png);
+        size: changeRem(10.6rem) changeRem(9.12rem);
+        position: 0 changeRem(-3.04rem);
+        repeat: no-repeat;
+      }
+      &.active {
+        background-position: 0 changeRem(-4.56rem);
+      }
+    }
+    // 活动细则按钮
+    .rule {
+      width: changeRem(0.51rem);
+      height: changeRem(1.7rem);
+      background: rgba($color: #debb45, $alpha: 0.8);
+      font-size: 0.2rem;
+      color: #897c41;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      right: changeRem(-0.9rem);
+      padding: changeRem(0.3rem) changeRem(0.64rem) changeRem(0.3rem)
+        changeRem(0.2rem);
+      border-radius: 25px;
+    }
+  }
+}
+
+// 活动首页
+.home {
+  // 头部
+  &_header {
+    width: 100%;
+    height: changeRem(13.64rem);
+    position: relative;
+    .bg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: changeRem(13.64rem);
+      &-img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .logo1 {
+      // width: 100%;
+      height: changeRem(0.46rem);
+      // padding-top: 0.27rem;
+      position: absolute;
+      top: changeRem(0.27rem);
+      left: changeRem(0.2rem);
+      > img {
+        // margin-left: 0.2rem;
+        width: changeRem(4.6rem);
+        height: 100%;
+      }
+    }
+    // 导航按钮
+    .home_btn {
+      position: absolute;
+      left: 0;
+      bottom: changeRem(1.04rem);
+      width: changeRem(2.28rem);
+      height: changeRem(3.45rem);
+      z-index: 20;
+
+      // 导航 - 办卡按钮
+      .btn_manage {
+        width: changeRem(2.28rem);
+        height: changeRem(1.73rem);
+        background: {
+          image: url(../img/btn_manage.png);
+          size: changeRem(1.87rem) changeRem(1.73rem);
+          position: 0 center;
+          repeat: no-repeat;
+        }
+      }
+      .btn {
+        &_box {
+          width: changeRem(2.28rem);
+          height: changeRem(3.44rem);
+
+          &.fixed {
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+          }
+        }
+        // 导航 - 办卡按钮 高亮
+        &_manage_active {
+          height: changeRem(1.72rem);
+          background: {
+            image: url(../img/btn_manage1.png);
+            size: changeRem(2.19rem) changeRem(1.77rem);
+          }
+        }
+        // 导航 - 分享按钮
+        &_share {
+          height: changeRem(1.72rem);
+          margin-top: -1px;
+          background: {
+            image: url(../img/btn_share.png);
+            size: changeRem(1.87rem) changeRem(1.7rem);
+            position: 0 center;
+            repeat: no-repeat;
+          }
+        }
+        // 导航 - 分享按钮 高亮
+        &_share_active {
+          background: {
+            image: url(../img/btn_share1.png);
+            size: changeRem(2.19rem) changeRem(1.7rem);
+          }
+        }
+      }
+    }
+  }
+  // 内容
+  &_center {
+    // background: #76a3e3;
+    margin-top: changeRem(-0.8rem);
+    animation: fadeInDown $time $taktTime ease both;
+    // 活动1
+    .activity1 {
+      width: changeRem(9.73rem);
+      height: changeRem(8.25rem);
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      &.animation {
+        animation: fadeInDown $time $taktTime ease both;
+      }
+      background: {
+        image: url(../img/bg_activity.png);
+        size: 100% auto;
+        position: 0 top;
+        repeat: no-repeat;
+      }
+      // 活动规则
+      .rule {
+        display: block;
+        font-size: changeRem(0.32rem);
+        color: #fff;
+        text-decoration: underline;
+        line-height: 1.36;
+        position: absolute;
+        top: changeRem(-0.5rem);
+        right: changeRem(0.45rem);
+      }
+      // 活动标题
+      .title {
+        padding-top: changeRem(0.36rem);
+        margin-left: changeRem(0.95rem);
+        display: block;
+        color: #3168b6;
+        font-size: changeRem(0.49rem);
+        line-height: 1.32;
+      }
+      // 活动文案
+      .text {
+        margin-left: changeRem(0.95rem);
+        display: block;
+        color: #3168b6;
+        font-size: changeRem(0.37rem);
+        line-height: 1.74;
+        font-weight: bold;
+      }
+      .gift {
+        // 活动礼物 容器
+        &_box {
+          width: changeRem(8.3rem);
+          text-align: center;
+          margin: changeRem(0.4rem) 0 0 changeRem(0.6rem);
+          display: flex;
+          justify-content: space-between;
+        }
+        // 单个活动礼物
+        &_item {
+          width: changeRem(1.96rem);
+        }
+        // 单个活动礼物
+        &_item1 {
+          margin-left: -0.1rem;
+          > span {
+            margin-left: 0.2rem;
+          }
+        }
+        // 图片
+        &_img {
+          width: changeRem(1.96rem);
+          height: auto;
+        }
+        // 文案
+        &_text {
+          font-size: changeRem(0.26rem);
+          color: #3176cb;
+          display: block;
+          white-space: nowrap;
+        }
+        // 文案
+        &_text1,
+        &_text2 {
+          text-align: center;
+          font-size: changeRem(0.32rem);
+          color: #3176cb;
+          display: block;
+          line-height: 1.5;
+        }
+        &_text1 {
+          margin-top: changeRem(0.46rem);
+        }
+        // 文案
+        &_text2 {
+          font-weight: bold;
+        }
+        // 领取按钮
+        &_btn {
+          margin: changeRem(0.26rem) auto 0;
+          display: block;
+          background: #3168b6;
+          width: changeRem(6.5rem);
+          height: changeRem(1.15rem);
+          border-radius: 25px;
+          font-size: changeRem(0.52rem);
+          line-height: changeRem(1.2rem);
+          text-align: center;
+          color: #fff;
+        }
+      }
+    }
+
+    // 活动2
+    .activity2 {
+      width: changeRem(9.73rem);
+      height: changeRem(8.25rem);
+      margin: 0 auto;
+      position: absolute;
+      left: 0;
+      top: changeRem(-1.6rem);
+      right: 0;
+
+      padding-bottom: changeRem(4.64rem);
+
+      &.animation {
+        animation: fadeInDown $time ($taktTime * 2) ease both;
+      }
+      background: {
+        image: url(../img/bg_activity.png);
+        size: 100% auto;
+        position: 0 top;
+        repeat: no-repeat;
+      }
+      // 活动规则
+      .rule {
+        display: block;
+        font-size: changeRem(0.32rem);
+        color: #fff;
+        text-decoration: underline;
+        line-height: 1.36;
+        position: absolute;
+        top: changeRem(-0.5rem);
+        right: changeRem(0.45rem);
+      }
+      // 活动标题
+      .title {
+        padding-top: changeRem(0.36rem);
+        margin-left: changeRem(0.95rem);
+        display: block;
+        color: #3168b6;
+        font-size: changeRem(0.49rem);
+        line-height: 1.32;
+      }
+      // 活动文案
+      .text {
+        margin-left: changeRem(0.95rem);
+        display: block;
+        color: #3168b6;
+        font-size: changeRem(0.37rem);
+        line-height: 1.74;
+        font-weight: bold;
+      }
+
+      .gift {
+        // 图片
+        &_img {
+          display: block;
+          margin: 0 auto;
+          width: 3.28rem;
+          height: 2.18rem;
+        }
+        // 文案
+        &_text {
+          font-size: changeRem(0.26rem);
+          color: #3176cb;
+        }
+        // 文案
+        &_text1 {
+          text-align: center;
+          font-size: changeRem(0.32rem);
+          color: #3176cb;
+          display: block;
+          line-height: 1.5;
+          margin-top: changeRem(0.26rem);
+        }
+        // 领取按钮
+        &_btn {
+          margin: changeRem(0.34rem) auto 0;
+          display: block;
+          background: #3168b6;
+          width: changeRem(6.5rem);
+          height: changeRem(1.15rem);
+          border-radius: 25px;
+          font-size: changeRem(0.52rem);
+          line-height: changeRem(1.2rem);
+          text-align: center;
+          color: #fff;
+        }
+        // 文案
+        &_text2 {
+          display: inline-block;
+          text-align: center;
+          font-size: changeRem(0.32rem);
+          color: #000;
+          line-height: 1.5;
+        }
+        // 文案
+        &_text3 {
+          display: block;
+          text-align: center;
+          font-size: changeRem(0.32rem);
+          color: #000;
+          line-height: 1.5;
+          float: right;
+        }
+      }
+      .bottom {
+        width: changeRem(9.15rem);
+        position: absolute;
+        left: 0;
+        bottom: changeRem(4rem);
+        padding: 0 changeRem(0.29rem);
+      }
+    }
+  }
+  &_bg {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: changeRem(11.34rem);
+    position: relative;
+    margin-top: changeRem(2.65rem);
+    background: {
+      image: url(../img/bg_bottom.png);
+      size: 100% auto;
+      position: 0 bottom;
+      repeat: no-repeat;
+    }
+  }
+}
+
+// 弹窗
+.pop {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background: rgba(#000, 0.8);
+  display: none;
+  &.show {
+    display: block;
+  }
+  // 单个弹窗
+  &_item {
+    width: 5.08rem;
+    height: 6.08rem;
+    position: absolute;
+    color: #104fa6;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    background: {
+      image: url(../img/bg_pop.jpg);
+      size: 5.08rem 6.08rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+    .box {
+      width: 100%;
+      padding-top: 1.28rem;
+      text-align: center;
+    }
+  }
+
+  // 获奖弹窗
+  &_item2 {
+    .box {
+      width: 100%;
+      padding-top: 1.08rem;
+      text-align: center;
+    }
+    .title {
+      font-size: 0.59rem;
+    }
+    .title1 {
+      margin-top: -0.1rem;
+      font-size: 0.44rem;
+      > span {
+        font-size: 0.46rem;
+        color: #f13f6d;
+      }
+    }
+    .img {
+      display: block;
+      width: 1.79rem;
+      height: 1.19rem;
+      margin: 0.1rem 0 0 1.7rem;
+    }
+    .text1 {
+      display: block;
+      font-size: 0.24rem;
+      margin-top: 0.48rem;
+    }
+    .btn {
+      margin: 0.38rem auto 0;
+      display: block;
+      width: 3.64rem;
+      height: 0.77rem;
+      line-height: 0.77rem;
+      background: #417bcc;
+      font-size: 0.34rem;
+      color: #fff;
+      border-radius: 25px;
+    }
+  }
+  // 手慢弹窗
+  &_item3 {
+    .title {
+      font-size: 0.58rem;
+    }
+    .title1 {
+      display: block;
+      margin-top: 0.24rem;
+      font-size: 0.3rem;
+      > span {
+        color: #f13f6d;
+      }
+    }
+    .text {
+      display: block;
+      font-size: 0.33rem;
+      span {
+        font-size: 0.4rem;
+      }
+      > .time {
+        font-size: 0.29rem;
+        color: #f13f6d;
+      }
+    }
+
+    .btn {
+      margin: 0.78rem auto 0;
+      display: block;
+      width: 3.64rem;
+      height: 0.77rem;
+      line-height: 0.77rem;
+      background: #417bcc;
+      font-size: 0.34rem;
+      color: #fff;
+      border-radius: 25px;
+    }
+  }
+  // 获奖记录弹窗
+  &_item4 {
+    .title {
+      font-size: 0.59rem;
+      margin-top: -0.08rem;
+    }
+    .title1 {
+      margin-top: 0.38rem;
+      font-size: 0.37rem;
+      > span {
+        font-size: 0.37rem;
+        color: #f13f6d;
+      }
+    }
+    .img {
+      display: block;
+      width: 2.13rem;
+      height: 1.4rem;
+      margin: 0.1rem 0 0 1.6rem;
+    }
+  }
+}
+
+@media (min-aspect-ratio: 375 / 667) {
+  // 问题
+  .question {
+    &_bottom {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      .logo {
+        bottom: changeRem(0.2rem);
+      }
+      .tape {
+        bottom: changeRem(-2.9rem);
+      }
+    }
+  }
+  .question3 {
+    &_bottom {
+      .logo {
+        bottom: changeRem(0.2rem);
+      }
+      .tape {
+        bottom: changeRem(-2rem);
+      }
+    }
+  }
+}

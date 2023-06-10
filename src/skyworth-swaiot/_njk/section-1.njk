@@ -1,0 +1,33 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_1.png',
+    'heading': '小维智联',
+    'text': 'Swaiot小维智联是创维旗下大屏AIoT生态品牌，提供家庭智能场景解决方案，率先实现以大屏为中心的智能设备万物互联。'
+  }
+%}
+
+{# 产品图 #}
+{# {% set productImg = {
+    'product': '/section1_product.jpg'
+  }
+%} #}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+{# 产品图 #}
+{# {% import "./components/title.njk" as title %}
+{{ title.product(productImg) }} #}
+
+<div class="content-wrap animation-box">
+  <img class="img-block product-img-pc" src="{{baseUrl}}/section1_product.jpg" alt="">                                                                                                                                                                                                                                               
+  <img class="img-block product-img-android" src="{{baseUrl}}/section1_product2.jpg" alt="">                                                                                                                                                                                                                                               
+  <canvas id="section1Canvas1"></canvas>
+  <canvas id="section1Canvas2"></canvas>
+</div>
+
+<!-- 返回 顶部 -->
+<div class="return-top"></div>

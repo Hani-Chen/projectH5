@@ -1,0 +1,841 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import "global.import.css";
+
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24rem);
+ */
+@function changePx($px) {
+  @return $px / 2;
+}
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei,
+  "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+
+// 公共样式 - 提示
+.toast_item {
+  position: fixed;
+  left: 50%;
+  bottom: 3%;
+  font-size: changePx(0.18rem);
+  line-height: 1;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 999;
+  // overflow: hidden;
+  span {
+    position: relative;
+    background-color: #d9c081;
+    padding: changePx(0.1rem) changePx(0.1rem);
+    border-radius: changePx(0.1rem);
+    color: #000;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    &.ani {
+      animation: fadeInDown 0.5s;
+    }
+  }
+}
+/* 页面工具类 - 文字禁止选择 */
+.text_forbid__cope {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+input,
+textarea {
+  background: none;
+  outline: none;
+  border: 0px solid transparent;
+}
+input:focus {
+  border: none;
+}
+textarea {
+  resize: none;
+}
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+  background-color: #0e2040;
+}
+
+// 宽高
+@mixin size-set($width: 100%, $height: 100%) {
+  width: $width;
+  height: $height;
+}
+
+// 文字
+@mixin font-set($size, $color: #fff, $weight: normal, $lineHigh: null) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $lineHigh;
+}
+
+/* 页面工具类 - 背景图片公共样式 */
+@mixin bg-set($url, $width: 100%, $height: auto, $repeat: no-repeat, $position: center, $color: null) {
+  display: block;
+  background: {
+    size: $width $height;
+    repeat: $repeat;
+    position: $position;
+    image: url($url);
+    color: $color;
+  }
+}
+@mixin layout-set(
+  $layout: null,
+  $position: absolute,
+  $top: null,
+  $bottom: null,
+  $left: null,
+  $right: null,
+  $zIndex: 1
+) {
+  position: $position;
+  @if $layout == null {
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+  }
+  @if $layout == "center" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  @if $layout == "layout" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  z-index: $zIndex;
+}
+@mixin page-set-adorn($size, $top: null, $bottom: null, $left: null, $right: null) {
+  @include layout-set($top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($size, $size);
+  background-color: #d7b358;
+  border-radius: 50%;
+}
+@mixin page-set-img(
+  $layout: null,
+  $width: null,
+  $height: null,
+  $top: null,
+  $left: null,
+  $right: null,
+  $bottom: null,
+  $url: ""
+) {
+  @include layout-set($layout: $layout, $top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($width, $height);
+  @include bg-set($url);
+}
+/* 页面公共样式 - End */
+
+/* 页面样式 - Start 【*注意* ：QQ音乐规定类名命名，必须以下划线形式命名】
+ * 类名用法示例：
+ * .test_box {}
+ * .test_box__wrap {}
+ */
+
+.part_item {
+  position: relative;
+  @include size-set();
+  overflow: hidden;
+  @include bg-set("../img/page_bg.jpg");
+
+  display: none;
+  &.show {
+    display: block;
+    animation: fadeIn 0.5s linear;
+  }
+  .page_logo {
+    @include layout-set("layout", $zIndex: 2);
+    margin-top: changePx(-5.14rem);
+    @include size-set(changePx(4.1rem), changePx(0.8rem));
+    @include bg-set(
+      "../img/logo.png",
+      $position: 0 0
+    );
+  }
+  .page_hint {
+    @include layout-set("layout");
+    margin-top: changePx(5.12rem);
+    @include size-set(changePx(4rem), changePx(0.2rem));
+    @include bg-set(
+      "../img/page_hint.png",
+      $width: changePx(4rem),
+      $height: changePx(0.4rem),
+      $position: 0 changePx(-0.2rem)
+    );
+    &.short {
+      background-position: 0 0;
+    }
+  }
+  .page_base {
+    @include layout-set("layout");
+    margin-top: changePx(3.54rem);
+    @include size-set($width: 100%, $height: changePx(4.6rem));
+    // @include bg-set("../img/loading_base.png");
+    // #8a8a8a
+    background-image: linear-gradient(rgba($color: #000, $alpha: 0),rgba($color: #000, $alpha: 0.8))
+  }
+}
+.inquiry {
+  &_text {
+    @include layout-set("layout");
+    margin-top: changePx(-1.44rem);
+    @include font-set(changePx(0.32rem));
+    text-align: center;
+    width: 100%;
+  }
+  &_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include layout-set("layout");
+    margin-top: changePx(-0.38rem);
+    &__item {
+      @include size-set(changePx(2.5rem), changePx(0.7rem));
+      @include bg-set(
+        "../img/page_btn.png",
+        $width: changePx(5rem),
+        $height: changePx(4.2rem),
+        $position: changePx(-2.5rem) changePx(-2.1rem)
+      );
+      margin: 0 changePx(0.14rem);
+    }
+    &__no {
+      background-position: 0 changePx(-2.1rem);
+    }
+  }
+}
+// 未成年退出页面
+.quit {
+  &_text {
+    @include layout-set("layout");
+    margin-top: changePx(-2.34rem);
+    @include font-set($size: changePx(0.32rem), $lineHigh: changePx(0.62rem));
+    text-align: center;
+    width: 100%;
+  }
+  &_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include layout-set("layout");
+    margin-top: changePx(0.7rem);
+    &__item {
+      @include size-set(changePx(2.5rem), changePx(0.7rem));
+      @include bg-set(
+        "../img/page_btn.png",
+        $width: changePx(5rem),
+        $height: changePx(4.2rem),
+        $position: 0 changePx(-2.8rem)
+      );
+      margin: 0 changePx(0.14rem);
+    }
+    &__no {
+      background-position: 0 changePx(-2.1rem);
+    }
+  }
+}
+// 加载页
+.loading {
+  &_text {
+    width: 100%;
+    @include layout-set("layout");
+    margin-top: changePx(0.8rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include font-set(changePx(0.28rem), #fff);
+    &__img {
+      @include size-set(changePx(1.94rem), changePx(0.3rem));
+      // @include page-set-img($width: changePx(1.94rem), $height: changePx(0.3rem), $top: 0, $left: 0);
+      @include bg-set(
+        "../img/page_sprite.png",
+        $width: changePx(7.9rem),
+        $height: changePx(14.52rem),
+        $position: changePx(-5.3rem) changePx(-3.8rem)
+      );
+      // @include bg-set("../img/loading_text.png");
+      margin-right: changePx(0.04rem);
+    }
+  }
+  &_wine {
+    @include layout-set("layout");
+    margin-top: changePx(-2.44rem);
+    @include size-set(changePx(3.55rem), changePx(3.56rem));
+    @include bg-set("../img/loading_adorn2.png");
+  }
+}
+.animation {
+  &_wrap {
+    @include layout-set("center");
+    @include size-set(changePx(7.5rem), changePx(16.25rem));
+  }
+  &_adorn1 {
+    @include page-set-img(
+      $width: changePx(2rem),
+      $height: changePx(5.3rem),
+      $bottom: 0,
+      $right: 0,
+      $url: "../img/animation_adorn1.png"
+    );
+    display: none;
+  }
+  &_adorn2 {
+    @include page-set-img(
+      $width: changePx(3rem),
+      $height: changePx(2.2rem),
+      $layout: "layout",
+      $url: "../img/animation_btn.png"
+    );
+    margin-top: changePx(2.1rem);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    &.hide {
+      opacity: 0;
+    }
+  }
+  &_hint.page_hint {
+    display: none;
+  }
+  &_show__item {
+    .animation_adorn1 {
+      display: block;
+    }
+    .page_hint {
+      display: block;
+    }
+  }
+}
+// 动画页
+#animationCanvas {
+  @include layout-set("center", $zIndex: 2);
+}
+// 选择人物
+.person {
+  &_wrap {
+    @include layout-set("center");
+    @include size-set(changePx(7.5rem), changePx(16.25rem));
+  }
+  &_adorn1 {
+    @include page-set-adorn(changePx(6.34rem), $top: changePx(-4.34rem), $right: changePx(-2.67rem));
+  }
+  &_adorn2 {
+    @include page-set-img($width: changePx(1.6rem), $height: changePx(1.8rem), $top: 0, $left: 0);
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(7.9rem),
+      $height: changePx(14.52rem),
+      $position: 0 changePx(-11.12rem)
+    );
+  }
+  &_adorn3 {
+    @include page-set-img($width: changePx(4rem), $height: changePx(6.2rem), $left: 0, $bottom: 0);
+    @include bg-set("../img/page_sprite.png", $width: changePx(7.9rem), $height: changePx(14.52rem), $position: 0 0);
+  }
+  &_title {
+    @include page-set-img($layout: "layout", $width: changePx(7.5rem), $height: changePx(1.64rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(7.9rem),
+      $height: changePx(14.52rem),
+      $position: 0 changePx(-6.98rem)
+    );
+    margin-top: changePx(-4.02rem);
+    padding-top: changePx(0.7rem);
+    box-sizing: border-box;
+    @include font-set(changePx(0.36rem), #fff);
+    text-align: center;
+  }
+  &_list {
+    @include layout-set("layout", $zIndex: 2);
+    margin-top: changePx(-1.28rem);
+  }
+  &_item {
+    @include size-set(changePx(5.2rem), changePx(0.8rem));
+    @include bg-set(
+      $url: "../img/choice_item_bg2.png",
+      $width: changePx(5.2rem),
+      $height: changePx(3.8rem),
+      $position: 0 changePx(-2.9rem)
+    );
+    margin-bottom: changePx(0.96rem);
+    &.active {
+      background-position: 0 changePx(-2rem);
+    }
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    &__text {
+      width: 100%;
+      @include font-set($size: changePx(0.28rem), $color: #fff, $weight: bold);
+      text-align: center;
+    }
+  }
+  &_btn {
+    &__wrap {
+      @include layout-set("layout", $zIndex: 2);
+      margin-top: changePx(4.1rem);
+    }
+    &__item {
+      @include size-set(changePx(2.5rem), changePx(0.7rem));
+      @include bg-set(
+        "../img/page_btn.png",
+        $width: changePx(5rem),
+        $height: changePx(4.2rem),
+        $position: changePx(-2.5rem) changePx(-0.7rem)
+      );
+    }
+  }
+}
+// 选择歌曲
+.choice {
+  &_wrap {
+    @include layout-set("center");
+    @include size-set(changePx(7.5rem), changePx(16.25rem));
+  }
+  &_adorn1 {
+    @include page-set-adorn(changePx(6.9rem), $top: changePx(-5.25rem), $left: changePx(-2.27rem));
+  }
+  &_adorn2 {
+    @include page-set-img($width: changePx(1.28rem), $height: changePx(1.9rem), $top: 0, $right: 0);
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(7.9rem),
+      $height: changePx(14.52rem),
+      $position: changePx(-6.56rem) changePx(-4.1rem)
+    );
+  }
+  &_adorn3 {
+    @include page-set-img($width: changePx(1.2rem), $height: changePx(3rem), $top: changePx(6.58rem), $right: 0);
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(7.9rem),
+      $height: changePx(14.52rem),
+      $position: changePx(-4.1rem) changePx(-3.8rem)
+    );
+  }
+  &_adorn4 {
+    @include page-set-img($width: changePx(3.78rem), $height: changePx(3.8rem), $bottom: 0, $left: 0);
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(7.9rem),
+      $height: changePx(14.52rem),
+      $position: changePx(-4.1rem) 0
+    );
+  }
+  &_title {
+    @include page-set-img($layout: "layout", $width: changePx(7.5rem), $height: changePx(1.64rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(7.9rem),
+      $height: changePx(14.52rem),
+      $position: 0 changePx(-6.98rem)
+    );
+    margin-top: changePx(-4.02rem);
+    padding-top: changePx(0.7rem);
+    box-sizing: border-box;
+    @include font-set(changePx(0.36rem), #fff);
+    text-align: center;
+  }
+  &_list {
+    @include layout-set("layout", $zIndex: 2);
+    margin-top: changePx(-1.42rem);
+  }
+  &_item {
+    position: relative;
+    padding-left: changePx(1.04rem);
+    box-sizing: border-box;
+    @include size-set(changePx(5.2rem), changePx(1rem));
+    @include bg-set(
+      $url: "../img/choice_item_bg2.png",
+      $width: changePx(5.2rem),
+      $height: changePx(3.8rem),
+      $position: 0 0
+    );
+    margin-bottom: changePx(0.76rem);
+    &.active {
+      background-position: 0 changePx(-1rem);
+      .choice_item__songname {
+        color: #fff;
+      }
+      .choice_item__name {
+        color: rgb(128, 128, 128);
+      }
+    }
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    &__songname {
+      @include font-set($size: changePx(0.28rem), $color: rgba(255, 255, 255, 0.6), $weight: bold, $lineHigh: 1.1);
+      margin-bottom: changePx(0.04rem);
+      width: 100%;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+      // white-space: nowrap;
+    }
+    &__name {
+      @include font-set($size: changePx(0.24rem), $color: rgba(128, 128, 128, 0.6), $lineHigh: 1.1);
+      width: 100%;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+      // white-space: nowrap;
+    }
+    &__icon {
+      position: absolute;
+      top: 50%;
+      right: changePx(0.6rem);
+      transform: translate3d(0, -50%, 0);
+      @include size-set(changePx(0.6rem), changePx(0.6rem));
+      @include bg-set(
+        "../img/page_sprite.png",
+        $width: changePx(7.9rem),
+        $height: changePx(14.52rem),
+        $position: changePx(-6.2rem) changePx(-11.72rem)
+      );
+      &.active {
+        background-position: changePx(-6.2rem) changePx(-11.12rem);
+      }
+    }
+  }
+  &_btn {
+    &__wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include layout-set("layout", $zIndex: 2);
+      margin-top: changePx(4.1rem);
+    }
+    &__item {
+      @include size-set(changePx(2.5rem), changePx(0.7rem));
+      @include bg-set(
+        "../img/page_btn.png",
+        $width: changePx(5rem),
+        $height: changePx(4.2rem),
+        $position: changePx(-2.5rem) changePx(-1.4rem)
+      );
+      margin: 0 changePx(0.2rem);
+    }
+    &__ok {
+      background-position: 0 changePx(-1.4rem);
+    }
+  }
+}
+.lyrics {
+  &_wrap {
+    @include layout-set("center");
+    @include size-set(changePx(7.5rem), changePx(16.25rem));
+  }
+  &_adorn1 {
+    @include page-set-adorn(changePx(5.9rem), $left: changePx(-3.16rem), $top: changePx(-4.02rem));
+  }
+  &_adorn2 {
+    @include page-set-img($width: changePx(1.2rem), $height: changePx(1.8rem), $top: 0, $right: 0);
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(7.9rem),
+      $height: changePx(14.52rem),
+      $position: changePx(-5.34rem) changePx(-4.1rem)
+    );
+  }
+  &_adorn3 {
+    @include page-set-img($width: changePx(7.5rem), $height: changePx(2.48rem), $bottom: 0, $right: 0);
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(7.9rem),
+      $height: changePx(14.52rem),
+      $position: 0 changePx(-8.64rem)
+    );
+  }
+  &_adorn4 {
+    @include page-set-img(
+      $layout: "layout",
+      $width: changePx(7.5rem),
+      $height: changePx(7.94rem),
+      $bottom: 0,
+      $right: 0,
+      $url: "../img/lyrics_adorn1.png"
+    );
+    margin-top: changePx(-2.54rem);
+  }
+  &_title {
+    @include layout-set("layout");
+    width: 100%;
+    @include font-set(changePx(0.32rem), $lineHigh: changePx(0.5rem));
+    text-align: center;
+    margin-top: changePx(-3.98rem);
+    letter-spacing: changePx(0.04rem);
+  }
+  &_list {
+    &__wrap {
+      @include layout-set("layout", $zIndex: 2);
+      margin-top: changePx(-1.84rem);
+      @include size-set(changePx(3.2rem), changePx(3rem));
+      @include font-set(changePx(0.36rem));
+      text-align: center;
+      letter-spacing: changePx(0.06rem);
+      .cut_item {
+        @include layout-set($top: 50%);
+        transform: translate3d(0, -50%, 0);
+        @include size-set(changePx(0.6rem), changePx(0.6rem));
+        // background-color: rgba($color: #f00, $alpha: 0.5)
+      }
+      .cut_prev {
+        left: changePx(-0.5rem);
+      }
+      .cut_next {
+        right: changePx(-0.5rem);
+      }
+    }
+    overflow: hidden;
+  }
+  &_item__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include size-set(100%, 100%);
+  }
+  &_btn {
+    &__wrap {
+      @include layout-set("layout", $zIndex: 2);
+      margin-top: changePx(4.1rem);
+    }
+    &__item {
+      @include size-set(changePx(2.5rem), changePx(0.7rem));
+      @include bg-set(
+        "../img/page_btn.png",
+        $width: changePx(5rem),
+        $height: changePx(4.2rem),
+        $position: changePx(-2.5rem) changePx(-0.7rem)
+      );
+    }
+  }
+}
+.form {
+  &_forbid {
+    .form_input {
+      display: none;
+    }
+    .form_text {
+      display: block;
+    }
+    .form_btn__go,
+    .form_btn__saver {
+      display: block;
+    }
+    .form_btn__create {
+      display: none;
+    }
+    .form_return {
+      display: block;
+    }
+  }
+  &_wrap {
+    @include layout-set("center");
+    @include size-set(changePx(7.5rem), changePx(16.25rem));
+  }
+  &_adorn1 {
+    @include page-set-adorn(changePx(5.9rem), $left: changePx(-2.52rem), $top: changePx(-4.28rem));
+  }
+  &_adorn2 {
+    @include page-set-img($width: changePx(1.14rem), $height: changePx(1.8rem), $top: 0, $right: 0);
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(7.9rem),
+      $height: changePx(14.52rem),
+      $position: changePx(-5.36rem) changePx(-4.1rem)
+    );
+  }
+  &_adorn3 {
+    @include page-set-img($width: changePx(4.6rem), $height: changePx(3.34rem), $bottom: 0, $right: 0);
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(7.9rem),
+      $height: changePx(14.52rem),
+      $position: changePx(-1.6rem) changePx(-11.18rem)
+    );
+  }
+  &_adorn4 {
+    @include page-set-img(
+      $width: changePx(7.5rem),
+      $height: changePx(10.66rem),
+      $layout: "layout",
+      $url: "../img/form_adorn1.png"
+    );
+    margin-top: changePx(-5.34rem);
+  }
+  &_name {
+    @include layout-set($top: 50%, $zIndex: 2, $left: changePx(1.54rem));
+    margin-top: changePx(-4.1rem);
+    width: changePx(2.6rem);
+    height: changePx(0.6rem);
+    @include font-set(changePx(0.22rem), #fefefe, $lineHigh: changePx(0.6rem));
+    &::-webkit-input-placeholder {
+      color: rgba($color: #fefefe, $alpha: 0.4);
+    }
+    &__length {
+      @include layout-set($top: 50%, $zIndex: 2, $left: changePx(6rem));
+      margin-top: changePx(-4.08rem);
+      @include font-set(changePx(0.22rem),   rgba($color: #fefefe, $alpha: 0.4), $lineHigh: changePx(0.6rem));
+    }
+  }
+  &_wish {
+    @include size-set(changePx(5.5rem), changePx(0.98rem));
+    @include layout-set($top: 50%, $zIndex: 2, $left: 50%);
+    transform: translate3d(-50%, 0, 0);
+    text-align: left;
+    @include font-set(changePx(0.22rem), #fefefe, $lineHigh: changePx(0.3rem));
+    margin-top: changePx(-3.3rem);
+    word-break: break-all;
+    white-space: pre-wrap;
+    &::-webkit-input-placeholder {
+      color: rgba($color: #fefefe, $alpha: 0.4);
+    }
+    &__length {
+      @include layout-set($top: 50%, $zIndex: 2, $right: changePx(1.04rem));
+      margin-top: changePx(-2.6rem);
+      @include font-set(changePx(0.22rem),   rgba($color: #fefefe, $alpha: 0.4), $lineHigh: changePx(0.3rem));
+    }
+  }
+  &_signature {
+    @include layout-set($top: 50%, $zIndex: 2, $right: changePx(0.74rem));
+    margin-top: changePx(3.34rem);
+    width: changePx(2.6rem);
+    @include font-set(changePx(0.22rem), #fefefe, $lineHigh: changePx(0.3rem));
+    &::-webkit-input-placeholder {
+      color: rgba($color: #fefefe, $alpha: 0.4);
+    }
+    &__length {
+      @include layout-set($top: 50%, $zIndex: 2, $left: changePx(6rem));
+      margin-top: changePx(3.38rem);
+      @include font-set(changePx(0.22rem),   rgba($color: #fefefe, $alpha: 0.4), $lineHigh: changePx(0.3rem));
+    }
+  }
+  &_text {
+    line-height: changePx(0.3rem);
+    display: none;
+  }
+  &_name {
+    line-height: changePx(0.6rem);
+  }
+  &_title {
+    @include layout-set("layout");
+    margin-top: changePx(-1rem);
+    @include font-set(changePx(0.4rem), #fefefe, $weight: bold);
+    text-align: center;
+  }
+  &_btn {
+    &__wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include layout-set("layout", $zIndex: 2);
+      margin-top: changePx(4.14rem);
+    }
+    &__item {
+      @include size-set(changePx(2.5rem), changePx(0.7rem));
+      @include bg-set(
+        "../img/page_btn.png",
+        $width: changePx(5rem),
+        $height: changePx(4.2rem),
+        $position: 0 changePx(-0.7rem)
+      );
+      margin: 0 changePx(0.2rem);
+    }
+    &__go {
+      @include bg-set(
+        "../img/page_btn.png",
+        $width: changePx(5rem),
+        $height: changePx(4.2rem),
+        $position: changePx(-2.5rem) 0
+      );
+      display: none;
+    }
+    &__saver {
+      @include bg-set("../img/page_btn.png", $width: changePx(5rem), $height: changePx(4.2rem), $position: 0 0);
+      display: none;
+    }
+    &__create {
+      display: block;
+    }
+  }
+  &_return {
+    position: absolute;
+    top: 50%;
+    left: changePx(0.9rem);
+    transform: translate3d(0, -50%, 0);
+    z-index: 2;
+    margin-top: changePx(-4.78rem);
+    @include size-set(changePx(0.6rem), changePx(0.6rem));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(7.9rem),
+      $height: changePx(14.52rem),
+      $position: changePx(-6.2rem) changePx(-12.32rem)
+    );
+    display: none;
+  }
+}
+// 引入动画
+@import "./ani";
+/* 页面样式 - End */
+
+@media (max-aspect-ratio: 375 / 700) {
+  .part_item {
+    .page_logo {
+      margin-top: changePx(-6.2rem);
+    }
+    .page_hint {
+      margin-top: changePx(6.2rem);
+    }
+  }
+  .part_form {
+    .page_logo {
+      margin-top: changePx(-5.14rem);
+    }
+  }
+}
+
+
+@font-face {
+  font-family: 'SHSCNM';
+  src: url('../fonts/SourceHanSerifTC-Medium.ttf');
+}
+.font_shscnm {
+  font-family: 'SHSCNM';
+}
+@font-face {
+  font-family: 'SHSCNB';
+  src: url('../fonts/SourceHanSerifTC-Bold.ttf');
+}
+.font_shscnb {
+  font-family: 'SHSCNB';
+}
+
+// 询问是否成年页，未成年退出页面, 加载页数字，歌曲选择歌曲艺人名 - 思源正常
+.inquiry_text, .quit_text, .loading_text__progress, .choice_item__name {
+  @extend .font_shscnm;
+}
+
+// 人物选择页，歌曲选择页 - 思源加粗
+.part_person , .choice_title, .choice_item__songname, .lyrics_title, .form_title, .lyrics_list  {
+  font-weight: normal !important;
+  @extend .font_shscnb;
+
+}

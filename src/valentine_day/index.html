@@ -1,0 +1,110 @@
+{% extends "../_njk/base.njk" %}  
+<!-- 引入js -->
+{% block adaption %}
+  <script src="js/adaptive.js"></script>
+  <script>
+    window['adaptive'].desinWidth = 750
+    window['adaptive'].maxRate = 0.75
+    window['adaptive'].baseFont = 24
+    window['adaptive'].init()
+  </script>
+{% endblock %} 
+
+
+<!-- 内容区 -->
+{% block main %}
+
+
+<!-- loaging 加载页 -->
+<section class="section bgm">
+    <!-- <audio id="bgMusic" src="./audio/aa.mp3" autoplay="autoplay"></audio> -->
+  <img src="./img/play.png" alt="" class="play">
+  <img src="./img/stop.png" alt="" class="stop">
+</section>
+<section class='section loading-receptacle show' id='loading' >
+  <div id='loading-img' class='loading-img'>
+    <i></i>
+    <div>
+      <span class="loading">
+        <img src="./img/loading.gif" alt="">
+      </span>
+    </div>
+    <i></i>
+    <span class='percentage'>0%</span>
+  </div>
+</section>
+<!-- 宣传页 -->
+<section class="section publicity-receptacle" >
+  <div class="publicity-box">
+    <div class="publicity-cartoon">
+      <!-- 唐玄宗 -->
+      <img class="publicity-img publicity-padishah publicity-fromLeftBottomRight" src="./img/padishah.png" alt="">
+      <!-- 杨玉环 -->
+      <img class="publicity-img publicity-queen publicity-animationQueen" src="./img/queen.png" alt="">
+      <!-- 标题 -->
+      <img class="publicity-img publicity-title publicity-fromTheBottomUp" src="./img/520.png" alt="">
+      <!-- 文本 -->
+      <img class="publicity-img publicity-text publicity-fromTheBottomUp" src="./img/text.png" alt="">
+    </div>
+    <!-- 按钮 -->
+    <span class='publicity-onlookers publicity-fromTheBottomUp'>加入群聊</span>
+  </div>
+</section>
+<!-- 群聊页 -->
+<section class="section groupchat-receptacle">
+  <div id="animation_container" style="background-color:rgba(102, 102, 102, 1.00); width:750px; height:1624px">
+		<canvas id="canvas" width="750" height="1624" style="position: absolute; display: block; background-color:rgba(102, 102, 102, 1.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:750px; height:1624px; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+	</div>
+</section>
+<!-- 通知 开通SVIP页面 -->
+<section class="section inform-receptacle">
+  <div class="inform-box">
+    <!-- svip -->
+    <img src="./img/SVIP_title.png" alt="" class="inform-pic inform-svip">
+    <!-- 服饰 -->
+    <img src="./img/clothing.png" alt="" class="inform-pic inform-clothing">
+    <!-- 化妆品 -->
+    <img src="./img/cosmetics.png" alt="" class="inform-pic inform-cosmetics">
+    <!-- 铭牌 -->
+    <img src="./img/nameplate.png" alt="" class="inform-pic inform-nameplate">
+    <!-- 气泡 -->
+    <img src="./img/bubble.png" alt="" class="inform-pic inform-bubble">
+    <!-- 提醒 -->
+    <img src="./img/reminder.png" alt="" class="inform-pic inform-reminder">
+  </div>
+</section>
+<!-- 尾页 页面 -->
+<section class="section lastPageLabel-receptacle">
+  <div class="lastPageLabel-box">
+    <div class="lastPageLabel-cartoon">
+      <img src="./img/reginal.png" alt="" class="lastPageLabel-reginal publicity-fromLeftBottomRight">
+      <img src="./img/text_.png" alt="" class="lastPageLabel-text_ publicity-fromTheBottomUp">
+    </div>
+    <div class="lastPageLabel-button">
+      <span class=' publicity-fromTheBottomUp'>开通SVIP</span>
+      <span class=' publicity-fromTheBottomUp'>分享给好友</span>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+<!-- js区 -->
+{% block javascript %}
+  <script src="./js/zepto.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js"></script>
+
+  <!-- 修改前 在线的库不稳定 所以下载下来了 -->
+  <!-- <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script> -->
+  <!-- 修改后 -->
+  <script src="./js/create.js"></script>
+
+  <!-- 引入动画模板js -->
+  <script src="./js/h5-3.js"></script>
+  <!-- 引入动画js -->
+  <script src="./js/animation.js"></script>
+  <!-- 引入页面js -->
+  <script src="./js/main.js?v=0.1"></script>
+{% endblock %}

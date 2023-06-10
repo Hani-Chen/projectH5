@@ -1,0 +1,93 @@
+.lookimg {
+  &-body {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    height: 100%;
+  }
+  &-inner {
+    position: relative;
+    width: 1200px;
+    max-height: 100%;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &-img {
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    display: block;
+    width: 100%;
+    // max-width: 100%;
+    // max-height: 100%;
+    // height: auto;
+    
+  }
+}
+@media (max-width: 1600px) {
+  $rate: 1600/1920;
+  @function changePx($px) {
+    @return ceil($px * $rate);
+  }
+  .lookimg {
+    &-inner {
+      width: changePx(1200px);
+      
+    }
+  }
+  
+}
+@media (max-width: 1440px) {
+  $rate: 1440/1920;
+  @function changePx($px) {
+    @return ceil($px * $rate);
+  }
+  .lookimg {
+    &-inner {
+      width: changePx(1200px);
+      
+    }
+  }
+  
+}
+@media (max-width: 1200px) {
+  $rate: 1200/1920;
+  @function changePx($px) {
+    @return ceil($px * $rate);
+  }
+  .lookimg {
+    &-inner {
+      width: changePx(1200px);
+      
+    }
+  }
+  
+}
+@media (max-width: 992px) {
+  $rate: 992/1920;
+  @function changePx($px) {
+    @return ceil($px * $rate);
+  }
+  .lookimg {
+    &-inner {
+      width: changePx(1200px);
+      
+    }
+  }
+  
+}
+@media (max-width: 768px) {
+  $rate: 768/1920;
+  @function changePx($px) {
+    @return ceil($px * $rate);
+  }
+  .lookimg {
+    &-inner {
+      margin: 0 auto;
+      width: 70%;
+    }
+  }
+  
+}

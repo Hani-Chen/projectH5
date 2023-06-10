@@ -1,0 +1,50 @@
+{% extends "./_njk/base.njk" %}
+{% block stylesheet %}
+<link rel="shortcut icon" href="./img/icon.png" type="image/x-icon" >
+<link rel="stylesheet" href="./css/style.min.css?v=1.3.0">
+<link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
+
+{% endblock %}
+{% block main %}
+<div class="page">
+  <!-- 导航栏; Start -->
+  <div class="page-nav-wrap hidden" >
+    <div class="page-nav-inner">
+      <div class="page-nav-logo">
+        <img src="./img/logo.png" alt="">
+      </div>
+
+      <a href="javascript:void(0);" title="menu" class="page-nav-toggle">
+        <span class="top"></span> 
+        <span class="mid"></span>
+        <span class="bottom"></span>
+      </a>
+
+      <ul class="page-nav-list">
+      </ul>
+    </div>
+  </div>
+    <!-- 导航栏; End -->
+  <div class="page-inner">
+    
+    {% include "./_njk/banner.njk" %}
+    <div class="page-falls-list" id="fallsList"></div>
+  </div>
+
+  {% include "./_njk/pageDtatLoading.njk" %}
+  <!-- 页面所需弹窗 -->
+  <!-- 加载弹窗 -->
+  {% include "./_njk/loading.njk" %}
+  <!-- 查看图片大图弹窗 -->
+  {% include "./_njk/lookImg.njk" %}
+</div>
+{% endblock %}
+{% block javascript %}
+
+{# __STATIC__/webdesign5/ #}
+<!-- 插件库引入 - jquery -->
+<script src="./js/jquery.js"></script>
+<script src="./js/swiper-3.4.2.min.js"></script>
+<!-- 页面逻辑代码引入 -->
+<script src="./js/index.js?v=1.6"></script>
+{% endblock %}

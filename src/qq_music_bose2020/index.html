@@ -1,0 +1,174 @@
+{% extends "./_njk/base.njk" %} 
+
+{% block main %}
+<section class="wrap">
+  <!-- 首页 -->
+  <div class="page_item page_home show">
+    <div class="bg">
+      <!-- Data: 2020-06-04; Edit: Hani; Describe: 修改图片; Start -->
+      <div class="bg_item">
+        <img src="./img/home_bg_boy.jpg" alt="">
+      </div>
+      <div class="bg_item">
+        <img src="./img/home_bg_girl.jpg" alt="">
+      </div>
+      <!-- Data: 2020-06-04; Edit: Hani; Describe: 修改图片; End -->
+    </div>
+    <!-- logo -->
+    <div class="logo"></div>
+    <!-- 麦克风 -->
+    <div class="home_microphone"></div>
+    <!-- 光环 -->
+    <div class="aureole_wrap forbid">
+      <div class="bg">
+        <div class="circle circle_5"></div>
+        <div class="circle circle_4"></div>
+        <div class="circle circle_3"></div>
+        <div class="circle circle_2"></div>
+        <div class="circle circle_1"></div>
+        <div class="aureoletext"></div>
+      </div>
+      <!-- 文案 -->
+      <div class="home_title"></div>
+      <!-- 手势 -->
+      <div class="home_gesture"></div>
+    </div>
+  </div>
+  <!-- 歌曲 选择页 -->
+  <div class="page_item page_select">
+    <!-- logo -->
+    <div class="logo"></div>
+    <!-- 右上角装饰cd -->
+    <div class="decorate_cd"></div>
+    <div class="select_content">
+      <!-- 列表 -->
+      <div class="select_list">
+        <!-- 单个歌曲 -->
+        {# <div class="select_item select_item1">
+          <div class="item_text">
+            <div class="title">《我怎么这么好看》</div>
+            <div class="text">青春有你2</div>
+          </div>
+          <div class="item_btn">
+            <div class="btn btn_stop"></div>
+            <div class="btn btn_record"></div>
+          </div>
+        </div> #}
+        
+      </div>
+      <!-- 分页 -->
+      <div class="paging_wrap">
+        <div class="btn btn_prev"></div>
+        <div class="btn btn_next"></div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- 歌曲 演唱 页 -->
+  <div class="page_item page_concert">
+    <!-- logo -->
+    <div class="logo"></div>
+    <!-- 右上角装饰cd -->
+    <div class="decorate_cd"></div>
+    <!-- 内容 -->
+    <div class="concert_content">
+      <div class="title">我不是一定要你回来只是当又一个人看海</div>
+      <div class="text">《失落沙洲》徐佳莹</div>
+    </div>
+    <!-- 麦克风 -->
+    <div class="concert_microphone">
+      <div class="aureole">
+        <span class="number"></span>
+        <div class="indicate"></div>
+        
+        <div class="circle circle_5"></div>
+        <div class="circle circle_4"></div>
+        <div class="circle circle_3"></div>
+        <div class="circle circle_2"></div>
+        <div class="circle circle_1"></div>
+        <div class="aureoletext"></div>
+      </div>
+      <div class="concert_time">00:00.00</div>
+    </div>
+  </div>
+  <!-- 结果页 -->
+  <div class="page_item page_end ">
+    <!-- logo -->
+    <div class="logo"></div>
+    <!-- 内容 -->
+    <div class="end_content">
+      <!-- Data: 2020-05-28; Edit: Hani; Describe: 删除分字 删除代码 "<span class="unit">分</span>"; Start -->
+      <div class="score">85<span class="decimals">.22</span></div>
+      <!-- Data: 2020-05-28; Edit: Hani; Describe: 删除分字 删除代码 "<span class="unit">分</span>"; End -->
+      <div class="title">Chloe</div>
+      <div class="text">你的音色让
+        无数音雄尽折腰
+        连<span class="name">徐佳莹</span>听了
+        都想为你下腰！</div>
+      <div class="btn_wrap">
+        <div class="btn_share"></div>
+        <a href="JavaScript:;" class="btn_jd"></a>
+        <div class="btn_list"></div>
+      </div>
+    </div>
+
+  </div>
+  <!-- 歌曲评分榜页 -->
+  <div class="page_item page_example">
+    <div class="example_return">	&lt; 返回上一页</div>
+    <!-- logo -->
+    <div class="logo"></div>
+    <!-- 右上角装饰cd -->
+    <div class="decorate_cd"></div>
+    <!-- 内容 -->
+    <div class="example_content">
+      <!-- Data: 2020-05-28; Edit: Hani; Describe: 修改文案; Start -->
+      <div class="title">截止活动结束，每首歌曲的最高得分者，将获得Bose 700 无线消噪耳机。如有同分，则以参赛时间先后为序。最终获奖名单将于活动结束后，在QQ音乐【消息中心】公布，更多详情参考 <a href="javasc:;" class="rules">活动细则</a> 。</div>
+      <!-- Data: 2020-05-28; Edit: Hani; Describe: 修改文案; End -->
+      <div class="example_list">
+        <div class="example_list__title">徐佳莹《失落沙洲》</div>
+        <div class="list_wrap">
+          <div class="example_list__item">
+            <span>01</span>
+            <span class="name">Chloe</span>
+            <span> 98.5</span>
+          </div>
+          <div class="example_list__item">
+            <span>01</span>
+            <span class="name">Chloe</span>
+            <span> 98.5</span>
+          </div>
+          <div class="example_list__item">
+            <span>01</span>
+            <span class="name">Chloe</span>
+            <span> 98.5</span>
+          </div>
+          <div class="example_list__item">
+            <span>01</span>
+            <span class="name">Chloe</span>
+            <span> 98.5</span>
+          </div>
+          <div class="example_list__item">
+            <span>01</span>
+            <span class="name">Chloe</span>
+            <span> 98.5</span>
+          </div>
+        </div>
+      </div>
+      <div class="btn_restart"></div>
+      <!-- 分页 -->
+      <div class="paging_wrap">
+        <div class="btn btn_prev"></div>
+        <div class="btn btn_next"></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} 
+{% block javascript %}
+  <script src="js/zepto.min.js"></script>
+  <script src="js/fx.js"></script>
+  <!-- 主程序 -->
+  <script type="text/javascript" src="js/index.js"></script>
+{% endblock %}

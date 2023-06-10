@@ -1,0 +1,90 @@
+// 显示动画
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// 显示动画
+@keyframes rippleShow {
+  16.6666% {
+    background-image: url('../img/start_ripple1.png');
+  }
+  33.3333% {
+    background-image: url('../img/start_ripple2.png');
+  }
+  50% {
+    background-image: url('../img/start_ripple3.png');
+  }
+  66.6666% {
+    background-image: url('../img/start_ripple3.png');
+  }
+  83.3333% {
+    background-image: url('../img/start_ripple2.png');
+  }
+  100% {
+    background-image: url('../img/start_ripple1.png');
+  }
+}
+// 手势缩放
+@keyframes zoomAnimation {
+  0% {
+    transform: scale(1.2); /*开始为原始大小*/
+  }
+  33.33% {
+    transform: scale(0.8); /*放大1.1倍*/
+  }
+  66.66% {
+    transform: scale(0.8);
+  }
+  99.99% {
+    transform: scale(1.2);
+  }
+}
+
+// 箭头动画
+@keyframes start {
+  0%,
+  30% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+// 显示动画
+@keyframes circleZoom {
+  0% {
+    transform: scale(0.9);
+  }
+  33.3333% {
+    transform: scale(1.2);
+  }
+  66.6666% {
+    transform: scale(1.2);
+  }
+  99.9999% {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

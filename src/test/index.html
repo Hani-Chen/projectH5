@@ -1,0 +1,24 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<section class="wrap">
+  <div class="test-wrap">
+    <!-- <canvas id="canvasLoading" class="test-canvas"></canvas> -->
+    <div class="img-test-box">
+      <img src="./img/1.png" class="img-test img-1" alt="">
+      <img src="./img/2.png" class="img-test img-2" alt="">
+    </div>
+    <button class="test-button">点击点亮</button>
+  </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<!-- 预加载资源插件 -->
+<script type="text/javascript" src="js/preloadjs.min.js"></script>
+<!-- 帧动画参数 -->
+<script type="text/javascript" src="js/canvasData.js"></script>
+<!-- 帧动画模块配置 -->
+<script type="text/javascript" src="js/canvasAni.js"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

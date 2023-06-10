@@ -1,0 +1,39 @@
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_7.png',
+    'heading': '旗舰店已盛大开业',
+    'text': 'Swaiot创维智能家居旗舰店已于2019年9月率先在靓家居东莞东城万达店和深圳民治万众城家居广场盛大开业，更多旗舰体验门店将会陆续开业。现诚招合作伙伴加盟（请联系张经理：zhanglei05@skyworth.com），共享智能家居红利时代。'
+  }
+%}
+
+<!-- {# 产品图 #}
+{% set productImg = {
+    'product': '/section20_product.png'
+  }
+%} -->
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+{# 产品图 #}
+<!-- {% import "./components/title.njk" as title %}
+{{ title.product(productImg) }} -->
+
+<div class="store-list animation-box product-img">
+  <!-- 单个店铺 -->
+  <div class="store-item">
+    <span class="store-item-text">靓家居东莞东城万达店</span>
+  </div>
+  <!-- 单个店铺 -->
+  <div class="store-item store-item2">
+    <span class="store-item-text">深圳民治万众城家居广场店</span>
+  </div>
+
+  <div class="store-text-wrap">
+    <p class="store-text">更多
+      旗舰体验门店
+      敬请期待。</p>
+  </div>
+  <div class="store-text-wrap1 "></div>
+</div>

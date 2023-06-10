@@ -1,0 +1,39 @@
+/* 缩放动效 */
+@keyframes btnZoom {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+// 元素显示动画
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 光晕缩放动效 */
+@keyframes circleZoom {
+  0% {
+    transform: scale(0) translate3d(-50%, -50%, 0);
+  }
+  100% {
+    transform: scale(1) translate3d(-50%, -50%, 0);
+  }
+}
+// 上浮动画
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

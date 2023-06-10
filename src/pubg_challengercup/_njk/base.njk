@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="TencentGPC" />
+    <meta name="Copyright" content="Tencent" />
+    <meta name="Description" content="PUBG Mobile Club Open official website" />
+    <meta
+      name="Keywords"
+      content="PUBG/PUBG Mobile/eSports/Club Open/Tournament"
+    />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Club Open" />
+    <meta
+      property="og:description"
+      content="PUBG Mobile Club Open official website"
+    />
+    <meta property="og:image" content="" />
+    <title>Challenger Cup</title>
+    {% block stylesheet %}
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <!--  之前重构实现的样式代码  开始-->
+    <link rel="stylesheet" type="text/css" href="css/origin.min.css" />
+    <!--  之前重构实现的样式代码 结束-->
+
+    <link rel="stylesheet" type="text/css" href="css/style.min.css" />
+    {% endblock %}
+
+    <!-- Designer：周保升 | Programmer：陈桦烽 | Team：PERPOWER -->
+  </head>
+  <body>
+    {% block header %}
+      {% include "./header.njk" %}
+    {% endblock %}
+
+    {% block main %}
+      main
+    {% endblock %}
+    {% block footer %}
+      {% include "./footer.njk" %}
+    {% endblock %}
+
+    {% block javascript %}
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="js/index.js"></script>
+    {% endblock %}
+
+  </body>
+</html>

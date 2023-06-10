@@ -1,0 +1,49 @@
+{% set active="format" %}
+
+{% extends "./_njk/base.njk" %} {% block main %}
+  <div class="format_container">
+    <!-- tab切换导航栏 开始 -->
+    <div class="tabbar_wrapper">
+      <ul class="tabbar_list">
+        <!-- active -->
+        <li data-target="tab_registration" class="active"><a href="javascript:;">التسجيل</a></li>
+        <li data-target="tab_ingame" ><a href="javascript:;">التصفيات المؤهلة داخل اللعبة</a></li>
+        <li data-target="tab_online" ><a href="javascript:;">تصفيات اون لاين</a></li>
+        <li data-target="tab_finale" ><a href="javascript:;">المباراة النهائية</a></li>
+        <li data-target="tab_winner" ><a href="javascript:;">الفائز</a></li>
+      </ul>
+    </div>
+    <div class="tab_content">
+    
+    <!-- Registration标签页 开始 -->
+    <div class="tab_pane active" id="tab_registration">
+      {% include "./_format/registration.njk" %}
+    </div>
+    <!-- Registration标签页 结束 -->
+
+    <!-- In-game Qualifier标签页 开始 -->
+    <div class="tab_pane" id="tab_ingame">
+      {% include "./_format/ingame.njk" %}
+    </div>
+    <!-- In-game Qualifier标签页 结束 -->
+
+    <!-- Online Qualifier标签页 开始 -->
+    <div class="tab_pane" id="tab_online">
+      {% include "./_format/online.njk" %}
+    </div>
+    <!-- Online Qualifier标签页 结束 -->
+
+    <!-- Finale标签页 开始 -->
+    <div class="tab_pane" id="tab_finale">
+      {% include "./_format/finale.njk" %}
+    </div>
+    <!-- Finale标签页 结束 -->
+
+    <!-- Winner标签页 开始 -->
+    <div class="tab_pane" id="tab_winner">
+      {% include "./_format/winner.njk" %}
+    </div>
+    <!-- Winner标签页 结束 -->
+  </div>
+  </div>
+{% endblock %}

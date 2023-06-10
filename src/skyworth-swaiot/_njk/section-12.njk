@@ -1,0 +1,28 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_1.png',
+    'heading': '语音传屏 精彩不断',
+    'text': '语音不仅可以控制Swaiot智能设备，还可以实现屏幕内容互传：当您准备做菜时，可以一句话将电视画面转到油烟机或冰箱的屏幕播放，观影不再间断。'
+  }
+%}
+
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+
+
+
+<div class="product-img-wrap animation-box">
+  <img class="product-img product-img-pc img-block" src="{{baseUrl}}/section12_product.jpg" alt="">
+  <div class="content-box">
+    <P class="text">在油烟机上播放</P>
+    <!-- <img class="wave" src="{{baseUrl}}/wave.gif" alt="" > -->
+    <canvas class="wave" id="section12canvas"></canvas>
+  </div>
+  <!-- <img class="frames" src="{{baseUrl}}/frames.jpg" alt=""> -->
+  <img class="frames2" src="{{baseUrl}}/frames.jpg" alt="">
+</div>

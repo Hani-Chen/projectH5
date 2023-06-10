@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+
+@import "global.import.css";
+.share {
+  &_wrap {
+    position:relative;
+    width: 750px;
+    height: 1100px;
+    background: {
+      repeat: no-repeat;
+      position: center;
+      size: 100%;
+    }
+    &_1 {
+      background-image: url(../img/share_bg1.jpg);
+    }
+    &_2 {
+      background-image: url(../img/share_bg2.jpg);
+    }
+    &_3 {
+      background-image: url(../img/share_bg3.jpg);
+    }
+    &_4 {
+      background-image: url(../img/share_bg4.jpg);
+    }
+  }
+  &_type {
+    position: absolute;
+    left: 78px;
+    top: 740px;
+    // text-align: center;
+    font-size: 40px;
+    color: #fff;
+    letter-spacing: 8px;
+  }
+  &_title {
+    position: absolute;
+    left: 78px;
+    top: 806px;
+    font-size: 24px;
+    color: #fff;
+    letter-spacing: 3px;
+    // display: none;
+  }
+  &_text {
+    position: absolute;
+    left: 118px;
+    top: 894px;
+    font-size: 28px;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  &_text2 {
+    position: absolute;
+    left: 78px;
+    top: 930px;
+    font-size: 24px;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+  &_qrcode {
+    position: absolute;
+    right: 37px;
+    top: 960px;
+    width: 104px;
+    height: 104px;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@font-face {
+  font-family: BentleyRegular;
+  src: url(../fonts/Bentley-Regular.otf);
+}
+@font-face {
+  font-family: simhei;
+  src: url(../fonts/simhei.ttf);
+}
+
+.share_type,.share_text,.share_text2 {
+  font-family: BentleyRegular, simhei ;
+}

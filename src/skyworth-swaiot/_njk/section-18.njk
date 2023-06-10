@@ -1,0 +1,22 @@
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_8.png',
+    'heading': '小维智联生态体验舱',
+    'text': '创维在线下精心打造了标准化的小维智联生态体验舱，方便媒体及消费者在场景中实际体验Swaiot的各种功能和黑科技。'
+  }
+%}
+
+{# 产品图 #}
+{% set productImg = {
+    'product': '/section18_product.jpg'
+  }
+%}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+{# 产品图 #}
+{% import "./components/title.njk" as title %}
+{{ title.product(productImg) }}
+

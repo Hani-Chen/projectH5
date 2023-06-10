@@ -1,0 +1,288 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<!-- 页面 - 加载页 -->
+<section class="loading_wrap show">
+  <div class="logo"></div>
+  <!-- 进度条 -->
+  <div class="loading_wrapper">
+    <div class="loading_progress">
+      <div class="loading_progress__inner">
+        <div class="loading_progress__img" style="width: 0%;"></div>
+      </div>
+    </div>
+    <div class="loading_percent">0%</div>
+  </div>
+</section>
+<!--Body下的根元素 S-->
+<section class="wrap ">
+  <!-- 页面内容 - 首页 -->
+  <div class="wrap_page home_wrap">
+    <div class="logo"></div>
+    <!-- 首页 - 背景 -->
+    <div class="bg"></div>
+    <!-- 首页 - 主要内容 -->
+    <div class="home_inner">
+      <!-- 首页 - 舞台光效 -->
+      <div class="home_light"></div>
+      <!-- 首页 - 汽车后人群 -->
+      <div class="home_person1"></div>
+      <!-- 首页 - 汽车 -->
+      <div class="home_car">
+        <!-- 首页 - 汽车 - 亮灯 -->
+        <div class="home_car__active"></div>
+      </div>
+      <!-- 首页 - 汽车后的人群 -->
+      <div class="home_person"></div>
+      <!-- Data: 2020-08-03; Edit: Hani; Describe: 恢复首页提示文案; Start 1.0.0 -->
+      <!-- 首页 - 开始订制心情海报 -->
+      <div class="home_title font_hydhj">开始定制心情海报</div>
+      <!-- 首页 - 按钮 - 立即开启定制 -->
+      <button class="home_btn__start btn font_hydhj">立即开启定制</button>
+      <!-- Data: 2020-08-03; Edit: Hani; Describe: 恢复首页提示文案; End 1.0.0 -->
+
+
+      <!-- Data: 2020-08-03; Edit: Hani; Describe: 按照设计优化页面; Start 1.0.0 -->
+      <!-- 首页 - 活动规则 -->
+      <div class="home_rule"><span>活 动 规 则</span></div>
+      <!-- Data: 2020-08-03; Edit: Hani; Describe: 按照设计优化页面; End 1.0.0 -->
+      <div class="home_hint"></div>
+    </div>
+  </div>
+  <!-- 页面内容 - 详情页 -->
+  <div class="wrap_page details_wrap">
+    <!-- 详情页 - 主要内容 -->
+    <div class="details_inner">
+      <img src="./img/details_img1.jpg" alt="" class="details_img">
+      <img src="./img/details_img2.jpg" alt="" class="details_img">
+      <div class="btn_wrap">
+        <button class="btn btn_see font_hydhj">我知道了</button>
+      </div>
+    </div>
+  </div>
+  <!-- 页面内容 - 生成海报页 -->
+  <div class="wrap_page create_wrap">
+    <div class="logo"></div>
+    <!-- 首页 - 背景 -->
+    <div class="bg"></div>
+    <!-- 生成海报页 - 主要内容 -->
+    <div class="create_inner">
+      <div class="create_title">
+        <div class="title_img"></div>
+        <div class="title_progress"></div>
+      </div>
+      <div class="create_content">
+        <!-- 选择汽车 -->
+        <img src="" class="bg_item bg_item1 car_bg" alt="">
+        <!-- 选择天空 -->
+        <img src="" class="bg_item bg_item2 sky_bg" alt="">
+        <!-- 选择歌词 -->
+        <img src="" class="bg_item bg_item3 lyric_bg" alt="">
+      </div>
+      <!-- 选择列表 -->
+      <div class="create_select">
+        <!-- 背景列表 -->
+        <div class="select_list select_bg">
+          <div class="select_item select_item1 active">
+            <img src="" alt="" class="img">
+            <span class="font_hydhj text"></span>
+          </div>
+          <div class="select_item select_item2">
+            <img src="" alt="" class="img">
+            <span class="font_hydhj text"></span>
+          </div>
+          <div class="select_item select_item3">
+            <img src="" alt="" class="img">
+            <span class="font_hydhj text"></span>
+          </div>
+        </div>
+        <!-- 歌曲列表 -->
+        <div class="select_list select_lyric custom_scroll_x">
+          <div class="select_item select_item1 active">
+            <div class="lyric_wrap">
+              <div class="title font_hydhj lyric_item">《<span>奇妙能力之歌</span>》</div>
+              <div class="name lyric_item">陈粒</div>
+            </div>
+          </div>
+        </div>
+        <div class="btn_wrap">
+          <button class="btn btn_previous"></button>
+          <button class="btn btn_next font_hydhj">下一步</button>
+        </div>
+      </div>
+      <div class="create_hint"></div>
+    </div>
+  </div>
+  <!-- 页面内容 - 留资 页 -->
+  <div class="wrap_page survey_wrap">
+    <!-- 首页 - 背景 -->
+    <div class="bg"></div>
+    <!-- 生成海报页 - 主要内容 -->
+    <div class="survey_inner">
+      <form action="" method="get" id="surveyForm" class="survey_form">
+        <div class="survey_list">
+          <!-- 表单 - 姓名 -->
+          <div class="survey_item survey_name">
+            <input type="text" id="name" class="name" placeholder="姓名" name="name">
+          </div>
+          <!-- 表单 - 电话号码 -->
+          <div class="survey_item survey_name">
+            <input type="number" id="phone" class="phone" placeholder="电话号码" name="phone">
+          </div>
+          <!-- Data: 2020-08-03; Edit: Hani; Describe: 城市，经销商list更改; Start 1.0.0 -->
+          <!-- 表单 - 省份 -->
+          <div class="survey_item survey_region">
+            <select class="region" id="region" name="region">
+              <option class="survey_active" value="" disabled="disabled" selected="selected" hidden="hidden">省份</option>
+            </select>
+          </div>
+          <!-- 表单 - 城市 -->
+          <div class="survey_item survey_region">
+            <select class="city" id="city" name="city">
+              <option class="survey_active" value="" disabled="disabled" selected="selected" hidden="hidden">城市</option>
+            </select>
+          </div>
+          <!-- 表单 - 选择座驾 -->
+          <div class="survey_item survey_region">
+            <select class="car" id="car" name="car">
+              <option class="survey_active" value="" disabled="disabled" selected="selected" hidden="hidden">选择座驾
+              </option>
+              <option class="survey_active" value="全新Jeep牧马人">全新Jeep牧马人</option>
+              <option class="survey_active" value="进口Jeep大切诺基">进口Jeep大切诺基</option>
+              <option class="survey_active" value="全新Jeep+大指挥官">全新Jeep+大指挥官</option>
+              <option class="survey_active" value="全新Jeep大指挥官PHEV">全新Jeep大指挥官PHEV</option>
+              <option class="survey_active" value="全新Jeep+指南者">全新Jeep+指南者</option>
+              <option class="survey_active" value="全新Jeep自由侠">全新Jeep自由侠</option>
+              <option class="survey_active" value="全新Jeep+自由光">全新Jeep+自由光</option>
+            </select>
+          </div>
+          <!-- Data: 2020-08-03; Edit: Hani; Describe: 城市，经销商list更改; End 1.0.0 -->
+          <!-- 选择 -->
+          <div class="survey_select">
+            <input type="checkbox" checked name="" class="survey_check" value="" id="select">
+            <label for="select"></label>
+            <div class="font_hydhj">我已阅读并接受<span class="survey_rule">活动规则</span>，同意将以上信息<br />提供给活动主办方用于活动规则所述的用途</div>
+          </div>
+          <div class="btn survey_btn__wrap">
+            <button class="btn btn_item btn_get font_hydhj">提交报名</button>
+          </div>
+        </div>
+      </form>
+      <!-- Data: 2020-08-03; Edit: Hani; Describe: 按照设计优化页面; Start 1.0.0 -->
+      <div class="survey_return font_hydhj"><span>继 续 生 成 心 情 海 报</span></div>
+      <!-- Data: 2020-08-03; Edit: Hani; Describe: 按照设计优化页面; End 1.0.0 -->
+      <div class="survey_hint"></div>
+    </div>
+  </div>
+  <!-- 页面内容 - 生成后的海报页 -->
+  <div class="wrap_page making_wrap">
+    <div class="logo"></div>
+    <!-- 首页 - 背景 -->
+    <div class="bg"></div>
+    <!-- 生成海报页 - 主要内容 -->
+    <div class="making_inner">
+      <!-- 生成后海报展示 -->
+      <div class="making_content">
+        <div class="making_img">
+          <!-- 选择汽车 -->
+          <img src="./img/create_car1.png" class="making_bg making_car" alt="">
+          <!-- 选择天空 -->
+          <img src="./img/create_bg1.png" class="making_bg making_sky" alt="">
+          <!-- 选择歌词 -->
+          <img src="./img/create_lyric1.png" class="making_bg making_lyric" alt="">
+          <div class="user_name">独一无二的牧马人：<span>Hani</span></div>
+        </div>
+        <!-- Data: 2020-08-03; Edit: Hani; Describe: 将二维码从图片中分离; Start 1.0.0 -->
+        <div class="making_qrcode"><img src="./img/qrcode.png" alt=""></div>
+        <!-- Data: 2020-08-03; Edit: Hani; Describe: 将二维码从图片中分离; End 1.0.0 -->
+        <div class="making_number font_hydhj">仲夏星空演唱会限定编号：<span>007</span></div>
+
+        <!-- Data: 2020-08-03; Edit: Hani; Describe: 页面的长按保存添加图片标签; Start 1.0.0 -->
+        <img src="" alt="" class="making_saveimg" id="saveImg">
+        <!-- Data: 2020-08-03; Edit: Hani; Describe: 页面的长按保存添加图片标签; End 1.0.0 -->
+      </div>
+      <div class="making_base">
+        <div class="text font_hydhj">长按保存演唱会门票</div>
+        <!-- Data: 2020-08-03; Edit: Hani; Describe: 海报生成页加文案; Start 1.0.0 -->
+        <div class="hint font_hydhj"></div>
+        <!-- Data: 2020-08-03; Edit: Hani; Describe: 海报生成页加文案; End 1.0.0 -->
+        <div class="btn_wrap">
+          <!-- 首页 - 按钮 - 立即开启定制 -->
+          <button class="btn btn_item btn_again"></button>
+          <!-- 首页 - 按钮 - 立即开启定制 -->
+          <button class="btn btn_item btn_share"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Data: 2020-08-03; Edit: Hani; Describe: 修改活动规则文案; Start 1.0.0 -->
+<!-- 活动规则弹窗 -->
+<div class="modal " id="modalRule">
+  <div class="modal_content">
+    <div class="modal_bg"></div>
+    <div class="modal_body modal_rule">
+      <div class="rule_wrap">
+        <div class="rule_inner custom_scroll">
+          <p>一、活动内容：</p>
+          <p>敬邀每一位独一无二的牧马人。Jeep携手TME，开启「Jeep牧马人音旅体验官」招募活动，参与互动制作专属海报，邀请好友们一同参与，将有机会免费获得「Jeep牧马人仲夏星空演唱会」入场资格。</p>
+          <p>二、活动时间：</p>
+          <p>招募期间：北京时间2020年8月10日0点至8月15日24点（活动仅限中国大陆地区）</p>
+          <p>演唱会时间：北京时间2020年8月22日</p>
+          <p>三、参与方式：</p>
+          <p>1.活动期间，用户开启QQ音乐APP扫描活动二维码或点击相关活动链接，即可进入活动页面；</p>
+          <p>2.活动期间，用户完成专属海报制作、参与互动并提交联系方式后，即成功报名参与「Jeep牧马人音旅体验官」招募活动，参与抽奖。获奖用户将获得「Jeep牧马人仲夏星空演唱会」入场资格（全活动周期共设置10个招募名额）；
+          </p>
+          <p>3.完成「牧马人音旅体验官」随机抽取后，活动主办方将公示获奖用户，并通过留资联系方式通知获奖用户参与「Jeep牧马人仲夏星空演唱会」线下活动。</p>
+          <p>四、活动主办方：</p>
+          <p>克莱斯勒（中国）汽车销售有限公司；腾讯音乐娱乐集团（简称“TME”），以上两方公司统称活动主办方。</p>
+          <p>五、消费者个人隐私权条款：</p>
+          <p>1.隐私权条款的适用范围</p>
+          <p>在您自愿提供你的相关信息之后，将由活动主办方根据本隐私权条款予以保护。除以本声明第3条中规定的相关方式使用您提交的相关信息之外，在未征得您许可的情况下，活动主办方不会将该信息对外公开或提供给其他第三方。</p>
+          <p>2.本次活动将授权使用您的以下相关信息：您在QQ音乐的账户昵称、头像，您在留资渠道主动提供的姓名、联系方式。</p>
+          <p>3.信息的使用方式</p>
+          <p>您同意，活动主办方将可以按照如下方式，使用您自愿提供的相关信息：</p>
+          <p>
+            （1）为向您提供更优质的服务，活动主办方会对各类信息进行收集和整合，你应准确提供相关信息，以确保您能获得后续相关服务。活动主办方不对由于您未能准确提供信息造成的任何损失承担任何责任。您需对由于您未能如实提供前述信息而引发的任何问题负责；
+          </p>
+          <p>（2）活动主办方将通过电话或电子邮件等方式为您提供关于消费者可享受的各种服务的信息，可参加的各种活动信息，以及活动主办方认为您会感兴趣的任何其他信息；</p>
+          <p>（3）此外，活动主办方将在如下情况发生时，向相关方提供或披露您的相关信息，您需对由于您未能如实提供相关信息而引发的任何问题负责：</p>
+          <p>「1」已获得您的授权公开或披露的关于您的相关信息；</p>
+          <p>「2」因您受邀参加活动主办方举办的活动或接受服务而需要将您提供的相关信息披露给活动主办方委托的第三方公司；</p>
+          <p>「3」按照相关法律法规的要求而公开或披露您的相关信息；</p>
+          <p>「4」按照相关政府主管部门、司法部门的要求而公开或披露您的相关信息；</p>
+          <p>「5」经您同意让任何第三方共享您的相关信息。</p>
+          <p>六、注意事项：</p>
+          <p>1.每个自然人仅可使用自己实名的合法有效的QQ号码（或微信账号等）登录QQ音乐后参与本次活动；</p>
+          <p>2.您若有下列任何一种行为或情况的，活动主办方有权单方面取消您的参与资格，并保留所有追究权利：</p>
+          <p>（1）不符合参与资格：如黑产QQ号，非实名QQ号等；</p>
+          <p>（2）提供虚假信息；</p>
+          <p>（3）虚假交易或恶意破坏活动；</p>
+          <p>（4）以任何机器人、蜘蛛、爬虫、刷奖软件或其它任何自动方式、不正当手段等参与本活动；</p>
+          <p>（5）有任何违反诚实信用、公序良俗、公平、公正等原则行为。</p>
+        </div>
+      </div>
+      <div class="modal_close"></div>
+    </div>
+  </div>
+</div>
+<!-- Data: 2020-08-03; Edit: Hani; Describe: 修改活动规则文案; Start 1.0.0 -->
+<!-- 提示分享弹窗 -->
+<div class="modal" id="modalShare">
+  <div class="modal_content">
+    <div class="modal_bg modal_close"></div>
+    <div class="modal_body modal_share">
+      <div class="share_arrows"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<script src="./js/fx.js"></script>
+<script src="./js/preloadjs.min.js"></script>
+<script src="./js/canvasAni.js"></script>
+<!-- Data: 2020-08-03; Edit: Hani; Describe: 引入城市信息; Start 1.0.0 -->
+<script src="./js/data.js"></script>
+<!-- Data: 2020-08-03; Edit: Hani; Describe: 引入城市信息; End 1.0.0 -->
+<script src="./js/index.js"></script>
+{% endblock %}

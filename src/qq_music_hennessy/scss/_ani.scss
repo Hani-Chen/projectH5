@@ -1,0 +1,186 @@
+// 显示动画
+@keyframes fadeInShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+// 首页餐车动画
+@keyframes indexCar {
+  0% {
+    transform: translate3d(-200%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+// 首页云朵动画
+@keyframes indexFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 15%, 0);
+  }
+}
+// 上浮动画
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+// 淡入动画
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// 帧动画
+@keyframes writekeyframes-test {
+  0% {
+    width: 100%;
+    height: 0;
+    padding-bottom: 42.93333333333334%;
+    background-image: url("../img/write-0.png");
+    background-size: 200% 300%;
+  }
+
+  4.00% {
+    background-position: 0% 50%;
+  }
+
+  8.00% {
+    background-position: 100% 0%;
+  }
+
+  12.00% {
+    background-position: 100% 50%;
+  }
+
+  16.00% {
+    background-position: 0% 100%;
+  }
+
+  20.00% {
+    background-image: url("../img/write-5.png");
+    background-position: 0% 0%;
+  }
+
+  24.00% {
+    background-position: 0% 50%;
+  }
+
+  28.00% {
+    background-position: 100% 0%;
+  }
+
+  32.00% {
+    background-image: url("../img/write-0.png");
+    background-position: 100% 50%;
+  }
+
+  36.00% {
+    background-image: url("../img/write-5.png");
+  }
+
+  40.00% {
+    background-position: 0% 100%;
+  }
+
+  44.00% {
+    background-image: url("../img/write-11.png");
+    background-position: 0% 0%;
+  }
+
+  48.00% {
+    background-position: 0% 50%;
+  }
+
+  52.00% {
+    background-position: 100% 0%;
+  }
+
+  56.00% {
+    background-position: 100% 50%;
+  }
+
+  60.00% {
+    background-position: 0% 100%;
+  }
+
+  64.00% {
+    background-image: url("../img/write-16.png");
+    background-position: 0% 0%;
+  }
+
+  68.00% {
+    background-image: url("../img/write-11.png");
+    background-position: 0% 100%;
+  }
+
+  72.00% {
+    background-image: url("../img/write-16.png");
+    background-position: 0% 50%;
+  }
+
+  76.00% {
+    background-image: url("../img/write-11.png");
+    background-position: 0% 100%;
+  }
+
+  80.00% {
+    background-image: url("../img/write-16.png");
+    background-position: 0% 0%;
+  }
+
+  84.00% {
+    background-image: url("../img/write-11.png");
+    background-position: 0% 100%;
+  }
+
+  88.00% {
+    background-image: url("../img/write-16.png");
+    background-position: 100% 0%;
+  }
+
+  92.00% {
+    background-position: 100% 50%;
+  }
+
+  96.00%,
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+@keyframes myRotate{
+  0%{ transform: rotate(0deg);}
+  50%{ transform: rotate(180deg);}
+  100%{ transform: rotate(360deg);}
+}
+@keyframes start {
+  0%,
+  30% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}

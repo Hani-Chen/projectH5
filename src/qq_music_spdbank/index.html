@@ -1,0 +1,312 @@
+{% extends "./_njk/base.njk" %}
+
+{% set issueList = [
+  {
+    id: 1,
+    serial: 1,
+    text: '我的少女心，大家都知道~ ',
+    text1: '诶，那么我的话筒颜色是？',
+    option: 4
+
+  }, {
+    id: 2,
+    serial: 2,
+    text: '听说你的青春都在听我的歌？',
+    text1: '那你肯定知道我是什么星座的？',
+    option: 4
+  }, {
+    id: 3,
+    serial: 3,
+    text: '你喜欢我哪首歌？',
+    option: 2
+  }
+] %}
+
+{% set giftList = [
+  {
+    id: 1,
+    img: './img/gift.png',
+    text: '定制',
+    text1: '半岛铁盒'
+
+  }, {
+    id: 2,
+    img: './img/qq_logo.png',
+    text: 'QQ音乐',
+    text1: '付费音乐包'
+  }, {
+    id: 3,
+    img: './img/album.png',
+    text: '正版14张专辑',
+    text1: '套装',
+    class: 'gift_item1'
+  }, {
+    id: 4,
+    img: './img/tickets.png',
+    text: '演唱会门票',
+    text1: '购买资格',
+    class: 'gift_item1'
+  }
+] %}
+
+{% block main %}
+  <!-- 加载页面 -->
+  <section class="wrap wrap_preload show">
+    <div class="preload">
+      <div class="preload_box">
+        <!-- 进度 -->
+        <div class="preload_schedule" id="preloadProgress">
+          <div class="preload_holder">
+            <img class="preload_img" src="./img/jay_preload.png" alt="">
+          </div>
+        </div>
+
+      </div>
+      <!-- loading文本 -->
+      <div class="preload_text">
+        <span id="preloadPercent"></span>%
+      </div>
+    </div>
+  </section>
+  <!-- loading接听页面 -->
+  <section class="wrap wrap_loading">
+    <!-- 接听 -->
+    <div class="loading_answer">
+      <!-- 接听按钮 - 容器 -->
+      <div class="answer_box">
+        <!-- 接听按钮 - img -->
+        <img class="answer" src="./img/icon_answer.png" alt="">
+      </div>
+      <!-- 接听按钮 - 文案 -->
+      <span class="answer_text fzy3">接听</span>
+    </div>
+    <!-- 底部联合logo -->
+    <div class="logo">
+      <img src="./img/logo.png" alt="">
+    </div>
+  </section>
+
+  <!-- 首页 -->
+  <section class="wrap wrap_index ">
+    <!-- 内容 -->
+    <div class="index_center">
+      <!-- 标题容器 -->
+      <div class="title_box fzy3">
+        <!-- 标题 - 文案 -->
+        <span class="title_text">
+          想参与我的活动？
+          <br/>
+          看看哪张魔J信用卡<br/>
+          最适合你
+        </span>
+        <span class="title_text1">你准备好了吗？</span>
+      </div>
+      <!-- 按钮 -->
+      <div class="ibtn_box">
+        <!-- 准备好了 -->
+        <span class="ibtn ibtn_ok"></span>
+        <!-- 我自己了解 -->
+        <span class="ibtn ibtn_discovery"></span>
+      </div>
+    </div>
+    <!-- 底部联合logo -->
+    <div class="logo">
+      <img src="./img/logo.png" alt="">
+    </div>
+  </section>
+
+  {% for item in issueList %}
+    <!-- 问题页 - {{item.id}} -->
+    <section class="wrap wrap_question{{item.id}} ">
+      <!-- 内容 -->
+      <div class="question_center question{{item.id}}_center">
+        <!-- 磁带 -->
+        <div class="tape fzy3">
+          <!-- 磁带 - 文案 -->
+          <span class="tape_text {% if item.text1 %}{% else%}text1{% endif %}">
+            {{item.text}}<br/>
+            {{item.text1}}
+          </span>
+          <img class="tape_serial" src="./img/serial{{item.id}}.png" alt="">
+        </div>
+        <!-- 按钮 -->
+        <div class="qbtn_box btn{{item.id}}">
+          {% if item.option == 4 %}
+            <!-- 选项 -->
+            <span class="qbtn qbtn_1"></span>
+            <!-- 选项 -->
+            <span class="qbtn qbtn_2"></span>
+            <!-- 选项 -->
+            <span class="qbtn qbtn_3"></span>
+            <!-- 选项 -->
+            <span class="qbtn qbtn_4"></span>
+          {% endif %}
+          {% if item.option == 2 %}
+            <!-- 选项 -->
+            <span class="qbtn qbtn_1"></span>
+            <!-- 选项 -->
+            <span class="qbtn qbtn_2"></span>
+          {% endif %}
+        </div>
+      </div>
+      <!-- 底部唱片 -->
+      <div class="question_bottom question{{item.id}}_bottom">
+        <!-- 底部联合logo -->
+        <div class="logo">
+          {% if item.id == 3 %}
+            <img src="./img/logo2.png" alt="">
+          {% else %}
+            <img src="./img/logo.png" alt="">
+          {% endif %}
+        </div>
+        <div class="tape">
+          <img class="tape_img" src="./img/bottom_tape.png" alt="">
+        </div>
+      </div>
+    </section>
+  {% endfor %}
+
+  <!-- 办卡 页 -->
+  <section class="wrap wrap_handle ">
+    <!-- 内容 -->
+    <div class="handle_center">
+      <!-- 弹窗 通过改变class `pop1 || pop2` 切换显示的弹窗 -->
+      <div class="handle_pop"></div>
+      <!-- 立即办卡按钮 -->
+      <span class="hbtn"></span>
+      <!-- 活动细则按钮 -->
+      <span class="rule">活动细则</span>
+    </div>
+    <div class="logo">
+      <img src="./img/logo.png" alt="">
+    </div>
+  </section>
+
+  <!-- 活动首页 -->
+  <section class="wrap wrap_home ">
+    <!-- 头部 - 内容 -->
+    <div class="home_header">
+      <!-- 头部 - logo -->
+      <div class="logo1">
+        <!-- 头部logo - img -->
+        <img src="./img/logo1.png" alt="">
+      </div>
+      <!-- 导航按钮 -->
+      <div class="home_btn">
+        <div class="btn_box">
+          <!-- 导航按钮 - 办卡 -->
+          <div class="btn_manage">
+            <!-- <span class="title"></span> -->
+          </div>
+          <!-- 分享 -->
+          <div class="btn_share">
+            <span class=""></span>
+          </div>
+        </div>
+      </div>
+      <div class="bg">
+        <img class="bg-img" src="./img/bg_header.png" alt="">
+      </div>
+    </div>
+    <!-- 内容 -->
+    <div class="home_center">
+      <!-- 活动1 -->
+      <div class="activity1">
+        <span class="rule">活动细则 &#62</span>
+        <!-- 粗黑简字体 -->
+        <span class="title fztchj">活动一</span>
+        <!-- 中黑字体 -->
+        <span class="text fztzh">现在办理达标可获赠魔力惊喜专属好礼</span>
+        <div class="gift_box">
+          {% for item in giftList %}
+            <div class="gift_item {{item.class}}">
+              <img class="gift_img" src="{{item.img}}" alt="">
+              <!-- 准黑字体 -->
+              <span class="gift_text fzth">
+                {{item.text}}
+                <br/>
+                {{item.text1}}
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+        <!-- 中粗黑字体 -->
+        <span class="gift_btn fztzch">立即办卡</span>
+        <span class="gift_text1">
+          现在申请，限时好礼
+        </span>
+        <span class="gift_text2">
+          可额外在领取3个月绿钻，限量2万份。
+        </span>
+
+      </div>
+
+      <div class="home_bg">
+        <!-- 活动2 -->
+        <div class="activity2">
+          <span class="rule">活动细则 &#62</span>
+          <!-- 粗黑简字体 -->
+          <span class="title fztchj">活动二</span>
+          <!-- 中黑字体 -->
+          <span class="text fztzh">1-12个月豪华绿钻限量大放送，先到先得</span>
+          <div class="gift_item">
+            <img class="gift_img" src="./img/membership.png" alt="">
+          </div>
+          <!-- 中粗黑字体 -->
+          <span class="gift_btn fztzch">立即分享</span>
+          <span class="gift_text1">分享即可获得1次抽奖机会</span>
+
+          <div class="bottom">
+            <span class="gift_text2">我的剩余抽奖次数：
+              <span>0</span>
+            </span>
+            <span class="gift_text3">
+              查看我的奖品 &#62
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- 页面所需所有弹窗 -->
+
+  <!-- 获奖弹窗 -->
+  <div class="pop ">
+    <div class="pop_item pop_item2">
+      <div class="box fztchj">
+        <div class="title ">恭喜您</div>
+        <div class="title1 ">抽中<span>1元</span>首月豪华绿钻</div>
+        <img class="img" src="./img/award.png" alt="">
+        <span class="btn ">立即使用</span>
+      </div>
+    </div>
+  </div>
+  <!-- 手慢弹窗 -->
+  <div class="pop ">
+    <div class="pop_item pop_item3">
+      <div class="box fztchj">
+        <div class="title">手慢了些！</div>
+        <div class="title1">现在<span>免费</span>办理浦发信用卡，</div>
+        <div class="text">即可获得<span class="time">3个月</span><span>豪华绿钻！</span></div>
+        <span class="btn">去开卡</span>
+      </div>
+    </div>
+  </div>
+  <!-- 获奖记录弹窗 -->
+  <div class="pop">
+    <div class="pop_item pop_item4">
+      <div class="box">
+        <div class="title fztchj">我的奖品</div>
+        <div class="title1 fztzch">首月1元豪华绿钻</div>
+        <img class="img" src="./img/award.png" alt="">
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascript %}
+  <script src="js/zepto.min.js"></script>
+  <!-- 主程序 -->
+  <script type="text/javascript" src="js/index.js"></script>
+{% endblock %}

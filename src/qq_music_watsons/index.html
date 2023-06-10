@@ -1,0 +1,150 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<section class="section">
+	<!-- 页面内容 - 首页 -->
+	<div class="section_page section_home show">
+		<!-- 首页 - 背景 -->
+		<div class="bg"></div>
+		<!-- 首页 - 星星背景 -->
+		<div class="star_bg"></div>
+		<div class="globe_bg"></div>
+		<div class="globe_bg">
+			<div class="coconut_letf"></div>
+			<div class="coconut_right"></div>
+		</div>
+		<!-- 首页 - 主要内容 -->
+		<div class="home_wrap">
+			<!-- 首页 - 头部发光文字 -->
+			<div class="home_title">
+				<div class="home_title__active"></div>
+			</div>
+			<!-- 所有饮料 -->
+			<div class="home_all__drinks">
+				<!-- <div class="active"></div> -->
+				<div class="active_wrap">
+					<div class="active active1"></div>
+					<div class="active active2"></div>
+					<div class="active active3"></div>
+					<div class="active active4"></div>
+					<div class="active active5"></div>
+					<div class="active active6"></div>
+					<div class="active active7"></div>
+					<div class="active active8"></div>
+					<div class="active active9"></div>
+				</div>
+				<div class="semicircle"></div>
+				<!-- 玻璃 -->
+				<div class="glass"></div>
+				<!-- 星星 -->
+				<div class="star"></div>
+			</div>
+			<!-- 左侧文字滚动 -->
+			<div class="home_textroll">
+				<div class="textroll_wrap">
+					<div class="textroll_inner">
+						<div class="textroll_item home_textroll__item"></div>
+						<div class="textroll_item home_textroll__item"></div>
+					</div>
+				</div>
+			</div>
+			<!-- 抽奖 -->
+			<div class="home_loote">
+				<!-- Data: 2020-07-30; Edit: Hani; Describe: 添加按钮横扫动画; Start 1.0.0 -->
+				<div class="loote ani"></div>
+				<!-- Data: 2020-07-30; Edit: Hani; Describe: 添加按钮横扫动画; End 1.0.0 -->
+				<div class="hand"></div>
+			</div>
+			<div class="home_winning">
+				<div class="home_winning__item"></div>
+			</div>
+			<div class="home_test"></div>
+			<!-- Data: 2020-08-07; Edit: Hani; Describe: 添加活动规则按钮和我的奖品按钮; Start 1.0.1 -->
+			<div class="home_btn">
+				<!-- 活动规则按钮 -->
+				<div class="home_btn__item home_btn__rule"></div>
+				<!-- 我的奖品按钮 -->
+				<div class="home_btn__item home_btn__prize"></div>
+			</div>
+			<!-- Data: 2020-08-07; Edit: Hani; Describe: 添加活动规则按钮和我的奖品按钮; Ennd 1.0.1 -->
+		</div>
+	</div>
+	<div class="section_page section_list ">
+		<!-- 列表页 - 背景 -->
+		<div class="bg"></div>
+		<!-- 首页 - 星星背景 -->
+		<div class="star_bg"></div>
+		<div class="globe_bg"></div>
+		<div class="globe_bg">
+			<div class="coconut_letf"></div>
+			<div class="coconut_right"></div>
+		</div>
+		<!-- 列表页 - 主要内容 -->
+		<div class="list_wrap">
+			<div class="list_return"></div>
+			<!-- 左侧文字滚动 -->
+			<div class="list_textroll">
+				<div class="textroll_wrap">
+					<div class="textroll_inner">
+						<div class="textroll_item list_textroll__item"></div>
+						<div class="textroll_item list_textroll__item"></div>
+						<div class="textroll_item list_textroll__item"></div>
+					</div>
+				</div>
+			</div>
+			<!-- 列表页 - 头部发光文字 -->
+			<div class="list_title ">
+				<div class="list_title__active"></div>
+			</div>
+			<!-- 网格背景 -->
+			<div class="list_gridding"></div>
+			<div class="list_jar">
+				<!-- 列表小装饰 -->
+				<div class="list_decorate"></div>
+				
+				<!-- 玻璃 -->
+				<div class="list_glass"></div>
+				<!-- 列表 -->
+			<div class="list_inner"></div>
+			</div>
+			<div class="list_btn__wrap">
+				<!-- 分享按钮 -->
+				<button class="btn btn_item btn_share"></button>
+				<!-- 跳转外链 -->
+				<a href="JavaScript:;" class="btn_item start_drink"></a>
+			</div>
+			
+		</div>
+	</div>
+</section>
+<!-- 弹窗 -->
+<div class="modal" id="modalPrize">
+	<div class="modal_content">
+		<div class="modal_bg modal_close"></div>
+		<div class="modal_body modal_prize">
+			<!-- 文字滚动 -->
+			<div class="prize_textroll">
+				<div class="textroll_wrap">
+					<div class="textroll_inner">
+						<div class="textroll_item modal_textroll__item"></div>
+						<div class="textroll_item modal_textroll__item"></div>
+					</div>
+				</div>
+			</div>
+			<!-- 兑换码 -->
+			<input class="prize_cdkey" value="兑换码" readonly> 
+			<div class="btn_copy"></div>
+			<!-- 按钮 -->
+			<div class="btn_wrap">
+				<div class="btn_cdkey btn_item"></div>
+				<!-- 跳转外链 -->
+				<a href="JavaScript:;" class="btn_item start_drink"></a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block javascript %}
+	<script src="./js/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/clipboard.min.js"></script>
+  <script src="./js/index.js"></script>
+{% endblock %}

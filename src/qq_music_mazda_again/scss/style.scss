@@ -1,0 +1,241 @@
+@charset "utf-8";
+// 样式引入 - 引入默认样式
+@import "./global.import";
+
+@function changePx($px) {
+  @return $px / 2;
+}
+/* 页面公共样式 */
+* {
+  box-sizing: border-box;
+}
+
+// 公共样式 - 提示
+.toast_item {
+  position: fixed;
+  left: 50%;
+  bottom: 3%;
+  color: #fff;
+  font-size: changePx(0.18rem);
+  padding: changePx(0.12rem) changePx(0.16rem);
+  line-height: 1;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 999;
+  span {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    background: #b6030f;
+    padding: changePx(0.1rem);
+    border-radius: changePx(0.1rem);
+  }
+  .ani {
+    animation: fadeInDown 0.5s;
+  }
+}
+.btn {
+  display: inline-block;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+@font-face {
+  font-family: "nscjb";
+  src: url("../fonts/NotoSansCJKsc-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.font_nscjb {
+  font-family: "nscjb";
+}
+@font-face {
+  font-family: "nscjm";
+  src: url("../fonts/NotoSansCJKsc-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.font_nscjm {
+  font-family: "nscjm";
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+/* 页面工具类 - 背景图片公共样式 */
+.bg-item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+/* 页面样式 */
+.wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; /* 解决ios滑动不流畅问题 */
+  background-color: #0c0103;
+  &.hidden {
+    overflow: hidden;
+  }
+  &_home {
+    height: 100%;
+    .bg {
+      width: 100%;
+    }
+  }
+}
+.home_top {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+.home_bottom {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+.home_form {
+  position: relative;
+  width: changePx(6.8rem);
+  padding-top: changePx(1.5rem);
+  margin: 0 auto;
+  border-radius: changePx(0.1rem) changePx(0.1rem) 0 0 ;
+  overflow: hidden;
+  .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: changePx(1.5rem);
+    background-image: url('../img/form_bg.jpg');
+    @extend .bg-item;
+  }
+}
+.form {
+  &_inner {
+    position: relative;
+    width: 100%;
+    height: changePx(4.84rem);
+    border-radius: 0 0 changePx(0.1rem) changePx(0.1rem);
+    overflow: hidden;
+    border: changePx(0.03rem) solid #b6030f;
+    border-top: 0;
+    padding: 0 changePx(0.8rem);
+  }
+}
+
+.form {
+  &_inner {
+    position: relative;
+    width: 100%;
+    height: changePx(4.84rem);
+    border-radius: 0 0 changePx(0.1rem) changePx(0.1rem);
+    overflow: hidden;
+    border: changePx(0.03rem) solid #b6030f;
+    border-top: 0;
+    padding-top: changePx(0.2rem);
+  }
+  &_list {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    padding: 0 changePx(0.68rem);
+    margin-top: changePx(-2.08rem);
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+  &_group__multi {
+    display: flex;
+    justify-content: space-between;
+    .form_item {
+      width: 47%;
+    }
+  }
+  &_item {
+    position: relative;
+    width: 100%;
+    height: changePx(0.6rem);
+    margin-bottom: changePx(0.2rem);
+    border-radius: 2px;
+    border: 1px solid #fff;
+    input {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0 changePx(0.2rem);
+      background: transparent;
+      line-height: changePx(0.56rem);
+      font-size: changePx(0.24rem);
+      color: #fff;
+      &::placeholder {
+        font-size: changePx(0.24rem);
+        color: rgba($color: #fff, $alpha: 0.7);
+      }
+    }
+    select {
+      position: absolute;
+      left: 0;
+      top: 0;
+      appearance: none;
+      padding: 0 changePx(0.2rem);
+      border: 0;
+      background: transparent;
+      width: 100%;
+      height: 100%;
+      font-size: changePx(0.24rem);
+      color: rgba($color: #fff, $alpha: 0.7);
+      appearance: none;
+      outline: none;
+      background-color: #0c0103;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      background: {
+        image: url("../img/icon_arrows.png");
+        size: changePx(0.08rem) auto;
+        repeat: no-repeat;
+        position: center right changePx(0.2rem);
+      }
+    }
+  }
+  
+  &_btn {
+    display: block;
+    width: changePx(5.2rem);
+    height: changePx(0.6rem);
+    line-height: changePx(0.6rem);
+    background-color: #b6030f;
+    text-align: center;
+    color: #fff;
+    font-size: changePx(0.24rem);
+    margin-bottom: changePx(0.2rem);
+    pointer-events: unset;
+    &.gray {
+      background-color: #666;
+      pointer-events: none;
+    }
+  }
+  &_privacy {
+    display: flex;
+    text-align: center;
+    a {
+      color: #999;
+      margin: 0 auto;
+      font-size: changePx(0.24rem);
+      border-bottom: 1px solid #999;
+    }
+  }
+}

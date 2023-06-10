@@ -1,0 +1,131 @@
+@charset "utf-8";
+// 样式引入 - 引入默认样式
+@import "./global.import";
+
+/* 页面公共样式 */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+@font-face {
+  font-family: "HYDaHeiJ";
+  src: url("../fonts/HYDaHeiJ.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.font_hydhj {
+  font-family: "HYDaHeiJ";
+}
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item_top {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: 0 0;
+  }
+}
+
+/* 页面样式 */
+.wrap {
+  background-color: #000;
+  &.hidden {
+    overflow: hidden;
+  }
+  // 页面公共样式
+  &_page {
+    width: 750px;
+    height: 1372px;
+    display: block;
+  }
+}
+
+/* 海报生成成功页 */
+.share {
+  &_content {
+    position: relative;
+    width: 100%;
+    height: 1372px;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../img/making_bg.png");
+      @extend .bg_item_top;
+    }
+  }
+  &_img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 975px;
+    .user_name {
+      position: absolute;
+      left: 70px;
+      bottom: 42px;
+      font-size: 30px;
+      color: #feffff;
+    }
+  }
+  &_number {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: 628px;
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    line-height: 1.2;
+    color: #000;
+    z-index: 2;
+    span {
+      display: inline-block;
+      position: relative;
+      top: 2px;
+      color: #e3af29;
+    }
+  }
+  &_bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 975px;
+  }
+  &_qrcode {
+    position: absolute;
+    right: 74px;
+    bottom: 112px;
+    width: 136px;
+    height: 136px;
+    overflow: hidden;
+    z-index: 2;
+    img {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

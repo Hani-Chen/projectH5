@@ -1,0 +1,12 @@
+{% set active="watch" %}
+
+{% extends "./_njk/base.njk" %} {% block main %}
+  <div class="watch_container">
+    <div class="watch_title_wrapper">
+      <span>مشاهدة البث المباشر</span>
+    </div>
+    <div class="watch_video_reg watch_video">
+      <iframe class="video_frame" width="560" height="315" src="https://www.youtube.com/embed/YShXBs0W8eQ?rel=0&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+    </div>
+  </div>
+{% endblock %}

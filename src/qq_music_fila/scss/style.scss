@@ -1,0 +1,486 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+
+//hint: QQ音乐规定 - 引入QQ音乐默认样式
+@import "global.import.css";
+
+//hint: 1px像素解决方案 - 按需引入
+// @import "./_border.import.css";
+
+//hint: 工具类 - 按需引入
+@import "./toolScss";
+
+//hint: QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2;函数用法示例（750设计稿字体大小24）：font-size: changePx(0.24rem);
+@function changePx($px) {
+  @return $px / 2;
+}
+
+//hint: h5默认字体 - 可根据默认不同的默认字体修改字体顺序
+$baseFont: "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei,
+  "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+}
+
+// 页面工具类 - 背景图片公共样式
+@mixin page-sprite($position: 0 0) {
+  @include bg-set("../img/page_sprite.png", $size: changePx(5rem), $position: $position);
+}
+@mixin page-sprite-cd($position: 0 0) {
+  @include bg-set("../img/page_cd.png", $size: changePx(18rem) changePx(9rem), $position: $position);
+}
+@font-face {
+  font-family: "font_fzlthjt";
+  src: url("../fonts/方正兰亭黑简体.TTF");
+}
+@mixin font-fzlthjt {
+  font-family: "font_fzlthjt";
+}
+@font-face {
+  font-family: "font_arial";
+  src: url("../fonts/arial.ttf");
+}
+@mixin font-arial {
+  font-family: "font_arial";
+}
+
+/* 页面公共样式 - End */
+
+/* 页面样式 - Start */
+//! 【*注意* ：QQ音乐规定类名命名，必须以下划线形式命名】
+// 类名用法示例：
+//hint:  .test_box {}
+//hint:  .test_box__wrap {}
+//!  .test_box__wrap___*** 命名禁止超过三级
+//!  .test1 .test2 .test3 .test4 {} 嵌套禁止超过三级
+// @keyframes start {
+//   0%,
+//   30% {
+//     opacity: 0;
+//     transform: translateY(6px) ;
+//   }
+//   60% {
+//     opacity: 1;
+//     transform: translate(0);
+//   }
+//   100% {
+//     opacity: 0;
+//     transform: translateY(-4px);
+//   }
+// }
+
+// @keyframes clawAni {
+//   0%,
+//   30% {
+//     right: changePx(1.4rem);
+//   }
+//   60% {
+//     right: changePx(2.9rem);
+//     top: changePx(-1.35rem);
+//   }
+//   100% {
+//     right: changePx(2.9rem);
+//     top: changePx(-0.55rem);
+//   }
+// }
+.page_inner {
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+  background-color: #9bbcd9;
+}
+.page_inner {
+  .page_item {
+    display: none;
+    &.show {
+      display: block;
+      animation: fadeIn 1s linear;
+    }
+  }
+}
+.page_home {
+  position: relative;
+  .home {
+    &_banner {
+      @include size-set(100%, changePx(12rem));
+      @include bg-set("../img/page_banner.jpg", $size: 100% 100%);
+      &__slide {
+        @include layout-set($left: 50%, $top: changePx(11.1rem));
+        transform: translate3d(-50%, 0, 0);
+        padding-left: changePx(0.5rem);
+        box-sizing: border-box;
+        @include font-set(changePx(0.28rem), $color: #595959);
+        font-family: "思源黑体 CN";
+        &::after {
+          content: "";
+          @include layout-set($left: 0, $top: 50%);
+          margin-top: changePx(-0.25rem);
+          @include size-set(changePx(0.5rem), changePx(0.5rem));
+          // background: #f00;
+          @include page-sprite(0 0);
+          animation: arrowBounce 0.6s ease-in-out infinite alternate both;
+        }
+      }
+    }
+    &_lottery {
+      position: relative;
+      @include size-set(100%, changePx(13rem));
+      @include bg-set("../img/lottery_bg.jpg", $size: 100% 100%);
+      &__claw {
+        @include layout-set($right: 0, $top: changePx(3.42rem));
+        @include size-set(100%, changePx(3rem));
+        overflow: hidden;
+        .claw_item {
+          @include layout-set($right: changePx(1.4rem), $top: changePx(-1.35rem));
+          @include size-set(changePx(1.5rem), changePx(3rem));
+          @include page-sprite(0 changePx(-0.5rem));
+          // transition: all 1s ease;
+          &.active {
+            animation: clawAni 2s ease-in-out;
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+      &__text {
+        @include layout-set($left: changePx(1.6rem), $top: changePx(9.12rem));
+
+        @include layout-flex(center);
+        @include font-set(changePx(0.24rem), $color: #e7f4ff);
+        font-family: "思源黑体 CN";
+        .text {
+          &_item {
+            margin-right: changePx(0.45rem);
+            @include layout-flex(center);
+            @include size-set(changePx(2rem), changePx(0.54rem));
+            line-height: changePx(0.54rem);
+            // background: #f00;
+            &__number {
+              margin-left: changePx(0.08rem);
+              font-family: "Arial";
+            }
+          }
+        }
+      }
+      &__btn {
+        @include layout-set(leftCenter, $bottom: changePx(1rem));
+        @include size-set(changePx(3.4rem), changePx(0.9rem));
+        // background-color: rgba(255, 0, 0, 0.5)
+      }
+    }
+    &_prize {
+      @include size-set(100%, changePx(11.5rem));
+      @include bg-set("../img/prize_bg.jpg", $size: 100% 100%);
+    }
+    &_list {
+      position: relative;
+      @include size-set(100%, changePx(12rem));
+      @include bg-set("../img/list_bg.jpg", $size: 100% 100%);
+      &__wrap {
+        @include layout-set(leftCenter, $top: changePx(2rem));
+        @include size-set(changePx(7.1rem), changePx(8.88rem));
+        // background-color: rgba(255, 0, 0, 0.4);
+        padding-top: changePx(0.6rem);
+        box-sizing: border-box;
+      }
+      &__item {
+        // @include layout-flex($jc: space-between);
+        position: relative;
+        height: changePx(0.82rem);
+        @include layout-flex($ai: center);
+        $listLeft: changePx(0.48rem);
+        margin-bottom: changePx(0.33rem);
+        .item {
+          &_serial {
+            @include layout-set(topCenter, $left: $listLeft + 0);
+            @include font-set(changePx(0.36rem), $color: #3b76aa);
+            @include font-arial;
+          }
+          &_data {
+            @include layout-flex($ai: center);
+            @include layout-set(topCenter, $left: $listLeft + changePx(0.62rem));
+          }
+          &_picture {
+            @include size-set(changePx(0.82rem), changePx(0.82rem));
+            border-radius: changePx(0.05rem);
+            margin-right: changePx(0.25rem);
+            overflow: hidden;
+            &__img {
+              display: block;
+              @include size-set(100%, 100%);
+              border-radius: changePx(0.05rem);
+            }
+          }
+          &_song__title {
+            @include font-set(changePx(0.32rem), $color: #3b76aa);
+            font-family: font-fzlthjt;
+            line-height: 1.1;
+            margin-bottom: changePx(0.08rem);
+          }
+          &_song__name {
+            position: relative;
+            @include font-set(changePx(0.24rem), $color: #fff);
+            font-family: font-fzlthjt;
+            line-height: 1.1;
+          }
+          &_song__type {
+            &1 {
+              padding-left: changePx(0.4rem);
+              box-sizing: border-box;
+              &::after {
+                content: "";
+                @include layout-set(topCenter, $left: changePx(-0.08rem));
+                @include size-set(changePx(0.5rem), changePx(0.5rem));
+                @include page-sprite(changePx(-1.5rem) 0);
+              }
+            }
+            &2 {
+              padding-left: changePx(0.75rem);
+              box-sizing: border-box;
+              &::after {
+                content: "";
+                @include layout-set(topCenter, $left: changePx(-0.16rem));
+                @include size-set(changePx(1rem), changePx(0.5rem));
+                @include page-sprite(changePx(-0.5rem) 0);
+              }
+            }
+          }
+          &_icon {
+            @include layout-set(topCenter, $right: changePx(0.25rem));
+            @include size-set(changePx(1rem), changePx(1rem));
+            &::before {
+              content: "";
+              @include layout-set(topCenter, $right: 0);
+              @include size-set(100%, 100%);
+              @include page-sprite(changePx(-1.5rem) changePx(-1.5rem));
+              opacity: 1;
+              transition: opacity 0.3s;
+            }
+            &::after {
+              content: "";
+              @include layout-set(topCenter, $right: 0);
+              @include size-set(100%, 100%);
+              @include page-sprite(changePx(-1.5rem) changePx(-0.5rem));
+              opacity: 0;
+              transition: opacity 0.3s;
+            }
+            &.play {
+              &::before {
+                opacity: 0;
+              }
+              &::after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    &_rule {
+      position: relative;
+      @include size-set(100%, changePx(12.72rem));
+      @include bg-set("../img/rule_bg.jpg", $size: 100% 100%);
+      &__wrap {
+        @include layout-set($top: changePx(1.9rem), $left: 0);
+        @include size-set(100%, changePx(4.4rem));
+        // background-color: rgba(255, 0, 0, 0.5);
+        padding: 0 changePx(0.25rem);
+        box-sizing: border-box;
+      }
+      &__inner {
+        @include font-set(changePx(0.24rem), $color: #fff, $lineHigh: changePx(0.36rem));
+        padding: 0 changePx(0.14rem);
+        box-sizing: border-box;
+        @include size-set(100%, 100%);
+        text-align: justify;
+        overflow: hidden;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+          // display: none;
+          width: 4px;
+          height: 4px;
+        }
+        &::-webkit-scrollbar-track {
+          background: rgba($color: #fff, $alpha: 0.15);
+          border-radius: changePx(0.03rem);
+        }
+        &::-webkit-scrollbar-thumb {
+          background: rgba($color: #fff, $alpha: 0.6);
+          border-radius: changePx(0.03rem);
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: rgba($color: #fff, $alpha: 0.6);
+          border-radius: changePx(0.03rem);
+        }
+        &::-webkit-scrollbar-corner {
+          background: rgba($color: #fff, $alpha: 0.15);
+          border-radius: changePx(0.03rem);
+        }
+      }
+      &__item {
+        margin-bottom: changePx(0.18rem);
+        .item_title {
+          @include size-set(changePx(1.4), changePx(0.5rem));
+          @include page-sprite(changePx(-3.6rem) 0);
+          // margin-bottom: changePx(0.02rem);
+          &2 {
+            @include page-sprite(changePx(-3.6rem) changePx(-0.5rem));
+          }
+          &3 {
+            @include page-sprite(changePx(-3.6rem) changePx(-1rem));
+          }
+        }
+        .item_text__wrap {
+          margin-top: -0.02rem;
+          span {
+            display: inline-block;
+            line-height: changePx(0.26rem);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            @include size-set(changePx(0.26rem), changePx(0.26rem));
+            border-radius: 50%;
+            border: changePx(0.02rem) solid #fff;
+            @include font-arial;
+          }
+        }
+      }
+      &__more {
+        @include layout-set(leftCenter, $bottom: changePx(2.8rem));
+        @include size-set(changePx(3.4rem), changePx(0.9rem));
+      }
+    }
+  }
+}
+.page_details {
+  position: relative;
+  overflow: hidden;
+  @include size-set(100%, 100%);
+  @include bg-set("../img/details_bg.jpg", $size: 100% changePx(16.25rem));
+  &__return {
+    @include layout-set($left: changePx(0.08rem), $top: 50%);
+    margin-top: changePx(-5.65rem);
+    @include size-set(changePx(0.8rem), changePx(0.8rem));
+    // background: rgba($color: #fff, $alpha: 0.6)
+    &::after {
+      content: "";
+      @include layout-set(center);
+
+      @include size-set(changePx(0.5rem), changePx(0.5rem));
+      @include page-sprite(0 changePx(-3.5rem));
+    }
+  }
+  &__cd {
+    @include layout-set($left: changePx(1.54rem), $top: 50%);
+    margin-top: changePx(-3.42rem);
+    @include size-set(changePx(4.5rem), changePx(4.5rem));
+    @include page-sprite-cd(0 0);
+    transform: rotate(0);
+    animation: circle 10s linear infinite both;
+    &.stop {
+      animation-play-state: paused;
+    }
+    &1 {
+      @include page-sprite-cd(0 0);
+    }
+    &2 {
+      @include page-sprite-cd(changePx(-4.5rem) 0);
+    }
+    &3 {
+      @include page-sprite-cd(changePx(-9rem) 0);
+    }
+    &4 {
+      @include page-sprite-cd(changePx(-13.5rem) 0);
+    }
+    &5 {
+      @include page-sprite-cd(0 changePx(-4.5rem));
+    }
+    &6 {
+      @include page-sprite-cd(changePx(-4.5rem) changePx(-4.5rem));
+    }
+    &7 {
+      @include page-sprite-cd(changePx(-9rem) changePx(-4.5rem));
+    }
+  }
+  &__icon {
+    @include layout-set(layout);
+    @include size-set(changePx(1rem), changePx(1rem));
+    margin-top: changePx(1.6rem);
+    &::before {
+      content: "";
+      @include layout-set(topCenter, $right: 0);
+      @include size-set(100%, 100%);
+      @include page-sprite(changePx(-2.5rem) changePx(-1.5rem));
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+    &::after {
+      content: "";
+      @include layout-set(topCenter, $right: 0);
+      @include size-set(100%, 100%);
+      @include page-sprite(changePx(-2.5rem) changePx(-0.5rem));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    &.play {
+      &::before {
+        opacity: 0;
+      }
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+  &__title {
+    @include layout-set(layout);
+    margin-top: changePx(3rem);
+    @include font-set(changePx(0.5rem), $color: #355265);
+    font-family: "MicrosoftYaHei";
+    line-height: 1.1;
+    margin-bottom: changePx(0.08rem);
+    text-align: center;
+  }
+  &__text {
+    @include layout-set(layout);
+    margin-top: changePx(3.7rem);
+    width: 100%;
+    @include font-set(changePx(0.28rem), $color: #57748d, $lineHigh: changePx(0.4rem));
+    font-family: "MicrosoftYaHei";
+    // line-height: 1.3;
+    word-spacing: changePx(0.02rem);
+    white-space: pre-line;
+    text-align: center;
+  }
+  &__btn {
+    @include layout-flex;
+    @include layout-set(layout);
+    margin-top: changePx(4.54rem);
+    margin-left: changePx(0.34rem);
+    width: 100%;
+    .btn_left {
+      @include size-set(changePx(3.5rem), changePx(1rem));
+      @include page-sprite(changePx(-1.5rem) changePx(-3rem));
+    }
+    .btn_right {
+      @include size-set(changePx(3.5rem), changePx(1rem));
+      @include page-sprite(changePx(-1.5rem) changePx(-4rem));
+      margin-left: changePx(-0.18rem);
+    }
+  }
+}
+#canvasLoading {
+  width: 100%;
+  height: changePx(13.44rem);
+  position: relative;
+  z-index: 3;
+}
+/* 页面样式 - End */
+//hint: 动画 - 按需引入
+@import "./ani";
+
+@import "./modal";

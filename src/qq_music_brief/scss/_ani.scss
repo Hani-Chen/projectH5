@@ -1,0 +1,131 @@
+
+// 文字从左到右动画
+@keyframes textShowLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%,0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0,0, 0);
+  }
+}
+// 文字从右到左动画
+@keyframes textShowRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(50%,0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0,0, 0);
+  }
+}
+
+// 结束页手机动画
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    margin-top: changePx(-5.84rem);
+    transform: scale(0.51);
+  }
+}
+
+// 结束页手机动画
+@keyframes zoom2 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    margin-top: changePx(-5.16rem);
+    transform: scale(0.31);
+  }
+}
+// 结束页协议动画
+@keyframes moveUp {
+  0% {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+// 结束页标题动画
+@keyframes titleZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.66);
+    margin-top: changePx(-7.2rem);
+  }
+}
+// 结束页标题动画
+@keyframes titleZoom2 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.4);
+    margin-top: changePx(-6.04rem);
+  }
+}
+// 元素显示动画
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+// 元素显示动画
+@keyframes setBgContent1 {
+  0% {
+    opacity: 0;
+    background-image: url(../img/page_mobile_content2.png);
+  }
+  // 60% {
+  //   opacity: 0.2;
+  //   background-image: url(../img/page_mobile_content2.png);
+  // }
+  100% {
+    opacity: 1;
+    background-image: url(../img/page_mobile_content2.png);
+  }
+}
+// 元素显示动画
+@keyframes setBgContent2 {
+  0% {
+    opacity: 0;
+    background-image: url(../img/page_mobile_content2.png);
+  }
+  // 60% {
+  //   opacity: 0.2;
+  //   background-image: url(../img/page_mobile_content3.png);
+  // }
+  100% {
+    opacity: 1;
+    background-image: url(../img/page_mobile_content3.png);
+  }
+}
+
+
+
+// 上浮动画
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

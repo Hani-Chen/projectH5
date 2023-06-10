@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+// 修改网页默认背景色
+.swaiot-wrap {
+  background: #fff;
+  color: #262626;
+  overflow-x: hidden;
+  font-family: $defaultFont, sans-serif;
+  font-size: 16px;
+}
+
+// 内容容器
+.layout-content {
+  margin: 0 auto;
+  width: 1440px;
+}
+
+// 图片块级样式
+.img-block {
+  display: block;
+}
+
+@media (max-width: 1600px) {
+  //$rate: 1600 / 1920;
+  $zoom: 0.833;
+
+  // 内容容器
+  .layout-content {
+    width: round(1440px * $zoom);
+  }
+}
+
+@media (max-width: 1440px) {
+  //$rate: 1440 / 1920;
+  $zoom: 0.75;
+
+  // 内容容器
+  .layout-content {
+    width: round(1440px * $zoom);
+  }
+}
+
+@media (max-width: 1200px) {
+  //$rate: 1200 / 1920;
+  $zoom: 0.625;
+
+  // 内容容器
+  .layout-content {
+    width: round(1440px * $zoom);
+  }
+}
+
+@media (max-width: 992px) {
+  //$rate: 992 / 1920;
+  $zoom: 0.517;
+
+  // 内容容器
+  .layout-content {
+    width: round(1440px * $zoom);
+  }
+}
+
+@media (max-width: 768px) {
+  //$rate: 768 / 1920;
+  $zoom: 0.4;
+
+  // 内容容器
+  .layout-content {
+    width: round(1440px * $zoom);
+  }
+}

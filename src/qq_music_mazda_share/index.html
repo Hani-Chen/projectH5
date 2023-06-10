@@ -1,0 +1,32 @@
+{% extends "./_njk/base.njk" %}
+
+{% block main %}
+<section class="wrap">
+  <!-- 三种车辆类型，根据不同车辆类型显示不同信息 -->
+  <div class="wrap_container">
+    <!-- 配置文案 - 称号标题 -->
+    <div class="title">
+      <span>恭喜您获得【潮奢甜咖】称号</span>
+    </div>
+    <!-- 配置文案 - 内容文案标题 - 传入文案需要换行操作换行通过css属性控制 -->
+    <div class="car_title">你的歌声甜美百变，
+      具有甜心派歌手潜质</div>
+    <!-- 配置文案 - 内容文案描述 -->
+    <div class="car_desc">
+      敢不敢和拥有超跑般黄金身材比例2021款全新MAZDA CX-4一决高下。
+    </div>
+    <!-- 汽车 -->
+    <div class="share_car">
+      <!-- 配置项 - 汽车图片 -->
+      <!-- <img class="share_car__img" src="./img/share_car1.png" alt="">-->
+      <!-- <img class="share_car__img" src="./img/share_car2.png" alt="">-->
+      <img class="share_car__img" src="./img/share_car3.png" alt="">
+    </div>
+    <!-- 配置项 - 二维码 -->
+    <div class="qr">
+      <!-- 二维码尺寸： 180 x 180px -->
+      <img class="qr_content" src="./img/qr_180x180.png">
+    </div>
+  </div>
+</section>
+{% endblock %}

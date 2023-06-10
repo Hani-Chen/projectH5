@@ -1,0 +1,669 @@
+@charset "utf-8";
+// 默认字体
+$baseFont: Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB',
+  'Heiti SC', STXihei, 'Microsoft YaHei', SimHei, 'WenQuanYi Micro Hei';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+body,
+html {
+  position: relative;
+  height: 100%;
+  font-family: $baseFont;
+  overflow: hidden;
+}
+button {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: 0.1s;
+  font-weight: 500;
+  padding: 12px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+input {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-rendering: auto;
+  color: -internal-light-dark-color(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  background-color: -internal-light-dark-color(
+    rgb(255, 255, 255),
+    rgb(59, 59, 59)
+  );
+  cursor: text;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark-color(
+    rgb(118, 118, 118),
+    rgb(195, 195, 195)
+  );
+  border-image: initial;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+i {
+  font-style: normal;
+}
+.page-wrap {
+  padding: 10px;
+}
+// a,a:link,a:visited,a:hover,a:active{
+//   color:#999;
+// }
+// /*
+// * 公共样式 - 背景图片公共样式
+// * 用法: @extend .bg-item;
+// *
+// */
+// .bg-item {
+//   display: block;
+//   background: {
+//     size: 100% auto;
+//     repeat: no-repeat;
+//     position: center;
+//   }
+// }
+// /*
+// * 公共样式 - 绝对定位居中
+// * 用法: @extend .posa-center;
+// *
+// */
+// .posa-center {
+//   position: absolute;
+//   left: 50%;
+//   top: 50%;
+// }
+
+// .btn {
+//   display: inline-block;
+//   height: 38px;
+//   line-height: 38px;
+//   padding: 0 18px;
+//   background-color: #009688;
+//   color: #fff;
+//   text-align: center;
+//   font-size: 14px;
+//   border: none;
+//   border-radius: 2px;
+//   cursor: pointer;
+//   transition: all 0.3s;
+//   &:hover {
+//     background-color: #33aba0;
+//   }
+// }
+
+// .page {
+//   &-wrap {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     height: 100%;
+//     overflow: hidden;
+//     background-color: #fff;
+//   }
+//   &-inner {
+//     width: 100%;
+//     min-height: 100%;
+//     padding: 15px;
+//     // 标题
+//     .title {
+//       margin-bottom: 10px;
+//       padding: 15px;
+//       line-height: 22px;
+//       border-left: 5px solid #009688;
+//       border-radius: 0 2px 2px 0;
+//       background-color: #f2f2f2;
+//       font-size: 14px;
+//     }
+//     // 副标题
+//     .subhead {
+//       position: relative;
+//       margin: 30px 0 20px;
+//       font-size: 20px;
+//       color: rgba($color: #000000, $alpha: 0.5);
+
+//       &-text {
+//         position: relative;
+//         background-color: #fff;
+//         margin-left: 20px;
+//         padding: 0px 10px;
+//         z-index: 2;
+//       }
+//       &-wire {
+//         display: block;
+//         position: absolute;
+//         left: 0;
+//         top: 50%;
+//         width: 100%;
+//         height: 1px;
+//         background-color: #e6e6e6;
+//       }
+//     }
+//     // 上传模块
+//     .upload {
+//       &-btn-file {
+//         position: absolute;
+//         left: 0;
+//         top: 0;
+//         width: 100%;
+//         height: 100%;
+//         border: 0;
+//         opacity: 0;
+//       }
+//       &-btn-wrap {
+//         margin-top: 20px;
+//         display: flex;
+//         align-items: flex-end;
+//       }
+//       &-annotation {
+//         color: rgba($color: #f00, $alpha: 0.5);
+//         padding-left: 20px;
+//         font-size: 12px;
+//       }
+//       // 视频上传展示模块
+//       &-video-inner {
+//         max-width: 300px;
+//         position: relative;
+//         padding: 30px;
+//         border: 1px dashed #e2e2e2;
+//         background-color: #f6f6f6;
+//         text-align: center;
+//         cursor: pointer;
+//         color: #999;
+//         margin-top: 20px;
+//         img {
+//           width: 50px;
+//           height: 50px;
+//           margin-bottom: 20px;
+//         }
+//         p {
+//           font-size: 14px;
+//         }
+//       }
+//       // 二维码展示模块
+//       &-qrcode-wrap {
+//         margin: 10px 0;
+//         display: flex;
+//         align-items: baseline;
+//       }
+//       &-qrcode-inner {
+//         position: relative;
+//         width: 125px;
+//         height: 125px;
+//         margin: 10px 0;
+//         > img {
+//           display: block;
+//           position: absolute;
+//           left: 0;
+//           top: 0;
+//           width: 100%;
+//           height: 100%;
+//           padding: 6px;
+//           border-radius: 6px;
+//           border: 1px solid #33aba0;
+//         }
+//       }
+//       &-href {
+//         color: #999;
+//         padding-left: 20px;
+//         font-size: 14px;
+//         a {
+//           color: #999;
+//         }
+//       }
+//     }
+//     .progress {
+//       &-wrap {
+//         width: 300px;
+//         display: flex;
+//         align-items: center;
+//         margin-top: 20px;
+//       }
+
+//       &-inner {
+//         width:  80%;
+//         height: 10px;
+//         border-radius: 25px;
+//         overflow: hidden;
+//       }
+
+//       &-contennt {
+//         width: 100%;
+//         height: 10px;
+//         background-color: #e4e8f1;
+//       }
+//       &-box {
+//         background-color: #20a0ff;
+//         height: 100%;
+//       }
+//       &-text {
+//         font-size: 14px;
+//         margin-left: 10px;
+//       }
+//     }
+//     // 输入名称
+//     .name {
+//       margin-top: 20px;
+//       width: 250px;
+//       input {
+//         display: block;
+//         width: 100%;
+//         height: 34px;
+//         padding: 6px 12px;
+//         font-size: 14px;
+//         line-height: 1.42857143;
+//         color: #555;
+//         background-color: #fff;
+//         background-image: none;
+//         border: 1px solid #ccc;
+//         border-radius: 4px;
+//         box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+//         transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+//       }
+//     }
+//   }
+// }
+
+.upload {
+  &-wrap {
+    max-width: 520px;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    transition: 0.2s;
+  }
+  &-inner {
+    padding: 15px 24px 24px;
+  }
+  &-demo {
+    width: 100%;
+    max-width: 360px;
+    .btn {
+      &-wrap {
+        display: flex;
+        // text-align: center;
+        cursor: pointer;
+        outline: none;
+      }
+      &-item {
+        position: relative;
+        // padding: 9px 15px;
+        font-size: 12px;
+        border-radius: 3px;
+        color: #fff;
+      }
+      &-upload-wrap {
+        display: none;
+        &.show {
+          display: block;
+        }
+      }
+      &-select {
+        background-color: #409eff;
+        border-color: #409eff;
+      }
+      &-upload {
+        margin-left: 10px;
+        background-color: #67c23a;
+        border-color: #67c23a;
+      }
+      &-input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+    }
+  }
+  &-tip {
+    font-size: 12px;
+    color: #606266;
+    margin-top: 7px;
+  }
+  &-list {
+    max-height: 520px;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &-item {
+    overflow: hidden;
+    z-index: 0;
+    background-color: #fff;
+    border: 1px solid #c0ccda;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 10px;
+    height: 92px;
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+    font-size: 14px;
+    color: #606266;
+    line-height: 1.8;
+    margin-top: 5px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    // display: flex;
+    // align-items: center;
+    
+    .progress {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      background-color: rgba($color: #409eff, $alpha: 1);
+      z-index: 9;
+    }
+    &-img {
+      vertical-align: middle;
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      position: relative;
+      z-index: 1;
+      // margin-left: -80px;
+      background-color: #fff;
+      overflow: hidden;
+      img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-name {
+      position: absolute;
+      left: 90px;
+      top: 0;
+      height: 100%;
+      display: block;
+      line-height: 90px;
+      max-width: 60%;
+      margin-top: 0;
+      color: #606266;
+      display: block;
+      // margin-right: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+    &-label {
+      position: absolute;
+      right: -17px;
+      top: -7px;
+      width: 46px;
+      height: 26px;
+      background: #13ce66;
+      text-align: center;
+      transform: rotate(45deg);
+      box-shadow: 0 1px 1px #ccc;
+      transition: 0.2s all;
+      i {
+        position: relative;
+        display: block;
+        color: #fff;
+        font-size: 12px;
+        margin-top: 12px;
+        transform: rotate(-45deg);
+        cursor: pointer;
+        transition: 0.2s all;
+        &:before {
+          content: '\2714';
+          position: absolute;
+          left: 14px;
+          top: -5px;
+        }
+        &:hover {
+          color: #f00;
+        }
+      }
+    }
+    &:hover {
+      .upload-item-label {
+        background-color: #c0c4cc;
+        i {
+          position: relative;
+          display: block;
+          font-size: 12px;
+          margin-top: 12px;
+          transform: rotate(-45deg);
+          &:before {
+            content: '\2716';
+          }
+        }
+      }
+    }
+    &.active {
+      .upload-item-label {
+        background-color: #c0c4cc;
+        i {
+          position: relative;
+          display: block;
+          font-size: 12px;
+          margin-top: 12px;
+          transform: rotate(-45deg);
+          &:before {
+            content: '\2716';
+          }
+        }
+      }
+    }
+  }
+}
+
+.success {
+  &-wrap {
+    position: relative;
+    padding: 0 24px 30px;
+    border-top: 1px solid #ebebeb;
+    color: #d3dce6;
+    background-color: #fff;
+    &.show {
+      .success-list {
+        max-height: 520px;
+      }
+      .success-icon-wrap {
+        background-color: #f9fafc;
+        color: #409eff;
+        i {
+          transform: rotate(180deg);
+        }
+        span {
+          width: 110px;
+        }
+      }
+    }
+  }
+  &-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-top: 1px solid #ebebeb;
+    line-height: 30px;
+    text-align: center;
+    &.hidden {
+      overflow: hidden;
+      height: 30px;
+      .success-list {
+        opacity: 0;
+      }
+    }
+    &:hover {
+      background-color: #f9fafc;
+      color: #409eff;
+      span {
+        width: 110px;
+      }
+    }
+    i {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      line-height: 40px;
+      font-size: 16px;
+      transition: 0.3s;
+      &:before {
+        content: '\2693';
+        position: absolute;
+        left: 14px;
+        top: -5px;
+      }
+    }
+    span {
+      display: inline-block;
+      overflow: hidden;
+      width: 0;
+      font-size: 12px;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+  }
+  &-list {
+    width: 100%;
+    max-width: 360px;
+    max-height: 0;
+    padding: 0 ;
+    overflow: auto;
+    list-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &-item {
+    overflow: hidden;
+    z-index: 0;
+    background-color: #fff;
+    border: 1px solid #c0ccda;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 10px;
+    height: 92px;
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+    font-size: 14px;
+    color: #606266;
+    line-height: 1.8;
+    margin-top: 5px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    &-img {
+      vertical-align: middle;
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      position: relative;
+      z-index: 1;
+      background-color: #fff;
+      overflow: hidden;
+      img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-name {
+      display: block;
+      line-height: 70px;
+      margin-top: 0;
+      color: #606266;
+      display: block;
+      margin-right: 40px;
+      overflow: hidden;
+      padding-left: 10px;
+      text-overflow: ellipsis;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+    &-label {
+      position: absolute;
+      right: -17px;
+      top: -7px;
+      width: 46px;
+      height: 26px;
+      background: #13ce66;
+      text-align: center;
+      transform: rotate(45deg);
+      box-shadow: 0 1px 1px #ccc;
+      transition: 0.2s all;
+      i {
+        position: relative;
+        display: block;
+        color: #fff;
+        font-size: 12px;
+        margin-top: 12px;
+        transform: rotate(-45deg);
+        cursor: pointer;
+        transition: 0.2s all;
+        &:before {
+          content: '\2714';
+          position: absolute;
+          left: 14px;
+          top: -5px;
+        }
+      }
+    }
+  }
+}

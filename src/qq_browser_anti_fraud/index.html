@@ -1,0 +1,127 @@
+{% extends "./_njk/base.njk" %} {% block main %}
+<div class="wrapper">
+  <div class="wrapper-bg">
+    <div class="wrapper-bg-grid"></div>
+    <div class="wrapper-bg-content">
+      <span class="wrapper-bg-content-color"></span>
+    </div>
+  </div>
+  <!-- 音乐图标 -->
+  <div class="player" id="player"></div>
+  <div class="part-wrapper">
+    <!-- 开始页 -->
+    <div class="part part-start part-active">
+      <img class="pic pic-qq-browser" src="./img/icon-qqbrowser.png" alt="" />
+      <img class="pic pic-kv" src="./img/pic-kv.png" alt="" />
+      <i class="deco deco-border deco-border-1"></i>
+      <i class="deco deco-border deco-border-2"></i>
+      <i class="deco deco-border deco-border-3"></i>
+      <i class="deco deco-border deco-border-4"></i>
+      <!-- 轮播文案 -->
+      <div class="slider" id="slider">
+        <!-- <span class="slider-item">4·1 愚人节防骗彩排</span> -->
+      </div>
+      <!-- 开始按钮 -->
+      <span class="btn btn-start" data-operate="start"></span>
+    </div>
+    <!-- 答题页 -->
+    <div class="part part-question">
+      <img
+        class="pic-transtion-card"
+        src="./img/pic-card-transtion.png"
+        alt=""
+      />
+      <div class="count word" id="count">3</div>
+      <div class="progress">
+        <span class="progress-rate"></span>
+        <span class="progress-count word">0 / 10</span>
+      </div>
+      <div class="question">
+        <img class="pic pic-cardbg" src="./img/bg-card.png" alt="" />
+        <div class="cardbox" id="cardBox">
+          <!-- <img class="pic pic-card" id='card1' src="./img/pic-card.png" alt=""> -->
+        </div>
+        <div class="question-btn">
+          <span
+            class="btn btn-question btn-question-true"
+            data-operate="zhen"
+          ></span>
+          <span
+            class="btn btn-question btn-question-false"
+            data-operate="jia"
+          ></span>
+        </div>
+      </div>
+    </div>
+    <!-- 结果页 -->
+    <div class="part part-result scroll">
+      <img class="pic pic-result-bg" src="./img/pic-kv-share.png" alt="" />
+      <img
+        class="pic pic-qq-browser pic-qq-browser-left"
+        src="./img/icon-qqbrowser.png"
+        alt=""
+      />
+      <div class="result-content">
+        <div class="result-info">
+          <img
+            id="shareAvatar"
+            class="pic result-info-avatar"
+            src="./img/pic-placeholder-avatar.jpg"
+            alt=""
+          />
+          <!-- 用户昵称 -->
+          <p class="result-info-name word" id="resultName">大表哥大表哥</p>
+          <!-- 等级 -->
+          <div class="result-info-class word" ><span id="resultGrade">A</span> 班</div>
+          <div class="result-info-desc">
+            <!-- 答题结果 -->
+            <p class="result-info-true word">我答对了 <span id="resultCount">9</span> 题</p>
+            <!-- 答题描述 -->
+            <p class="result-info-tip word">如果你能骗到我，那一定是我故意的</p>
+          </div>
+        </div>
+        <div class="result-operate">
+          <span class="btn btn-restart" data-operate="restart"></span>
+          <span class="btn btn-store" data-operate="store" id="store"></span>
+        </div>
+        <div class="news">
+          <img class="pic pic-title-news" src="./img/pic-title-1.png" alt="" />
+          <div class="news-list" id="newsList">
+            <!-- 新闻列表 -->
+          </div>
+          <p class="news-from">内容来源于QQ浏览器</p>
+        </div>
+      </div>
+    </div>
+    <!-- 分享弹框 -->
+    <div class="share-dialog">
+      <div class="share-dialog-content">
+        <span class="share-dialog-close">×</span>
+        <img id="saveImage" src="" alt="" />
+        <img class="pic pic-share-tip" src="./img/pic-title-2.png" alt="" />
+      </div>
+    </div>
+    <div class="pic-for-canvas" style="display: none">
+      <img
+        id="shareBg"
+        src="./img/bg-share1.jpg"
+        alt=""
+        style="display: none"
+      />
+      <img
+        id="shareQrcode"
+        src="./img/pic-qrcode.png"
+        alt=""
+        style="display: none"
+      />
+    </div>
+  </div>
+</div>
+{% endblock %} {% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<script src="https://mcdn.kandian.qq.com/act/dist/lib/crypto-js.min.js"></script>
+<script src="https://mcdn.kandian.qq.com/act/dist/lib/kdsdk.js"></script>
+<script src="./js/howler.min.js"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

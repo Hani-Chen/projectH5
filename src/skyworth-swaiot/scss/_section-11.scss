@@ -1,0 +1,118 @@
+// 第十一屏容器
+.section-11 {
+  margin-top: 60px;
+  .product-img-wrap {
+    position: relative;
+    width: 100%;
+  }
+  .product-img {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 150px;
+  }
+  .content-box {
+    position: absolute;
+    bottom: 32.3%;
+    right: 45.417%;
+    width: 4.948%;
+    height: 10.226%;
+    border-radius: 50%;
+    .text {
+      position: relative;
+      top: 34%;
+      width: 100%;
+      height: 25%;
+      // padding-top: 34%;
+      opacity: 0;
+      transition: all 0.75s cubic-bezier(0.21, 0.79, 0.65, 0.99);
+      background: {
+        image: url(../img/section11_text1.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center;
+      }
+    }
+    .text2 {
+      position: relative;
+      top: 37%;
+      width: 100%;
+      height: 20%;
+      background: {
+        image: url(../img/section11_text2.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center;
+      }
+      opacity: 0;
+      transition: all 0.75s cubic-bezier(0.21, 0.79, 0.65, 0.99);
+    }
+  }
+}
+
+#section11canvas {
+  position: absolute;
+  top: 14%;
+  right: 4%;
+  width: 24.06%;
+  height: 29.25%;
+}
+@media (max-width: 1600px) {
+  //$rate: 1600 / 1920;
+  $zoom: 0.833;
+  // 第十一屏容器
+  .section-11 {
+    margin-top: round(60px * $zoom);
+    .product-img {
+      margin-top: round(150px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  //$rate: 1440 / 1920;
+  $zoom: 0.75;
+  // 第十一屏容器
+  .section-11 {
+    margin-top: round(60px * $zoom);
+    .product-img {
+      margin-top: round(150px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  //$rate: 1200 / 1920;
+  $zoom: 0.625;
+  // 第十一屏容器
+  .section-11 {
+    margin-top: round(60px * $zoom);
+    .product-img {
+      margin-top: round(150px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  //$rate: 992 / 1920;
+  $zoom: 0.517;
+  // 第十一屏容器
+  .section-11 {
+    margin-top: round(60px * $zoom);
+    .product-img {
+      margin-top: round(150px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  //$rate: 768 / 1920;
+  $zoom: 0.4;
+  // 第十一屏容器
+  .section-11 {
+    margin-top: 0;
+    .product-img {
+      margin-top: 20px;
+    }
+  }
+}

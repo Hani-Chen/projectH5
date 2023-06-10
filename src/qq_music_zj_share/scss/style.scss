@@ -1,0 +1,250 @@
+@charset "utf-8";
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import "global.import.css";
+
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: 24px;
+ */
+
+/* 页面工具类 - 文字禁止选择 */
+
+@mixin text-forbid-cope {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+// 宽高
+@mixin size-set($width: 100%, $height: 100%) {
+  width: $width;
+  height: $height;
+}
+
+// 文字
+@mixin font-set($size, $color: #fff, $weight: normal, $lineHigh: null) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $lineHigh;
+}
+
+/* 页面工具类 - 背景图片公共样式 */
+@mixin bg-set($url, $width: 100%, $height: auto, $repeat: no-repeat, $position: center, $color: null) {
+  display: block;
+  background: {
+    size: $width $height;
+    repeat: $repeat;
+    position: $position;
+    image: url($url);
+    color: $color;
+  }
+}
+@mixin layout-set(
+  $layout: null,
+  $position: absolute,
+  $top: null,
+  $bottom: null,
+  $left: null,
+  $right: null,
+  $zIndex: 1
+) {
+  position: $position;
+  @if $layout == null {
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+  }
+  @if $layout == "center" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  @if $layout == "layout" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  z-index: $zIndex;
+}
+@mixin page-set-adorn($size, $top: null, $bottom: null, $left: null, $right: null) {
+  @include layout-set($top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($size, $size);
+  background-color: #d7b358;
+  border-radius: 50%;
+}
+@mixin page-set-img(
+  $layout: null,
+  $width: null,
+  $height: null,
+  $top: null,
+  $left: null,
+  $right: null,
+  $bottom: null,
+  $url: ""
+) {
+  @include layout-set($layout: $layout, $top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($width, $height);
+  @include bg-set($url);
+}
+
+/* 页面工具类 - 文字禁止选择 */
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: "宋体", "SourceHanSerifCN Heavy", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC",
+  STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+  background-color: #7d451e;
+  margin: 0;
+}
+.wrap {
+  position: relative;
+  width: 750px;
+  height: 1334px;
+}
+.share_wrap {
+  position: relative;
+  @include size-set(100%, 100%);
+}
+.share_bg {
+  @include layout-set($left: 0, $top: 0);
+  @include size-set(100%, 100%);
+  &__img {
+    display: block;
+    @include size-set(100%, auto);
+  }
+}
+.share_username {
+  @include layout-set("layout");
+  margin-top: -534px;
+  @include font-set(30px, $weight: bold, $color: #551209);
+}
+
+.share_text__wrap {
+  @include layout-set("layout");
+  margin-top: -480px;
+  @include font-set(30px, $lineHigh: 36px, $color: #551209);
+  text-align: center;
+}
+.share_lyric {
+  @include layout-set($right: 2px, $top: 50%);
+  @include size-set(400px, 200px);
+  padding: 58px 0 0 48px;
+  box-sizing: border-box;
+  &1 {
+    @include layout-set($right: 32px, $top: 50%);
+    margin-top: 32px;
+  }
+  &__title {
+    position: relative;
+    z-index: 2;
+    @include font-set(24px, $weight: bold, $color: #c02000);
+    margin-bottom: 2px;
+  }
+  &__text {
+    position: relative;
+    z-index: 2;
+    @include size-set(330px, auto);
+    @include font-set(24px, $lineHigh: 30px, $weight: bold, $color: #551209);
+  }
+  &::before {
+    content: "";
+    @include layout-set($left: 0, $bottom: 0);
+    @include size-set(100%, 100%);
+    @include bg-set($url: "../img/page_sprite.png", $width: 400px, $height: 200px);
+  }
+}
+.share_wrap {
+  &1 {
+    .share_lyric {
+      @include layout-set($right: 28px, $top: 50%);
+      margin-top: -102px;
+    }
+  }
+  &2 {
+    .share_lyric {
+      @include layout-set($right: 280px, $top: 50%);
+      margin-top: -310px;
+      padding-left: 28px;
+      &::before {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+  &3 {
+    .share_text__wrap {
+      color: #fff;
+    }
+    .share_lyric {
+      @include layout-set($right: 30px, $top: 50%);
+      margin-top: -102px;
+    }
+  }
+  &4 {
+    .share_text__wrap {
+      color: #fff;
+    }
+    .share_lyric {
+      @include layout-set($right: 260px, $top: 50%);
+      margin-top: -88px;
+      padding-left: 28px;
+      &::before {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+  &5 {
+    .share_lyric {
+      @include layout-set($right: 178px, $top: 50%);
+      margin-top: -234px;
+    }
+    .share_btn {
+      &__left {
+        color: #430707;
+        &::after {
+          background-color: #430707;
+        }
+      }
+
+      &__right {
+        color: #c02000;
+        &::after {
+          background-color: #c02000;
+        }
+      }
+    }
+  }
+  &6 {
+    .share_lyric {
+      @include layout-set($right: 10px, $top: 50%);
+      margin-top: -424px;
+    }
+  }
+}
+
+.qrcode_wrap {
+  @include layout-set($left: 36px, $top: 50%);
+  // width: 100%;
+  margin-top: 515px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.qrcode_item {
+  @include size-set(118px, 118px);
+  img {
+    display: block;
+    width: 100%;
+  }
+  &1 {
+    margin-right: 216px;
+  }
+}

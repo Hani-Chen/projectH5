@@ -1,0 +1,37 @@
+// 默认字体
+$defaultFont: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+
+// 资源路径变量
+$baseUrl: '../';
+
+
+@font-face{
+  // 信黑 w6, 主标题使用
+  font-family: W6;
+  src:url($baseUrl + "fonts/XinH_ZCJW.TTF");
+  src:url($baseUrl + "fonts/XinH_ZCJW.TTF") format('embedded-opentype'),
+  url($baseUrl + "fonts/XinH_ZCJW.TTF") format('woff'),
+  url($baseUrl + "fonts/XinH_ZCJW.TTF") format('truetype'),
+  url($baseUrl + "fonts/XinH_ZCJW.TTF") format('svg');
+}
+
+
+@font-face{
+  // 信黑 w4, 主标题使用
+  font-family: W4;
+  src:url($baseUrl + "fonts/XinH_XiJW.TTF");
+  src:url($baseUrl + "fonts/XinH_XiJW.TTF") format('embedded-opentype'),
+  url($baseUrl + "fonts/XinH_XiJW.TTF") format('woff'),
+  url($baseUrl + "fonts/XinH_XiJW.TTF") format('truetype'),
+  url($baseUrl + "fonts/XinH_XiJW.TTF") format('svg');
+}
+
+@font-face{
+  // SKSans, 副标题使用
+  font-family: SKSans;
+  src:url($baseUrl + "fonts/SKSans-Regular.otf");
+  src:url($baseUrl + "fonts/SKSans-Regular.otf") format('embedded-opentype'),
+  url($baseUrl + "fonts/SKSans-Regular.otf") format('woff'),
+  url($baseUrl + "fonts/SKSans-Regular.otf") format('truetype'),
+  url($baseUrl + "fonts/SKSans-Regular.otf") format('svg');
+}

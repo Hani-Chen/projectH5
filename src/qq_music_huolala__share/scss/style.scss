@@ -1,0 +1,400 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import "global.import.css";
+// @说明：边框样式基础样式
+// ========================================================================*/
+.border,
+.border_radius,
+.border_round {
+  position: relative;
+}
+
+.border::after,
+.border_radius::after,
+.border_round::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-style: solid;
+  border-color: currentColor;
+  border-width: 1px;
+} /*请自己配置边框颜色*/
+.border_radius::after {
+  border-radius: 4px;
+} /*自己配置圆角*/
+.border_round::after {
+  border-radius: 999px;
+}
+
+/*上，下，左，右边框*/
+.border_t,
+.border_b,
+.border_l,
+.border_r {
+  position: relative;
+}
+
+.border_t::after,
+.border_b::after,
+.border_l::after,
+.border_r::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  pointer-events: none;
+  border-style: solid;
+  border-color: currentColor;
+} /*请自己配置边框颜色*/
+
+.border_t::after {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-width: 1px 0 0 0;
+}
+.border_b::after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-width: 0 0 1px 0;
+}
+.border_l::after {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-width: 0 0 0 1px;
+}
+.border_r::after {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  border-width: 0 1px 0 0;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  /*方形边框，圆角边框，圆弧边框*/
+  .border::after,
+  .border_radius::after,
+  .border_round::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(0.5);
+  }
+  .border_radius::after {
+    border-radius: 8px;
+  } /*自己配置圆角,为默认情况的2倍*/
+  .border_round::after {
+    border-radius: 999px;
+  }
+
+  /*上，下，左，右边框*/
+  .border_t::after,
+  .border_b::after {
+    -webkit-transform: scaleY(0.5);
+  }
+  .border_l::after,
+  .border_r::after {
+    -webkit-transform: scaleX(0.5);
+  }
+}
+
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有px都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24px);
+ */
+@function changePx($px) {
+  @return $px * 100;
+}
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei,
+  "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+/* 页面工具类 - 文字禁止选择 */
+@mixin text-forbid-cope() {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+html,
+body,
+.wrap {
+  width: 750px;
+  height: 1625px;
+  position: relative;
+  font-family: $baseFont;
+  background-color: #0c070d;
+  @include text-forbid-cope;
+}
+
+// 宽高
+@mixin size-set($width: 100%, $height: 100%) {
+  width: $width;
+  height: $height;
+}
+
+// 文字
+@mixin font-set($size, $color: #fff, $weight: normal, $layout: center, $lineHigh: null) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $lineHigh;
+  text-align: $layout;
+}
+
+/* 页面工具类 - 背景图片公共样式 */
+@mixin bg-set($url, $width: 100%, $height: auto, $repeat: no-repeat, $position: center, $color: null) {
+  display: block;
+  background: {
+    size: $width $height;
+    repeat: $repeat;
+    position: $position;
+    image: url($url);
+    color: $color;
+  }
+}
+@mixin layout-set(
+  $layout: null,
+  $position: absolute,
+  $top: null,
+  $bottom: null,
+  $left: null,
+  $right: null,
+  $zIndex: null
+) {
+  position: $position;
+  @if $layout == null {
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+  }
+  @if $layout == "center" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  @if $layout == "layout" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  z-index: $zIndex;
+}
+@mixin page-set-adorn($size, $top: null, $bottom: null, $left: null, $right: null) {
+  @include layout-set($top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($size, $size);
+  background-color: #d7b358;
+  border-radius: 50%;
+}
+@mixin page-set-img(
+  $layout: null,
+  $width: null,
+  $height: null,
+  $top: null,
+  $left: null,
+  $right: null,
+  $bottom: null,
+  $url: ""
+) {
+  @include layout-set($layout: $layout, $top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($width, $height);
+  @include bg-set($url);
+}
+/* 页面公共样式 - End */
+
+/* 页面样式 - Start 【*注意* ：QQ音乐规定类名命名，必须以下划线形式命名】
+ * 类名用法示例：
+ * .test_box {}
+ * .test_box__wrap {}
+ */
+.page {
+  &_item {
+    position: relative;
+    @include size-set(100%, 100%);
+    display: none;
+    overflow: hidden;
+    &.show {
+      display: block;
+      animation: fadeIn 1s linear;
+    }
+  }
+  // 页面 - logo
+  &_logo {
+    @include layout-set("layout");
+    margin-top: changePx(-5.58px);
+    @include size-set(changePx(3.4px), changePx(0.5px));
+    @include bg-set("../img/page_logo.png");
+  }
+  // 页面 - 背景
+  &_bg {
+    @include layout-set("center");
+    @include size-set(100%, 100%);
+    @include bg-set("../img/page_bg.jpg");
+  }
+}
+.over {
+  &_user__wrap {
+    display: flex;
+    align-items: center;
+    @include layout-set($left: changePx(0.7px), $top: 50%);
+    margin-top: changePx(-3.64px);
+    @include size-set(100%, changePx(0.8px));
+  }
+  &_portrait {
+    @include layout-set($left: changePx(0.64px), $top: 50%);
+    transform: translate3d(0, -50%, 0);
+    @include size-set(changePx(0.8px), changePx(0.8px));
+    overflow: hidden;
+    border-radius: 50%;
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(5px),
+      $height: changePx(3px),
+      $position: changePx(-0.1px) changePx(-2.1px)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__img {
+      border-radius: 50%;
+      @include size-set(changePx(0.74px), changePx(0.74px));
+    }
+  }
+  // 用户昵称
+  &_name {
+    display: block;
+    background-image: linear-gradient(90deg, rgba($color: #ad8865, $alpha: 0.62), rgba($color: #543b2b, $alpha: 0.62));
+    min-width: changePx(3px);
+    max-width: changePx(4.28px);
+    height: changePx(0.45px);
+    line-height: changePx(0.45px);
+    border-radius: changePx(0.25px);
+    @include font-set(changePx(0.32px), $color: #ffe7c0);
+    padding: 0 changePx(0.4px) 0 changePx(1.58px);
+    box-sizing: border-box;
+    overflow: hidden; //超出的文本隐藏
+    text-overflow: ellipsis; //溢出用省略号显示
+    white-space: nowrap; //溢出不换行
+  }
+  // 装饰 - cd杆子
+  &_decorate1 {
+    @include layout-set($top: 50%, $left: changePx(0.18px));
+    margin-top: changePx(-3.76px);
+    @include size-set(changePx(3px), changePx(3px));
+    @include bg-set(
+      "../img/page_sprite.png",
+      $width: changePx(5px),
+      $height: changePx(3px),
+      $position: changePx(-2px) changePx(-0px)
+    );
+  }
+  &_item {
+    @include layout-set($top: 50%, $left: changePx(-0.05px));
+    margin-top: changePx(-0.98px);
+    width: 100%;
+    &__title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include font-set(changePx(0.24px), $color: #faf8ea, $lineHigh: 1.1);
+      margin-bottom: changePx(0.04px);
+      .name {
+        font-weight: bold;
+        font-size: changePx(0.3px);
+      }
+    }
+    &__text {
+      @include font-set(changePx(0.24px), $lineHigh: 1.1);
+      margin-bottom: 0;
+    }
+    &__percent {
+      @include font-set(changePx(0.28px), $color: #f16622, $lineHigh: 1.1, $weight: bold);
+    }
+  }
+  &_first {
+    .over_item__title {
+      @include font-set(changePx(0.4px), $color: #faf8ea, $lineHigh: 1.1);
+      margin-bottom: changePx(0.14px);
+      .name {
+        font-size: changePx(0.4px);
+      }
+    }
+    .over_item__text {
+      @include font-set(changePx(0.3px), $lineHigh: 1.1);
+      margin-bottom: changePx(0.04px);
+    }
+    .over_item__percent {
+      @include font-set(changePx(0.44px), $color: #f16622, $lineHigh: 1.1, $weight: bold);
+    }
+  }
+  &_second {
+    @include layout-set($top: 50%, $left: changePx(2.14px));
+    margin-top: changePx(-3.12px);
+    .over_item__title {
+      
+      @include font-set(changePx(0.26px), $color: #faf8ea, $lineHigh: 1.1);
+      margin-bottom: 0;
+      .name {
+        font-size: changePx(0.3px);
+      }
+    }
+    .over_item__percent {
+      @include font-set(changePx(0.3px), $color: #f16622, $lineHigh: 1.1, $weight: bold);
+      margin-top: 4px;
+    }
+  }
+  &_thirdly {
+    @include layout-set($top: 50%, $left: changePx(-2.30px));
+    margin-top: changePx(1.24px);
+    .over_item__title {
+      @include font-set(changePx(0.28px), $color: #faf8ea, $lineHigh: 1.1);
+      margin-bottom: 4px;
+    }
+    .over_item__percent {
+      @include font-set(changePx(0.32px), $color: #f16622, $lineHigh: 1.1, $weight: bold);
+      margin-top: 4px;
+    }
+  }
+  &_qrcode {
+    @include size-set(174px, 174px);
+    @include layout-set("layout");
+    margin-top: 442px;
+    margin-left: 6px;
+    overflow: hidden;
+    &__img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+@import "ani";
+/* 页面样式 - End */

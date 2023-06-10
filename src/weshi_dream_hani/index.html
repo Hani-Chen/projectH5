@@ -1,0 +1,103 @@
+<!-- Data: 2020-04-14 Edit: Hani Describe: 梦想倒计时重构 -->
+{% extends "./_njk/base.njk" %}
+
+<!-- title -->
+{% block title %}
+2020只剩2个月，拒绝混日子
+{% endblock %}
+
+<!-- style -->
+{% block stylesheet %}
+<link rel="stylesheet" href="css/style.min.css" />
+{% endblock %}
+
+<!-- html -->
+{% block main %}
+<div class="page-wrap">
+  <!-- 背景音乐icon -->
+  <span class="bgm-toggle paused"></span>
+  <!-- 加载页 -->
+  <div class="section scetion-loading loading-wrap">
+    <!-- 线框背景 -->
+    <div class="loading-line-bg loading-need-hidden"></div>
+    <!-- 沙漏canvas -->
+    <canvas class="canvas-bg loading-hourglass" id="loadingHg"></canvas>
+    <!-- 装饰 物 -->
+    <div class="loading-desc loading-need-hidden"></div>
+    <!-- 加载进度 -->
+    <div class="loading-percent font-fzqk loading-need-hidden">
+      <span class="percent">100</span><span>%</span>
+    </div>
+
+    <!-- 标语 -->
+    <div class="loading-slogan loading-need-hidden"></div>
+    <!-- 文案 -->
+    <div class="loading-flag loading-need-hidden"></div>
+    <!-- 温馨提示 -->
+    <div class="font-fzqk loading-tips loading-need-hidden">请打开手机声音</div>
+    <!-- 启动按钮 -->
+    <div class="loading-btn loading-need-hidden" id="btnLoading">
+      <div class="circle"></div>
+      <div class="text font-fzqk">请点击</div>
+    </div>
+    <!-- 磨砂遮罩效果 -->
+    <div class="mask-front-bg loading-need-hidden"></div>
+    <!-- logo -->
+    <div class="logo loading-need-hidden"></div>
+  </div>
+  <!-- 启动页 -->
+  <div class="section scetion-start start-wrap">
+    <!-- 线框动画 -->
+    <canvas class="canvas-bg start-line" id="startLine"></canvas>
+    <!-- 背景装饰元素 -->
+    <div class="start-bg"></div>
+    <!-- 沙漏主题 -->
+    <div class="start-hourglass"></div>
+
+    <!-- 漏沙动画 -->
+    <canvas class="canvas-bg start-sand" id="startSand"></canvas>
+
+    <!-- 文案 -->
+    <div class="start-slogan">
+      <h1 class="text-1 font-fzqk">
+        <span class="font-fzlt">2020</span>梦想倒计时
+      </h1>
+      <h2 class="text-2 font-fzqk">
+        距离2020年结束还有<span id="tDay"><span id="day">106</span>天</span>
+      </h2>
+      <p class="text-3 font-fzlt">
+        <span id="tHour">14</span>时 &nbsp;<span id="tMinute">55</span>分 &nbsp;<span id="tSecond">37</span>秒
+      </p>
+    </div>
+
+    <div class="btn start-btn-next font-fzqk" id="btnStart">
+      <div class="btn-text-inner">
+        回顾我的年初Flag
+      </div>
+    </div>
+    <!-- 磨砂遮罩效果 -->
+    <div class="mask-front-bg loading-need-hidden"></div>
+    <!-- logo -->
+    <div class="logo loading-need-hidden"></div>
+  </div>
+  <!-- 选择页 -->
+  <div class="section section-select select-wrap">
+    <!-- 旋转 -->
+    <canvas class="canvas-bg select-build" id="canvasBuild"></canvas>
+  </div>
+</div>
+{% endblock %}
+
+<!-- JavaScript -->
+{% block javascript %}
+<script src="js/zepto.min.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/preloadjs.min.js"></script>
+<!-- 动画配置参数 -->
+<script src="js/canvasData.js"></script>
+<!-- 动画插件 资源预加载 -->
+<script src="js/canvasAni.js"></script>
+<script src="js/dragjs.js"></script>
+<!-- 主页面逻辑 -->
+<script src="js/index.js"></script>
+{% endblock %}

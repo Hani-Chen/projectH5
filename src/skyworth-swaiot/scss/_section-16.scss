@@ -1,0 +1,181 @@
+// 第十六屏容器
+.section-16 {
+  margin-top: 60px;
+  .product-img-wrap {
+    position: relative;
+    width: 100%;
+  }
+  .content-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 80px;
+    // height: 125px;
+    .download {
+      display: block;
+      width: 190px;
+      height: 120px;
+      line-height: 120px;
+      text-align: center;
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+    .android {
+      border-right: 2px solid #d4d4d4;
+    }
+    .qrcode {
+      width: 120px;
+      height: auto;
+      margin: 0 90px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .ios {
+      display: block;
+      border-left: 2px solid #d4d4d4;
+    }
+  }
+  .product-img {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 72px;
+  }
+}
+
+#section16canvas1 {
+  position: absolute;
+  top: 16.6%;
+  right: -3.2%;
+  width: 30%;
+  height: auto;
+}
+#section16canvas2 {
+  position: absolute;
+  top: 8.7%;
+  left: 25.9%;
+  width: 17%;
+  height: auto;
+}
+@media (max-width: 1600px) {
+  //$rate: 1600 / 1920;
+  $zoom: 0.833;
+  // 第十六屏容器
+  .section-16 {
+    margin-top: round(60px * $zoom);
+    .content-wrap {
+      margin-top: round(80px * $zoom);
+      .download {
+        width: round(190px * $zoom);
+        height: round(120px * $zoom);
+        line-height: round(120px * $zoom);
+      }
+      .qrcode {
+        width: round(120px * $zoom);
+        margin: 0 round(90px * $zoom);
+      }
+    }
+    .product-img {
+      margin-top: round(120px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  //$rate: 1440 / 1920;
+  $zoom: 0.75;
+  // 第十六屏容器
+  .section-16 {
+    margin-top: round(60px * $zoom);
+    .content-wrap {
+      margin-top: round(80px * $zoom);
+      .download {
+        width: round(190px * $zoom);
+        height: round(120px * $zoom);
+        line-height: round(120px * $zoom);
+      }
+      .qrcode {
+        width: round(120px * $zoom);
+        margin: 0 round(90px * $zoom);
+      }
+    }
+    .product-img {
+      margin-top: round(120px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  //$rate: 1200 / 1920;
+  $zoom: 0.625;
+  // 第十六屏容器
+  .section-16 {
+    margin-top: round(60px * $zoom);
+    .content-wrap {
+      margin-top: round(80px * $zoom);
+      .download {
+        width: round(190px * $zoom);
+        height: round(120px * $zoom);
+        line-height: round(120px * $zoom);
+      }
+      .qrcode {
+        width: round(120px * $zoom);
+        margin: 0 round(90px * $zoom);
+      }
+    }
+    .product-img {
+      margin-top: round(120px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  //$rate: 992 / 1920;
+  $zoom: 0.517;
+  // 第十六屏容器
+  .section-16 {
+    margin-top: round(60px * $zoom);
+    .content-wrap {
+      margin-top: round(80px * $zoom);
+      .download {
+        width: round(190px * $zoom);
+        height: round(120px * $zoom);
+        line-height: round(120px * $zoom);
+      }
+      .qrcode {
+        width: round(120px * $zoom);
+        margin: 0 round(90px * $zoom);
+      }
+    }
+    .product-img {
+      margin-top: round(120px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  //$rate: 768 / 1920;
+  $zoom: 0.4;
+  // 第十六屏容器
+  .section-16 {
+    margin-top: 0;
+    margin-top: round(80px * $zoom);
+    .download {
+      width: round(190px * $zoom);
+      height: round(120px * $zoom);
+      line-height: round(120px * $zoom);
+    }
+    .qrcode {
+      width: round(120px * $zoom);
+      margin: 0 round(90px * $zoom);
+    }
+    .product-img {
+      margin-top: 20px;
+    }
+  }
+}

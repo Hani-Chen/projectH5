@@ -1,0 +1,156 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import 'global.import.css';
+
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24rem);
+ */
+@function changePx($px) {
+  @return $px / 2;
+}
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: 'PingFang',
+'PingFang SC',
+Helvetica,
+Tahoma,
+Arial,
+'Hiragino Sans GB',
+'Heiti SC',
+STXihei,
+'Microsoft YaHei',
+SimHei,
+'WenQuanYi Micro Hei';
+
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item {
+  display: block;
+
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+
+@font-face {
+  font-family: 'fzltzh';
+  src: url('../fonts/方正兰亭中黑_GBK.TTF');
+}
+
+@font-face {
+  font-family: 'fzltth';
+  src: url('../fonts/兰亭特黑 GBK.TTF');
+}
+
+/* 页面工具类 - 文字禁止选择 */
+.text_forbid__cope {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* 页面工具类 - 去除按钮默认样式 */
+.btn_item {
+  display: inline-block;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  background-color: #0c173e;
+}
+
+/* 页面公共样式 - End */
+
+.page_share {
+  position: relative;
+  width: changePx(7.5rem);
+  background-color: #0c173e;
+  padding: changePx(.35rem);
+  box-sizing: border-box;
+}
+
+.page_inner {
+  padding: changePx(.3rem);
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.share_banner {
+  display: block;
+  width: changePx(6.18rem);
+  height: changePx(7.28rem);
+  margin: 0 auto;
+}
+.text_wrap {
+  margin-top: changePx(0.76rem) ;
+  color: #000;
+  font-family: 'fzltzh';
+}
+.text {
+  width: changePx(3.10rem);
+  font-size: changePx(0.30rem);
+  line-height: changePx(.44rem);
+}
+.title {
+  font-size: changePx(0.42rem);
+  margin-top: changePx(0.64rem);
+  font-family: 'fzltth';
+}
+.free {
+  line-height: 1.2;
+  font-size: changePx(0.24rem);
+}
+.wire {
+  margin-top: changePx(.42rem);
+  width: changePx(6.18rem);
+  height: 1px;
+  overflow: hidden;
+}
+.img_wire {
+  display: block;
+  width: 100%;
+}
+
+.base_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 changePx(.24rem);
+  box-sizing: border-box;
+  height:  changePx(0.94rem);
+  margin-top: changePx(0.26rem);
+}
+.logo {
+  width: changePx(1.24rem);
+  height: changePx(0.34rem);
+}
+.img_logo {
+  display: block;
+  width: 100%;
+}
+.qrcode {
+  display: block;
+  width: changePx(0.94rem);
+  height: changePx(0.94rem);
+}
+.img_qrcode {
+  width: 100%;
+}

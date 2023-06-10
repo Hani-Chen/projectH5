@@ -1,0 +1,19 @@
+.page-detail-wrap {
+  background: #fff;
+  padding-bottom: 1.86rem;
+}
+.detail-content-wrap {
+  position: relative;
+  min-height: 900px;
+  
+  .ornament-leaf3 {
+    z-index: 10;
+    left: -0.5rem;
+    bottom: -0.3rem;
+  }
+  .ornament-leaf1 {
+    z-index: 10;
+    right: -0.7rem;
+    top: 3.8rem;
+  }
+}

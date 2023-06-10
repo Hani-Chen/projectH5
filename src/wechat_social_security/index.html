@@ -1,0 +1,206 @@
+{% extends "./_njk/base.njk" %}
+
+{% set list = [
+  {
+    id: 1,
+    name: 'Hani',
+    sum: '99.99'
+  }, {
+    id: 2,
+    name: 'Hani - 小号1',
+    sum: '199.99'
+  }, {
+    id: 3,
+    name: 'Hani - 小号2',
+    sum: '299.99'
+  }, {
+    id: 4,
+    name: 'Hani - 小号3',
+    sum: '399.99'
+  }, {
+    id: 5,
+    name: 'Hani - 小号4',
+    sum: '499.99'
+  }, {
+    id: 6,
+    name: 'Hani - 小号5',
+    sum: '599.99'
+  }, {
+    id: 7,
+    name: 'Hani - 小号6',
+    sum: '699.99'
+  }
+] %}
+<!-- 页面 内容模块 -->
+{% block main %}
+  {# 活动主页 #}
+  <section class="section section-main ">
+    {# 头图 #}
+    <div class="main-header"></div>
+    {# 主要内容 #}
+    <div class="main-middle">
+
+      {# 恭喜领取 - 展示模块 #}
+      <!-- 通过 show类 控制显示隐藏模块 -->
+      <div class="receive-wrap show">
+        <!-- 更多福利 -->
+        <div class="receive-more">
+          <a href="http://project.perpower.cn/wechat_social_morewelfare1/">
+            <img src="./img/more.gif" alt="">
+          </a>
+        </div>
+        <div class="binding-portrait">
+          <img class="binding-portrait-img" src="./img/portrait.jpg" alt="">
+        </div>
+        {# 展示容器 #}
+        <div class="receive-exhibition">
+          {# 恭喜领取文案 #}
+          <span class="receive-title font-fzht">恭喜你！领取</span>
+          {# 金额 #}
+          <div class="receive-sum font-fzzc">
+            <i class=" font-din-black">999</i>元
+          </div>
+          <div class="receive-btn-box">
+            {# 领取 - 按钮 #}
+            <div class="receive-btn-get">我要领更多</div>
+            {# 提现 - 按钮 #}
+            <!-- 通过 withdraw-yet 类控制按钮切换 -->
+            <div class="receive-btn-withdraw">
+              <span>提现到零钱</span>
+            </div>
+            <div class="receive-pop"></div>
+          </div>
+        </div>
+      </div>
+      {# 绑定社保卡模块 #}
+      <!-- 通过 show类 控制显示隐藏模块 -->
+      <div class="binding-wrap">
+        <!-- 更多福利 -->
+        <div class="binding-more">
+          <a href="http://project.perpower.cn/wechat_social_morewelfare1">
+            <img src="./img/more.gif" alt="">
+          </a>
+        </div>
+        <div class="binding-portrait">
+          <img class="binding-portrait-img" src="./img/portrait.jpg" alt="">
+        </div>
+        <div class="binding-content">
+          <span class="binding-content-title font-din-black">你这次来晚啦！</span>
+          <p class="binding-content-text">先绑卡，下次参与活动更快捷哦~</p>
+        </div>
+        {# 绑卡按钮 #}
+        <div class="binding-btn font-tttgb">去绑定社保卡</div>
+      </div>
+      {# 助力 - 模块 #}
+      <!-- list-show 为控制是否显示助力列表类 -->
+      <div class="help-wrap list-show">
+        {# 标题文案 #}
+        <div class="help-title">
+          <span class="help-title-wire"></span>
+          <div>已有<i class="help-title-number">0</i>位好友助力</div>
+          <span class="help-title-wire"></span>
+        </div>
+        <div class="help-depict font-fzht">暂无好友助力 快去邀请好友吧</div>
+        <ul class="help-list">
+          {% for item in list %}
+            <li class="help-item">
+              <span class="help-item-l">
+                <img class="help-item-portrait" src="./img/portrait.jpg" alt="">
+                <span class="help-item-name">{{item.name}}</span>
+              </span>
+              <span class="help-item-r">为你助力<i>{{item.sum}}</i>元</span>
+            </li>
+
+          {% endfor %}
+        </ul>
+        <div class="help-more">
+          <span>点击展开更多</span></div>
+      </div>
+      {# 规则 - 模块 #}
+      <div class="rule-wrap">
+        {# 活动规则 #}
+        <div class="rule-title"></div>
+        <ul class="rule-list">
+          <li class="rule-item">
+            <i>1.</i>本次活动限武汉、青岛、厦门、深圳、郑州、成都、合肥、武汉、青岛、沈阳、长沙、延安、宁波、苏州、常熟、永康、白城、嘉兴等城市微信医保支付用户参加。</li>
+          <li class="rule-item">
+            <i>2.</i>尚未开通微信医保支付的用户，点击“立即领取”后，按引导提示开通微信医保支付即可成功领取健康金；已开通微信医保支付的用户，在活动页面选择“立即领取”后，健康金将在30分钟内转入“微信零钱” 。</li>
+          <li class="rule-item">
+            <i>3.</i>活动用户可以通过邀请好友帮忙，赢取更多健康金，好友帮忙次数上限为50次；每个用户最多可以帮助3个好友提额健康金。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  {# 领取红包页面 #}
+  <section class="section section-redenvelope show">
+    <div class="redenvelope-wrap">
+      <div class="redenvelope-box">
+        <div class="redenvelope-text">
+          <div class="title">微信领取电子社保卡</div>
+          <div class="text">小长假出游福利限时发放</div>
+        </div>
+      </div>
+    </div>
+    <div class="redenvelope-end">
+      <div class="redenvelope-end-wrap">
+        {# <!-- <div class="redenvelope-end-title"></div>
+        <p class="redenvelope-end-text font-fzht">电子社保卡是社保卡线上应用的有效电子凭证，与实体社保卡一一对应、唯一映射，由全国社保卡平台统一签发，人力资源社会保障部统一管理</p> --> #}
+      </div>
+    </div>
+  </section>
+  {# 助力成功页面 #}
+  <section class="section section-get ">
+    <div class="get-wrap">
+      <div class="get-box">
+        <div class="get-text">
+          <div class="title">助力成功！</div>
+          <div class="text">您已成功帮好友获得<i class="get-sum">0.5</i>元</div>
+        </div>
+        <div class="get-btn">我也要领</div>
+      </div>
+    </div>
+    <div class="get-end">
+      <div class="get-end-wrap"></div>
+    </div>
+  </section>
+
+  {# 页面所需所有弹窗 #}
+  {# 分享弹窗 #}
+  <div class="modal" id="modalShore">
+    <div class="modal-content">
+      <div class="modal-bg modal-shore-bg"></div>
+      <div class="modal-shore-body">
+        <span class="modal-shore-text">点此转发好友，<br/>
+          可领更多出游福利金！</span>
+      </div>
+    </div>
+  </div>
+  {# 绑卡弹窗 #}
+  <div class="modal" id="modalBinding">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-binding-body">
+        <div class="modal-binding-title">
+          <p class="title">温馨提醒</p>
+          <p class="text">本次活动限指定地区微信医保支付用户参加，提现前请先绑定社保卡。</p>
+        </div>
+        {# 绑定社保卡按钮 #}
+        <div class="modal-binding-btn" id="modalBindingBtn">绑定社保卡</div>
+        {# 取消按钮 #}
+        <div class="modal-binding-btn" id="modalBindingBancelBtn">取消</div>
+      </div>
+    </div>
+  </div>
+  {# 提醒分享弹窗弹窗
+  <div class="modal" id="modalRemind">
+    <div class="modal-content">
+      <div class="modal-bg modal-remind-bg"></div>
+      <div class="modal-remind-body"></div>
+    </div>
+  </div> #}
+{% endblock %}
+<!-- 引入js -->
+{% block javascript %}
+  <script src="./js/zepto.min.js"></script>
+  <script src="./js/index.js"></script>
+{% endblock %}

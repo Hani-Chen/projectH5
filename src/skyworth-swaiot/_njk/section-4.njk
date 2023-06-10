@@ -1,0 +1,24 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_3.png',
+    'heading': '为智慧屏幕而生',
+    'text': '智慧屏幕适用于AIoT场景,应用于冰箱、油烟机等Swaiot智能设备,每个智慧屏幕都是连接Swaiot的入口,Swaiot OS专为智慧屏幕量身打造,重视交互功能体验。'
+  }
+%}
+
+
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+
+
+
+<div class="content-wrap animation-box">
+  <img class="img-block" src="{{baseUrl}}/section4_product.jpg" alt="">                                                                                                                                                                                                                                               
+  <canvas id="section4Canvas">
+  </canvas>
+</div>

@@ -1,0 +1,55 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+
+{# 标题文案 #}
+{% set titleText = {
+  'imgSrc': '/title_icon_7.png',
+  'heading': '多种套餐 选购随心',
+  'text': '创维智能家居为亿万中国家庭提供智慧、个性、有温度的全屋家居智能解决方案，目前已推出5大智能场景16种套餐，在创维智能家居线下门店(覆盖百安居和靓家居等家居卖场)即可选购。'
+} %}
+
+{# 产品图
+{% set productImg = {
+    'product': '/section18_product.jpg'
+  }
+%} #}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+{# 
+产品图
+{% import "./components/title.njk" as title %}
+{{ title.product(productImg) }} #}
+<div class="swiper-container swiper-pc animation-box" id="section19Swiper1">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="{{baseUrl}}/section19_product1.jpg" alt=""></div>
+    <div class="swiper-slide"><img src="{{baseUrl}}/section19_product2.jpg" alt=""></div>
+    <div class="swiper-slide"><img src="{{baseUrl}}/section19_product3.jpg" alt=""></div>
+    <div class="swiper-slide"><img src="{{baseUrl}}/section19_product4.jpg" alt=""></div>
+    <div class="swiper-slide"><img src="{{baseUrl}}/section19_product5.jpg" alt=""></div>
+  </div>
+  <!-- 如果需要分页器 -->
+  <div class="swiper-pagination"></div>
+
+  <!-- 如果需要导航按钮 -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+<div class="swiper-container swiper-android animation-box" id="section19Swiper2">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="{{baseUrl}}/section19_product6.jpg" alt=""></div>
+    <div class="swiper-slide"><img src="{{baseUrl}}/section19_product7.jpg" alt=""></div>
+    <div class="swiper-slide"><img src="{{baseUrl}}/section19_product8.jpg" alt=""></div>
+    <div class="swiper-slide"><img src="{{baseUrl}}/section19_product9.jpg" alt=""></div>
+    <div class="swiper-slide"><img src="{{baseUrl}}/section19_product10.jpg" alt=""></div>
+  </div>
+  <!-- 如果需要分页器 -->
+  <div class="swiper-pagination"></div>
+
+  <!-- 如果需要导航按钮 -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+<div class="text-wrap"> *页面中配图仅供参考示意 </div>

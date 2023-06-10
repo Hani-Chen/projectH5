@@ -1,0 +1,174 @@
+@charset "UTF-8";
+/* 公共样式 */
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+dl,
+dd,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+input,
+textarea,
+p,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+/* 页面样式 */
+.wrap {
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/bg.png);
+  background-repeat: no-repeat;
+  background-position: left 0;
+  background-size: 100% 100%;
+}
+
+.logo-wrap {
+  display: block;
+  width: 100%;
+  height: 0.6rem;
+}
+
+.logo {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+
+@-webkit-keyframes innerswing {
+  0% {
+    -webkit-transform: rotate(44deg);
+            transform: rotate(44deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(120deg);
+            transform: rotate(120deg);
+    opacity: 0.2;
+  }
+}
+
+@keyframes innerswing {
+  0% {
+    -webkit-transform: rotate(44deg);
+            transform: rotate(44deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(120deg);
+            transform: rotate(120deg);
+    opacity: 0.2;
+  }
+}
+
+.content {
+  width: 100%;
+  height: 10rem;
+  position: absolute;
+  top: 50%;
+  margin-top: -5rem;
+}
+
+.content-disk {
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: 6rem;
+  height: 6rem;
+  border: 2px dotted #999;
+  border-radius: 50%;
+  position: relative;
+  z-index: 66;
+}
+
+.content-dot {
+  display: block;
+  width: 0.3rem;
+  height: 0.3rem;
+  background: #ff4b30;
+  border-radius: 50%;
+  position: absolute;
+  top: 0.72rem;
+  left: 0.73rem;
+  -webkit-transform-origin: 2.26rem 2.26rem;
+      -ms-transform-origin: 2.26rem 2.26rem;
+          transform-origin: 2.26rem 2.26rem;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.content-dot-play {
+  -webkit-animation: innerswing 2.4s ease infinite;
+          animation: innerswing 2.4s ease infinite;
+}
+
+.content-dot-stop {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.canvas-animate {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.canvas-show {
+  display: block;
+}
+
+.savePicture {
+  border: 1px solid #999;
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 0.2rem;
+}
+
+#box-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #ff4b30;
+  display: none;
+  z-index: 66;
+}
+
+/*# sourceMappingURL=../maps/css/style.min.css.map */

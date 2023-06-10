@@ -1,0 +1,28 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+  {# 花瓣飘落主页 #}
+  <section class="page page-index">
+    <!-- 花瓣雨效果 -->
+    <div class="flower-canvas">
+      <canvas id="canvasStart" width='375px' height='600px'></canvas>
+    </div>
+  </section>
+{% endblock %}
+
+{% block javascript %}
+
+  <!-- 预加载资源插件 -->
+  <script type="text/javascript" src="js/preloadjs.min.js"></script>
+  
+  <script src="./js/index.js"></script>
+  <script>
+
+    p = new FlowerFloat({
+      canvas: 'canvasStart',
+      autoPlay: true,
+      form: 'fivePointed',
+      colorArray: ['rgba(255,208,0,0.6)','rgba(0,80,30,0.2)','rgba(255,28,9,0.5)','rgba(165,250,9,0.8)','rgba(0,0,0,1)'],
+      radius: 2
+    })
+  </script>
+{% endblock %}

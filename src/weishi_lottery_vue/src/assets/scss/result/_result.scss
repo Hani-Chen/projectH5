@@ -1,0 +1,427 @@
+@charset "UTF-8";
+
+.content {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -1rem;
+  padding-bottom: 1rem;
+
+  .content-bg1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9rem;
+    background: {
+      image: url(~@/assets/img/detail_bg_fixation.png);
+      size: 100%;
+      position: top center;
+      repeat: no-repeat;
+    };
+  }
+  .content-bg2 {
+    position: absolute;
+    top: 9rem;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    background: {
+      image: url(~@/assets/img/detail_bg_extend.jpg);
+      size: 7.5rem 1rem;
+      position: top center;
+      repeat: repeat-y;
+    };
+  }
+
+  
+  .ornament-leaf1 {
+    right: -0.22rem;
+    top: 6.5rem;
+    z-index: 10;
+  }
+  .content-decoration-1 {
+    position: absolute;
+    z-index: 2;
+    top: 5.6rem;
+    bottom: auto;
+    left: -0.4rem;
+    width: 1.4rem;
+    height: .97rem;
+    background: {
+      image: url(~@/assets/img/ornament_leaf2.png);
+      size: 100%;
+      position: top center;
+      repeat: no-repeat;
+    };
+  }
+
+  .content-decoration-2 {
+    position: absolute;
+    z-index: 2;
+    top: 8rem;
+    bottom: auto;
+    right: -0.5rem;
+    width: 1.27rem;
+    height: 1.01rem;
+    background: {
+      image: url(~@/assets/img/ornament_gold2.png);
+      size: 100%;
+      position: top center;
+      repeat: no-repeat;
+    };
+  }
+
+  .content-decoration-3 {
+    position: absolute;
+    z-index: 2;
+    top: auto;
+    bottom: 1.3rem;
+    left: 0;
+    width: 0.86rem;
+    height: 0.73rem;
+    background: {
+      image: url(~@/assets/img/ornament_leaf3.png);
+      size: 100%;
+      position: top center;
+      repeat: no-repeat;
+    };
+  }
+
+}
+
+.result {
+  position: relative;
+  display: flex;
+  height: 5.86rem;
+  margin-top: .46rem;
+  background: {
+    image: url(~@/assets/img/result_result_bg.png);
+    position: center center;
+    repeat: no-repeat;
+    size: 100%;
+  };
+}
+
+.result-content {
+  position: relative;
+  width: 6.9rem;
+  margin: auto;
+  height: 5.12rem;
+
+  .people-number {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: .39rem;
+    line-height: .39rem;
+    width: 1.97rem;
+    font-size: .2rem;
+    color: #763b20;
+    text-align: center;
+
+    span {
+      color: #ec2825;
+      font-size: .24rem;
+    }
+
+  }
+}
+
+.goods {
+  position: relative;
+  display: flex;
+  width: 5.9rem;
+  margin: 0 auto;
+  margin-top: .53rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .33rem;
+
+  .goods-pic {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: .1rem;
+    overflow: hidden;
+    font-size: 0;
+    background: {
+      color: #fff;
+    };
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .goods-info {
+    flex: 1;
+    padding-left: .55rem;
+    font-size: .24rem;
+    line-height: 1.2;
+
+    .info-title {
+      color: #ec2825;
+
+      span {
+        font-size: .32rem;
+        font-weight: bold;
+      }
+    }
+
+    .info-subtitle {
+      color: #763b20;
+      margin-top: .07rem;
+      margin-bottom: .07rem;
+    }
+
+    .info-your {
+      font-size: .2rem;
+      color: #763b20;
+
+      span {
+        color: #ec2825;
+        font-size: .24rem;
+      }
+    }
+  }
+}
+
+.ticket {
+  position: relative;
+  width: 5.9rem;
+  height: 2.37rem;
+  margin: 0 auto;
+  overflow: hidden;
+  background: {
+    image: url(~@/assets/img/result_ticket.png);
+    size: 11.9rem 2.37rem;
+    position: 0 0;
+    repeat: no-repeat;
+  };
+  &.active {
+    background-position: -6rem 0;
+  }
+
+  .ticket-text {
+    font-size: .24rem;
+    color: #7b442b;
+    text-align: center;
+    margin-top: 1.62rem;
+    font-weight: 100;
+  }
+}
+
+.luck {
+  position: relative;
+  width: 100%;
+  padding: 0.6rem 0;
+
+  &::before, &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    height: 0.6rem;
+    width: 100%;
+    background: {
+      size: 7.5rem 0.6rem;
+      position: center center;
+      repeat: no-repeat;
+    };
+  }
+
+  &::before {
+     top: 0;
+     background: {
+       image: url(~@/assets/img/luck_top.png);
+     };
+   }
+
+  &::after {
+    //bottom: 1px;
+    background: {
+      image: url(~@/assets/img/luck_bottom.png);
+    };
+  }
+}
+
+.luck-content {
+  position: relative;
+  font-size: 0;
+
+  background: {
+    image: url(~@/assets/img/luck_mid.png);
+    repeat: repeat-y;
+    size: 7.5rem 1.5rem;
+    position: center center;
+  };
+
+  .luck-content-wrap {
+    position: relative;
+    width: 6.06rem;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: .3rem;
+    padding-bottom: 1rem;
+
+    background: {
+      image: url(~@/assets/img/luck_bg_1.png);
+      size: 6.06rem 5.01rem;
+      position: top center;
+      repeat: no-repeat;
+    };
+
+    .luck-abs-bg {
+      position: absolute;
+      bottom: 0.27rem;
+      top: 5rem;
+      width: 100%;
+      background: {
+        image: url(~@/assets/img/luck_repeat_1.png);
+        size: 6.06rem 100%;
+        repeat: no-repeat;
+        position: center top;
+      };
+    }
+
+    .luck-abs-bottom {
+      position: absolute;
+      bottom: 1px;
+      left: 0;
+      width: 6.06rem;
+      height: .27rem;
+      background: {
+        image: url(~@/assets/img/luck_bootm_1.png);
+        size: 6.06rem .27rem;
+        position: center center;
+        repeat: no-repeat;
+      };
+    }
+
+    .luck-win {
+      position: relative;
+      z-index: 2;
+      margin-top: .5rem;
+      margin-bottom: .6rem;
+    }
+
+    .luck-your {
+      position: relative;
+      z-index: 2;
+
+      .luck-title {
+        background: none;
+      }
+    }
+
+    .luck-title {
+      font-size: .36rem;
+      color: #ec2825;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: .4rem;
+
+      background: {
+        image: url(~@/assets/img/luck_title.png);
+        size: 4.92rem .34rem;
+        repeat: no-repeat;
+        position: center center;
+      };
+    }
+
+    .luck-num-box {
+      max-height: 4.8rem;
+      overflow-y: auto;
+    }
+
+    .luck-num {
+      text-align: center;
+
+      & + .luck-num {
+        margin-top: .2rem;
+      }
+
+      &.success {
+        span {
+          background: {
+            color: #ea6752;
+          };
+        }
+      }
+
+      span {
+        display: inline-block;
+        width: .54rem;
+        height: .77rem;
+        line-height: .77rem;
+        color: #fff;
+        font-size: .48rem;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 0.04rem;
+
+        background: {
+          color: #b7b7b7;
+        };
+
+        & + span {
+          margin-left: .19rem;
+        }
+
+      }
+    }
+
+    // 展示收起按钮
+    .luck-show {
+      position: absolute;
+      width: .4rem;
+      height: .4rem;
+      bottom: .35rem;
+      left: 50%;
+      margin-left: -.2rem;
+      cursor: pointer;
+
+      background: {
+        image: url(~@/assets/img/detail_arrows.png);
+        size: .24rem .13rem;
+        position: center center;
+        repeat: no-repeat;
+      };
+    }
+  }
+}
+
+.luck-btn {
+  position: relative;
+  z-index: 2;
+  width: 5.4rem;
+  height: 1rem;
+  margin: 0 auto;
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: {
+      image: url(~@/assets/img/luck_btn.png);
+      size: 5.4rem 2.1rem;
+      repeat: no-repeat;
+    };
+
+    &.luck-btn-go {
+      background: {
+        position: 0 0;
+      };
+    }
+
+    &.luck-btn-receive {
+      background: {
+        position: 0 -1.1rem;
+      };
+    }
+
+
+  }
+}

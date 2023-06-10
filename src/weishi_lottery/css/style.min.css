@@ -1,0 +1,243 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.item-image {
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.flexItem {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.bottomFix {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 90;
+}
+.bottomAva {
+  position: fixed;
+  width: 1.52rem;
+  height: 1.45rem;
+  z-index: 92;
+  bottom: 0.91rem;
+  right: 0.59rem;
+}
+.bottomBtn {
+  position: fixed;
+  width: 1.77rem;
+  height: 0.65rem;
+  z-index: 93;
+  bottom: 0.37rem;
+  right: 0.48rem;
+  -webkit-animation: deep 1s infinite;
+  animation: deep 1s infinite;
+}
+.dialogComp .closeIcon {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: 0.27rem;
+}
+.textCenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+body.noscroll {
+  overflow: hidden;
+  height: 100%;
+}
+.wsInput {
+  width: 80%;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 0.32rem;
+  padding: 0.13rem 0.27rem;
+  border-radius: 10px;
+  height: 1.07rem;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0.13rem 10% 0.27rem;
+  background: transparent;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+.wsInput::-webkit-input-placeholder {
+  color: #fff;
+}
+.wsInput:focus {
+  border: 1px solid #fff;
+}
+.wsInput option {
+  color: #000;
+}
+@-webkit-keyframes deep {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  to {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+@keyframes deep {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  to {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+@-webkit-keyframes translateDeep {
+  0% {
+    -webkit-transform: translateX(-50%) scale(0.9);
+    transform: translateX(-50%) scale(0.9);
+  }
+  50% {
+    -webkit-transform: translateX(-50%) scale(1.1);
+    transform: translateX(-50%) scale(1.1);
+  }
+  to {
+    -webkit-transform: translateX(-50%) scale(0.9);
+    transform: translateX(-50%) scale(0.9);
+  }
+}
+@keyframes translateDeep {
+  0% {
+    -webkit-transform: translateX(-50%) scale(0.9);
+    transform: translateX(-50%) scale(0.9);
+  }
+  50% {
+    -webkit-transform: translateX(-50%) scale(1.1);
+    transform: translateX(-50%) scale(1.1);
+  }
+  to {
+    -webkit-transform: translateX(-50%) scale(0.9);
+    transform: translateX(-50%) scale(0.9);
+  }
+}
+.dialogComp .dialogShadow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 51;
+  overflow: hidden;
+}
+.dialogComp .wrap {
+  position: fixed;
+  z-index: 52;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-overflow-scrolling: touch;
+}
+.dialogComp .closeIcon {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.dialogComp .dialog {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.dialogComp .scroller {
+  width: 100%;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.dialogComp .scroller:only-child .scrollWrap {
+  min-height: 100%;
+}
+.dialogComp .scrollWrap {
+  overflow: hidden;
+  position: relative;
+}
+.ActRule > img {
+  width: 1.6rem;
+}
+.ActRule {
+  position: absolute;
+  top: 0;
+  right: 1.33rem;
+  width: 1.31rem;
+  z-index: 10;
+}
+.ruleDialog .dialog {
+  width: 8.31rem;
+  height: 11.31rem;
+  padding: 1.6rem 0.67rem 1.07rem;
+  overflow: hidden;
+}
+.ruleDialog .ruleContent {
+  color: #fff;
+  font-size: 0.32rem;
+}
+#app {
+  width: 10rem;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.btnImg {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 16rem;
+  width: 4.27rem;
+  height: 1.07rem;
+  -webkit-animation: translateDeep 1s infinite;
+  animation: translateDeep 1s infinite;
+}

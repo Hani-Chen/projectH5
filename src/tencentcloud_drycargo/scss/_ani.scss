@@ -1,0 +1,49 @@
+// 下一页icon动画
+@keyframes downward {
+  0% {
+    transform: translateY(10%);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+// 按钮动画
+@keyframes shake {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.05);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+// 文件夹动画
+@keyframes folder {
+  0% {
+    transform: translateY(-2%);
+  }
+
+  100% {
+    transform: translateY(2%);
+  }
+}

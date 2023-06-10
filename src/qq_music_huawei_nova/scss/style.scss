@@ -1,0 +1,190 @@
+@charset "utf-8";
+@import 'global.import.css';
+
+// 公共样式
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+// 公共样式 - 背景图片公共样式
+.bg-item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+// 页面样式
+.page_item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  &.show {
+    display: block;
+  }
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 0.21rem;
+    width: 3.5rem;
+    height: 0.5rem;
+    margin-left: -1.75rem;
+    @extend .bg-item;
+    background-image: url('../img/logo.png');
+    z-index: 2;
+  }
+}
+// 首页
+.page_home {
+  &__banner {
+    width: 100%;
+    height: 6.74rem;
+    @extend .bg-item;
+    background-image: url('../img/home_banner.jpg');
+  }
+  // 列表
+  &__list {
+    height: calc(100% - 9rem);
+    .list_title {
+      padding: 0.2rem 0 0.2rem 0.48rem;
+      font-size: 0.26rem;
+    }
+    .list_wrap {
+      width: 100%;
+      height: calc(100% - 0.56rem);
+      overflow-y: auto;
+    }
+    .item_wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 1.1rem;
+      padding: 0 0.65rem;
+      color: #000;
+      transition: all 0.3s;
+      &.active {
+        background-color: #f6f8ff;
+        color: #363078;
+        .singer_name {
+          color: #515b9c;
+        }
+
+        // .item_icon {
+        //   background-position: 0 0;
+        // }
+      }
+    }
+    .item_name {
+      position: relative;
+      display: flex;
+      flex: 1;
+      height: 100%;
+      align-items: center;
+      line-height: 1.1;
+      padding-left: 0.45rem;
+      // 排序
+      .serial {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        font-size: 0.28rem;
+        min-width: 0.15rem;
+      }
+      .song_name {
+        font-size: 0.26rem;
+        margin-bottom: 0.1rem;
+      }
+      .singer_name {
+        font-size: 0.22rem;
+        color: #a6a6a6;
+      }
+    }
+    .item_icon {
+      position: relative;
+      left: 0.1rem;
+      width: 0.68rem;
+      height: 0.68rem;
+      @extend .bg-item;
+      background-image: url('../img/home_icon.png');
+      background-size: 0.68rem 1.36rem;
+      background-position: 0 -0.68rem;
+      &.active {
+        background-position: 0 0;
+      }
+    }
+  }
+  // 底部
+  &__end {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1.87rem;
+    .bg {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      @extend .bg-item;
+      background-image: url('../img/home_bg.png');
+    }
+    .btn_wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 5.8rem;
+      margin: 0 auto;
+      z-index: 2;
+    }
+    .btn {
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: 1px solid transparent;
+      outline: none;
+      width: 2.74rem;
+      height: 0.65rem;
+      line-height: 0.65rem;
+      margin-top: 0.25rem;
+      border-radius: 0.08rem;
+      font-size: 0.24rem;
+      text-align: center;
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #312f75;
+      }
+    }
+    .return {
+      background-color: #abb9ff;
+    }
+    .poster {
+      background-color: #c2a6ff;
+    }
+  }
+}
+
+
+/* Data: 2020-06-16; Edit: Hani; Describe: 修改Logo; Start */
+.page_item .logo {
+  width: 4rem;
+  margin-left: -2rem;
+}
+/* Data: 2020-06-16; Edit: Hani; Describe: 修改Logo; End */

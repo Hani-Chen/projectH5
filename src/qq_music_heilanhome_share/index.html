@@ -1,0 +1,78 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<section class="wrap">
+  <!-- 页面顶部内容 -->
+  <div class="page_share">
+    <!-- 页面顶部内容 -->
+    <div class="logo"></div>
+    <div class="share_content text_forbid__cope">
+      <div class="share_data__wrap">
+        <div class="share_data__item">
+          <!-- 可配置的值 - 用户名 -->
+          <div class="share_data__ranking user_name_wrap">最近<span class="user_name">我是很长的昵称</span>在周杰伦歌中走过</div>
+          <div class="share_data__time">
+            <!-- 可配置的值 - 听歌总时长 -->
+            <div class="share_data__number">44640</div>
+            <div class="share_data__minute">分钟</div>
+          </div>
+          <div class="share_data__icon"></div>
+        </div>
+        <div class="share_data__item">
+          <div class="share_data__ranking user_name_wrap"><span class="user_name user_name_three">我是很长的昵称</span>在周杰伦歌迷中的听歌排名</div>
+          <div class="share_data__time">
+            <!-- 可配置的值 - 听歌排名 -->
+            <div class="share_data__number">99999</div>
+            <div class="share_data__minute">名</div>
+          </div>
+          <div class="share_data__icon share_data__icon2"></div>
+        </div>
+      </div>
+      <div class="share_list__wrap">
+        <!-- 可配置的值 - 用户名 -->
+        <div class="share_list__title user_name_wrap"><span class="user_name">我是很长的昵称</span>最爱听的周杰伦歌曲.... </div>
+        <!-- 可配置值 - top3排名数据 -->
+        <div class="share_list__inner">
+          <div class="share_list__item">
+            <div class="share_list__img">
+              <img src="https://i.kfs.io/album/global/78211105,0v1/fit/500x500.jpg" alt="" class="page_img">
+            </div>
+            <div class="share_list__data">
+              <div class="share_list__ranking">TOP1 陪伴我次数最多的</div>
+              <div class="share_list__name">Mojito</div>
+            </div>
+          </div>
+          <div class="share_list__item">
+            <div class="share_list__img">
+              <img src="https://i.kfs.io/album/global/78211105,0v1/fit/500x500.jpg" alt="" class="page_img">
+            </div>
+            <div class="share_list__data">
+              <div class="share_list__ranking">TOP2 经常循环播放的</div>
+              <div class="share_list__name">告白气球</div>
+            </div>
+          </div>
+          <div class="share_list__item">
+            <div class="share_list__img">
+              <img src="https://i.kfs.io/album/global/78211105,0v1/fit/500x500.jpg" alt="" class="page_img">
+            </div>
+            <div class="share_list__data">
+              <div class="share_list__ranking">TOP3 总在我的歌单中的</div>
+              <div class="share_list__name">说好不哭</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="qrcode_wrap">
+      <div class="qrcode_inner">
+        <!-- 可配置的值 - 二维码 -->
+        <img src="./img/qrcode.png" alt="" class="page_img">
+      </div>
+      <div class="qrcode_text">扫码体验</div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script src="./js/index.js"></script>
+{% endblock %}

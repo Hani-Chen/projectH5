@@ -1,0 +1,1091 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import "global.import.css";
+
+/* QQ音乐规定 - 使用1px边框解决方案所调用的CSS文件 */
+/*========================================================================
+      @说明：边框样式基础样式
+========================================================================*/
+.border,
+.border_radius,
+.border_round {
+  position: relative;
+}
+
+.border::after,
+.border_radius::after,
+.border_round::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-style: solid;
+  border-color: currentColor;
+  border-width: 1px;
+} /*请自己配置边框颜色*/
+.border_radius::after {
+  border-radius: 4px;
+} /*自己配置圆角*/
+.border_round::after {
+  border-radius: 999px;
+}
+
+/*上，下，左，右边框*/
+.border_t,
+.border_b,
+.border_l,
+.border_r {
+  position: relative;
+}
+
+.border_t::after,
+.border_b::after,
+.border_l::after,
+.border_r::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  pointer-events: none;
+  border-style: solid;
+  border-color: currentColor;
+} /*请自己配置边框颜色*/
+
+.border_t::after {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-width: 1px 0 0 0;
+}
+.border_b::after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-width: 0 0 1px 0;
+}
+.border_l::after {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-width: 0 0 0 1px;
+}
+.border_r::after {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  border-width: 0 1px 0 0;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  /*方形边框，圆角边框，圆弧边框*/
+  .border::after,
+  .border_radius::after,
+  .border_round::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(0.5);
+  }
+  .border_radius::after {
+    border-radius: 8px;
+  } /*自己配置圆角,为默认情况的2倍*/
+  .border_round::after {
+    border-radius: 999px;
+  }
+
+  /*上，下，左，右边框*/
+  .border_t::after,
+  .border_b::after {
+    -webkit-transform: scaleY(0.5);
+  }
+  .border_l::after,
+  .border_r::after {
+    -webkit-transform: scaleX(0.5);
+  }
+}
+
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24rem);
+ */
+@function changePx($px) {
+  @return $px / 2;
+}
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: "宋体", "SourceHanSerifCN Heavy", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC",
+  STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+input {
+  background: none;
+  outline: none;
+  border: 0px;
+  &:-moz-placeholder,
+  textarea:-moz-placeholder {
+    color: #f1e4a0;
+  }
+  &:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    color: #f1e4a0;
+  }
+  &::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: #f1e4a0;
+  }
+}
+
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+  background-color: #7d451e;
+}
+
+/* 页面工具类 - 文字禁止选择 */
+
+@mixin text-forbid-cope {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+// 宽高
+@mixin size-set($width: 100%, $height: 100%) {
+  width: $width;
+  height: $height;
+}
+
+// 文字
+@mixin font-set($size, $color: #fff, $weight: normal, $lineHigh: null) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $lineHigh;
+}
+
+/* 页面工具类 - 背景图片公共样式 */
+@mixin bg-set($url, $width: 100%, $height: auto, $repeat: no-repeat, $position: center, $color: null) {
+  display: block;
+  background: {
+    size: $width $height;
+    repeat: $repeat;
+    position: $position;
+    image: url($url);
+    color: $color;
+  }
+}
+@mixin layout-set(
+  $layout: null,
+  $position: absolute,
+  $top: null,
+  $bottom: null,
+  $left: null,
+  $right: null,
+  $zIndex: 1
+) {
+  position: $position;
+  @if $layout == null {
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+  }
+  @if $layout == "center" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  @if $layout == "layout" {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  z-index: $zIndex;
+}
+@mixin page-set-adorn($size, $top: null, $bottom: null, $left: null, $right: null) {
+  @include layout-set($top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($size, $size);
+  background-color: #d7b358;
+  border-radius: 50%;
+}
+@mixin page-set-img(
+  $layout: null,
+  $width: null,
+  $height: null,
+  $top: null,
+  $left: null,
+  $right: null,
+  $bottom: null,
+  $url: ""
+) {
+  @include layout-set($layout: $layout, $top: $top, $left: $left, $right: $right, $bottom: $bottom);
+  @include size-set($width, $height);
+  @include bg-set($url);
+}
+
+@mixin page-sprite($position: 0 0) {
+  @include bg-set(
+    $url: "../img/page_sprite.png",
+    $width: changePx(8rem),
+    $height: changePx(9rem),
+    $position: $position
+  );
+}
+/* 页面公共样式 - End */
+
+/* 页面样式 - Start 【*注意* ：QQ音乐规定类名命名，必须以下划线形式命名】
+ * 类名用法示例：
+ * .test_box {}
+ * .test_box__wrap {}
+ */
+// 公共样式 - 提示
+.toast_item {
+  position: fixed;
+  left: 50%;
+  // bottom: 10%;
+  top: 50%;
+  font-size: changePx(0.18rem);
+  line-height: 1;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 999;
+  // overflow: hidden;
+  @include text-forbid-cope;
+  // margin-top: changePx(5.9rem);
+  margin-top: changePx(3.6rem);
+  span {
+    position: relative;
+    background-color: rgba($color: #f8e897, $alpha: 0.7);
+    padding: changePx(0.1rem) changePx(0.1rem);
+    border-radius: changePx(0.1rem);
+    color: #380606;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    &.ani {
+      animation: fadeInDown 0.5s;
+    }
+  }
+}
+.page_logo {
+  @include layout-set("layout");
+  margin-top: changePx(-5.44rem);
+  @include size-set(changePx(4rem), changePx(0.5rem));
+  @include bg-set("../img/logo.png");
+}
+.page_music {
+  @include layout-set($top: 50%, $right: changePx(0.1rem), $zIndex: 3);
+  margin-top: changePx(-5.64rem);
+  @include size-set(changePx(1rem), changePx(1rem));
+  @include page-sprite($position: changePx(-1rem) 0);
+  animation: rotate linear 10s infinite;
+  animation-play-state: paused;
+  &.active {
+    @include page-sprite();
+    animation-play-state: running;
+  }
+}
+.page_return {
+  @include layout-set($top: 50%, $left: 0, $zIndex: 3);
+  width: 100%;
+  margin-top: changePx(0.68rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &1 {
+    margin-top: changePx(2.7rem);
+  }
+  &2 {
+    margin-top: changePx(4.1rem);
+  }
+  &3 {
+    justify-content: start;
+    left: changePx(5.74rem);
+    margin-top: changePx(-4.55rem);
+  }
+  &4 {
+    justify-content: start;
+    left: changePx(0.34rem);
+    margin-top: changePx(-5.7rem);
+  }
+  &__icon {
+    @include size-set(changePx(1rem), changePx(1rem));
+    @include page-sprite($position: changePx(-5rem) changePx(-4rem));
+    margin-left: changePx(-0.3rem);
+  }
+  &__text {
+    position: relative;
+    @include font-set(changePx(0.24rem), $color: #551209);
+    margin-left: changePx(-0.18rem);
+    &::after {
+      content: "";
+      @include layout-set($left: 50%, $bottom: 0);
+      transform: translate3d(-50%, 0, 0);
+      height: 1px;
+      background-color: #551209;
+      width: 100%;
+    }
+  }
+}
+.page_slide {
+  position: relative;
+  @include layout-set("layout");
+  margin-top: changePx(3.4rem);
+  &__icon {
+    // @include layout-set("center");
+    margin: 0 auto;
+    @include size-set(changePx(1rem), changePx(1rem));
+    @include page-sprite($position: changePx(-7rem) changePx(-1rem));
+    animation: start 1.5s 2s infinite ease-in-out;
+  }
+  &__text {
+    position: relative;
+    top: changePx(-0.1rem);
+    @include font-set(changePx(0.24rem), $color: #551209);
+    letter-spacing: 2px;
+  }
+}
+.page_home {
+  @include size-set(100%, 100%);
+  .bg {
+    @include layout-set("center");
+    @include size-set(100%, 100%);
+    @include bg-set("../img/home_bg.jpg");
+  }
+  .home {
+    &_input {
+      @include layout-set("layout");
+      margin-top: changePx(3.74rem);
+      margin-left: changePx(0.12rem);
+      @include size-set(changePx(6rem), changePx(1rem));
+      @include page-sprite($position: changePx(-2rem) 0);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      input {
+        position: relative;
+        left: changePx(-0.14rem);
+        @include size-set(100%, changePx(0.5rem));
+        text-align: center;
+        @include font-set(changePx(0.24rem), $color: #f1e4a0);
+        letter-spacing: 2px;
+        padding: 0 changePx(1.9rem);
+        box-sizing: border-box;
+      }
+      &__hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include layout-set($top: 50%, $right: changePx(1.45rem));
+        transform: translate3d(0, -50%, 0);
+        @include size-set(100%, changePx(0.5rem));
+        @include font-set(changePx(0.24rem), $color: #f1e4a0);
+        width: auto;
+      }
+    }
+    &_btn {
+      @include layout-set("layout");
+      margin-top: changePx(4.8rem);
+      @include size-set(changePx(4rem), changePx(1rem));
+      @include page-sprite($position: 0 changePx(-1rem));
+    }
+  }
+}
+.page_data {
+  @include size-set(100%, 100%);
+  @include text-forbid-cope;
+  .bg {
+    @include layout-set("center");
+    @include size-set(100%, 100%);
+    @include bg-set("../img/data_bg.jpg");
+  }
+  .data {
+    &_name {
+      @include layout-set("layout");
+      margin-top: changePx(-4rem);
+      @include size-set(changePx(3rem), changePx(1rem));
+      @include page-sprite($position: changePx(-4rem) changePx(-1rem));
+      @include font-set(changePx(0.24rem), $weight: bold, $color: #59190f);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-top: changePx(0.1rem);
+      padding-left: changePx(0.18rem);
+    }
+    &_title {
+      @include layout-set("layout");
+      margin-top: changePx(-2.9rem);
+      @include font-set(changePx(0.36rem), $weight: bold, $color: #551209);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 3px;
+    }
+    &_songname {
+      @include layout-set($left: 0, $top: 50%, $right: 0);
+      margin: 0 auto;
+      margin-top: changePx(-1.88rem);
+      @include font-set(changePx(0.48rem), $weight: bold, $lineHigh: changePx(0.75rem), $color: #551209);
+      display: flex;
+      // align-items: center;
+      // justify-content: center;
+      // width: 100%;
+      max-width: changePx(4.4rem);
+      overflow: hidden;
+      white-space: nowrap;
+      word-break: break-all;
+      &_inner {
+        position: relative;
+        width: auto;
+      }
+    }
+    &_text {
+      @include layout-set("layout");
+      margin-top: changePx(-0.74rem);
+      @include font-set(changePx(0.24rem), $lineHigh: changePx(0.48rem), $color: #551209);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 3px;
+      &::after {
+        content: "";
+        @include layout-set($left: 50%, $bottom: 0);
+        transform: translate3d(-50%, 0, 0);
+        height: 1px;
+        background-color: #551209;
+        width: 100%;
+      }
+      &::before {
+        content: "";
+        @include layout-set($left: 50%, $bottom: changePx(0.5rem));
+        transform: translate3d(-50%, 0, 0);
+        height: 1px;
+        background-color: #551209;
+        width: 82%;
+      }
+    }
+  }
+  &__lose {
+    .data_wrap {
+      display: none;
+    }
+    .data_wrap.lose {
+      display: block;
+    }
+  }
+  .lose {
+    display: none;
+    .data_name {
+      margin-top: changePx(-2.3rem);
+    }
+    .data_text {
+      margin-top: changePx(-1.3rem);
+      &__wrie {
+        @include layout-set($left: 50%, $bottom: changePx(0.94rem));
+        transform: translate3d(-50%, 0, 0);
+        height: 1px;
+        background-color: #551209;
+        width: 58%;
+      }
+      &::before {
+        content: "";
+        @include layout-set($left: 50%, $bottom: changePx(0.48rem));
+        transform: translate3d(-50%, 0, 0);
+        height: 1px;
+        background-color: #551209;
+        width: 65%;
+      }
+    }
+  }
+}
+.page_play {
+  display: none;
+  @include size-set(100%, 100%);
+  .bg {
+    @include layout-set("center");
+    @include size-set(100%, 100%);
+    @include bg-set("../img/play_bg.jpg");
+  }
+  .play {
+    &_cd {
+      @include layout-set($top: 50%, $left: 50%);
+      margin-left: changePx(-2.5rem);
+      margin-top: changePx(-3.38rem);
+      @include size-set(changePx(5rem), changePx(5rem));
+      @include bg-set("../img/play_cd.png");
+      animation: rotate linear 10s infinite;
+      animation-play-state: paused;
+      &.play {
+        animation-play-state: running;
+      }
+    }
+    &_song {
+      @include size-set(changePx(3.45rem), auto);
+      @include layout-set($left: changePx(1.7rem), $top: 50%);
+      margin-top: changePx(1.9rem);
+      @include font-set(changePx(0.24rem), $weight: bold, $color: #551209);
+      display: flex;
+      align-items: center;
+      // @include layout-set($left: changePx(-0.3rem), $top: changePx(-0.3rem));
+      @include size-set(changePx(4rem), changePx(1rem));
+      padding-left: changePx(0.3rem);
+      box-sizing: border-box;
+      &__name {
+        // margin-top: changePx(0.04rem);
+      }
+      &::after {
+        content: "";
+        @include layout-set($left: 0, $top: 0);
+        @include size-set(changePx(4rem), changePx(1rem));
+        @include page-sprite($position: changePx(-4rem) changePx(-3rem));
+      }
+      &__btn {
+        @include layout-set($right: changePx(0.22rem), $top: 50%, $zIndex: 2);
+        transform: translate3d(0, -50%, 0);
+        display: flex;
+      }
+    }
+    &_title {
+      @include size-set(changePx(4rem), changePx(1rem));
+      @include layout-set("layout");
+      margin-top: changePx(-4.48rem);
+      @include font-set(changePx(0.3rem), $weight: bold, $color: #59190f);
+      text-align: center;
+      @include page-sprite($position: changePx(-4rem) changePx(-2rem));
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .page_slide {
+    margin-top: changePx(3.6rem);
+  }
+  .btn_play {
+    @include size-set(changePx(0.5rem), changePx(0.5rem));
+    // @include layout-set($left: changePx(2rem), $top: 50%);
+    @include page-sprite($position: changePx(-3rem) changePx(-3rem));
+    &.play {
+      @include page-sprite($position: changePx(-3rem) changePx(-3.5rem));
+    }
+  }
+  .btn_like {
+    @include size-set(changePx(0.5rem), changePx(0.5rem));
+    margin-left: changePx(0.1rem);
+    // @include layout-set($left: changePx(2rem), $top: 50%);
+    @include page-sprite($position: changePx(-3.5rem) changePx(-3.5rem));
+    &.like {
+      @include page-sprite($position: changePx(-3.5rem) changePx(-3rem));
+    }
+  }
+}
+.page_execution {
+  @include size-set(100%, 100%);
+  .bg {
+    @include layout-set("center");
+    @include size-set(100%, 100%);
+    @include bg-set("../img/play_bg.jpg");
+  }
+  .execution {
+    &_title {
+      @include size-set(changePx(5rem), changePx(1rem));
+      @include layout-set("layout");
+      margin-top: changePx(-4.52rem);
+      @include font-set(changePx(0.3rem), $weight: bold, $color: #59190f);
+      text-align: center;
+      @include page-sprite($position: 0 changePx(-4rem));
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &_banner {
+      @include layout-set("layout");
+      margin-top: changePx(-2.9rem);
+      @include size-set(changePx(7.5rem), changePx(5.6rem));
+      @include bg-set("../img/execution_content.png");
+    }
+    &_btn {
+      @include layout-set("layout");
+      margin-top: changePx(3.2rem);
+      @include size-set(changePx(4rem), changePx(1rem));
+      @include page-sprite($position: 0 changePx(-5rem));
+    }
+  }
+}
+
+.page_scene {
+  @include text-forbid-cope;
+  @include size-set(100%, 100%);
+  .bg {
+    @include layout-set("center");
+    @include size-set(100%, 100%);
+    @include bg-set("../img/scene_bg.jpg");
+  }
+  .scene_step {
+    @include layout-set($left: changePx(1.44rem), $top: 50%);
+    margin-top: changePx(-4.28rem);
+    @include font-set(changePx(0.3rem), $weight: bold, $color: #59190f);
+    letter-spacing: 1px;
+  }
+  .scene_title {
+    @include layout-set("layout");
+    margin-top: changePx(-3.44rem);
+    @include font-set(changePx(0.3rem), $weight: bold, $color: #59190f);
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  .scene_swiper {
+    &__wrap {
+      @include layout-set("layout");
+      margin-top: changePx(-2.62rem);
+      margin-left: changePx(-0.04rem);
+      @include size-set(changePx(3.8rem), changePx(5.4rem));
+      overflow: hidden;
+      &1 {
+        .scene_swiper__item1 {
+          @include bg-set("../img/scene_item1.png");
+        }
+        .scene_swiper__item2 {
+          @include bg-set("../img/scene_item2.png");
+        }
+      }
+      &2 {
+        .scene_swiper__item1 {
+          @include bg-set("../img/scene_item3.png");
+        }
+        .scene_swiper__item2 {
+          @include bg-set("../img/scene_item4.png");
+        }
+      }
+      &3 {
+        .scene_swiper__item1 {
+          @include bg-set("../img/scene_item5.png");
+        }
+        .scene_swiper__item2 {
+          @include bg-set("../img/scene_item6.png");
+        }
+      }
+    }
+    // &__item {
+    //   @include bg-set("../img/scene_item1.png");
+    //   &2 {
+    //     @include bg-set("../img/scene_item2.png");
+    //   }
+    // }
+    &__pagination {
+      @include layout-set("layout");
+      margin-top: changePx(2.3rem);
+      margin-left: changePx(0.08rem);
+      display: flex;
+      .pagination_item {
+        display: inline-block;
+        @include size-set(changePx(0.2rem), changePx(0.2rem));
+        @extend .border;
+        border-color: #430707;
+        transform: scale(0.5);
+        border-radius: 50%;
+        &.active {
+          background: #430707;
+        }
+        &::after {
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+  .scene_btn {
+    @include layout-set("layout");
+    margin-top: changePx(3.62rem);
+    margin-left: changePx(-0.1rem);
+    @include size-set(changePx(3rem), changePx(1rem));
+    @include page-sprite($position: 0 changePx(-3rem));
+  }
+  .scene_tab {
+    @include layout-set("layout");
+    margin-top: changePx(2.95rem);
+    margin-left: changePx(-0.12rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    &__item {
+      position: relative;
+      @include font-set(changePx(0.3rem), $color: #430707);
+      margin: 0 changePx(0.22rem);
+      width: changePx(0.64rem);
+      // margin-left: changePx(-0.0rem);
+      transition: all 0.3s;
+      &.active {
+        font-weight: bold;
+        color: #c02202;
+      }
+      &::after {
+        content: "";
+        @include size-set(changePx(0.2rem), changePx(1rem));
+        @include layout-set($right: changePx(-0.35rem), $top: changePx(-0.25rem));
+        @include page-sprite($position: changePx(-4rem) changePx(-5rem));
+      }
+    }
+    &__item3 {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.page_lyric {
+  @include text-forbid-cope;
+  @include size-set(100%, 100%);
+  .bg {
+    @include layout-set("center");
+    @include size-set(100%, 100%);
+    @include bg-set("../img/scene_bg.jpg");
+  }
+  .lyric_step {
+    @include layout-set($left: changePx(1.44rem), $top: 50%);
+    margin-top: changePx(-4.28rem);
+    @include font-set(changePx(0.3rem), $weight: bold, $color: #59190f);
+    letter-spacing: 1px;
+  }
+  .lyric_title {
+    @include layout-set("layout");
+    margin-top: changePx(-3.44rem);
+    @include font-set(changePx(0.3rem), $weight: bold, $color: #59190f);
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  .lyric_content {
+    @include layout-set($left: 0, $top: 50%);
+    margin-top: changePx(-2.68rem);
+    @include size-set(changePx(7.5rem), changePx(6.2rem));
+    @include bg-set("../img/lyric_content.png");
+    &__title {
+      @include layout-set("layout");
+      margin-top: changePx(-2.8rem);
+      @include size-set(changePx(2rem), changePx(1rem));
+      &1 {
+        @include page-sprite($position: changePx(-6rem) changePx(-4rem));
+      }
+      &2 {
+        @include page-sprite($position: changePx(-6rem) changePx(-5rem));
+      }
+      &3 {
+        @include page-sprite($position: changePx(-6rem) changePx(-6rem));
+      }
+    }
+    &__text {
+      @include layout-set($left: changePx(2.32rem), $top: changePx(50%));
+      margin-top: changePx(0.92rem);
+    }
+    &__item {
+      position: relative;
+      white-space: pre-line;
+      margin-left: changePx(0.28rem);
+      @include font-set(changePx(0.24rem), $lineHigh: changePx(0.3rem), $color: #f1e5a0);
+      margin-bottom: changePx(0.48rem);
+      min-width: changePx(2.7rem);
+      &::before {
+        content: "";
+        @include layout-set("center");
+        @include size-set(120%, 100%);
+        margin-left: changePx(-0.2rem);
+      }
+      &::after {
+        content: "";
+        @include layout-set($top: changePx(-0.35rem), $left: changePx(-0.8rem));
+        @include size-set(changePx(1rem), changePx(1rem));
+        @include page-sprite($position: changePx(-5rem) changePx(-5rem));
+        opacity: 0;
+      }
+      &.check {
+        &::after {
+          opacity: 1;
+          transition: opacity 0.3s;
+        }
+      }
+    }
+  }
+  .lyric_btn {
+    @include layout-set("layout");
+    margin-top: changePx(4.14rem);
+    @include size-set(changePx(4rem), changePx(1rem));
+    @include page-sprite($position: 0 changePx(-2rem));
+  }
+}
+
+.page_serp {
+  @include text-forbid-cope;
+  @include size-set(100%, 100%);
+  .bg {
+    @include layout-set("center");
+    @include size-set(100%, 100%);
+    // @include bg-set("../img/serp_1.jpg");
+  }
+  .serp_name {
+    @include layout-set("layout");
+    margin-top: changePx(-4.54rem);
+    @include size-set(changePx(3rem), changePx(1rem));
+    @include page-sprite($position: 0 changePx(-6rem));
+    @include font-set(changePx(0.3rem), $weight: bold, $color: #551209);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .serp_text__wrap {
+    display: none;
+    @include layout-set("layout");
+    margin-top: changePx(-3.58rem);
+    @include font-set(changePx(0.3rem), $lineHigh: changePx(0.36rem), $color: #551209);
+    text-align: center;
+    &.show {
+      display: block;
+    }
+  }
+  .serp_songname {
+    max-width: changePx(3rem);
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: break-all;
+    &_inner {
+      position: relative;
+      width: auto;
+    }
+    &__lose {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .serp_lyric {
+    @include size-set(changePx(4rem), changePx(2rem));
+    padding: changePx(0.52rem) 0 0 changePx(0.48rem);
+    box-sizing: border-box;
+    &1 {
+      @include layout-set($right: changePx(0.32rem), $top: 50%);
+      margin-top: changePx(0.32rem);
+    }
+    &__title {
+      position: relative;
+      z-index: 2;
+      @include font-set(changePx(0.24rem), $weight: bold, $color: #c02000);
+      margin-bottom: changePx(0.02rem);
+    }
+    &__text {
+      position: relative;
+      z-index: 2;
+      @include size-set(changePx(3.3rem), auto);
+      @include font-set(changePx(0.24rem), $lineHigh: changePx(0.3rem), $weight: bold, $color: #551209);
+    }
+    &::before {
+      content: "";
+      @include layout-set($left: 0, $bottom: 0);
+      @include size-set(100%, 100%);
+      @include page-sprite($position: changePx(-4rem) changePx(-7rem));
+    }
+  }
+  .serp_skip__wrap {
+    @include layout-set("layout", $zIndex: 3);
+    margin-top: changePx(4.02rem);
+    margin-left: changePx(-0.1rem);
+    @include size-set(100%, changePx(1rem));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .serp_skip {
+    position: relative;
+    @include size-set(changePx(4rem), changePx(1rem));
+    &::after {
+      content: "";
+      @include layout-set("center");
+      @include size-set(changePx(4rem), changePx(1rem));
+    }
+
+    &__left {
+      @include size-set(changePx(3rem), changePx(1rem));
+      margin-right: changePx(0.5rem);
+      &::after {
+        @include page-sprite($position: changePx(-0rem) changePx(-7rem));
+      }
+    }
+    &__right {
+      @include size-set(changePx(2.5rem), changePx(1rem));
+      &::after {
+        @include page-sprite($position: changePx(-0rem) changePx(-8rem));
+      }
+    }
+  }
+  .serp_btn__wrap {
+    @include layout-set("layout", $zIndex: 3);
+    margin-top: changePx(4.88rem);
+    margin-left: changePx(0.1rem);
+    @include size-set(100%, changePx(0.5rem));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .serp_btn {
+    position: relative;
+    width: auto;
+    @include font-set(changePx(0.24rem), $color: #fff);
+    &::after {
+      content: "";
+      @include layout-set($left: 50%, $bottom: 0);
+      transform: translate3d(-50%, 0, 0);
+      height: 1px;
+      background-color: #fff;
+      width: 100%;
+    }
+    &::before {
+      content: "";
+      @include layout-set("center");
+      @include size-set(120%, 200%);
+    }
+    &__left {
+      margin-right: changePx(0.24rem);
+    }
+  }
+  .serp_share__img {
+    position: relative;
+    z-index: 2;
+    @include size-set(100%, 100%);
+    opacity: 0;
+    img {
+      @include layout-set("center");
+      display: block;
+      @include size-set(100%, 100%);
+    }
+  }
+  &1 {
+    @include bg-set("../img/serp_1.jpg");
+    .serp_lyric {
+      @include layout-set($right: changePx(0.32rem), $top: 50%);
+      margin-top: changePx(0.32rem);
+    }
+    .serp_btn {
+      color: #fff;
+      &::after {
+        background-color: #fff;
+      }
+    }
+  }
+  &2 {
+    @include bg-set("../img/serp_2.jpg");
+    .serp_lyric {
+      @include layout-set($right: changePx(2.6rem), $top: 50%);
+      margin-top: changePx(-0.88rem);
+      padding-left: changePx(0.28rem);
+      &::before {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+  &3 {
+    @include bg-set("../img/serp_3.jpg");
+    .serp_text__wrap {
+      color: #fff;
+    }
+    .page_logo {
+      @include bg-set("../img/logo_white.png");
+    }
+    .serp_lyric {
+      @include layout-set($right: changePx(0.35rem), $top: 50%);
+      margin-top: changePx(-0.88rem);
+    }
+  }
+  &4 {
+    @include bg-set("../img/serp_4.jpg");
+    .serp_text__wrap {
+      color: #fff;
+    }
+    .serp_lyric {
+      @include layout-set($right: changePx(2.6rem), $top: 50%);
+      margin-top: changePx(-0.88rem);
+      padding-left: changePx(0.28rem);
+      &::before {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+  &5 {
+    @include bg-set("../img/serp_5.jpg");
+    .serp_lyric {
+      @include layout-set($right: changePx(1.2rem), $top: 50%);
+      margin-top: changePx(-1.68rem);
+      // padding-left: changePx(0.28rem);
+      // &::before {
+      //   transform: rotateY(180deg);
+      // }
+    }
+    .serp_btn {
+      &__left {
+        color: #430707;
+        &::after {
+          background-color: #430707;
+        }
+      }
+
+      &__right {
+        color: #c02000;
+        &::after {
+          background-color: #c02000;
+        }
+      }
+    }
+  }
+  &6 {
+    @include bg-set("../img/serp_6.jpg");
+    .serp_lyric {
+      @include layout-set($right: changePx(0.02rem), $top: 50%);
+      margin-top: changePx(-1.74rem);
+    }
+    .serp_btn {
+      &__left {
+        color: #430707;
+        &::after {
+          background-color: #430707;
+        }
+      }
+
+      &__right {
+        color: #c02000;
+        &::after {
+          background-color: #c02000;
+        }
+      }
+    }
+  }
+}
+@import "ani";
+/* 页面样式 - End */

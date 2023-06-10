@@ -1,0 +1,21 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_1.png',
+    'heading': 'Swaiot就在您身边',
+    'text': '您家里的支持Swaiot的电视和各种智能设备以及各种终端上的Swaiot APP，还有您看不到的Swaiot云端，共同组成了Swaiot生态。'
+  }
+%}
+
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+
+<div class="content-wrap  animation-box">
+  <img class="img-block" src="{{baseUrl}}/section2_product.jpg" alt="">                                                                                                                                                                                                                                               
+  <canvas id="section2Canvas">
+  </canvas>
+</div>

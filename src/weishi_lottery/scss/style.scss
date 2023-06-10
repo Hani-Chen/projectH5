@@ -1,0 +1,891 @@
+@charset "utf-8";
+// 页面默认字体
+$baseFont: Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB',
+  'Heiti SC', STXihei, 'Microsoft YaHei', SimHei, 'WenQuanYi Micro Hei';
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+body,
+html {
+  position: relative;
+  height: 100%;
+  font-family: $baseFont;
+  -webkit-overflow-scrolling: touch; /* 解决ios滑动不流畅问题 */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+input {
+  border: 0;
+  background: 0;
+}
+
+// 字体引入
+@font-face {
+  font-family: 'HYYKH';
+  src: url('../fonts/HYYKH.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.font-hyykh {
+  font-family: 'HYYKH';
+}
+// 公共样式 - 去除button默认样式
+button {
+  border: 1px solid transparent;
+  outline: none;
+  background: transparent;
+}
+// 公共样式 - 背景图基本样式
+.bg-item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+// 公共样式 - 定位基本样式
+.ab-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+// 公共样式 - 页面最大容器
+.page-wrap {
+  position: relative;
+  width: 100%;
+  user-select: none;
+  background: #ffb673;
+}
+// 公共样式 - 页面基本样式
+.page {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  &.show {
+    display: block;
+  }
+}
+// 公共样式 - 页面顶部活动规则按钮
+.btn-rule {
+  position: absolute;
+  top: 0.21rem;
+  right: 0;
+  width: 1.3rem;
+  height: 0.42rem;
+  @extend .bg-item;
+  background-image: url('../img/btn_rule.png');
+}
+// 公共样式 - 金币装饰一基本样式
+.ornament-gold1 {
+  position: absolute;
+  width: 1.05rem;
+  height: 0.7rem;
+  @extend .bg-item;
+  background-image: url('../img/ornament_gold1.png');
+}
+// 公共样式 - 树叶装饰一基本样式
+.ornament_leaf1 {
+  position: absolute;
+  width: 0.97rem;
+  height: 0.93rem;
+  @extend .bg-item;
+  background-image: url('../img/ornament_leaf1.png');
+}
+// 公共样式 - 树叶装饰二基本样式
+.ornament-leaf2 {
+  position: absolute;
+  width: 1.4rem;
+  height: 0.97rem;
+  @extend .bg-item;
+  background-image: url('../img/ornament_leaf2.png');
+}
+// 公共样式 - 提示
+.toast-item {
+  position: fixed;
+  max-width: 60%;
+  left: 50%;
+  bottom: 6%;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  font-size: 0.18rem;
+  padding: 0.12rem 0.16rem;
+  line-height: 1;
+  border-radius: 0.3rem;
+  transform: translate3d(-50%, -50%, 0);
+  animation: fadeInDown 0.5s backwards;
+  z-index: 999;
+}
+// 公共样式 - 页面动画引入
+@import 'ani';
+
+.page {
+  &-index {
+  }
+}
+// 页面样式 - 首页
+.index {
+  // 首页 - 头部模块
+  &-title-wrap {
+    position: relative;
+    width: 100%;
+    height: 7.75rem;
+    @extend .bg-item;
+    background-image: url('../img/index_title_bg.jpg');
+    // 头部 - 进入个人中心按钮
+    .btn-my {
+      position: absolute;
+      left: 0.2rem;
+      top: 0.15rem;
+      width: 0.7rem;
+      height: 0.7rem;
+      @extend .bg-item;
+      background-image: url('../img/index_btn_my.png');
+    }
+    // 头部 - 弹幕模块
+    .barrage {
+      @extend .ab-item;
+      top: 2.07rem;
+      width: 5.48rem;
+      height: 0.38rem;
+      padding: 0 0.2rem 0 0.53rem;
+      margin-left: -2.74rem;
+      background-color: rgba($color: #941500, $alpha: 0.48);
+      border-radius: 0.2rem;
+      // 弹幕 - 喇叭icon
+      &-icon {
+        @extend .ab-item;
+        left: 0.15rem;
+        width: 0.23rem;
+        height: 0.24rem;
+        margin-top: -0.115rem;
+        @extend .bg-item;
+        background-image: url('../img/icon_horn.png');
+      }
+      // 弹幕 - 内容
+      &-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      // 弹幕 - 列表
+      &-list {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        transform: translateX(0);
+      }
+      // 单条弹幕
+      &-item {
+        // display: inline-block;
+        height: 100%;
+        margin: 0 0.18rem;
+        line-height: 0.41rem;
+        font-size: 0.24rem;
+        font-weight: 600;
+        color: #fff;
+        white-space: nowrap;
+      }
+      // 单条弹幕 - 第一条
+      &-item:first-child {
+        margin-left: 0;
+      }
+    }
+    // 头部 - 签到模块
+    .signin {
+      position: absolute;
+      left: 0;
+      bottom: -0.18rem;
+      width: 100%;
+      height: 4.45rem;
+      @extend .bg-item;
+      background-image: url('../img/index_signin_bg.png');
+      // 签到 - 装饰1 - 金币
+      &-ornament1 {
+        top: -0.15rem;
+        left: -0.05rem;
+      }
+      // 签到 - 装饰2 - 树叶
+      &-ornament2 {
+        right: -0.12rem;
+        bottom: 0.26rem;
+      }
+      // 签到 - 装饰3 - 树叶
+      &-ornament3 {
+        left: -0.6rem;
+        bottom: -0.04rem;
+      }
+      // 签到 - 数据
+      &-data {
+        @extend .ab-item;
+        top: 1.32rem;
+        display: flex;
+        justify-content: space-between;
+        width: 6.25rem;
+        height: 0.4rem;
+        margin-left: -3.125rem;
+        // background: rgba($color: #000000, $alpha: 0.2);
+      }
+      // 余额 && 天数
+      &-balance,
+      &-day {
+        width: 3.11rem;
+        height: 100%;
+        text-align: center;
+        line-height: 0.29rem;
+        font-size: 0.24rem;
+        color: #ec2825;
+        line-height: 0.3rem;
+        white-space: nowrap; /* 强制不换行 */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 600;
+        // 金币数量
+        .gold-amount,
+        .day {
+          display: inline-block;
+          height: 100%;
+          font-size: 0.4rem;
+          line-height: 0.32rem;
+          font-weight: bold;
+        }
+      }
+      &-progress-wrap {
+        @extend .ab-item;
+        top: 2rem;
+        width: 6.25rem;
+        height: 0.86rem;
+        margin-left: -3.125rem;
+      }
+      // 签到 - 进度
+      &-progress {
+        position: relative;
+        width: 100%;
+        height: 0.2rem;
+        @extend .bg-item;
+        background-image: url('../img/index_progress_bg.png');
+        &-inner {
+          @extend .ab-item;
+          left: 0;
+          width: 10%;
+          max-width: 100%;
+          height: 0.1rem;
+          margin-top: -0.05rem;
+          background: #f46b34;
+          border-radius: 0.05rem;
+          .circle {
+            position: absolute;
+            right: -0.1rem;
+            top: 50%;
+            display: block;
+            width: 0.2rem;
+            height: 0.2rem;
+            margin-top: -0.1rem;
+            background: #f46b34;
+            border-radius: 50%;
+          }
+          // 进度 - 签到第一天
+          &.one-day {
+            width: 7.5%;
+          }
+          // 进度 - 签到第二天
+          &.two-days {
+            width: 21.5%;
+          }
+          // 进度 - 签到第三天
+          &.three-days {
+            width: 36%;
+          }
+          // 进度 - 签到第四天
+          &.four-days {
+            width: 50%;
+          }
+          // 进度 - 签到第五天
+          &.five-days {
+            width: 64%;
+          }
+          // 进度 - 签到第六天
+          &.six-days {
+            width: 78.5%;
+          }
+          // 进度 - 签到第七天
+          &.seven-days {
+            width: 100%;
+          }
+        }
+      }
+      // 签到 - 奖品
+      &-prize {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0.56rem;
+        @extend .bg-item;
+        background-image: url('../img/index_signin_prize.png');
+      }
+      // 签到 - 按钮
+      .btn-signin {
+        position: absolute;
+        left: 50%;
+        bottom: 0.62rem;
+        width: 4.17rem;
+        height: 0.68rem;
+        margin-left: -2.085rem;
+        @extend .bg-item;
+        background-image: url('../img/index_btn_signin.png');
+      }
+    }
+  }
+  // 首页 - 内容模块
+  &-content {
+    &-wrap {
+      border-style: solid;
+      border-left-width: 0.46rem;
+      border-top-width: 0.54rem;
+      border-right-width: 0.46rem;
+      border-bottom-width: 0.65rem;
+      border-image-source: url('../img/index_content_bg.png');
+      border-image-slice: 54 46 65 46 fill;
+    }
+    &-inner {
+      width: 100%;
+      height: 100%;
+      // 内容 - 标题
+      .title {
+        width: 6.58rem;
+        height: 2.66rem;
+        margin: 0 auto;
+        @extend .bg-item;
+        background-image: url('../img/index_content_title.png');
+      }
+      // 内容 - 参与下注模块
+      .goods {
+        // 下注 - 列表
+        &-list {
+          width: 100%;
+        }
+        // 下注 - 单个奖品
+        &-item {
+          position: relative;
+          width: 6.34rem;
+          height: 3.7rem;
+          margin: 0.24rem auto 0;
+          @extend .bg-item;
+          background-image: url('../img/index_participate_bg.png');
+          // 数据信息
+          &-data {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 0.4rem;
+            text-align: center;
+            color: #763b20;
+            line-height: 0.4rem;
+          }
+          // 时间
+          &-time {
+            width: 2.8rem;
+            height: 100%;
+            font-size: 0.28rem;
+            span {
+              color: #ec2925;
+              font-weight: 600;
+            }
+          }
+          // 人数
+          &-number {
+            width: 1.82rem;
+            height: 100%;
+            font-size: 0.2rem;
+            span {
+              font-size: 0.24rem;
+              color: #ec2825;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 弹窗 - 公共样式
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  &.show {
+    display: block;
+  }
+  &-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  &-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  &-body {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 6.26rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -3.13rem;
+  }
+  &-inner {
+    position: relative;
+    width: 100%;
+    height: 6.26rem;
+    @extend .bg-item;
+    background-image: url(../img/modal_bg.png);
+    background-size: 100% 6.26rem;
+    animation: modalScale 0.5s linear;
+    &.pulse {
+      animation-name: pulse;
+    }
+  }
+
+  // 标题文案
+  .title {
+    @extend .ab-item;
+    top: 1.5rem;
+    text-align: center;
+    color: #ec2825;
+  }
+
+  // 弹窗 - 装饰
+  .ornament {
+    @extend .ab-item;
+    top: 3.35rem;
+    width: 2.5rem;
+    height: 1.8rem;
+    margin-left: -1.25rem;
+    @extend .bg-item;
+    background: {
+      image: url('../img/modal_ornament1.png');
+      size: 2.5rem 5.4rem;
+      repeat: no-repeat;
+      position: 0 -3.6rem;
+    }
+  }
+  // 装饰 - 礼包
+  .ornament-gift {
+    margin-left: -1.15rem;
+    background-position: 0 0;
+  }
+  // 装饰 - 宝箱
+  .ornament-box {
+    top: 3.45rem;
+    margin-left: -1.05rem;
+    background-position: 0 -1.8rem;
+  }
+  // 弹窗 - 按钮
+  .modal-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 0.1rem;
+    width: 3rem;
+    height: 1.1rem;
+    margin-left: -1.47rem;
+    background: {
+      image: url('../img/modal_btn.png');
+      size: 9rem 3.3rem;
+      repeat: no-repeat;
+    }
+  }
+  // 关闭按钮
+  &-close {
+    position: absolute;
+    left: 50%;
+    bottom: -1.44rem;
+    width: 0.76rem;
+    height: 0.76rem;
+    margin-left: -0.38rem;
+    @extend .bg-item;
+    background-image: url(../img/modal_close.png);
+  }
+}
+
+.modal {
+  // 弹窗 - 看视频翻倍
+  &-video-double {
+    // 标题文案
+    .title {
+      width: 4.9rem;
+      margin-left: -2.4rem;
+      font-size: 0.52rem;
+      line-height: 0.8rem;
+    }
+    // 按钮 - 去翻倍
+    .modal-btn-double {
+      width: 2.94rem;
+      height: 1.13rem;
+      margin-left: -1.47rem;
+      background-image: url('../img/modal_btn_double.png');
+      background-size: 100% auto;
+    }
+  }
+  // 弹窗 - 提示翻倍成功
+  &-hint-double {
+    // 标题文案
+    .title {
+      width: 3.9rem;
+      margin-left: -1.95rem;
+      font-size: 0.64rem;
+      line-height: 0.9rem;
+    }
+    // 按钮 - 去拆开
+    .modal-btn-toopen {
+      background-position: -6rem -2.2rem;
+    }
+  }
+  // 弹窗 - 未完成观看视频
+  &-unfinished {
+    // 标题文案
+    .title {
+      width: 5rem;
+      margin-left: -2.5rem;
+      font-size: 0.57rem;
+      line-height: 0.86rem;
+    }
+    // 按钮容器
+    .btn-wrap {
+      position: absolute;
+      left: 50%;
+      bottom: 0.1rem;
+      width: 5.62rem;
+      margin-left: -2.81rem;
+    }
+    // 按钮 - 继续观看
+    .btn-continue {
+      bottom: 0;
+      left: -0.15rem;
+      margin-left: 0;
+      background-position: -3rem -2.2rem;
+    }
+    .btn-hunt {
+      bottom: 0;
+      left: auto;
+      right: -0.1rem;
+      margin-left: 0;
+      background-position: 0 -2.2rem;
+    }
+  }
+  // 弹窗 - 礼品
+  &-gift {
+    // 标题文案
+    .title {
+      width: 4.2rem;
+      margin-left: -2.1rem;
+      font-size: 0.7rem;
+      line-height: 0.9rem;
+    }
+    // 按钮 - 马上拆开
+    .modal-btn-immediately {
+      background-position: -6rem -1.1rem;
+    }
+  }
+  // 弹窗 - 助力成功
+  &-help-success {
+    // 标题文案
+    .title {
+      width: 5rem;
+      margin-left: -2.5rem;
+      font-size: 0.51rem;
+      line-height: 0.68rem;
+    }
+    // 按钮 - 马上拆开
+    .modal-btn-helpsuccess {
+      background-position: -6rem -2.2rem;
+    }
+  }
+  // 提示分享
+  &-share {
+    // 标题文案
+    .title {
+      width: 4rem;
+      margin-left: -2rem;
+      font-size: 0.66rem;
+      line-height: 0.9rem;
+    }
+    // 按钮 - 分享
+    .modal-btn-share {
+      background-position: 0 -1.1rem;
+    }
+  }
+  // 提示助力
+  &-help {
+    // 标题文案
+    .title {
+      width: 4.9rem;
+      margin-left: -2.45rem;
+      font-size: 0.54rem;
+      line-height: 0.76rem;
+    }
+    // 按钮 - 助力
+    .modal-btn-help {
+      background-position: 0 -1.1rem;
+    }
+  }
+  // 查询中奖结果；
+  &-inquire {
+    // 标题文案
+    .title {
+      width: 5.1rem;
+      margin-left: -2.55rem;
+      font-size: 0.46rem;
+      line-height: 0.7rem;
+    }
+    // 按钮 - 马上查询
+    .modal-btn-inquire {
+      background-position: 0 0;
+    }
+  }
+  // 拆红包弹窗 & 助力结束后弹窗
+  &-open-gift,
+  &-help-over {
+    // 弹窗主内容
+    .modal-inner {
+      height: 8.62rem;
+      background-position: 0 0;
+    }
+    // 按钮 - 去夺宝
+    .modal-btn-join {
+      background-position: -3rem -1.1rem;
+      bottom: 2.46rem;
+    }
+    .modal-close {
+      bottom: 0.92rem;
+    }
+    .base {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1.95rem;
+      @extend .bg-item;
+      background-image: url('../img/modal_base_bg.jpg');
+    }
+    .base-products {
+      &-list {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 0.42rem 0.25rem;
+      }
+      &-item {
+        width: 3.1rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .item {
+          // 产品图
+          &-img {
+            width: 1rem;
+            height: auto;
+          }
+          // 产品文案
+          &-text-wrap {
+            width: 1.9rem;
+            height: 100%;
+            padding-top: 0.15rem;
+          }
+          // 价格
+          &-price {
+            font-size: 0.24rem;
+            color: #763b20;
+            line-height: 0.3rem;
+          }
+          // 去看看按钮
+          &-go {
+            width: 1.13rem;
+            height: 0.45rem;
+            margin-top: 0.05rem;
+            @extend .bg-item;
+            background-image: url('../img/modal_products_go.png');
+          }
+        }
+      }
+    }
+  }
+  // 拆红包弹窗
+  &-open-gift {
+    // 标题文案
+    .title {
+      width: 5.04rem;
+      margin-left: -2.53rem;
+      font-size: 0.58rem;
+      line-height: 0.8rem;
+    }
+    // 按钮 - 去夺宝
+    .modal-btn-join {
+      background-position: -3rem -1.1rem;
+      bottom: 2.46rem;
+    }
+  }
+  // 助力结束后
+  &-help-over {
+    // 标题文案
+    .title {
+      width: 5rem;
+      margin-left: -2.5rem;
+      font-size: 0.51rem;
+      line-height: 0.8rem;
+    }
+  }
+  // 下注弹窗
+  &-bet {
+    .modal-body {
+      position: absolute;
+      left: 0;
+      top: auto;
+      bottom: 0;
+      width: 100%;
+      height: 5.5rem;
+      margin-top: 0;
+    }
+    .modal-inner {
+      height: 100%;
+      @extend .bg-item;
+      background-image: url('../img/modal_bet_bg.jpg');
+      text-align: center;
+    }
+    // 标题
+    .titel {
+      position: absolute;
+      left: 0;
+      top: 0.35rem;
+      width: 100%;
+      font-size: 0.46rem;
+      line-height: 0.59rem;
+      color: #ec2825;
+    }
+    // 提示文案
+    .text {
+      position: absolute;
+      left: 0;
+      top: 1.1rem;
+      width: 100%;
+      font-size: 0.24rem;
+      color: #763b20;
+    }
+    // 概率
+    .probability {
+      position: absolute;
+      top: 1.72rem;
+      left: 0;
+      width: 100%;
+      font-size: 0.32rem;
+      color: #000;
+    }
+    // 下注
+    .bet-wrap {
+      position: absolute;
+      left: 0;
+      top: 2.26rem;
+      width: 100%;
+      height: 1.24rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0.8rem;
+    }
+    .btn-bet {
+      width: 1.24rem;
+      height: 1.24rem;
+      background: {
+        image: url('../img/modal_btn_bet.png');
+        size: 2.48rem;
+        repeat: no-repeat;
+      }
+    }
+    // 减
+    .btn-subtract {
+      &.active {
+        background-position: -1.24rem 0;
+      }
+    }
+    // .bet-number-wrap {
+    //   min-width: 1.17rem;
+    //   // width: 1.17rem;
+    //   height: 1.17rem;
+    //   border: 0.02rem solid #ffe6d4;
+    //   line-height: 0.58rem;
+    //   text-align: center;
+    // }
+    // 数量
+    .bet-number {
+      // min-width: 1.17rem;
+      width: 1.17rem;
+      height: 1.17rem;
+      border: 0.02rem solid #ffe6d4;
+      line-height: 0.58rem;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    // 加
+    .btn-puls {
+      background-position: -0 -1.24rem;
+      &.active {
+        background-position: -1.24rem -1.24rem;
+      }
+    }
+    // 提示文案
+    .text2 {
+      position: absolute;
+      left: 0;
+      bottom: 1.4rem;
+      width: 100%;
+      font-size: 0.24rem;
+      color: #763b20;
+    }
+    // 全部投注
+    .bet-all {
+      border-bottom: 1px solid #763b20;
+    }
+    .btn-affirmbet {
+      position: absolute;
+      left: 50%;
+      bottom: 0.18rem;
+      width: 5.8rem;
+      height: 1rem;
+      margin-left: -2.9rem;
+      @extend .bg-item;
+      background-image: url('../img/modal_btn_affirmbet.png');
+    }
+  }
+}

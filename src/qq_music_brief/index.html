@@ -1,0 +1,101 @@
+<!--
+ * @Author: Gianni
+ * @Date: 2021-08-31 16:00:56
+ * @LastEditTime: 2021-09-07 14:57:28
+ * @LastEditors: Gianni
+ * @Description: *
+ * @FilePath: \H5-Project\src\qq_music_brief\index.html
+-->
+{% extends "./_njk/base.njk" %} {% block main %}
+<section class="wrap">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide page_item page_item1">
+        <!-- 背景装饰 -->
+        <div class="page_item__adorn"></div>
+        <!-- 手机阴影 -->
+        <div class="page_item__shadow"></div>
+        <!-- 标题 -->
+        <div class="page_item__title"></div>
+        <!-- 手机 -->
+        <div class="page_item__mobile">
+          <div class="page_item__content page_item__content1"></div>
+        </div>
+      </div>
+      <div class="swiper-slide page_item page_item2">
+        <!-- 背景装饰 -->
+        <div class="page_item__adorn page_item__adorn2"></div>
+        <!-- 手机阴影 -->
+        <div class="page_item__shadow page_item__shadow2"></div>
+        <!-- 标题 -->
+        <div class="page_item__title page_item__title2"></div>
+        <!-- 手机 -->
+        <div class="page_item__mobile">
+          <div class="page_item__content page_item__content2"></div>
+        </div>
+      </div>
+      <div class="swiper-slide page_item page_item3">
+        <!-- 背景装饰 -->
+        <div class="page_item__adorn page_item__adorn3"></div>
+        <!-- 手机阴影 -->
+        <div class="page_item__shadow page_item__shadow3"></div>
+        <!-- 标题 -->
+        <div class="page_item__title page_item__title3"></div>
+        <!-- 手机 -->
+        <div class="page_item__mobile">
+          <div class="page_item__content page_item__content3"></div>
+        </div>
+        <!-- 蒙层 -->
+        <div class="page_protocol__obscuration">
+        </div>
+        <div class="page_rule">活动规则</div>
+        <!-- 协议 -->
+        <div class="page_protocol__wrap">
+          <div class="page_protocol__title"></div>
+          <!-- 奖品列表 -->
+          <div class="page_protocol__prize">
+            <div class="prize_item">
+              <img class="prize_item__img" src="./img/prize_1.png" alt="" />
+            </div>
+            <div class="prize_item">
+              <img class="prize_item__img" src="./img/prize_2.png" alt="" />
+            </div>
+            <div class="prize_item">
+              <img class="prize_item__img" src="./img/prize_3.png" alt="" />
+            </div>
+            <div class="prize_item">
+              <img class="prize_item__img" src="./img/prize_4.png" alt="" />
+            </div>
+            <div class="prize_item">
+              <img class="prize_item__img" src="./img/prize_5.png" alt="" />
+            </div>
+          </div>
+          <!-- 按钮 -->
+          <div class="page_protocol__btn">领取31天豪华绿钻</div>
+          <!-- 协议文案 -->
+          <div class="page_protocol__text">
+            <input
+              type="checkbox"
+              class="page_protocol__select"
+              id="pageProtocolSelect"
+            /><span class="page_protocol__circle"></span> 点击领取即代表接受新版
+            <a
+              href="javascript:;"
+              id="pageProtocolUrl"
+              class="page_protocol__url"
+              >《会员服务协议》</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+{% endblock %} {% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<script src="./js/fx.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/Swiper/3.0.0/js/swiper.jquery.min.js"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

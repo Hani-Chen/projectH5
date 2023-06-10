@@ -1,0 +1,41 @@
+{% extends "./_njk/base.njk" %}
+{% block stylesheet %}
+  <link rel="stylesheet" href="css/style.min.css">
+{% endblock %}
+{% block main %}
+  <div class="wrap">
+    <!-- 头部 -->
+    <div class="header">
+      <!-- 头部 logo -->
+    </div>
+    <!-- 内容 -->
+    <div class="content" id="canvasBox">
+      <!-- 内容 - 圆盘 -->
+      <div class="content-disk">
+        <span class="content-dot content-dot-play"></span>
+        <!-- 帧动画 -->
+        <canvas id="canvasBeijing" class="canvas-animate canvas-show" width="300" height="300"></canvas>
+        <!-- <canvas id="canvasGuangzhou" class="canvas-animate canvas-show" width="300" height="300"></canvas> -->
+      </div>
+    </div>
+  </div>
+  <button class="savePicture">保存图片</button>
+  <canvas id="myCanvas" width="220" height="84"></canvas>
+  <div id="box-img"></div>
+{% endblock %}
+{% block javascript %}
+  <!-- 预加载资源插件 -->
+  <script type="text/javascript" src="js/preloadjs.min.js"></script>
+  <!-- 帧动画参数 -->
+  <script src="js/data.js"></script>
+  <!-- zepto -->
+  <script src="js/zepto.min.js"></script>
+
+  <script type="text/javascript" src="js/html2canvas.min.js"></script>
+  <script type="text/javascript" src="js/canvas2Image.js"></script>
+
+  <!-- 滑动插件 -->
+  <script src="js/PhyTouch.js"></script>
+  <!-- 主程序 -->
+  <script src="js/index.js"></script>
+{% endblock %}

@@ -1,0 +1,619 @@
+
+/* 公共样式 */
+.page {
+  position: relative;
+  height: 100%;
+  background-color: #008148;
+}
+/* 按钮公共样式 */
+.btn {
+  display: block;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  text-align: center;
+  margin: 0 auto;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  line-height: 75px;
+}
+.bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+.home-module {
+  width: 690px;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 30px auto 0;
+  padding: 0 28px;
+}
+/* 引导页 */
+.shade {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 3;
+}
+.home_guide2 {
+  position: absolute;
+  left: -125px;
+  top: -300px;
+  width: 750px;
+  max-width: 750px;
+  height: 256px;
+}
+/* 引导页 - 指引文案 */
+.home_guide1 {
+  position: absolute;
+  left: -100px;
+  top: -265px;
+  width: 750px;
+  max-width: 750px;
+  height: 378px;
+}
+/* 引导页 - 我知道按钮 */
+.btn-know {
+  position: absolute;
+  left: 50%;
+  bottom: 120px;
+  width: 190px;
+  height: 66px;
+  margin-left: -95px;
+  background-image: url(../assets/img/btn_know.png);
+  background-size: 100% auto;
+  opacity: 0;
+  animation: moveTo 0.2s 0.5s linear;
+  animation-fill-mode: forwards;
+  
+}
+/* 引导页动画 1 */
+@keyframes hadeAni {
+  
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* 引导页动画 2 */
+@keyframes moveTo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 主页 */
+.page-home {
+  width: 750px;
+  padding-bottom: 168px;
+}
+/* 主页 - title模块 */
+.home-title {
+  position: relative;
+  width: 100%;
+  height: 920px;
+}
+
+.title-content {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  margin-left: -345px;
+  height: 478px;
+}
+/* 内容 - 优惠券 */
+.title-content .ticket-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  left: 50%;
+  top: 34px;
+  width: 630px;
+  height: 210px;
+  margin-left: -315px;
+}
+/* 优惠券 - 背景图 */
+.ticket-wrap .bg {
+  width: 100%;
+  height: 100%;
+}
+/* 优惠券 - 文案 */
+.ticket-wrap .text-wrap {
+  position: relative;
+}
+/* 优惠券 - 金额 */
+.ticket-wrap .money {
+  display: flex;
+  position: relative;
+  top: 10px;
+  height: 100px;
+  font-size: 100px;
+  color: #21a04b;
+  padding-left: 45px;
+  line-height: 0;
+}
+/* 优惠券 - 金额 */
+.ticket-wrap .money>div {
+  display: flex;
+  position: relative;
+  
+}
+
+.money .default {
+  line-height: 1;
+}
+.money .money-item-wrap {
+  position: relative;
+  width: 55px;
+  height: 100px;
+  overflow: hidden;
+}
+ .money .money-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.6s linear;
+}
+.money .money-item span {
+  display: block;
+  height: 100%;
+  line-height: 1;
+}
+/* 优惠券 - 文案 */
+.ticket-wrap .text-wrap {
+  position: relative;
+  width: 400px;
+}
+/* 优惠券 - 文案 - title */
+.ticket-wrap .text-wrap .title {
+  position: relative;
+  font-size: 36px;
+  font-weight: bold;
+  color: #21a04b;
+}
+/* 优惠券 - 文案 - text */
+.ticket-wrap .text-wrap .text {
+  position: relative;
+  font-size: 20px;
+  color: #666666;
+  white-space: pre-wrap;
+  padding-top: 20px;
+  line-height: 30px;
+  padding-right: 20px;
+}
+
+/* 内容 - 膨胀按钮 */
+.title-content .btn-swell {
+  position: absolute;
+  left: 50%;
+  bottom: 126px;
+  width: 548px;
+  height: 75px;
+  margin-left: -274px;
+  background-color: #ff7f40;
+  border-radius: 37px;
+  font-size: 36px;
+  color: #fff;
+  z-index: 3;
+  opacity: 0;
+  animation: moveTo 0.2s 0.5s linear;
+  animation-fill-mode: forwards;
+  /* transition: transform 1s; */
+}
+/* 内容 - 膨胀按钮 */
+.title-content .btn-swell.btn-swell-active {
+  background-color: #eb7658;
+}
+
+.title-content .btn-swell.scale {
+  transform: scale(1.05);
+}
+
+/* 内容 - 不膨胀按钮 */
+.title-content .btn-waive {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  width: 548px;
+  height: 75px;
+  margin-left: -274px;
+  background-color: #309b65;
+  border-radius: 37px;
+  font-size: 36px;
+  color: #fff;
+  z-index: 3;
+  opacity: 0;
+  animation: moveTo 0.2s 0.5s linear;
+  animation-fill-mode: forwards;
+}
+/* 内容 - 膨胀按钮 */
+.title-content .btn-waive.btn-waive-active {
+  background-color: #3cb364;
+}
+.title-content .btn-waive.eventsnone {
+  pointer-events:none;
+}
+.title-content .btn-swell.eventsnone {
+  pointer-events:none;
+}
+
+
+/* 抽奖模块 */
+.home-lottery {
+  padding: 0;
+  position: relative;
+}
+/* 抽奖模块 - 分享iconn */
+.home-lottery .home_share{
+  display: block;
+  position: absolute;
+  top: -25px;
+  right: 2px;
+  width: 137px;
+  height: 109px;
+  z-index: 3;
+}
+/* 抽奖模块 - 背景 */
+.home-lottery .bg1{
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 370px;
+}
+/* 抽奖模块 - 装饰圈 - 容器 */
+.home-lottery .circle-wrap {
+  position: absolute;
+  left: 0;
+  top: 130px;
+  width: 100%;
+}
+/* 抽奖模块 - 装饰圈 */
+.home-lottery .circle-wrap .circle {
+  position: absolute;
+  top: 0;
+  left: -17px;
+  width: 34px;
+  height: 34px;
+  background-color: #008148;
+  z-index: 2;
+  border-radius: 50%;
+}
+/* 抽奖模块 - 装饰圈 */
+.home-lottery .circle-wrap .circle:last-child {
+  left: auto;
+  right: -17px;
+}
+/* 抽奖模块 - 按钮 */
+.home-lottery .btn-lottery-same {
+  position: relative;
+  width: 548px;
+  height: 75px;
+  border-radius: 37px;
+  font-size: 36px;
+  color: #fff;
+  margin: 0 auto;
+}
+/* 抽奖模块 - 抽奖按钮 */
+.home-lottery .btn-lottery {
+  background-color: #ff7640;
+  margin-top: 14px;
+  z-index: 3;
+  opacity: 0;
+  animation: moveTo 0.2s 0.5s linear;
+  animation-fill-mode: forwards;
+}
+/* 抽奖模块 - 抽奖按钮 */
+.home-lottery .btn-lottery.btn-lottery-active {
+  background-color: #eb7658;
+  margin-top: 14px;
+}
+/* 抽奖模块 - 抽奖按钮 */
+.home-lottery .btn-lottery.eventsnone {
+  pointer-events:none;
+}
+/* 抽奖模块 - 立即使用按钮 */
+.home-lottery .btn-employ {
+  background-color: #ff7640;
+  margin-top: 14px;
+}
+/* 抽奖模块 - 立即使用按钮 - 高亮 */
+.home-lottery .btn-employ.btn-employ-active {
+  background-color: #eb7658;
+}
+/* 抽奖模块 - 喊好友沾喜气按钮 */
+.home-lottery .btn-share {
+  background-color: #309b65;
+  margin-top: 20px;
+}
+/* 抽奖模块 - 喊好友沾喜气按钮 */
+.home-lottery .btn-share.btn-share-active {
+  background-color: #3cb364;
+}
+/* 抽奖模块 - 提醒我明日赢免单按钮 */
+.home-lottery .btn-remind {
+  background-color: #ff7640;
+}
+/* 抽奖模块 - 提醒我明日赢免单按钮 - 高亮 */
+.home-lottery .btn-remind.btn-remind-active {
+  background-color: #eb7658;
+}
+/* 抽奖模块 - 手势 */
+.home-lottery .btn-lottery .bg-head{
+  position: absolute;
+  left: 367px;
+  top: 26px;
+  width: 81px;
+  height: 78px;
+}
+/* 抽奖模块 - 手势 */
+.home-lottery .btn-lottery .bg-head.ani{
+  animation: hadeAni 0.3s alternate  11;
+}
+/* 抽奖模块 - 文案 */
+.home-lottery .text {
+  display: block;
+  position: relative;
+  font-size: 24px;
+  color: #999;
+  padding: 0 28px;
+  text-align: justify;
+  margin-top: 50px;
+  
+}
+/* 抽奖模块 - 背景 */
+.home-lottery .bg2{
+  position: relative;
+  width: 690px;
+  height: 112px;
+  margin: 25px auto 28px;
+}
+
+
+
+/* 订阅模块 */
+.home-subscribe {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  height: auto;
+}
+/* 订阅模块 - 单个订阅 */
+.subscribe-item {
+  position: relative;
+  line-height: 1;
+  font-size: 30px;
+  color: #333333;
+  padding: 36px 28px;
+  user-select:none;
+}
+/* 订阅模块 - 单个订阅 */
+.subscribe-item::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate3d(-50%, 0, 0);
+  width: 630px;
+  height: 1px;
+  background: rgba(204, 204, 204, 0.54);
+}
+/* 订阅模块 - 单个订阅 */
+.subscribe-item:last-child::before {
+  background: transparent;
+}
+.subscribe-item:active:last-child::before {
+  border-radius: 0 0 20px 20px;
+}
+.subscribe-item:active:first-child::before {
+  border-radius: 20px 20px 0 0;
+  top: 0;
+}
+.subscribe-item.special {
+  color: #d36f4c;
+}
+.subscribe-item.special::before {
+  border-radius: 20px 20px 0 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fcf7f5;
+  color: #d36f4c;
+}
+.subscribe-item.special:active::before {
+  border-radius: 20px 20px 0 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffeecd;
+  color: #d36f4c;
+}
+/* 订阅模块 - 单个订阅 */
+.subscribe-item:active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -1px;
+  transform: translate3d(0, 0, 0);
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+}
+/* 订阅模块 - 单个订阅 */
+.subscribe-item span {
+  position: relative;
+}
+
+/* 订阅模块 - 更多icon */
+.subscribe-item .icon-more {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  width: 12px;
+  height: 20px;
+  margin-top: -10px;
+}
+/* 活动规则模块 */
+.home-rule {
+  position: relative;
+  padding-top: 33px;
+}
+.home-rule .title {
+  display: block;
+  position: relative;
+  width: 280px;
+  height: 34px;
+  margin: 0 auto;
+}
+.home-rule .rule-content {
+  position: relative;
+  padding: 43px 0;
+  font-size: 24px;
+  line-height: 36px;
+  color: #999999;
+}
+.home-rule .rule-content text{
+  display: block;
+  text-align: justify;
+}
+.logo {
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  width: 410px;
+  height: 45px;
+  margin-left: -205px;
+}
+
+
+/* 弹窗 - 公共样式 */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+.modal.show {
+  display: block;
+}
+.modal-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.modal-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.modal-body {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  transform: translate3d(-50%,-50%,0);
+}
+
+.pop-wrap {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 3;
+}
+.pop-wrap.show {
+  display: block;
+}
+.btn-save {
+  font-size: 36px;
+  font-weight: bold;
+  width: 347px;
+  height: 80px;
+  border-radius: 37px;
+  z-index: 3;
+  /* background: #ff5f44; */
+  color: #fff;
+  margin-top: 48px;
+}
+.share-img {
+  display: block;
+  width: 600px;
+  /* height: 873px; */
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+  height: auto;
+}
+.guide-img {
+  position: relative;
+  width: 750px;
+  height: auto;
+}
+.share-hint {
+  position: absolute;
+  top: 28px;
+  right: 40px;
+  width: 486px;
+  height: 76px;
+
+}
+
+@media (min-aspect-ratio: 375 / 610) {
+  .modal-body {
+    top: 55%;
+  }
+  .btn-know {
+    bottom: 0.6rem;
+  }
+}
+
+
+/* Data: 2020-07-08; Edit: Hani; Describe: 金额添加小数点; Start */
+.decimal {
+  line-height: 85px;
+}
+.ticket-wrap .money {
+  padding-left: 35px;
+  font-size: 85px;
+}
+
+.money .money-item-wrap {
+  width: 48px;
+}
+/* Data: 2020-07-08; Edit: Hani; Describe: 金额添加小数点; End */
+
+/* Data: 2020-07-08; Edit: Hani; Describe: 增加普通领取状态; Start */
+.home-title.general {
+  height: 825px;
+}
+.home-title.general .title-content {
+  height: 383px;
+}
+/* Data: 2020-07-08; Edit: Hani; Describe: 增加普通领取状态; End */

@@ -1,0 +1,276 @@
+<!--
+ * @Author: Gianni
+ * @Date: 2021-08-07 12:20:13
+ * @LastEditTime: 2021-08-30 23:28:10
+ * @LastEditors: Gianni
+ * @Description: *
+ * @FilePath: \H5-Project\src\qq_music_johnnie_walker\index.html
+-->
+{% extends "./_njk/base.njk" %} {% block main %}
+<section class="wrap">
+  <!-- 单个页面 - 询问年龄 -->
+  <div class="part_item part_inquiry">
+    <!-- logo -->
+    <div class="page_logo"></div>
+    <div class="inquiry_text">您是否已经年满18岁？</div>
+    <div class="inquiry_btn">
+      <div class="inquiry_btn__item inquiry_btn__yes"></div>
+      <div class="inquiry_btn__item inquiry_btn__no"></div>
+    </div>
+    <!-- 提示文案 -->
+    <div class="page_hint"></div>
+  </div>
+  <!-- 单个页面 - 未成年退出页面 -->
+  <div class="part_item part_quit">
+    <!-- logo -->
+    <div class="page_logo"></div>
+    <div class="quit_text">
+      根据中华人民共和国法律<br />您未满18岁<br />无法访问酒类页面<br />谢谢配合
+    </div>
+    <div class="quit_btn">
+      <div class="quit_btn__item quit_btn__quit"></div>
+    </div>
+    <!-- 提示文案 -->
+    <div class="page_hint"></div>
+  </div>
+  <!-- 单个页面 - loading -->
+  <div class="part_item part_loading">
+    <!-- logo -->
+    <div class="page_logo"></div>
+    <!-- loading - 酒瓶 -->
+    <div class="loading_wine"></div>
+    <!-- loading - 酒瓶 -->
+    <div class="loading_text">
+      <div class="loading_text__img"></div>
+      <div class="loading_text__progress">0%</div>
+    </div>
+    <!-- 提示文案 -->
+    <div class="page_hint"></div>
+    <!-- 黑色蒙层 -->
+    <div class="page_base"></div>
+  </div>
+  <!-- 动画 -->
+  <div class="part_item part_animation">
+    <!-- logo -->
+    <div class="page_logo"></div>
+    <!-- 提示文案 -->
+    <div class="page_hint animation_hint"></div>
+    <!-- 装饰 -->
+    <div class="animation_wrap">
+      <!-- 装饰1 -->
+      <div class="animation_adorn1"></div>
+      <!-- 装饰1 -->
+      <div class="animation_adorn2"></div>
+    </div>
+    <canvas id="animationCanvas" style="width: 100%"></canvas>
+  </div>
+  <!-- 人物选择 -->
+  <div class="part_item part_person">
+    <!-- logo -->
+    <div class="page_logo"></div>
+    <!-- 装饰 -->
+    <div class="person_wrap">
+      <!-- 装饰1 -->
+      <div class="person_adorn1"></div>
+      <!-- 装饰2 -->
+      <div class="person_adorn2"></div>
+      <!-- 装饰3 -->
+      <div class="person_adorn3"></div>
+    </div>
+    <!-- 人物选择 - 标题 -->
+    <div class="person_title">你想将深藏情义送给谁？</div>
+    <!-- 人物选择 - 列表 -->
+    <div class="person_list">
+      <!-- 人物选择 - 单个歌曲 -->
+      <div class="person_item">
+        <div class="person_item__text">
+          <div class="person_item__text">相思的亲人</div>
+        </div>
+      </div>
+      <!-- 人物选择 - 单个歌曲 -->
+      <div class="person_item">
+        <div class="person_item__text">
+          <div class="person_item__text">久违的朋友</div>
+        </div>
+      </div>
+      <!-- 人物选择 - 单个歌曲 -->
+      <div class="person_item">
+        <div class="person_item__text">
+          <div class="person_item__text">相知的TA</div>
+        </div>
+      </div>
+    </div>
+    <!-- 人物选择 - 决定好了 -->
+    <div class="person_btn__wrap">
+      <div class="person_btn__item person_btn__ok"></div>
+    </div>
+    <!-- 提示文案 -->
+    <div class="page_hint"></div>
+    <!-- 黑色蒙层 -->
+    <div class="page_base"></div>
+  </div>
+  <!-- 歌曲选择 -->
+  <div class="part_item part_choice">
+    <!-- logo -->
+    <div class="page_logo"></div>
+    <!-- 装饰 -->
+    <div class="choice_wrap">
+      <!-- 装饰1 -->
+      <div class="choice_adorn1"></div>
+      <!-- 装饰2 -->
+      <div class="choice_adorn2"></div>
+      <!-- 装饰3 -->
+      <div class="choice_adorn3"></div>
+      <!-- 装饰4 -->
+      <div class="choice_adorn4"></div>
+    </div>
+    <!-- 歌曲选择 - 标题 -->
+    <div class="choice_title">选择一首最适合TA的蓝情歌</div>
+    <!-- 歌曲选择 - 列表 -->
+    <div class="choice_list">
+      <!-- 歌曲选择 - 单个歌曲 -->
+      <div class="choice_item">
+        <div class="choice_item__text">
+          <div class="choice_item__songname">听海</div>
+          <div class="choice_item__name">张惠妹</div>
+        </div>
+        <div class="choice_item__icon active"></div>
+      </div>
+      <!-- 歌曲选择 - 单个歌曲 -->
+      <div class="choice_item">
+        <div class="choice_item__text">
+          <div class="choice_item__songname">听海</div>
+          <div class="choice_item__name">张惠妹</div>
+          <div class="choice_item__icon"></div>
+        </div>
+      </div>
+      <!-- 歌曲选择 - 单个歌曲 -->
+      <div class="choice_item">
+        <div class="choice_item__text">
+          <div class="choice_item__songname">听海</div>
+          <div class="choice_item__name">张惠妹</div>
+          <div class="choice_item__icon"></div>
+        </div>
+      </div>
+    </div>
+    <!-- 歌曲选择 - 按钮 -->
+    <div class="choice_btn__wrap">
+      <div class="choice_btn__item choice_btn__cut"></div>
+      <div class="choice_btn__item choice_btn__ok"></div>
+    </div>
+    <!-- 提示文案 -->
+    <div class="page_hint"></div>
+    <!-- 黑色蒙层 -->
+    <div class="page_base"></div>
+  </div>
+  <!-- 歌词选择 -->
+  <div class="part_item part_lyrics">
+    <!-- logo -->
+    <div class="page_logo"></div>
+    <!-- 装饰 -->
+    <div class="lyrics_wrap">
+      <!-- 装饰1 -->
+      <div class="lyrics_adorn1"></div>
+      <!-- 装饰2 -->
+      <div class="lyrics_adorn2"></div>
+      <!-- 装饰3 -->
+      <div class="lyrics_adorn3"></div>
+      <!-- 装饰4 -->
+      <div class="lyrics_adorn4"></div>
+    </div>
+    <div class="lyrics_title">
+      选一个词，深藏这首蓝情歌<br />看看TA是否猜的出
+    </div>
+    <!-- 歌词选择 - 决定好了 -->
+    <div class="lyrics_btn__wrap">
+      <div class="lyrics_btn__item lyrics_btn__ok"></div>
+    </div>
+    <div class="lyrics_list__wrap">
+      <div class="lyrics_list"></div>
+      <div class="cut_item cut_prev"></div>
+      <div class="cut_item cut_next"></div>
+    </div>
+    <!-- 提示文案 -->
+    <div class="page_hint"></div>
+    <!-- 黑色蒙层 -->
+    <div class="page_base"></div>
+  </div>
+  <!-- 表单填写 -->
+  <div class="part_item part_form">
+    <!-- 返回 -->
+    <div class="form_return"></div>
+    <!-- logo -->
+    <div class="page_logo"></div>
+    <!-- 装饰 -->
+    <div class="form_wrap">
+      <!-- 装饰1 -->
+      <div class="form_adorn1"></div>
+      <!-- 装饰2 -->
+      <div class="form_adorn2"></div>
+      <!-- 装饰3 -->
+      <div class="form_adorn3"></div>
+      <!-- 装饰4 -->
+      <div class="form_adorn4"></div>
+    </div>
+    <div class="form_title">海蓝色的天空</div>
+    <!-- 昵称 -->
+    <input
+      type="text"
+      class="form_input form_name"
+      maxlength="10"
+      placeholder="输入他/她的称呼"
+    />
+    <!-- <div class="form_name__length"><span>0</span>/<span>10</span></div> -->
+    <div class="form_text form_name">输入他/她的称呼</div>
+    <!-- 祝福 -->
+    <textarea
+      name=""
+      class="form_input form_wish"
+      maxlength="50"
+      placeholder="你有什么想说的深藏祝福?"
+      id="formWish"
+      cols="30"
+      rows="10"
+    ></textarea>
+    <div class="form_wish__length"><span id="already">0</span>/<span>50</span></div>
+    <div class="form_text form_wish">输入他/她的称呼</div>
+    <!-- 署名 -->
+    <input
+      type="text"
+      class="form_input form_signature"
+      maxlength="10"
+      placeholder="输入你的署名"
+    />
+    <!-- <div class="form_signature__length"><span>0</span>/<span>10</span></div> -->
+    <div class="form_text form_signature">输入她的称呼</div>
+    <!-- 生成 -->
+    <div class="form_btn__wrap">
+      <div class="form_btn__item form_btn__create"></div>
+      <div class="form_btn__item form_btn__go"></div>
+      <div class="form_btn__item form_btn__saver"></div>
+    </div>
+    <!-- 提示文案 -->
+    <div class="page_hint"></div>
+    <!-- 黑色蒙层 -->
+    <div class="page_base"></div>
+  </div>
+</section>
+{% endblock %} {% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<script src="js/fx.js"></script>
+<!-- QQ音乐 - 刷屏插件 -->
+<script type="text/javascript" src="js/iSlider.min.js"></script>
+<!-- 预加载资源插件 -->
+<script type="text/javascript" src="js/preloadjs.min.js"></script>
+<!-- 帧动画参数 -->
+<script type="text/javascript" src="js/canvasData.js"></script>
+<!-- 帧动画模块配置 -->
+<script type="text/javascript" src="js/canvasAni.js"></script>
+<!-- 音乐播放器 -->
+<script src="//y.gtimg.cn/music/h5/player/player.js?max_age=2592000"></script>
+<!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/eruda"></script>
+<script>
+  eruda.init()
+</script> -->
+<script src="./js/index.js?time=1"></script>
+{% endblock %}

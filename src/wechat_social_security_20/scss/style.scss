@@ -1,0 +1,761 @@
+@charset "utf-8";
+/* 公共样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a {
+  text-decoration: none;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+ul,
+li {
+  list-style: none;
+}
+i {
+  font-style: normal;
+}
+body,
+html {
+  height: 100%;
+  font-family: Helvetica,Tahoma,Arial,PingFang SC,Hiragino Sans GB,Heiti SC,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+}
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  padding-bottom: 0.2rem;
+  background: {
+    image: url(../img/activity_bg.png);
+    size: 100% 7.4rem;
+    repeat: no-repeat;
+    position: center top;
+    color: #63b0ff;
+  }
+}
+
+// 领取页 和 首页切换
+.section-content {
+  display: none;
+  &.show {
+    display: block;
+  }
+}
+
+// 领取页多状态切换
+.content-redpackets {
+  display: none;
+  &.show {
+    display: block;
+  }
+}
+
+// 页面样式
+.index {
+  // 头部
+  &-header {
+    position: relative;
+    width: 100%;
+    height: 7.5rem;
+    .logo {
+      position: absolute;
+      left: 50%;
+      top: 0.18rem;
+      transform: translateX(-50%);
+      width: 4.07rem;
+      height: 0.4rem;
+      background: {
+        image: url(../img/logo.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    .title {
+      position: absolute;
+      left: 50%;
+      top: 0.75rem;
+      transform: translateX(-50%);
+      width: 4.4rem;
+      height: 2.15rem;
+      background: {
+        image: url(../img/activity_title.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    // 主题
+    .theme {
+      position: absolute;
+      left: 50%;
+      top: 3.05rem;
+      transform: translateX(-50%);
+      width: 6.04rem;
+      height: 4.14rem;
+      background: {
+        image: url(../img/activity_theme.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+  }
+  // 首页
+  &-content {
+    position: relative;
+    // 信封
+    .envelope {
+      position: relative;
+      left: 50%;
+      top: 0.5rem;
+      transform: translateX(-50%);
+      width: 6.8rem;
+      height: 4.7rem;
+      background: {
+        image: url(../img/bg_envelope.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    // 头像 - 容器
+    .envelope-portrait {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -50%);
+      width: 1.02rem;
+      height: 1.02rem;
+      border-radius: 50%;
+      background: linear-gradient(#9dceff, #afdcfd);
+      // 头像
+      .portrait {
+        width: 0.9rem;
+        height: 0.9rem;
+        border-radius: 50%;
+        margin: 0.06rem auto;
+        background: {
+          image: url(https://picsum.photos/200/200);
+          size: 100% auto;
+          repeat: no-repeat;
+          position: center top;
+        }
+      }
+    }
+    // 标题
+    .envelope-title {
+      position: absolute;
+      left: 0;
+      top: 0.63rem;
+      width: 100%;
+      font-size: 0.36rem;
+      text-align: center;
+      color: #fffef9;
+    }
+    // 文案
+    .envelope-text {
+      position: absolute;
+      left: 0;
+      top: 1.06rem;
+      width: 100%;
+      font-size: 0.3rem;
+      text-align: center;
+      color: #fffef9;
+    }
+    // 领取按钮
+    .envelope-btn {
+      position: absolute;
+      left: 50%;
+      top: 2.92rem;
+      transform: translateX(-50%);
+      width: 2.8rem;
+      height: 0.88rem;
+      font-size: 0.36rem;
+      text-align: center;
+      line-height: 0.88rem;
+      color: #fff;
+      background: {
+        image: url(../img/btn-index.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    // 规则文案
+    .envelope-rule {
+      width: 6.8rem;
+      margin: 0 auto;
+      font-size: 0.24rem;
+      line-height: 1.5;
+      color: #fff;
+      padding: 0.4rem 0 0;
+    }
+  }
+}
+.get {
+  &-content {
+    position: relative;
+    // 红包
+    .redpackets {
+      position: relative;
+      width: 6.8rem;
+      height: 5.23rem;
+      margin: 0.4rem auto 0;
+      font-size: 0;
+      background: {
+        image: url(../img/bg_redpackets.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    // 头像
+    .redpackets-portrait {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -50%);
+      width: 1.02rem;
+      height: 1.02rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      // 头像
+      .portrait {
+        width: 0.9rem;
+        height: 0.9rem;
+        border-radius: 50%;
+        margin: 0.06rem auto;
+        background: {
+          image: url(https://picsum.photos/200/200);
+          size: 100% auto;
+          repeat: no-repeat;
+          position: center top;
+        }
+      }
+    }
+    // 标题
+    .redpackets-title {
+      position: absolute;
+      left: 0;
+      top: 0.89rem;
+      width: 100%;
+      font-size: 0.48rem;
+      text-align: center;
+      color: #fff;
+    }
+    // 文案
+    .redpackets-text {
+      position: absolute;
+      left: 0;
+      top: 1.2rem;
+      width: 100%;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      color: #fff35a;
+      text-align: center;
+      i {
+        font-size: 0.36rem;
+      }
+    }
+    // 提现按钮
+    .redpackets-btn {
+      position: absolute;
+      left: 50%;
+      top: 3.95rem;
+      transform: translateX(-50%);
+      width: 2.8rem;
+      height: 0.88rem;
+      font-size: 0.36rem;
+      text-align: center;
+      line-height: 0.88rem;
+      color: #fff;
+      background: {
+        image: url(../img/btn-withdraw.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+      // 已提现
+      &.withdraw {
+        background: {
+          image: url(../img/btn-withdraw2.png);
+        }
+      }
+    }
+
+    // 领取条件
+    .condition {
+      position: relative;
+      width: 6.8rem;
+      height: 5.23rem;
+      margin: 0.4rem auto 0;
+      font-size: 0;
+      background: {
+        image: url(../img/bg_redpackets.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    // 头像
+    .condition-portrait {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -50%);
+      width: 1.02rem;
+      height: 1.02rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      // 头像
+      .portrait {
+        width: 0.9rem;
+        height: 0.9rem;
+        border-radius: 50%;
+        margin: 0.06rem auto;
+        background: {
+          image: url(https://picsum.photos/200/200);
+          size: 100% auto;
+          repeat: no-repeat;
+          position: center top;
+        }
+      }
+    }
+    // 文案
+    .condition-text {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 1.2rem;
+      width: 4.05rem;
+      font-size: 0.3rem;
+      line-height: 1.5;
+      color: #fff;
+    }
+    // 文案
+    .condition-text1 {
+      top: 0.8rem;
+    }
+    // 文案
+    .condition-text2 {
+      top: 1.9rem;
+    }
+    // 提现按钮
+    .condition-btn {
+      position: absolute;
+      left: 50%;
+      top: 3.95rem;
+      transform: translateX(-50%);
+      width: 2.8rem;
+      height: 0.88rem;
+      font-size: 0.36rem;
+      text-align: center;
+      line-height: 0.88rem;
+      color: #fff;
+      background: {
+        image: url(../img/btn-withdraw.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+
+    // 领取条件
+    .activityend {
+      position: relative;
+      width: 6.8rem;
+      height: 5.23rem;
+      margin: 0.4rem auto 0;
+      font-size: 0;
+      background: {
+        image: url(../img/bg_redpackets.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    // 头像
+    .activityend-portrait {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -50%);
+      width: 1.02rem;
+      height: 1.02rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      // 头像
+      .portrait {
+        width: 0.9rem;
+        height: 0.9rem;
+        border-radius: 50%;
+        margin: 0.06rem auto;
+        background: {
+          image: url(https://picsum.photos/200/200);
+          size: 100% auto;
+          repeat: no-repeat;
+          position: center top;
+        }
+      }
+    }
+    // 标题
+    .activityend-title {
+      position: absolute;
+      left: 0;
+      top: 1.1rem;
+      width: 100%;
+      font-size: 0.42rem;
+      text-align: center;
+      line-height: 1.5;
+      color: #fff;
+    }
+    // 文案
+    .activityend-text {
+      position: absolute;
+      left: 0;
+      top: 1.85rem;
+      width: 100%;
+      font-size: 0.28rem;
+      text-align: center;
+      line-height: 1.5;
+      color: #fff;
+    }
+    // 提现按钮
+    .activityend-btn {
+      position: absolute;
+      left: 50%;
+      top: 3.95rem;
+      transform: translateX(-50%);
+      width: 2.8rem;
+      height: 0.88rem;
+      font-size: 0.36rem;
+      text-align: center;
+      line-height: 0.88rem;
+      color: #fff;
+      background: {
+        image: url(../img/btn-withdraw.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+
+    // 领取条件
+    .examine {
+      position: relative;
+      width: 6.8rem;
+      height: 5.23rem;
+      margin: 0.4rem auto 0;
+      font-size: 0;
+      background: {
+        image: url(../img/bg_redpackets.png);
+        size: 100% auto;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+    // 头像
+    .examine-portrait {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -50%);
+      width: 1.02rem;
+      height: 1.02rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      // 头像
+      .portrait {
+        width: 0.9rem;
+        height: 0.9rem;
+        border-radius: 50%;
+        margin: 0.06rem auto;
+        background: {
+          image: url(https://picsum.photos/200/200);
+          size: 100% auto;
+          repeat: no-repeat;
+          position: center top;
+        }
+      }
+    }
+    // 标题
+    .examine-title {
+      position: absolute;
+      left: 0;
+      top: 1.1rem;
+      width: 100%;
+      font-size: 0.42rem;
+      text-align: center;
+      line-height: 1.5;
+      color: #fff;
+    }
+    // 文案
+    .examine-text {
+      position: absolute;
+      left: 0;
+      top: 1.85rem;
+      width: 100%;
+      font-size: 0.28rem;
+      text-align: center;
+      line-height: 1.5;
+      color: #fff;
+    }
+    // 提现按钮
+    .examine-btn {
+      position: absolute;
+      left: 50%;
+      top: 3.95rem;
+      transform: translateX(-50%);
+      width: 3.6rem;
+      height: 0.88rem;
+      font-size: 0.36rem;
+      text-align: center;
+      line-height: 0.88rem;
+      color: #fff;
+      background: {
+        image: url(../img/btn-withdraw.png);
+        size: 100% 0.88rem;
+        repeat: no-repeat;
+        position: center top;
+      }
+    }
+
+    // 规则文案
+    .redpackets-rule1 {
+      width: 6.8rem;
+      margin: 0 auto;
+      font-size: 0.24rem;
+      line-height: 1.5;
+      color: #fff;
+      padding: 0.4rem 0 0;
+    }
+    // 社保答疑
+    .redpackets-question {
+      position: relative;
+      width: 6.8rem;
+      margin: 0.37rem auto 0;
+      padding-bottom: 0.7rem;
+      background: #fff;
+      border-radius: 4px;
+
+      // 标题
+      .title {
+        width: 5.85rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding-top: 0.45rem;
+        color: #63b0ff;
+        font-size: 0.4rem;
+      }
+      // 线
+      .title-wire {
+        display: block;
+        width: 1.45rem;
+        height: 0.02rem;
+        background: #63b0ff;
+      }
+      // 问题
+      .question {
+        width: 100%;
+        padding: 0.47rem 0.2rem 0 0.5rem;
+        font-size: 0.3rem;
+      }
+      // 问
+      .ask {
+        color: #63b0ff;
+        margin-bottom: 0.3rem;
+      }
+      // 答
+      .answer {
+        color: #888;
+        line-height: 1.5;
+      }
+    }
+    // 活动规则
+    .redpackets-rule {
+      position: relative;
+      width: 6.8rem;
+      margin: 0.4rem auto 0;
+      padding-bottom: 0.7rem;
+      background: #fff;
+      border-radius: 4px;
+      margin-bottom: 1.12rem;
+
+      // 标题
+      .title {
+        width: 5.85rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding-top: 0.45rem;
+        color: #63b0ff;
+        font-size: 0.4rem;
+      }
+      // 线
+      .title-wire {
+        display: block;
+        width: 1.45rem;
+        height: 0.02rem;
+        background: #63b0ff;
+      }
+      // 活动规则
+      .rule {
+        padding: 0.47rem 0.45rem 0 0.4rem;
+        text-align: justify;
+        line-height: 1.5;
+        font-size: 0.3rem;
+        color: #888;
+      }
+      // 单条活动规则
+      .rule-item {
+        margin-bottom: 0.2rem;
+        list-style-position: inside;
+        padding-left: 0.35rem;
+        > i {
+          display: inline-block;
+          width: 0.35rem;
+          margin-left: -0.35rem;
+        }
+      }
+    }
+  }
+}
+
+// 弹窗
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  height: 100%;
+  z-index: 1000;
+  &.show {
+    display: block;
+  }
+  &-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
+  &-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    z-index: 1;
+  }
+  // 绑定弹窗
+  &-binding {
+    &-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      // height: 2.35rem;
+      text-align: center;
+      background: #f2f2f2;
+      z-index: 2;
+      animation: show 0.5s;
+    }
+    &-title {
+      width: 100%;
+      min-height: 1.16rem;
+      font-size: 0.26rem;
+      color: #ff0000;
+      padding: 0 0.35rem;
+      .title {
+        padding-top: 0.3rem;
+      }
+      .text {
+        padding-top: 0.1rem;
+        text-align: left;
+      }
+    }
+    &-btn {
+      width: 100%;
+      height: 1.1rem;
+      font-size: 0.36rem;
+      line-height: 1.1rem;
+      color: #63b0ff;
+      background: #fff;
+      margin-top: 0.2rem;
+    }
+  }
+
+  // 提现规则弹窗
+  // 提现规则弹窗背景
+  &-rules1-bg {
+    background: rgba(255, 255, 255, 0);
+  }
+  &-rules1-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6.17rem;
+    height: 3.87rem;
+    text-align: center;
+    background: {
+      image: url(../img/bg_pop.png);
+      size: 100% auto;
+      repeat: no-repeat;
+      position: 0 0;
+    }
+    z-index: 2;
+    animation: show 0.5s;
+    .condition-text {
+      top: 0.8rem;
+      color: #0091f6;
+      line-height: 1.2;
+    }
+  }
+  // 确定按钮
+  &-confirm-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 0.9rem;
+    transform: translateX(-50%);
+    width: 1.8rem;
+    height: 0.60rem;
+    font-size: 0.30rem;
+    text-align: center;
+    line-height: 1.8;
+    color: #fff;
+    background: {
+      image: url(../img/btn-index.png);
+      size: 100% auto;
+      repeat: no-repeat;
+      position: center top;
+    }
+  }
+  // 提现成功
+  &-withdraw-text {
+    position: absolute;
+    top: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.48rem;
+    color: #0091f6;
+
+  }
+}

@@ -1,0 +1,24 @@
+
+// 公共样式 - 页面公共类
+@import 'class';
+// 公共样式 - 页面动画引入
+@import 'ani';
+// 公共样式 - 页面公共样式
+@import 'common_style';
+
+// 公共样式 - 弹窗公共样式
+@import 'modal/modal_common_style';
+
+// 公共样式 - home页面样式
+@import 'home/home';
+// 公共样式 - profile页面样式
+@import 'profile/profile';
+// 公共样式 - detail页面样式
+@import 'detail/detail';
+// 公共样式 - rule页面样式
+@import 'Rule/rule';
+
+// 跳转按钮，我的和活动规则公用
+@import "mineBtn";
+
+

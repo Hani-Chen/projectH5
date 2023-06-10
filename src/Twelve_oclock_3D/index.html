@@ -1,0 +1,36 @@
+{% extends "./_njk/base.njk" %}
+{% block stylesheet %}
+<link rel="stylesheet" href="css/style.min.css">
+{% endblock %}
+{% block main %}
+<div class="wrap">
+  <!-- 头部 -->
+  <div class="header">
+    <!-- 头部 logo -->
+  </div>
+  <!-- 内容 -->
+  <div class="content" id="canvasBox">
+    <!-- 内容 - 圆盘 -->
+
+    <div class="content-disk">
+      <span class="content-dot content-dot-play"></span>
+      <svg xmlns="http://www.w3.org/200/svg" height="302" width="302" class="box">
+        <circle class="demo2" id="J_demo2" cx="150" cy="150" r="150" fill="none" stroke="red" stroke-width="2"
+          stroke-dasharray="0,1000" />
+      </svg>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block javascript %}
+<!-- zepto 插件 -->
+<!-- <script src="js/zepto.min.js"></script> -->
+<!-- three 插件 -->
+<script src="js/three.js"></script>
+<!-- three - 加载器插件 -->
+<script src="js/OBJLoader.js"></script>
+<script src="js/transform.js"></script>
+<!-- 滑动插件 -->
+<script src="js/index1.js"></script>
+<script src="js/test.js"></script>
+{% endblock %}

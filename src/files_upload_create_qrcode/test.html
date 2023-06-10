@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="http://car.dbgoodboy.cn/static/plugins/layui/css/layui.css">
+	<script type="text/javascript" src="http://car.dbgoodboy.cn/static/plugins/layui/layui.js"></script>
+	<style>
+		* {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+			-webkit-tap-highlight-color: transparent;
+		}
+
+		body,
+		html {
+			position: relative;
+			height: 100%;
+			font-family: Helvetica, Tahoma, Arial, PingFang SC, Hiragino Sans GB, Heiti SC,
+				STXihei, Microsoft YaHei, SimHei, WenQuanYi Micro Hei;
+			overflow: hidden;
+		}
+
+		button {
+			font-family: inherit;
+			font-size: inherit;
+			font-style: inherit;
+			font-weight: inherit;
+			outline: 0;
+		}
+
+		a,
+		a:active,
+		a:hover,
+		a:link,
+		a:visited {
+			color: #999;
+		}
+
+		.bg-item {
+			display: block;
+			background-size: 100% auto;
+			background-repeat: no-repeat;
+			background-position: 50%;
+		}
+
+		.posa-center {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+		}
+
+		.btn {
+			display: inline-block;
+			height: 38px;
+			line-height: 38px;
+			padding: 0 18px;
+			background-color: #009688;
+			color: #fff;
+			text-align: center;
+			font-size: 14px;
+			border: none;
+			border-radius: 2px;
+			cursor: pointer;
+			transition: all 0.3s;
+		}
+
+		.btn:hover {
+			background-color: #33aba0;
+		}
+
+		.page-wrap {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: 100%;
+			overflow: hidden;
+			background-color: #fff;
+		}
+
+		.page-inner {
+			width: 100%;
+			min-height: 100%;
+			padding: 15px;
+		}
+
+		.page-inner .title {
+			margin-bottom: 10px;
+			padding: 15px;
+			line-height: 22px;
+			border-left: 5px solid #009688;
+			border-radius: 0 2px 2px 0;
+			background-color: #f2f2f2;
+			font-size: 14px;
+		}
+
+		.page-inner .subhead {
+			position: relative;
+			margin: 30px 0 20px;
+			font-size: 20px;
+			color: rgba(0, 0, 0, 0.5);
+		}
+
+		.page-inner .subhead-text {
+			position: relative;
+			background-color: #fff;
+			margin-left: 20px;
+			padding: 0 10px;
+			z-index: 1;
+		}
+
+		.page-inner .subhead-wire {
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			width: 100%;
+			height: 1px;
+			background-color: #e6e6e6;
+		}
+
+		.page-inner .upload-btn-file {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+			opacity: 0;
+		}
+
+		.page-inner .upload-btn-wrap {
+			margin-top: 20px;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-align: end;
+			align-items: flex-end;
+		}
+
+		.page-inner .upload-annotation {
+			color: rgba(255, 0, 0, 0.5);
+			padding-left: 20px;
+			font-size: 12px;
+		}
+
+		.page-inner .upload-video-inner {
+			max-width: 300px;
+			position: relative;
+			padding: 30px;
+			border: 1px dashed #e2e2e2;
+			background-color: #f6f6f6;
+			text-align: center;
+			cursor: pointer;
+			color: #999;
+			margin-top: 20px;
+		}
+
+		.page-inner .upload-video-inner img {
+			width: 50px;
+			height: 50px;
+			margin-bottom: 20px;
+		}
+
+		.page-inner .upload-video-inner p {
+			font-size: 14px;
+		}
+
+		.page-inner .upload-qrcode-wrap {
+			margin: 10px 0;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-align: baseline;
+			align-items: baseline;
+		}
+
+		.page-inner .upload-qrcode-inner {
+			position: relative;
+			width: 520px;
+			height: 520px;
+			margin: 10px 0;
+			overflow: hidden;
+		}
+
+		.page-inner .upload-qrcode-inner>img {
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			padding: 6px;
+			border-radius: 6px;
+			border: 1px solid #33aba0;
+		}
+
+		.page-inner .upload-href {
+			color: #999;
+			padding-left: 20px;
+			font-size: 14px;
+		}
+
+		.page-inner .upload-href a {
+			color: #999;
+		}
+
+		.page-inner .progress-wrap {
+			width: 300px;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-align: center;
+			align-items: center;
+			margin-top: 20px;
+		}
+
+		.page-inner .progress-inner {
+			width: 80%;
+			height: 10px;
+			border-radius: 25px;
+			overflow: hidden;
+		}
+
+		.page-inner .progress-contennt {
+			width: 100%;
+			height: 10px;
+			background-color: #e4e8f1;
+		}
+
+		.page-inner .progress-box {
+			background-color: #20a0ff;
+			height: 100%;
+		}
+
+		.page-inner .progress-text {
+			font-size: 14px;
+			margin-left: 10px;
+		}
+
+		.page-inner .name {
+			margin-top: 20px;
+			width: 250px;
+		}
+
+		.page-inner .name input {
+			display: block;
+			width: 100%;
+			height: 34px;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			color: #555;
+			background-color: #fff;
+			background-image: none;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+		}
+		.qrcode-wrap {
+			display: none;
+		}
+		.qrcode-wrap.show {
+			display: block;
+		}
+		/*# sourceMappingURL=../maps/css/style.min.css.map */
+	</style>
+</head>
+
+<body>
+	<div class="page-wrap">
+		<form id="setForm" method="post" enctype="multipart/form-data" class="page-inner">
+
+			<input name="token" type="hidden" value="{$uid}" id="uid">
+			<input name="token" type="hidden" value="{$token}" id="token">
+			<!-- 标题 -->
+			<div class="title">单视频上传</div>
+			<!-- 副标题 -->
+			<div class="subhead">
+				<span class="subhead-text">常规使用：视频上传</span>
+				<div class="subhead-wire"></div>
+			</div>
+			<!-- 本地 ==> 浏览器 上传视频 -->
+			<div class="upload-wrap upload-video">
+				<div class="upload-video-inner">
+					<input class="upload-btn-file" type="file" id="file" name="file" onchange="UpladFile();">
+					<img class="img" src="https://img.tukuppt.com//png_preview/00/09/96/nX7YVKat5w.jpg!/fw/780" alt="" srcset="">
+					<p class="text">点击上传，或将文件拖拽到此处</p>
+					<div class="layui-hide" id="uploadDemoView">
+					</div>
+				</div>
+			</div>
+			<!-- 浏览器 ==> 服务器 上传视频 -->
+			<div class="upload-btn-wrap" id="uploadBtnWrap">
+				<button type="button" class="btn" id="submit">上传视频</button>
+				<span class="upload-annotation">*备注</span>
+			</div>
+			<div class="qrcode-wrap">
+				<!-- 副标题 -->
+				<div class="subhead">
+					<span class="subhead-text">上传成功后：生成二维码</span>
+					<div class="subhead-wire"></div>
+				</div>
+				<div class="upload-qrcode-wrap">
+					<div class="upload-qrcode-inner" id="uploadQrcode"></div>
+					<div class="upload-href">链接：<a href="http://cdnmeidi.perpower.cn/video/test.mp4" id="videoUrl"
+							target="view_window">点击跳转在线链接</a>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
+
+<!-- jquery 引入 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 二维码 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.js"></script>
+<script type="text/javascript">
+	//本地上传浏览器
+	function UpladFile() {
+		var fileObj = document.getElementById('file').files[0]
+		if (fileObj.name) {
+			$('.upload-video-inner .img').attr('src', 'http://pic.616pic.com/ys_bnew_img/00/18/40/d5uKf1RbOf.jpg')
+			$('.upload-video-inner .text').text(fileObj.name)
+		}
+	}
+	layui.use([
+		'form', 'layer', 'upload'
+	], function () {
+		$ = layui.jquery;
+		layer = layui.layer;
+		$("#submit").on('click', function () {
+			var xhr = new XMLHttpRequest()
+			xhr.upload.onprogress = progressFunction
+			var formdata = new FormData();
+			formdata.append('uid', $("#uid").val());
+			formdata.append('token', $("#token").val());
+			formdata.append('file', $("#file")[0].files[0]);
+			$.ajax({
+				type: 'post', url: 'http://up-z2.qiniup.com/', //华南地图用改地址就可以
+				data: formdata,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType: "json",
+				error: function (request) {
+					console.log(444);
+					return false;
+				},
+				success: function (res) {
+					console.log(res.address);
+					if (res.ret == 'success') {
+						layer.msg("上传成功", { 'icon': 1 });
+						//res.address为地址连接
+
+						$('.qrcode-wrap').addClass('show')
+						// 获取到的 七牛 视频链接
+						var videoUrl = res.address
+						// 替换页面点击跳转的链接
+						$('#videoUrl').attr('href', videoUrl)
+						// 生成二维码
+						var qrcode = new QRCode(document.getElementById('uploadQrcode'), {
+							width: 520,
+							height: 520,
+							colorDark: '#000',
+						})
+						qrcode.makeCode(videoUrl)
+					} else {
+						layer.msg("上传失败", { 'icon': 0 });
+						return false;
+					}
+				}
+			});
+			return false;
+		});
+	});
+	//上传进度实现方法，上传过程中会频繁调用该方法
+function progressFunction(evt) {
+  console.log(evt.loaded);
+  
+  // // event.total是需要传输的总字节，event.loaded是已经传输的字节。如果event.lengthComputable不为真，则event.total等于0
+  // if (evt.lengthComputable) {
+  //   $('.progress-wrap').css('display', 'flex')
+  //   /*进度条显示进度*/
+  //   $('.progress-box').css(
+  //     'width',
+  //     Math.round((evt.loaded / evt.total) * 100) + '%'
+  //   )
+  //   $('.progress-text').html(Math.round((evt.loaded / evt.total) * 100) + '%')
+  // }
+
+  // var time = document.getElementById('time')
+  // var nt = new Date().getTime() //获取当前时间
+  // var pertime = (nt - ot) / 1000 //计算出上次调用该方法时到现在的时间差，单位为s
+  // ot = new Date().getTime() //重新赋值时间，用于下次计算
+
+  // var perload = evt.loaded - oloaded //计算该分段上传的文件大小，单位b
+  // oloaded = evt.loaded //重新赋值已上传文件大小，用以下次计算
+
+  // //上传速度计算
+  // var speed = perload / pertime //单位b/s
+  // var bspeed = speed
+  // var units = 'b/s' //单位名称
+  // if (speed / 1024 > 1) {
+  //   speed = speed / 1024
+  //   units = 'k/s'
+  // }
+  // if (speed / 1024 > 1) {
+  //   speed = speed / 1024
+  //   units = 'M/s'
+  // }
+  // speed = speed.toFixed(1)
+  // //剩余时间
+  // var resttime = ((evt.total - evt.loaded) / bspeed).toFixed(1)
+  // time.innerHTML = '上传速度：' + speed + units + ',剩余时间：' + resttime + 's'
+  // if (bspeed == 0) time.innerHTML = '上传已取消'
+}
+</script>

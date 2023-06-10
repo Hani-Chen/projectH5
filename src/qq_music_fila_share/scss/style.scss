@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+
+//hint: QQ音乐规定 - 引入QQ音乐默认样式
+@import "global.import.css";
+
+//hint: 工具类 - 按需引入
+@import "./toolScss";
+
+//hint: h5默认字体 - 可根据默认不同的默认字体修改字体顺序
+$baseFont: "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei,
+  "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+}
+@font-face {
+  font-family: "font_arial";
+  src: url("../fonts/arial.ttf");
+}
+@mixin font-arial {
+  font-family: "font_arial";
+}
+
+/* 页面公共样式 - End */
+.share_wrap {
+  position: relative;
+  @include size-set(750px, 1334px);
+  @include bg-set("../img/share_bg.jpg", $size: 100% 100%);
+}
+.share_time {
+  @include font-set(42px, $color: #497893, $weight: bold);
+  @include font-arial;
+  @include layout-set($top: 945px, $left: 25px);
+  letter-spacing: 2px;
+}
+.share_code {
+  @include layout-set($top: 1090px, $right: 25px);
+  @include size-set(188px, 188px);
+  overflow: hidden;
+  &__img {
+    @include size-set(100%, 100%);
+    display: block;
+  } 
+}
+/* 页面样式 - End */

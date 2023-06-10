@@ -1,0 +1,138 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<section class="wrap">
+  <!-- 页面 - loading页 -->
+  <div class="page_item page_loading show">
+    <!-- loading页 - 背景图 -->
+    <div class="bg"></div>
+    <!-- loading页 - 内容 -->
+    <div class="loading_inner">
+      <!-- loading页 - logo -->
+      <div class="page_logo"></div>
+      <!-- loading页 - cd大图 -->
+      <div class="loading_cd">
+      </div>
+      <!-- loading - 耳机 -->
+      <div class="loading_earphone"></div>
+
+      <div class="loading_ani">
+        <div class="loading_ani__item loading_ani__item1"></div>
+        <div class="loading_ani__item loading_ani__item2"></div>
+        <div class="loading_ani__item loading_ani__item3"></div>
+      </div>
+    </div>
+  </div>
+  <!-- 页面 - 首页 -->
+  <div class="page_item page_home">
+    <div class="bg"></div>
+    <div class="home_inner">
+      <!-- 首页 - logo -->
+      <div class="page_logo"></div>
+      <!-- 首页 - cd -->
+      <div class="home_cd"></div>
+      <!-- 首页 - 标题文案 -->
+      <div class="home_title text_forbid__cope">测测你<br />是不是金耳朵？</div>
+      <!-- 首页 - 耳机 -->
+      <div class="home_earphone"></div>
+      <!-- 首页 - 开始测试 -->
+      <div class="home_start text_forbid__cope">开始测试</div>
+      <!-- 首页 - 提示文案 -->
+      <div class="home_hint"></div>
+      <!-- Data: 2020-11-06; Edit: Hani; Describe: 添加文案提示; Start -->
+      <!-- 首页 - 文案 -->
+      <div class="home_text">完成测试即有机会<br>获得OPPO丰富影音奖品</div>
+      <!-- Data: 2020-11-06; Edit: Hani; Describe: 添加文案提示; End -->
+    </div>
+  </div>
+  <!-- 页面 - 答题页 -->
+  <div class="page_item page_answer ">
+    <div class="bg"></div>
+    <div class="answer_inner text_forbid__cope">
+      <!-- 答题页 - cd -->
+      <div class="answer_cd__wrap">
+        <div class="answer_cd__bg"></div>
+        <div class="answer_cd__item answer_cd__item2"></div>
+      </div>
+      <!-- 答题页 - 题目序号 -->
+      <div class="answer_sequence">
+        <span class="answer_sequence__present">1</span>/<span class="answer_sequence__sum">6</span>
+      </div>
+      <!-- 答题页 - 标题 -->
+      <div class="answer_title ">试听这首情歌合唱，下列这些对男歌手的描述，哪个最为贴切？</div>
+      <!-- 答题页 - 进度 -->
+        <div class="answer_song__icon"></div>
+      <!-- 答题页 - 播放器 - 默认隐藏 --> 
+      <div class="answer_song__demo">
+        <audio id="answerSongMusic" controls src=""></audio>
+      </div>
+      <!-- 答题页 - 选择 -->
+      <div class="answer_select__wrap ">
+        <div class="answer_select__item "><div class="answer_select__text answer_select__text1"></div></div>
+        <div class="answer_select__item"><div class="answer_select__text answer_select__text2"></div></div>
+        <div class="answer_select__item"><div class="answer_select__text answer_select__text3"></div></div>
+      </div>
+      <div class="answer_light"></div>
+    </div>
+  </div>
+  {% include "./_njk/squeeze.njk" %}
+  <!-- 页面所需弹窗 -->
+  <div class="modal" id="modalPrize">
+    <div class="modal_content">
+      <div class="modal_bg"></div>
+      <div class="modal_body text_forbid__cope modal_prize_body">
+        <div class="modal_close"></div>
+        <div class="prize_title">恭喜您获得</div>
+        <div class="prize_text">OPPO Enco W31 真无线蓝牙耳机</div>
+        <div class="prize_img"><img src="./img/squeeze_prize1.png" alt="" class="prize_img__item"></div>
+        <div class="prize_btn">填写领奖信息</div>
+      </div>
+    </div>
+  </div>
+  <!-- 次数使用完 -->
+  <div class="modal" id="modalHint">
+    <div class="modal_content">
+      <div class="modal_bg"></div>
+      <div class="modal_body modal_hint_body">
+        <div class="modal_close"></div>
+        <div class="hint_inner text_forbid__cope">
+          <div class="hint_tittle">您今天的<br>抽奖次数已用完</div>
+          <div class="hint_text">每人每天仅有1次抽奖机会</div>
+          <div class="hint_text">分享至好友或朋友圈<br>邀请好友参与</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 啥都没抽到 -->
+  <div class="modal" id="modalOver">
+    <div class="modal_content">
+      <div class="modal_bg"></div>
+      <div class="modal_body text_forbid__cope modal_over_body">
+        <div class="modal_close"></div>
+        <div class="over_inner">
+          <div class="over_tittle">很遗憾<br>您今天什么也没抽到</div>
+          <div class="over_text">但没准明天就会有好运降临哦～</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 未开始 抽奖弹窗 -->
+  <div class="modal" id="modalNat">
+    <div class="modal_content">
+      <div class="modal_bg"></div>
+      <div class="modal_body text_forbid__cope modal_over_body">
+        <div class="modal_close"></div>
+        <div class="over_inner">
+          <div class="over_tittle">您还未抽奖</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<!-- 拖拽插件 -->
+<script src="js/dragjs.js"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

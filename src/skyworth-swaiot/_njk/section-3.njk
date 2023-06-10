@@ -1,0 +1,35 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_2.png',
+    'heading': '掌握AIoT核心科技',
+    'text': '创维在行业内率先实现AIoT云端自研,Swaiot云支持千万级智能设备并发畅快通信，强大的AIoT语境下的语义理解能力让语音控制智能家居更加轻松。'
+  }
+%}
+
+{# 产品图
+{% set productImg = {
+    'product': '/section3_product.png'
+  }
+%} #}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+<!-- 产品图 -->
+<!-- {% import "./components/title.njk" as title %}
+{{ title.product(productImg) }} -->
+
+{# <canvas id="section3Canvas">
+  <img src="" alt="./img/section3_product.png">
+</canvas> #}
+
+
+<div class="content-wrap animation-box">
+  <img class="img-block product-img-pc" src="{{baseUrl}}/section3_product.png" alt="">                                                                                                                                                                                                                                               
+  <img class="img-block product-img-android" src="{{baseUrl}}/section3_product2.png" alt="">                                                                                                                                                                                                                                               
+  <canvas id="section3Canvas1"></canvas>
+  <canvas id="section3Canvas2"></canvas>
+</div>

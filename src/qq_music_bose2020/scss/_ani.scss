@@ -1,0 +1,126 @@
+@keyframes pageShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+// 首页声波动画
+@keyframes homeAureole {
+  0% {
+    background-image: url('../img/home_aureole_1.png');
+  }
+  33.33% {
+    background-image: url('../img/home_aureole_2.png');
+  }
+  66.66% {
+    background-image: url('../img/home_aureole_3.png');
+  }
+  100% {
+    background-image: url('../img/home_aureole_4.png');
+  }
+}
+// 首页环形文案动画
+@keyframes homeAureoletext {
+  0% {
+    opacity: 0;
+  }
+  // 50% {
+  //   opacity: 1;
+  // }
+  100% {
+    opacity: 1;
+  }
+}
+// 首页麦克风动画
+@keyframes homeMicrophone {
+  0% {
+    transform: translate3d(0, 6.6rem, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+// 首页标题文字
+@keyframes homeHeartBeat {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  14% {
+    opacity: 1;
+    transform: scale(0.8);
+  }
+  28% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  42% {
+    opacity: 1;
+    transform: scale(0.8);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// 选择页 - 内容显示动画
+@keyframes selectShow {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%,100%,0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0%,0%,0);
+  }
+}
+@keyframes downward {
+  0% {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(10%);
+  }
+}
+@keyframes haloAni {
+  from {
+    transform: scale(0)translate3d(-50%,-50%,0);
+    transform-origin:0 0;
+    opacity: 0;
+  }
+  to {
+    transform: scale(1)translate3d(-50%,-50%,0);
+    transform-origin:0 0;
+    opacity: 1;
+  }
+}
+@keyframes concertHaloAni {
+  0% {
+    transform: scale(0)translate3d(-50%,-50%,0);
+    transform-origin:0 0;
+    opacity: 0;
+  }
+  33.33% {
+    transform: scale(1)translate3d(-50%,-50%,0);
+    transform-origin:0 0;
+    opacity: 1;
+  }
+  66.66% {
+    transform: scale(1)translate3d(-50%,-50%,0);
+    transform-origin:0 0;
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0)translate3d(-50%,-50%,0);
+    transform-origin:0 0;
+    opacity: 0;
+  }
+}

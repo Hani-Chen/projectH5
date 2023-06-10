@@ -1,0 +1,47 @@
+{% extends "./_njk/base.njk" %} 
+
+{% block main %}
+<section class="wrap">
+  <!-- 首页 -->
+  <div class="page_item page_home show">
+    <!-- 首页大图 -->
+    <img class="bg" src="./img/home_bg.jpg" alt="">
+    <!-- 按钮 - 邀你免费畅听周杰伦 -->
+    <button class="btn_item btn_invite"></button>
+    <!-- Data: 2021-01-12; Edit: Hani; describe: 按钮 - 分享按钮; Start -->
+    <button class="btn_item btn_share"></button>
+    <!-- Data: 2021-01-12; Edit: Hani; describe: 按钮 - 分享按钮; End -->
+  </div>
+  <!-- 页面所需弹窗 - 周杰伦生日弹窗 -->
+  <div class="modal" id="modalInvite">
+    <div class="modal_content">
+      <div class="modal_bg"></div>
+      <div class="modal_body modal_invite">
+        <div class="invite_content"></div>
+        <!-- 弹窗关闭按钮 -->
+        <div class="modal_close"></div>
+        <!-- 按钮 - 领取三天免费畅听按钮 -->
+        <button class="btn_item btn_get text_forbid__cope">海澜之家邀你免费畅听3天杰伦歌曲</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data: 2021-01-12; Edit: Hani; describe: 页面所需弹窗 - 周杰伦生日分享弹窗; Start -->
+  <div class="modal" id="modalShore">
+    <div class="modal_content">
+      <div class="modal_bg modal_close"></div>
+      <div class="modal_body modal_share">
+        <div class="share_content">
+          <img src="./img/share_img.jpg" class="share_img" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Data: 2021-01-12; Edit: Hani; describe: 页面所需弹窗 - 周杰伦生日分享弹窗; End -->
+</section>
+{% endblock %} 
+{% block javascript %}
+  <script src="js/zepto.min.js"></script>
+  <!-- 主程序 -->
+  <script type="text/javascript" src="js/index.js"></script>
+{% endblock %}

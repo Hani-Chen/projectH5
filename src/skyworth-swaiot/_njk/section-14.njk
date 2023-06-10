@@ -1,0 +1,22 @@
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_1.png',
+    'heading': '虚拟体验 智能可见',
+    'text': '酷开系统将智慧家庭全场景搬到电视大屏之上,当接入一个新的Swaiot智能设备后，智能等级就会相应提高，让全屋智能等级可量化。'
+  }
+%}
+
+{# 产品图 #}
+{% set productImg = {
+    'product': '/section14_product.jpg'
+  }
+%}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+{# 产品图 #}
+{% import "./components/title.njk" as title %}
+{{ title.product(productImg) }}
+

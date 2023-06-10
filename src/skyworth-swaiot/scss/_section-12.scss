@@ -1,0 +1,147 @@
+// 第十二屏容器
+.section-12 {
+  margin-top: 60px;
+  .product-img-wrap {
+    position: relative;
+    width: 100%;
+  }
+  .product-img {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 120px;
+  }
+  .content-box {
+    position: absolute;
+    left: 53.6%;
+    transform: translateX(-50%);
+    top: 55.1%;
+    height: 4%;
+    width: auto;
+    transition: opacity 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.4s;
+    .text {
+      color: #fff;
+      margin-bottom: 7px;
+      text-align: center;
+      font-size: 20px;
+    }
+    .wave {
+      width: auto;
+      height: 100%;
+    }
+  }
+  .frames {
+    position: absolute;
+    top: 47%;
+    left: 7.3%;
+    width: 6%;
+    height: auto;
+    transition: opacity 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.4s;
+  }
+  .frames2 {
+    position: absolute;
+    top: 18.2%;
+    right: 0.7%;
+    width: 6%;
+    height: auto;
+    transition: opacity 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.4s;
+  }
+}
+
+@media (max-width: 1600px) {
+  //$rate: 1600 / 1920;
+  $zoom: 0.833;
+  // 第十二屏容器
+  .section-12 {
+    margin-top: round(60px * $zoom);
+    .product-img {
+      margin-top: round(120px * $zoom);
+    }
+    .content-box {
+      .text {
+        margin-bottom: round(7px * $zoom);
+        font-size: round(20px * $zoom);
+      }
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  //$rate: 1440 / 1920;
+  $zoom: 0.75;
+  // 第十二屏容器
+  .section-12 {
+    margin-top: round(60px * $zoom);
+    .product-img {
+      margin-top: round(120px * $zoom);
+    }
+    .content-box {
+      .text {
+        margin-bottom: round(7px * $zoom);
+        font-size: round(20px * $zoom);
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  //$rate: 1200 / 1920;
+  $zoom: 0.625;
+  // 第十二屏容器
+  .section-12 {
+    margin-top: round(60px * $zoom);
+    .product-img {
+      margin-top: round(120px * $zoom);
+    }
+    .content-box {
+      .text {
+        margin-bottom: round(7px * $zoom);
+        font-size: round(20px * $zoom);
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  //$rate: 992 / 1920;
+  $zoom: 0.517;
+  // 第十二屏容器
+  .section-12 {
+    margin-top: round(60px * $zoom);
+    .product-img {
+      margin-top: round(120px * $zoom);
+    }
+    .content-box {
+      .text {
+        margin-bottom: round(7px * $zoom);
+        font-size: round(20px * $zoom);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  //$rate: 768 / 1920;
+  $zoom: 0.4;
+  // 第十二屏容器
+  .section-12 {
+    margin-top: 0;
+    .product-img {
+      position: relative;
+      left: -28%;
+      margin-top: 20px;
+      width: 128%;
+      height: auto;
+    }
+    .content-box {
+      left: 41.6%;
+      .text {
+        margin-bottom: round(7px * $zoom);
+        font-size: round(20px * $zoom);
+      }
+    }
+    .frames2 {
+      width: 8%;
+    }
+  }
+}

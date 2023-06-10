@@ -1,0 +1,424 @@
+{% extends "./_njk/base.njk" %}
+{# 排名2-10 的歌曲 #}
+{% set songList = [
+  {
+    serial: 2,
+    itemr: 'item_r',
+    songName: '诗人漫步',
+    name: '蔡依林'
+  }, {
+    serial: 3,
+    itemr: 'item_l',
+    songName: '年少有为',
+    name: '李荣浩'
+  }, {
+    serial: 4,
+    itemr: 'item_r',
+    songName: 'Never Be the  Same',
+    name: 'Camila Cabello'
+  }, {
+    serial: 5,
+    itemr: 'item_l',
+    songName: '说好不哭',
+    name: '周杰伦'
+  }, {
+    serial: 6,
+    itemr: 'item_r',
+    songName: '为时不晚',
+    name: '李易峰'
+  }, {
+    serial: 7,
+    itemr: 'item_l',
+    songName: 'There’s A Reason …',
+    name: 'Blossoms'
+  }, {
+    serial: 8,
+    itemr: 'item_r',
+    songName: '从你的全世界路过',
+    name: '林宥嘉'
+  }, {
+    serial: 9,
+    itemr: 'item_l',
+    songName: 'There’s A Reason …',
+    name: 'Blossoms'
+  }, {
+    serial: 10,
+    itemr: 'item_r',
+    songName: '王牌冤家哈哈哈哈好',
+    name: '李荣浩'
+  }
+] %}
+{% block main %}
+<!-- 页面 - 加载页 -->
+<section class="section section_loading show">
+  <!-- 进度条 -->
+  <div class="loading_wrapper">
+    <div class="loading_progress">
+      <div class="loading_progress_outer">
+        <div class="loading_progress_inner">
+          <img src="./img/loading.png" class="loading_progress_img" />
+        </div>
+      </div>
+    </div>
+    <div class="loading_percent font_shscn">0%</div>
+  </div>
+</section>
+<!--Body下的根元素 S-->
+<section class="wrap">
+  <!-- 背景音乐icon -->
+  <div class="icon_play paused"></div>
+
+  <!-- 页面 - 首页 -->
+  <div class="section index_wrap">
+    <!-- 首页 - 内容 -->
+    <div class="index_content">
+      <!-- 首页 - 锡纸背景 -->
+      <div class="index_content_bg">
+        <!-- 首页 - 瓶子 -->
+        <div class="index_product"></div>
+      </div>
+    </div>
+    <!-- 首页 - 文案 -->
+    <span class="index_text font_shscn">逆时针拨动瓶身 即刻开启逆时回溯之旅</span>
+    <!-- 底部 - 联合logo金黄色 -->
+    <div class="bottom_logo"></div>
+  </div>
+
+  <!-- 页面 - 歌单前十 -->
+  <div class="section songlist_wrap">
+    <!-- 返回上一页icon -->
+    <div class="icon_previous"></div>
+    <!-- 歌单前十 - 内容区 -->
+    <div class="songlist_content">
+      <!-- 歌单前十 - 金色帆布容器 -->
+      <div class="songlist_streamer_wrap">
+        <!-- 歌单前十 - 金色帆布 -->
+        <div class="songlist_streamer"></div>
+      </div>
+      <!-- 装饰一 - 左侧线条瓶子 -->
+      <div class="songlist_ornaments songlist_ornaments1"></div>
+      <!-- 标题 -->
+      <div class="songlist_title_wrap font_shscn">
+        <span class="songlist_title songlist_title_1">用音乐唤醒</span>
+        <span class="songlist_title songlist_title_2">旧日美好时光<span class="roundness stop">
+            <i></i></span></span>
+        <span class="songlist_title songlist_title_3">这些歌组成了你的</span>
+        <span class="songlist_title songlist_title_4">极致歌单TOP10</span>
+      </div>
+      <!-- 前十 -->
+      <div class="songlist_topten_wrap">
+        <!-- 装饰二 - 带线条瓶子的红色瓶子 -->
+        <div class="songlist_ornaments songlist_ornaments2"></div>
+        <!-- 装饰三 - 右侧线条瓶子 -->
+        <div class="songlist_ornaments songlist_ornaments3"></div>
+        <!-- 排名 -->
+        <div class="songlist_topten">
+          <!-- 排名第一 -->
+          <div class="songlist_first">
+            <!-- 小圆1 -->
+            <div class="songlist_first_round songlist_first_round1"></div>
+            <!-- 小圆2 -->
+            <div class="songlist_first_round songlist_first_round2"></div>
+            <!-- 小圆3 -->
+            <div class="songlist_first_round songlist_first_round3"></div>
+            <!-- 小圆4 -->
+            <div class="songlist_first_round songlist_first_round4"></div>
+            <!-- 标题 -->
+            <span class="songlist_first_title font_ntb">TOP<i>1</i>
+            </span>
+            <!-- 歌曲名 & 歌手名 -->
+            <span class="songlist_first_name font_shscn">《晴天》周杰伦</span>
+          </div>
+          <div class="songlist_ranking">
+            {% for item in songList %}
+            <div class="songlist_ranking_item {{item.itemr}}">
+              <span class="ranking">TOP{{item.serial}}:</span>
+              <div class="song_name_wrap">
+                <span class="song_name">《{{item.songName}}》</span><span class="name">{{item.name}}</span>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 经常听歌曲 -->
+    <div class="often_wrap">
+      <!-- 装饰 -->
+      <div class="ornaments4">
+        <!-- 碟盘 -->
+        <div class="often_plate glow">
+          <div class="often_plate1 stop"></div>
+        </div>
+      </div>
+      <!-- 标题 -->
+      <div class="often_title font_shscn">
+        <span class="roundness stop">
+          <i></i>
+        </span>
+        <span>还记得这几年</span>
+        <span>你最常听的那些歌吗？</span>
+      </div>
+    </div>
+    <!-- 深夜陪伴 -->
+    <div class="accompany_wrap">
+      <!-- 标题 -->
+      <div class="accompany_title">
+        <div class="roundness_wrap">在<span class="roundness stop">
+            <i></i></span></div>
+        <!-- 日期 -->
+        <div class="title_date_wrap">
+          <span class="year font_ntb">2019</span>年<span class="month font_ntb">11</span>月<span
+            class="day font_ntb">1</span>日
+        </div>
+        <!-- 时间 -->
+        <div class="title_time_wrap font_ntb">
+          <span class="font_pf">0</span>
+          <span class="font_pf">0</span>:33</div>
+        <div class="title_name font_shscn">周杰伦的<span class="title_song font_shscr">《<span
+              class="song_name">晴天</span>》</span></div>
+        <div class="title_text">在最深的夜给了你最特别的治愈</div>
+      </div>
+      <!-- 瓶子 -->
+      <div class="accompany_bottle">
+        <div class="active"></div>
+      </div>
+      <!-- 底部文案 -->
+      <div class="accompany_text font_shscn">
+        <div class="partner">赫莲娜xQQ音乐</div>
+        <div class="text1">带你回顾与音乐相伴的</div>
+        <!-- <div class="number_wrap"><span class="number font_ntb">3127</span><span class="day">天</span></div> -->
+        <!-- 天数 -->
+        <div class="title_time_wrap font_ntb">
+          <!-- <div class="title_time"> <div class="number1"><span>3</span></div> <div class="number2 number3"><span>3</span></div> <div class="number3"><span>3</span></div> </div> <div class="title_time"> <div class="number1"><span>1</span></div> <div class="number2 number3"><span>1</span></div> <div class="number3"><span>1</span></div> </div> <div class="title_time"> <div class="number1"><span>2</span></div> <div class="number2 number3"><span>2</span></div> <div class="number3"><span>2</span></div> </div> <div class="title_time"> <div class="number1"><span>7</span></div> <div class="number2 number3"><span>7</span></div> <div class="number3"><span>7</span></div> </div> -->
+          <div class="title_time font_ntb">
+            3127
+          </div>
+          <span class="day">天</span>
+        </div>
+        <div class="text2">的美好时光</div>
+      </div>
+      <!-- 底部 - 联合logo -->
+      <div class="bottom_logo"></div>
+    </div>
+  </div>
+
+  <!-- 代言人介绍页面 -->
+  <div class="section delegate_wrap">
+    <!-- 返回上一页icon -->
+    <div class="icon_previous"></div>
+    <div class="delegate_streamer"></div>
+    <div class="delegate_content">
+      <span class="text1">比过去更精彩的是将来
+        更闪耀的人生
+        属于下一个十年</span>
+      <span class="text2">赫莲娜携手品牌全球代言人</span>
+      <span class="text3">王菲</span>
+      <span class="text4">为你揭幕极致闪耀新十年</span>
+    </div>
+    <!-- 底部 - 联合logo -->
+    <div class="bottom_logo"></div>
+  </div>
+  <!-- 代言人展示页 -->
+  <div class="section spokesman_wrap">
+    <!-- 返回上一页icon -->
+    <div class="icon_previous"></div>
+    <!-- 顶部 - 联合logo -->
+    <div class="bottom_logo"></div>
+    <!-- 提示点击文案 -->
+    <div class="hint_text font_shsce">点击揭开你的十年金愿<span class="arrows"></span></div>
+    <div class="signature_wrap">
+      <span class="name">赫莲娜品牌 全球代言人 王菲</span>
+      <span class="signature"></span>
+    </div>
+  </div>
+  <!-- 金愿点选页 -->
+  <div class="section promptly_wrap">
+    <!-- 金色帆布 -->
+    <div class="promptly_streamer"></div>
+    <!-- 即刻点击 -->
+    <div class="promptly_text">即刻点击 邂逅你的2020专属金愿</div>
+    <!-- 底部 - 联合logo -->
+    <div class="bottom_logo"></div>
+  </div>
+</section>
+
+<!-- 金愿墙页面 -->
+<div class="section wall_wrap">
+  <!-- 返回上一页icon -->
+  <div class="icon_previous"></div>
+  <!-- 顶部 - 联合logo -->
+  <div class="bottom_logo"></div>
+  <!-- 关键词 -->
+  <div class="antistop_wrap">
+    <span class="text">你的<span class="year font_shsce">2020</span>专属金愿</span>
+    <span class="antistop font_shsce">至美力量</span>
+    <span class="interpret font_ntb">POWER BEAUTY</span>
+  </div>
+  <span class="text2 font_shsce">“
+    <span class="font_shscl">笃信至美,自有力量</span>
+    ”</span>
+  <!-- 按钮容器 -->
+  <div class="btn_wrap">
+    <!-- 生成 -->
+    <div class="btn_create"></div>
+    <!-- 抽奖 -->
+    <div class="btn_extraction"></div>
+    <!-- 立即拥有 -->
+    <div class="btn_immediately"></div>
+  </div>
+  <!-- 歌单前十 - 金色帆布 -->
+  <div class="streamer"></div>
+</div>
+
+{# 页面所需所有弹窗 #}
+
+<!-- 中奖弹窗 -->
+<div class="modal" id="modalWinning">
+  <div class="modal-content">
+    <div class="modal-bg"></div>
+    <div class="modal-body">
+      <!-- 关闭按钮 -->
+      <div class="modal-close"></div>
+      <!-- 获奖信息 -->
+      <div class="pop_awards font_shscl">
+        <p>恭喜获得赫莲娜赠送的<span class="font_shscb">1个月豪华绿钻</span></p>
+        <p>将在72小时内下发到您的账号，请注意查收</p>
+      </div>
+      <!-- 获奖标题 -->
+      <div class="pop_title font_shscl">HR赫莲娜携手
+        品牌全球代言人—王菲
+        助力点亮你的逆时闪耀新十年
+      </div>
+      <p class="pop_text font_shscl">填写以下信息，就有机会成为HR赫莲娜独宠锦鲤，尽享由HR赫莲娜承包的<span class="">#十年赫莲娜自由#</span></p>
+      <div class="pop_form font_shscn">
+        <!-- 姓名 -->
+        <input type="text" class="name" placeholder="姓名">
+        <!-- 手机 -->
+        <input type="text" class="phone" placeholder="手机">
+        <!-- 验证码 -->
+        <div class="verification_wrap">
+          <input type="text" class="verification" placeholder="验证码">
+          <button class="inspect">发送验证码</button>
+        </div>
+      </div>
+      <!-- 条款 -->
+      <div class="clause_wrap">
+        <div class="select_wrap">
+          <input type="checkbox" name="" value="" id="select" class="select">
+          <label for="select"></label>
+        </div>
+        <p class="clause_text font_shscl">我同意依照本「隐私政策」对我的个人信息进行收集和使用；我
+          已阅读并确认已被给予充分机会理解该隐私政策的内容。</p>
+      </div>
+      <!-- 确认按钮 -->
+      <div class="btn_submit"></div>
+      <div class="rule font_shscl">活动规则</div>
+    </div>
+  </div>
+</div>
+
+<!-- 未中奖弹窗 -->
+<div class="modal" id="modalLosing">
+  <div class="modal-content">
+    <div class="modal-bg"></div>
+    <div class="modal-body">
+      <!-- 关闭按钮 -->
+      <div class="modal-close"></div>
+      <!-- 获奖信息 -->
+      <div class="pop_awards font_shscl">
+        <p class="pop_awards_text">感谢您的参与，本次未抽中豪华绿钻</p>
+      </div>
+      <!-- 获奖标题 -->
+      <div class="pop_title font_shscl">HR赫莲娜携手
+        品牌全球代言人—王菲
+        助力点亮你的逆时闪耀新十年
+      </div>
+      <p class="pop_text font_shscl">填写以下信息，就有机会成为HR赫莲娜独宠锦鲤，尽享由HR赫莲娜承包的<span class="">#十年赫莲娜自由#</span></p>
+      <div class="pop_form font_shscn">
+        <!-- 姓名 -->
+        <input type="text" class="name" placeholder="姓名">
+        <!-- 手机 -->
+        <input type="text" class="phone" placeholder="手机">
+        <!-- 验证码 -->
+        <div class="verification_wrap">
+          <input type="text" class="verification" placeholder="验证码">
+          <button class="inspect">发送验证码</button>
+        </div>
+      </div>
+      <!-- 条款 -->
+      <div class="clause_wrap">
+        <div class="select_wrap">
+          <input type="checkbox" name="" value="" id="LosingSelect" class="select">
+          <label for="LosingSelect"></label>
+        </div>
+        <p class="clause_text font_shscl">我同意依照本「隐私政策」对我的个人信息进行收集和使用；我
+          已阅读并确认已被给予充分机会理解该隐私政策的内容。</p>
+      </div>
+      <!-- 确认按钮 -->
+      <div class="btn_submit"></div>
+      <div class="rule font_shscl">活动规则</div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- 确认弹窗 -->
+<div class="modal" id="modalOk">
+  <div class="modal-content">
+    <div class="modal-bg"></div>
+    <div class="modal-body">
+      <!-- 内容 -->
+      <div class="pop_content">
+        <div class="text font_shscl">个人信息提交成功</div>
+        <div class="btn_ok"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 活动规则弹窗 -->
+<div class="modal" id="modalRule">
+  <div class="modal-content">
+    <div class="modal-bg"></div>
+    <div class="modal-body">
+      <!-- 关闭按钮 -->
+      <div class="modal-close"></div>
+      <p class="title">活动详情</p>
+      <!-- 内容 -->
+      <div class="pop_content">
+        <!-- 活动时间 -->
+        <div class="time_wrap">
+          <div class="time_title">活动时间</div>
+          <div class="time">2019年12月16日00:00至1月1日23:59</div>
+        </div>
+        <!-- 活动奖品 -->
+        <div class="prize_wrap">
+          <div class="prize_title">活动奖品</div>
+          <div class="prize_text">十年份HR赫莲娜护肤套组礼盒（每季度寄送一套，共计40套），总价值xxxx元。</div>
+        </div>
+        <!-- 活动 机制 -->
+        <div class="machining_wrap">
+          <div class="machining_title">活动机制</div>
+          <p class="font_shscn">- 请根据页面提示参与活动并完整填写正确信息。活动期间内每个手机号限参与一次抽奖，不可重复参与。</p>
+          <p class="font_shscn">-
+            2020年1月10日，品牌将从所有参与活动的用户中随机抽取一名幸运用户，成为HR赫莲娜锦鲤，获得活动奖品，并于品牌官方微博公布中奖锦鲤。届时，HR赫莲娜将于三个工作日内联系您，请保持电话畅通。您在看到相应中奖信息后，也可以拨打官方热线4008208595与我们取得联系。若五个工作日内（即2020年1月17日23:59前）无法与您取得有效联系，则视为自动放弃。活动不顺延，逾期即关闭。
+          </p>
+          <p class="font_shscn">- HR赫莲娜定制QQ音乐豪华绿钻会员（一个月）中奖者，平台将于中奖后72小时之内即刻下发至您的个人QQ音乐账号（用户登陆此活动时的账号）。</p>
+          <p class="font_shscn">- 本次活动将使用上海市东方公证处的抽奖系统进行抽奖，并向上海市东方公证处申请办理公证。</p>
+        </div>
+      </div>
+      <!-- 返回按钮 -->
+      <div class="btn_return"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

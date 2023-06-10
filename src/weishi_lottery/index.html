@@ -1,0 +1,347 @@
+{% extends "./_njk/base.njk" %}
+{% block stylesheet %}
+<link rel="stylesheet" href="css/swiper.min.css">
+<link rel="stylesheet" href="css/style.min.css" />
+{% endblock %}
+
+{% block main %}
+<!-- 页面最大容器 -->
+<div class="page-wrap">
+  <!-- 页面 - 首页 -->
+  <div class="page page-index show">
+    <!-- 首页 - 头部模块 -->
+    <div class="index-title-wrap">
+      <!-- 公共组件 - 头部活动规则按钮 -->
+      <div class="btn-rule"></div>
+      <!-- 头部 - 进入个人中心按钮 -->
+      <div class="btn-my"></div>
+      <!-- 头部 - 弹幕模块 -->
+      <div class="barrage">
+        <!-- 弹幕 - 喇叭icon -->
+        <div class="barrage-icon"></div>
+        <!-- 弹幕 - 内容 -->
+        <div class="barrage-content">
+          <!-- 弹幕 - 列表 -->
+          <div class="barrage-list">
+            <!-- 弹幕 - 单条弹幕内容 -->
+            <div class="barrage-item">恭喜陈志展2019.11.18获得XX奖品</div>
+            <div class="barrage-item">恭喜陈志展2019.11.18获得XX奖品</div>
+          </div>
+        </div>
+      </div>
+      <!-- 头部 - 签到模块 -->
+      <div class="signin">
+        <!-- 装饰 - 金币1 -->
+        <div class="ornament-gold1 signin-ornament1"></div>
+        <!-- 装饰 - 树叶1 -->
+        <div class="ornament-leaf1 signin-ornament2"></div>
+        <!-- 装饰 - 树叶2 -->
+        <div class="ornament-leaf2 signin-ornament3"></div>
+        <!-- 签到 - 数据 -->
+        <div class="signin-data">
+          <!-- 数据 - 余额 -->
+          <div class="signin-balance">我的夺宝币: <span class="gold-amount">123456</span></div>
+          <!-- 数据 - 天数 -->
+          <div class="signin-day">连续签到天数: <span class="day">0</span></div>
+        </div>
+        <!-- 签到 - 进度条容器 -->
+        <div class="signin-progress-wrap">
+          <!-- 签到 - 进度条 -->
+          <div class="signin-progress">
+            <div class="signin-progress-inner one-day">
+              <span class="circle"></span>
+            </div>
+          </div>
+          <!-- 签到 - 奖品 -->
+          <div class="signin-prize"></div>
+        </div>
+        <!-- 签到 - 按钮 -->
+        <button class="btn-signin"></button>
+      </div>
+    </div>
+    <!-- 首页 - 内容模块 -->
+    <div class="index-content-wrap">
+
+      <div class="index-content-inner">
+        <!-- 内容 - 标题 -->
+        <div class="title"></div>
+        <!-- 内容 - 下注商品列表 -->
+        <div class="goods-list">
+          <!-- 单个下注商品 -->
+          <div class="goods-item">
+            <div class="goods-item-data">
+              <div class="goods-item-time"><span class="hour">60</span> 时<span class="minute">30</span>分<span
+                  class="secs">22</span>秒后开奖</div>
+              <div class="goods-item-number">已参与人数 <span class="number">9999</span></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 弹窗 - 视频翻倍弹窗 -->
+  <div class="modal modal-video-double " id="modalVideoDouble">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <div class="modal-inner pulse">
+          <!-- 视频翻倍弹窗 - 标题文案 -->
+          <div class="title font-hyykh">你已获得20个夺宝币看30秒视频翻倍哦</div>
+          <!-- 装饰 - 翻倍 -->
+          <div class="ornament"></div>
+          <!-- 按钮 - 去翻倍 -->
+          <div class="modal-btn modal-btn-double"></div>
+        </div>
+        <div class="modal-close"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 弹窗 - 翻倍成功弹窗 -->
+  <div class="modal modal-hint-double" id="modalHintDouble">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <div class="modal-inner pulse">
+          <!-- 翻倍成功 - 标题文案 -->
+          <div class="title font-hyykh">恭喜你，你的夺宝币翻倍啦</div>
+          <!-- 装饰 - 翻倍 -->
+          <div class="ornament"></div>
+          <!-- 按钮 - 去拆开 -->
+          <div class="modal-btn modal-btn-toopen"></div>
+        </div>
+        <div class="modal-close"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 弹窗 - 未完成观看视频弹窗 -->
+  <div class="modal modal-unfinished" id="modalUnfinished">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <div class="modal-inner pulse">
+          <!-- 未完成观看视频 - 标题文案 -->
+          <div class="title font-hyykh">你还需要看8秒视频才可翻倍</div>
+          <!-- 装饰 - 翻倍 -->
+          <div class="ornament"></div>
+          <!-- 按钮 - 容器 -->
+          <div class="btn-wrap">
+            <!-- 按钮 - 继续 观看 -->
+            <div class="modal-btn btn-continue"></div>
+            <!-- 按钮 - 去寻宝 -->
+            <div class="modal-btn btn-hunt"></div>
+          </div>
+        </div>
+        <div class="modal-close"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 弹窗 - 夺宝礼包弹窗 -->
+  <div class="modal modal-gift" id="modalGift">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <div class="modal-inner pulse">
+          <!-- 夺宝礼包 - 标题文案 -->
+          <div class="title font-hyykh">恭喜你已获得一个夺宝礼包</div>
+          <!-- 装饰 - 宝箱 类 * ornament-gift 为礼盒 ornament-box 为宝箱 默认为翻倍牌 -->
+          <div class="ornament ornament-box"></div>
+          <!-- 按钮 - 马上拆开 -->
+          <div class="modal-btn modal-btn-immediately"></div>
+        </div>
+        <div class="modal-close"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 弹窗 - 助力成功弹窗 - 客户要求助力成功后的余额直接滚动展示在吸底的余额中不需要弹窗 -->
+  <div class="modal modal-help-success" id="modalHelpLsuccess" >
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <div class="modal-inner pulse">
+          <!-- 夺宝礼包 - 标题文案 -->
+          <div class="title font-hyykh">你已为好友助力X个币奖励你X个夺宝币哦</div>
+          <!-- 装饰 - 礼包 类 * ornament-gift 为礼盒 ornament-box 为宝箱 默认为翻倍牌 -->
+          <div class="ornament ornament-gift"></div>
+          <!-- 按钮 - 去拆开 -->
+          <div class="modal-btn modal-btn-helpsuccess"></div>
+        </div>
+        <div class="modal-close"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 弹窗 - 提示分享弹窗 -->
+  <div class="modal modal-share" id="modalShare">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <div class="modal-inner pulse">
+          <!-- 提示分享 - 标题文案 -->
+          <div class="title font-hyykh">继续分享好友获得夺宝币</div>
+          <!-- 装饰 - 礼包 类 * ornament-gift 为礼盒 ornament-box 为宝箱 默认为翻倍牌 -->
+          <div class="ornament ornament-gift"></div>
+          <!-- 按钮 - 去分享 -->
+          <div class="modal-btn modal-btn-share"></div>
+        </div>
+        <div class="modal-close"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 弹窗 - 提示助力弹窗 -->
+  <div class="modal modal-help" id="modalHelp">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <div class="modal-inner pulse">
+          <!-- 提示助力 - 标题文案 -->
+          <div class="title font-hyykh">好友就差你的助力啦助力好友赢红包哦</div>
+          <!-- 装饰 - 宝箱 类 * ornament-gift 为礼盒 ornament-box 为宝箱 默认为翻倍牌 -->
+          <div class="ornament ornament-box"></div>
+          <!-- 按钮 - 去助力 -->
+          <div class="modal-btn modal-btn-help"></div>
+        </div>
+        <div class="modal-close"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 弹窗 - 查询中奖结果弹窗 -->
+  <div class="modal modal-inquire" id="modalInquire">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <div class="modal-inner pulse">
+          <!-- 查询中奖结果 - 标题文案 -->
+          <div class="title font-hyykh">你参与的夺宝活动开奖了快去看看你中奖了吗</div>
+          <!-- 装饰 - 礼包 类 * ornament-gift 为礼盒 ornament-box 为宝箱 默认为翻倍牌 -->
+          <div class="ornament ornament-gift"></div>
+          <!-- 按钮 - 马上查询 -->
+          <div class="modal-btn modal-btn-inquire"></div>
+        </div>
+        <div class="modal-close"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 弹窗 - 拆开礼包弹窗 -->
+  <div class="modal modal-open-gift" id="modalOpenGift">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <div class="modal-inner pulse">
+          <!-- 查询中奖结果 - 标题文案 -->
+          <div class="title font-hyykh">您已获得99个夺宝币快去夺宝吧！</div>
+          <!-- 装饰 - 礼包 类 * ornament-gift 为礼盒 ornament-box 为宝箱 默认为翻倍牌 -->
+          <div class="ornament ornament-box"></div>
+          <!-- 按钮 - 去夺宝 -->
+          <div class="modal-btn modal-btn-join"></div>
+          <!-- 关闭按钮 -->
+          <div class="modal-close"></div>
+        </div>
+        <div class="base">
+          <div class="base-products-list">
+              <div class="base-products-item">
+                <img class="item-img" src="./img/item_goods2.jpg" alt="">
+                <div class="item-text-wrap">
+                  <div class="item-price"><span>22490</span>夺宝币</div>
+                  <div class="item-go"></div>
+                </div>
+              </div>
+              <div class="base-products-item">
+                <img class="item-img" src="./img/item_goods2.jpg" alt="">
+                <div class="item-text-wrap">
+                  <div class="item-price"><span>22490</span>夺宝币</div>
+                  <div class="item-go"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 弹窗 - 助力结束后 -->
+  <div class="modal modal-help-over" id="modalHelpOver">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <div class="modal-inner pulse">
+          <!-- 查询中奖结果 - 标题文案 -->
+          <div class="title font-hyykh">已为好友助力3个币奖励你2个夺宝币哦</div>
+          <!-- 装饰 - 礼包 类 * ornament-gift 为礼盒 ornament-box 为宝箱 默认为翻倍牌 -->
+          <div class="ornament ornament-gift"></div>
+          <!-- 按钮 - 去夺宝 -->
+          <div class="modal-btn modal-btn-join"></div>
+          <!-- 关闭按钮 -->
+          <div class="modal-close"></div>
+        </div>
+        <div class="base">
+          <div class="base-products-list">
+              <div class="base-products-item">
+                <img class="item-img" src="./img/item_goods2.jpg" alt="">
+                <div class="item-text-wrap">
+                  <div class="item-price"><span>22490</span>夺宝币</div>
+                  <div class="item-go"></div>
+                </div>
+              </div>
+              <div class="base-products-item">
+                <img class="item-img" src="./img/item_goods2.jpg" alt="">
+                <div class="item-text-wrap">
+                  <div class="item-price"><span>22490</span>夺宝币</div>
+                  <div class="item-go"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 弹窗 - 下注弹窗 -->
+  <div class="modal modal-bet" id="modalBet">
+    <div class="modal-content">
+      <div class="modal-bg"></div>
+      <div class="modal-body">
+        <div class="modal-inner">
+          <!-- 下注弹窗 - 标题 -->
+          <div class="titel font-hyykh">我要夺宝</div>
+          <!-- 下注弹窗 - 提示文案 -->
+          <div class="text">1夺宝币可兑换1个幸运号，可投注<span class="bet-price">666</span>个</div>
+          <!-- 下注弹窗 - 中奖率 -->
+          <div class="probability font-hyykh">中奖率 <span class="bet-percent">0%</span></div>
+          <!-- 下注弹窗 - 下注 -->
+          <div class="bet-wrap">
+            <!-- 减 -->
+            <div class="btn-bet btn-subtract"></div>
+              <!-- <div class="bet-number-wrap"> -->
+                <input type="text" class="bet-number"  value="0" id="betNumber" type="number" pattern="\d*">
+              <!-- </div> -->
+            <!-- 加 -->
+            <div class="btn-bet btn-puls active"></div>
+          </div>
+          <!-- 下注弹窗 - 提示文案2 -->
+          <div class="text2">你有夺宝币<span class="bet-balances">1280</span>个，<span class="bet-all">全部投注</span></div>
+          <button class="btn-affirmbet"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+{% block javascript %}
+<!-- jquery -->
+<script src="./js/jquery.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/index.js"></script>
+{% endblock %}
+</div>

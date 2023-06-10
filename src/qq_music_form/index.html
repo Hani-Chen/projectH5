@@ -1,0 +1,25 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<section class="wrap">
+  <form action="" class="form text_forbid__cope" id="form">
+    <div class="form_wrap">
+      <div class="form_inner">
+        
+      </div>
+      <button class="form_btn__submit ">确定提交</button>
+      <!-- <button class="form_btn__submit gray">已提交</button> -->
+      <!-- 隐私说明 -->
+      <div class="form_privacy"><a href="JavaScript:;" id="formPrivacy">隐私说明</a></div>
+    </div>
+  </form>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<script src="./js/fx.js"></script>
+<!-- 表单 - 配置数据【修改input配置修改看这个】 -->
+<script src="./js/data.js"></script>
+<!-- 表单 - 逻辑代码【获取表单填写完成后获取数据看这个】 -->
+<script src="./js/index.js"></script>
+{% endblock %}

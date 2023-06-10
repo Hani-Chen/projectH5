@@ -1,0 +1,272 @@
+.page-profile {
+  &-wrap {
+    padding-bottom: 1.5rem;
+    height: 100%;
+    .ornament-gold2 {
+      top: 0.5rem;
+      right: -0.35rem;    
+      z-index: 20;
+    }
+    .ornament-leaf2 {
+      top: 0.4rem;
+      left: -0.25rem;
+      z-index: 20;
+    }
+    > .bg-title {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 7rem;
+      @extend .bg-item;
+      background-image: url('~@/assets/img/profile_top_bg.jpg');
+    }
+    > .bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      @extend .bg-item;
+      background-image: url('~@/assets/img/profile_bg.jpg');
+      background-repeat: repeat-y;
+    }
+  }
+  &-inner {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    &.overflow-auto {
+      overflow-y: auto;
+    }
+  }
+}
+.profile {
+  &-content {
+    position: relative;
+    width: 100%;
+    margin-top: 0.7rem;
+    border-style: solid;
+    border-left-width: 0;
+    border-top-width: 0.6rem;
+    border-right-width: 0;
+    border-bottom-width: 0.6rem;
+    border-image-source: url('~@/assets/img/index_signin_bg.png');
+    border-image-slice: 60 0 60 0 fill;
+    &.heightAll {
+      height: 97%;
+    }
+  }
+  // 头像
+  &-portrait {
+    @extend .ab-item;
+    top: -0.85rem;
+    width: 1.26rem;
+    height: 1.26rem;
+    margin-left: -0.63rem;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 0.2rem rgba(#9f2d00,0.4);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  // 标题
+  &-title {
+    margin-top: 0.65rem;
+    text-align: center;
+    color: #ec2825;
+    font-size: 0.36rem;
+    font-weight: bold;
+  }
+  // 列表容器
+  &-list {
+    width: 6.24rem;
+    margin: 0.4rem auto 0;
+    height: 100%;
+    // 单个奖品
+    .item {
+      display: flex;
+      align-items: center;
+      margin-top: 0.3rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #ffe0cc;
+      &-null {
+        width: 100%;
+        // height: 8rem;
+        height: calc(100% - 3.4rem);
+        @extend .bg-item;
+        background-image: url('~@/assets/img/profile_content_bg.png');
+      }
+      // 奖品图片
+      &-img-wrap {
+        position: relative;
+        width: 1.9rem;
+        height: 2.2rem;
+        background: #fff;
+        border-radius: 0.1rem;
+        display: flex;
+        margin-right: 0.4rem;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        img {
+          width: 1.7rem;
+          height: auto;
+        }
+        .shade {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba($color: #000000, $alpha: 0.4);
+          // 已获奖
+          &-get {
+            &::after {
+              content: '已获奖';
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              width: 1.3rem;
+              height: 0.4rem;
+              margin-top: -0.2rem;
+              margin-left: -0.65rem;
+              border-radius: 0.1rem;
+              font-size: 0.24rem;
+              font-weight: bold;
+              color: #fff;
+              line-height: 0.4rem;
+              text-align: center;
+              background: #d62a19;
+            }
+          }
+          // 未开奖
+          &-notstarted {
+            &::after {
+              content: '未开奖';
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              width: 1.3rem;
+              height: 0.4rem;
+              margin-top: -0.2rem;
+              margin-left: -0.65rem;
+              border-radius: 0.1rem;
+              font-size: 0.24rem;
+              font-weight: bold;
+              color: #fff6e9;
+              line-height: 0.4rem;
+              text-align: center;
+              background: #763b20;
+            }
+          }
+          // 未中奖
+          &-nothing {
+            &::after {
+              content: '未中奖';
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              width: 1.3rem;
+              height: 0.4rem;
+              margin-top: -0.2rem;
+              margin-left: -0.65rem;
+              border-radius: 0.1rem;
+              font-size: 0.24rem;
+              font-weight: bold;
+              color: #fff;
+              line-height: 0.4rem;
+              text-align: center;
+              background: #aaaaaa;
+            }
+          }
+          // 已返还
+          &-return {
+            &::after {
+              content: '已返还';
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              width: 1.3rem;
+              height: 0.4rem;
+              margin-top: -0.2rem;
+              margin-left: -0.65rem;
+              border-radius: 0.1rem;
+              font-size: 0.24rem;
+              font-weight: bold;
+              color: #fff;
+              line-height: 0.4rem;
+              text-align: center;
+              background: #aaaaaa;
+            }
+          }
+          
+        }
+      }
+      &-detail {
+        height: 1.62rem;
+
+      }
+      // 下注数量
+      &-det {
+        font-size: 0.24rem;
+        color: #763b20;
+        span {
+          font-size: 0.3rem;
+          color: #ec2825;
+          font-weight: bold;
+        }
+      }
+      // 中奖率
+      &-percentage {
+        font-size: 0.24rem;
+        color: #763b20;
+        span {
+          font-size: 0.3rem;
+          color: #ec2825;
+          font-weight: bold;
+        }
+      }
+      // 价格
+      &-price {
+        margin-top: 0.15rem;
+        font-size: 0.2rem;
+        color: #763b20;
+        display: flex;
+
+        &-name {    
+          // width: 2.5rem;
+          display: inline-block;
+          max-width: 2.4rem;
+          overflow:hidden; //超出的文本隐藏
+          text-overflow:ellipsis; //溢出用省略号显示
+          white-space:nowrap; //溢出不换行
+          margin-right: 0.08rem;
+        }
+        span {
+          font-size: 0.24rem;
+          color: #ee4c48;
+        }
+      }
+      // 开奖时间
+      &-time{
+        margin-top: 0.1rem;
+        font-size: 0.2rem;
+        color: #763b20;
+      }
+    }
+    .item:first-child {
+      margin-top: 0;
+    }
+    .item:last-child {
+      border-bottom: 1px solid transparent;
+    }
+  }
+  
+}
+

@@ -1,0 +1,33 @@
+{% extends "./_njk/base.njk" %} 
+
+{% block main %}
+<section class="wrap">
+  <!-- 首页 -->
+  <div class="page_item page_home show">
+    <!-- logo -->
+    <div class="logo"></div>
+    <!-- 头图 -->
+    <div class="page_home__banner"></div>
+    <!-- 列表 -->
+    <div class="page_home__list">
+      <div class="list_title">歌单共10首</div>
+      <div class="list_wrap">
+        
+      </div>
+    </div>
+    <div class="page_home__end">
+      <div class="bg"></div>
+      <!-- 按钮 -->
+      <div class="btn_wrap">
+        <button class="btn return"><a href="JavaScript:;">返回首页投票</a> </button>
+        <button class="btn poster"><a href="JavaScript:;">制作歌词海报</a> </button>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} 
+{% block javascript %}
+  <script src="js/zepto.min.js"></script>
+  <!-- 主程序 -->
+  <script type="text/javascript" src="js/index.js"></script>
+{% endblock %}

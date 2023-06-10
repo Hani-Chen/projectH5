@@ -1,0 +1,114 @@
+{% extends "./_njk/base.njk" %}
+{% block stylesheet %}
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+{% endblock %}
+{% set middleList = [
+  {
+    id: 1,
+    imgUrl: './img/item-1.png',
+    text: '腾讯视频VIP'
+  }, {
+    id: 2,
+    imgUrl: './img/item-2.png',
+    text: '超级会员'
+  }, {
+    id: 3,
+    imgUrl: './img/item-3.png',
+    text: '绿钻豪华版'
+  }, {
+    id: 4,
+    imgUrl: './img/item-4.png',
+    text: '超级会员'
+  }, {
+    id: 5,
+    imgUrl: './img/item-5.png',
+    text: '满20减2'
+  }, {
+    id: 6,
+    imgUrl: './img/item-6.png',
+    text: '会员1天'
+  }, {
+    id: 7,
+    imgUrl: './img/item-4.png',
+    text: '超级会员'
+  }, {
+    id: 8,
+    imgUrl: './img/item-5.png',
+    text: '满20减2'
+  }, {
+    id: 9,
+    imgUrl: './img/item-6.png',
+    text: '会员1天'
+  }
+] %}
+{% block main %}
+  <section class="section section-morewelfare">
+    {# 轮播 #}
+    <div class="morewelfare-header">
+      <div class="swiper-container header-swiper" id="headerSwiper">
+        <div class="swiper-wrapper header-swiper-wrap">
+          <div class="swiper-slide header-swiper-item"><img src="./img/banner.png" alt=""></div>
+          <div class="swiper-slide header-swiper-item"><img src="./img/banner2.png" alt=""></div>
+          <div class="swiper-slide header-swiper-item"><img src="./img/banner.png" alt=""></div>
+        </div>
+      </div>
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+    </div>
+    {# 内容区 #}
+    <div class="morewelfare-middle">
+      {# 标题 #}
+      <div class="middle-title">更多福利</div>
+      {# 单个福利容器 #}
+      <div class="middle-list">
+        {% for item in middleList %}
+          <div class="middle-list-item">
+            <div class="item-img-box"><img src="{{item.imgUrl}}" alt="" class="item-img"></div>
+            <span class="item-text">{{item.text}}</span>
+          </div>
+        {% endfor %}
+      </div>
+      {# 查看更多 #}
+      <div class="middle-more">
+        <span class="middle-more-wire"></span>
+        <div class="middle-more-text">
+          <span>查看更多</span>
+          <i class="middle-more-arrows"></i>
+        </div>
+        <span class="middle-more-wire"></span>
+      </div>
+    </div>
+    <div class="morewelfare-end">
+      <div class="end-wrap">
+        
+        <div class="end-box">
+          <div class="title">搜索“我的社保卡”公众号，点击关注，<br>
+了解社保资讯，享便捷服务，领更多福利。</div>
+          <div class="text-box">
+            
+            <span class="text">
+              <i></i>我的社保卡官方公众号
+            </span>
+            <span class="text">
+              <i></i>了解更多福利活动
+            </span>
+            <span class="text">
+              <i></i>问题答疑反馈
+            </span>
+            <span class="text">
+              <i></i>社保动态
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+{% block javascript %}
+  <script src="./js/swiper.min.js"></script>
+  <script src="./js/zepto.min.js"></script>
+  <script src="./js/index.js"></script>
+
+{% endblock %}

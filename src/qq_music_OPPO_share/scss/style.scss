@@ -1,0 +1,472 @@
+@charset "utf-8";
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import 'global.import.css';
+
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24rem);
+ */
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: 'PingFang',
+'PingFang SC',
+Helvetica,
+Tahoma,
+Arial,
+'Hiragino Sans GB',
+'Heiti SC',
+STXihei,
+'Microsoft YaHei',
+SimHei,
+'WenQuanYi Micro Hei';
+
+* {
+  box-sizing: border-box;
+}
+
+// 字体
+@font-face {
+  font-family: "font_OPPOSans__b";
+  src: url("../fonts/OPPOSans-S-B-0802.ttf");
+}
+
+.font_OPPOSans__b {
+  font-family: "font_OPPOSans__b";
+}
+
+@font-face {
+  font-family: "font_OPPOSans__r";
+  src: url("../fonts/OPPOSans-S-R-0802.ttf");
+}
+
+.font_OPPOSans__r {
+  font-family: "font_OPPOSans__r";
+}
+
+@font-face {
+  font-family: "font_OPPOSans__m";
+  src: url("../fonts/OPPOSans-S-M-0802.ttf");
+}
+
+.font_OPPOSans__m {
+  font-family: "font_OPPOSans__m";
+}
+
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item {
+  display: block;
+
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+.page_share {
+  width: 750px;
+  height: 1624px;
+
+  .bg {
+    position: absolute;
+    width: 750px;
+    height: 1624px;
+    background-image: repeating-linear-gradient(135deg, #282320, #0a0f0e);
+  }
+
+  .share {
+    &_inner {
+      position: relative;
+      width: 750px;
+      height: 1624px;
+      padding-top: 60px;
+    }
+
+    &_up {
+      width: 750px;
+      height: 64px;
+      background-image: url('../img/squeeze_line_up.png');
+      @extend .bg_item;
+    }
+
+    &_down {
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      width: 750px;
+      height: 106px;
+      background-image: url('../img/squeeze_line_down.png');
+      @extend .bg_item;
+    }
+
+    &_info {
+      position: absolute;
+      top: 195px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+    }
+
+    &_avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 62px;
+      height: 62px;
+      background-color: #666;
+      border: 1px solid #d5c081;
+      border-radius: 50%;
+      margin-right: 10px;
+
+      img {
+        display: block;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+      }
+    }
+
+    &_topic {
+      width: 185px;
+      height: 67px;
+      line-height: 67px;
+      text-align: center;
+      background-image: url('../img/squeeze_ellipses.png');
+      @extend .bg_item;
+
+      &__text,
+      &__null {
+        color: #d2b375;
+        font-size: 22px;
+        line-height: 62px;
+        letter-spacing: 10px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        @extend .font_OPPOSans__r;
+
+        span {
+          font-size: 34px;
+        }
+      }
+
+      &__null {
+        display: none;
+      }
+    }
+
+    &_content {
+      position: relative;
+      width: 702px;
+      margin: 138px auto 0;
+    }
+
+    &_frame {
+      width: 702px;
+      height: 670px;
+      background-image: url('../img/squeeze_frame.png');
+      @extend .bg_item;
+    }
+
+    &_ear {
+      position: absolute;
+      top: 85px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 366px;
+      height: 506px;
+      background-image: url('../img/squeeze_ear_gold.jpg');
+      @extend .bg_item;
+    }
+
+    &_name {
+      position: absolute;
+      top: 491px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 170px;
+      height: 62px;
+      line-height: 62px;
+      color: #d2b375;
+      font-size: 28px;
+      text-align: center;
+      letter-spacing: 10px;
+      padding-left: 10px;
+      box-sizing: border-box;
+      @extend .font_OPPOSans__m;
+
+      &::after {
+        content: "金耳朵";
+      }
+    }
+
+    &_defeat {
+      position: relative;
+      width: 591px;
+      margin: 45px auto 0;
+
+      &__decorate {
+        position: absolute;
+        width: 591px;
+        height: 87px;
+        background-image: url('../img/squeeze_decorate.png');
+        @extend .bg_item;
+      }
+
+      &__title,
+      &__null {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 591px;
+        height: 87px;
+        color: #d2b375;
+        font-size: 24px;
+        line-height: 42px;
+        letter-spacing: 5px;
+        @extend .font_OPPOSans__r;
+
+        span {
+          font-size: 62px;
+          letter-spacing: 0;
+          @extend .font_OPPOSans__b;
+        }
+      }
+
+      &__text {
+        color: #d2b375;
+        font-size: 20px;
+        line-height: 32px;
+        text-align: center;
+        letter-spacing: 5px;
+        @extend .font_OPPOSans__r;
+
+        &::after {
+          content: "我的金耳朵早已独孤求败";
+        }
+      }
+
+      &__null {
+        display: none;
+      }
+    }
+
+    &_grades {
+      margin-top: 70px;
+    }
+
+    &_headset {
+      width: 69px;
+      height: 71px;
+      background-image: url('../img/squeeze_headset.png');
+      @extend .bg_item;
+      margin-left: 30px;
+      margin: 0 auto;
+
+    }
+
+    &_title {
+      color: #d2b375;
+      font-size: 16px;
+      line-height: 24px;
+      white-space: pre;
+      text-align: center;
+      margin-top: 14px;
+      @extend .font_OPPOSans__m;
+
+      &::after {
+        content: "丹拿调音的 OPPO Enco X \A 与你的金耳朵才是绝配";
+      }
+    }
+
+    &_bottom {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 576px;
+      margin: 65px auto 0;
+
+      &__item {
+        display: flex;
+        align-items: flex-end;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &__text {
+        position: absolute;
+        left: 100px;
+        bottom: -5px;
+        color: #d2b375;
+        font-size: 22px;
+        line-height: 34px;
+        letter-spacing: 5px;
+        @extend .font_OPPOSans__m;
+      }
+    }
+  }
+
+  // 银耳朵
+  &.page_silver {
+    .share {
+      &_ear {
+        background-image: url('../img/squeeze_ear_silver.jpg');
+      }
+
+      &_name {
+        &::after {
+          content: "银耳朵";
+        }
+      }
+
+      &_defeat__text {
+        &::after {
+          content: "方圆五里的声响皆在我的掌握";
+        }
+      }
+
+      &_title {
+        &::after {
+          content: "丹拿调音的 OPPO Enco X \A 让你的银耳朵听见更多音乐里的暗藏彩蛋";
+        }
+      }
+    }
+  }
+
+  // 铜耳朵
+  &.page_copper {
+    .share {
+      &_ear {
+        background-image: url('../img/squeeze_ear_copper.jpg');
+      }
+
+      &_name {
+        &::after {
+          content: "铜耳朵";
+        }
+      }
+
+      &_defeat__text {
+        &::after {
+          content: "丝毫没有拉低人类的平均听力水平";
+        }
+      }
+
+      &_title {
+        &::after {
+          content: "丹拿调音的 OPPO Enco X \A 让你的铜耳朵听见更多音乐里的暗藏彩蛋";
+        }
+      }
+    }
+  }
+
+  // 铁耳朵
+  &.page_iron {
+    .share {
+      &_ear {
+        background-image: url('../img/squeeze_ear_iron.jpg');
+      }
+
+      &_name {
+        &::after {
+          content: "铁耳朵";
+        }
+      }
+
+      &_defeat__text {
+        &::after {
+          content: "我以为在第五层，实际只在第一层";
+        }
+      }
+
+      &_title {
+        &::after {
+          content: "丹拿调音的 OPPO Enco X \A 让你的铁耳朵听见更多音乐里的暗藏彩蛋";
+        }
+      }
+    }
+  }
+
+  // 木耳朵
+  &.page_wood {
+    .share {
+      &_ear {
+        background-image: url('../img/squeeze_ear_wood.jpg');
+      }
+
+      &_name {
+        &::after {
+          content: "木耳朵";
+        }
+      }
+
+      &_defeat__text {
+        &::after {
+          content: "是时候掏掏耳朵了";
+        }
+      }
+
+      &_title {
+        &::after {
+          content: "丹拿调音的 OPPO Enco X \A 让你的木耳朵听见更多音乐里的暗藏彩蛋";
+        }
+      }
+    }
+  }
+
+  // 空耳
+  &.page_null {
+    .share {
+      &_topic {
+        &__text {
+          display: none;
+        }
+
+        &__null {
+          display: block;
+          font-size: 18px;
+          line-height: 24px;
+          padding-top: 8px;
+        }
+      }
+
+      &_defeat {
+        &__title {
+          display: none;
+        }
+
+        &__null {
+          display: flex;
+        }
+      }
+
+      &_ear {
+        background-image: url('../img/squeeze_ear_null.jpg');
+      }
+
+      &_name {
+        &::after {
+          content: "空耳";
+        }
+      }
+
+      &_defeat__text {
+        &::after {
+          content: "我就是传说中的空耳大师！！！";
+        }
+      }
+
+      &_title {
+        &::after {
+          content: "丹拿调音的 OPPO Enco X \A 让你的空耳听见更多音乐里的暗藏彩蛋";
+        }
+      }
+    }
+  }
+}

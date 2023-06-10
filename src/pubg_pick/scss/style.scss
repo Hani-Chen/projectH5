@@ -1,0 +1,869 @@
+@charset "utf-8";
+/* 公共样式 */
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+html {
+  /*防止IOS屏幕横竖屏切换时文字大小产生变化*/
+  -webkit-text-size-adjust: 100%;
+  /*禁用点击的高亮反馈*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* 禁止长按链接与图片弹出菜单 */
+a,
+img {
+  -webkit-touch-callout: none;
+}
+// 禁止长按保存图片
+img {
+  pointer-events: none;
+}
+body,
+div,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+b,
+i,
+img {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+i {
+  font-style: normal;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 0;
+}
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background: #242517;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+@font-face {
+  font-family: 'fzg';
+  src: url('../fonts/方正兰亭中黑_GBK.TTF');
+}
+@font-face {
+  font-family: 'DIN-B';
+  src: url('../fonts/DIN-BoldItalicAlt.otf');
+}
+@font-face {
+  font-family: 'fzgy';
+  src: url('../fonts/兰亭黑 GBK.TTF');
+}
+
+@font-face {
+  font-family: 'DIN';
+  src: url('../fonts/DIN-BLACKITALIC.OTF');
+}
+/* 页面样式 */
+
+// 头部
+.header {
+  width: 100%;
+  height: 12.06rem;
+  position: relative;
+  background: {
+    image: url(../img/bg_header.jpg);
+    size: 100% 12.06rem;
+    position: 0 top;
+    repeat: no-repeat;
+  }
+}
+// 头部
+.hd {
+  // 头部 - logo
+  &-logo {
+    width: 2.44rem;
+    height: 0.74rem;
+    margin: 0 auto;
+    padding-top: 0.29rem;
+    > img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  // 头部 - 标题
+  &-title {
+    width: 7.4rem;
+    height: 2.96rem;
+    position: absolute;
+    top: 6.44rem;
+    left: 50%;
+    margin-left: -3.7rem;
+    > img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  // 头部 - 分享按钮
+  &-share {
+    display: block;
+    width: 4.08rem;
+    height: 1.08rem;
+    position: absolute;
+    top: 9.43rem;
+    left: 50%;
+    margin-left: -2.04rem;
+    background: {
+      image: url(../img/btn_share.png);
+      size: 4.08rem 1.08rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+  }
+}
+// 内容
+.ct {
+  // 抽奖
+  &-lottery {
+    width: 100%;
+    height: 12.16rem;
+    position: relative;
+    margin-top: -1rem;
+    text-align: center;
+    z-index: 2;
+    background: {
+      image: url(../img/bg_lottery.png);
+      size: 100% 12.16rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+  }
+  // 选手视频
+  &-player {
+    width: 100%;
+    height: 35.43rem;
+    margin-top: -0.55rem;
+    text-align: center;
+    position: relative;
+    padding-top: 0.18rem;
+
+    background: {
+      image: url(../img/bg_player.jpg);
+      size: 100% 35.43rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+  }
+  // 关注
+  &-attention {
+    width: 100%;
+    height: 23.96rem;
+    margin-top: -0.65rem;
+    text-align: center;
+    position: relative;
+    background: {
+      image: url(../img/bg_attention.png);
+      size: 100% 23.96rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+  }
+}
+// 内容 - 抽奖
+.lt {
+  // 标题
+  &-title {
+    width: 6.36rem;
+    height: 1.22rem;
+    margin-top: 1rem;
+    display: inline-block;
+    > img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  // 奖池
+  &-prizepool {
+    width: 7.18rem;
+    height: 3.72rem;
+    margin: 0.2rem auto 0;
+    padding: 0.08rem 0.12rem;
+    display: grid;
+    grid-gap: 0.06rem;
+    grid-template-columns: repeat(3, 1fr);
+    background: {
+      image: url(../img/bg_turntable.png);
+      size: 7.18rem 3.72rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+    // 奖品
+    .prize {
+      // 单个奖品
+      &-item {
+        width: 2.28rem;
+        height: 1.71rem;
+        text-align: center;
+        color: #ffe600;
+        font-size: 0;
+        position: relative;
+        background: {
+          image: url(../img/bg_prize.png);
+          size: 2.28rem 1.71rem;
+          position: 0 top;
+          repeat: no-repeat;
+        }
+      }
+      // 奖品图片容器
+      &-img-box {
+        width: 100%;
+        height: 0.9rem;
+        display: inline-block;
+        margin-top: 0.23rem;
+        position: relative;
+        > img {
+          display: inline-block;
+          width: 0.9rem;
+          height: auto;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        > .prize-img {
+          &-1 {
+            z-index: 3;
+          }
+          &-2 {
+            width: 1.78rem;
+            height: 0.96rem;
+            // left: 0.28rem;
+            z-index: 2;
+          }
+          &-3 {
+            width: 1.49rem;
+            height: 0.9rem;
+            // left: 0.28rem;
+            z-index: 2;
+          }
+        }
+      }
+
+      // 奖品介绍文案
+      &-text {
+        display: block;
+        font-size: 0.3rem;
+        margin-top: 0.18rem;
+        line-height: 1;
+      }
+      // 再接再厉 && 再来一次
+      &-keep,
+      &-again {
+        > img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 1.68rem;
+          height: 0.32rem;
+          transform: translate(-50%, -50%);
+        }
+      }
+      // 抽奖
+      &-lottery {
+        width: 2.28rem;
+        height: 1.71rem;
+        background: {
+          image: url(../img/btn_lottery.png);
+          size: 2.28rem 1.71rem;
+          position: 0 top;
+          repeat: no-repeat;
+        }
+      }
+    }
+    .prize {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2.28rem;
+        height: 1.71rem;
+        background: rgba(#ffc112, 0.5);
+      }
+    }
+  }
+  // 票数
+  &-voucher {
+    font-size: 0.3rem;
+    font-family: 'fzg';
+    margin-top: 0.04rem;
+    > span:nth-child(1) {
+      display: inline-block;
+      margin-right: 0.4rem;
+    }
+  }
+  // 获取次数标题
+  &-odds {
+    width: 4.51rem;
+    height: 0.38rem;
+    margin: 0.56rem auto 0;
+    // 图片 - 标题
+    > img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  // 任务
+  &-task {
+    padding: 0.46rem 0.33rem 0.46rem 0.29rem;
+    width: 100%;
+    text-align: left;
+    font-size: 0;
+    position: relative;
+    font-family: 'fzg';
+    // 单个任务
+    .task {
+      &-item {
+        height: 0.53rem;
+        margin-bottom: 0.35rem;
+        line-height: 0.53rem;
+      }
+      // 序号
+      &-serial {
+        margin-top: 0.06rem;
+        display: block;
+        float: left;
+        width: 0.36rem;
+        height: 0.36rem;
+        line-height: 0.3rem;
+        text-align: center;
+        font-size: 0.3rem;
+        color: #f4cf26;
+        font-family: 'DIN-B';
+        background: {
+          image: url(../img/bg_serial.png);
+          size: 0.36rem 0.36rem;
+          position: 0 top;
+          repeat: no-repeat;
+        }
+      }
+      // 任务文案
+      &-text {
+        font-size: 0.32rem;
+        margin-left: 0.17rem;
+      }
+      &-btn {
+        position: absolute;
+        right: 0.29rem;
+        width: 1.6rem;
+        height: 0.53rem;
+        font-size: 0.3rem;
+        text-align: center;
+        line-height: 0.53rem;
+        color: #ffe818;
+        // transition: all 0.5s;
+        background: {
+          image: url(../img/bg_receive.png);
+          size: 1.6rem 0.53rem;
+          position: 0 top;
+          repeat: no-repeat;
+        }
+        // 待完成
+        &-pending {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+// 内容 - 选手视频
+.player {
+  // 单个选手
+  &-item {
+    width: 6.48rem;
+    height: 6.65rem;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+  }
+  // 选手 - name && 选手 - 图片
+  &-name {
+    position: absolute;
+    width: 6.41rem;
+    height: 2.03rem;
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  // 视频
+  &-videobox {
+    width: 6.48rem;
+    height: 3.64rem;
+    position: absolute;
+    // padding: 0.02rem;
+    left: 0;
+    top: 2.02rem;
+    border: 0.03rem solid #f4cf26;
+    background: #000;
+  }
+  &-video {
+    width: 6.34rem;
+    height: 3.56rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &-play {
+    // display: none;
+    z-index: 1;
+  }
+  // 视频蒙层
+  &-stop {
+    //   display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0.91rem;
+      height: 0.91rem;
+      background: {
+        image: url(../img/icon_stop.png);
+        size: 0.91rem 0.91rem;
+        position: 0 top;
+        repeat: no-repeat;
+      }
+    }
+  }
+  &-btn {
+    position: absolute;
+    width: 100%;
+    height: 0.75rem;
+    left: 0;
+    bottom: 0;
+  }
+  // 按钮
+  &-more,
+  &-collection {
+    display: inline-block;
+    width: 2.57rem;
+    height: 0.75rem;
+    position: absolute;
+    bottom: 0;
+    background: {
+      size: 2.57rem 0.75rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+  }
+  // 查看更多按钮
+  &-more {
+    left: 0.32rem;
+    background-image: url(../img/btn_more.png);
+  }
+  // 查看更多按钮
+  &-collection {
+    right: 0.32rem;
+    background-image: url(../img/btn_collection.png);
+  }
+  // 单个选手
+  &-item-2 {
+    margin-bottom: 0.11rem;
+    > .player-name {
+      right: -0.11rem;
+    }
+  }
+  // 单个选手
+  &-item-4 {
+    margin-bottom: 0.11rem;
+    > .player-name {
+      right: -0.05rem;
+    }
+  }
+}
+// 子弹
+.bullet1,
+.bullet2 {
+  width: 1.35rem;
+  height: 1.16rem;
+  position: absolute;
+  background: {
+    image: url(../img/bullet.png);
+    size: 1.35rem 1.16rem;
+    position: 0 top;
+    repeat: no-repeat;
+  }
+}
+// 子弹
+.bullet1 {
+  bottom: -0.4rem;
+  left: 0;
+}
+// 子弹
+.bullet2 {
+  top: -0.14rem;
+  right: 0;
+}
+// 内容 - 关注
+.at {
+  // 标题
+  &-title {
+    width: 6.51rem;
+    height: 2.1rem;
+    display: inline-block;
+    margin-top: 0.92rem;
+    background: {
+      image: url(../img/title_attention.png);
+      size: 6.51rem 2.1rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+  }
+  // 标题
+  &-introduce {
+    width: 7.32rem;
+    height: 0.99rem;
+    display: inline-block;
+    margin-top: 0.38rem;
+    background: {
+      image: url(../img/attention_text.png);
+      size: 7.32rem 0.99rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+  }
+  // 主播榜
+  &-ranking {
+    width: 7.01rem;
+    height: 11.67rem;
+    position: relative;
+    margin: 0.26rem auto 0;
+    border: 1px solid transparent;
+    padding-top: 0.9rem;
+    background: {
+      image: url(../img/bg_ranking.png);
+      size: 7.01rem 11.67rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+    .rk {
+      // 单个主播
+      &-item {
+        width: 6.42rem;
+        height: 1.6rem;
+        display: flex;
+        align-items: center;
+        color: #ffe600;
+        margin: 0 auto 0.5rem;
+      }
+      // 序号
+      &-serial {
+        display: inline-block;
+        width: 0.48rem;
+        height: 0.48rem;
+        line-height: 0.4rem;
+        text-align: center;
+        font-size: 0.4rem;
+        color: #262524;
+        font-family: 'DIN-B';
+
+        background: {
+          image: url(../img/bg_serial1.png);
+          size: 0.48rem 0.48rem;
+          position: 0 top;
+          repeat: no-repeat;
+        }
+      }
+      // 人物图
+      &-name {
+        display: inline-block;
+        width: 1.56rem;
+        height: 1.6rem;
+        line-height: 0.3rem;
+        text-align: center;
+        font-size: 0.3rem;
+        color: #f4cf26;
+        font-family: 'DIN-B';
+        margin-left: 0.3rem;
+        > img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      // 获得票数
+      &-poll {
+        text-align: center;
+        font-size: 0;
+        line-height: 1;
+        // font-family: 'fzgy';
+        font-family: 'DIN';
+        margin-left: 0.51rem;
+        > span {
+          display: block;
+        }
+        .poll {
+          &-text {
+            font-size: 0.28rem;
+          }
+          &-number {
+            font-size: 0.4rem;
+            margin-top: 0.21rem;
+          }
+        }
+      }
+      &-btn {
+        margin-left: auto;
+        font-family: 'fzg';
+      }
+      // 按钮
+      &-support,
+      &-attention {
+        display: block;
+        width: 1.6rem;
+        height: 0.53rem;
+        line-height: 0.55rem;
+        font-size: 0.3rem;
+        background: {
+          size: 1.6rem 0.53rem;
+          position: 0 top;
+          repeat: no-repeat;
+        }
+      }
+      // 打榜按钮
+      &-support {
+        background-image: url(../img/bg_support.png);
+        color: #ffe818;
+      }
+      // 关注按钮
+      &-attention {
+        background-image: url(../img/bg_attention_btn.png);
+        margin-top: 0.21rem;
+        color: #262524;
+      }
+    }
+    .rk-item:nth-child(6) {
+      margin: 0.54rem auto 0;
+    }
+  }
+  &-refresh {
+    position: absolute;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    top: 0.14rem;
+    right: 0.06rem;
+    font-size: 0.28rem;
+    font-family: 'fzgy';
+    display: flex;
+
+    .icon-refresh {
+      transition: all 0.4s;
+      display: inline-block;
+      width: 0.3rem;
+      height: 0.26rem;
+      line-height: 0.26rem;
+      margin-right: 0.1rem;
+      background: {
+        image: url(../img/icon_refresh.png);
+        size: 0.3rem 0.26rem;
+        position: 0 top;
+        repeat: no-repeat;
+      }
+      &-play {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  // 视频
+  &-videobox {
+    width: 6.48rem;
+    height: 3.64rem;
+    position: relative;
+    margin: 0.72rem auto 0;
+    border: 0.03rem solid #f4cf26;
+    background: #000;
+  }
+  // 视频
+  &-video {
+    width: 6.34rem;
+    height: 3.46rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &-play {
+    z-index: 1;
+  }
+  &-stop {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0.91rem;
+      height: 0.91rem;
+      background: {
+        image: url(../img/icon_stop.png);
+        size: 0.91rem 0.91rem;
+        position: 0 top;
+        repeat: no-repeat;
+      }
+    }
+  }
+  // 活动规则
+  &-rule {
+    width: 4.08rem;
+    height: 1.08rem;
+    display: inline-block;
+    margin-top: 0.89rem;
+    background: {
+      image: url(../img/btn_rule.png);
+      size: 4.08rem 1.08rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+  }
+}
+
+// .swiper-container {
+//   width: 6.48rem ;
+//   height: 3.64rem;
+// }
+.my-bullet-active {
+  background: #e9ba19 !important;
+  opacity: 1;
+}
+.swiper-pagination {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.swiper-pagination-bullets .swiper-pagination-bullet {
+  opacity: 1;
+  border: 1px solid #e9ba19;
+  background: transparent;
+  margin: 0.24rem 0.25rem;
+}
+
+// 弹窗
+.pop {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background: rgba(#000, 0.8);
+  display: none;
+  &.show {
+    display: block;
+  }
+  // 活动规则弹窗
+  &-rule {
+    color: #eaaa00;
+    position: absolute;
+    font-size: 0;
+    padding: 1rem 0.28rem 0.38rem;
+    // top: 1.23rem;
+    width: 6.48rem;
+    height: 8.55rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    background: {
+      image: url(../img/bg_rule1.png);
+      size: 6.48rem 8.55rem;
+      position: 0 top;
+      repeat: no-repeat;
+    }
+
+    .rule {
+      // 序号
+      &-serial {
+        display: inline-block;
+        width: 0.33rem;
+        height: 0.33rem;
+        line-height: 1.2;
+        text-align: center;
+        font-size: 0.27rem;
+        color: #262524;
+        margin-right: 0.12rem;
+        font-family: 'DIN-B';
+        background: {
+          image: url(../img/bg_serial1.png);
+          size: 0.33rem 0.33rem;
+          position: 0 top;
+          repeat: no-repeat;
+        }
+      }
+      // 活动标题
+      &-title {
+        display: inline-block;
+        font-size: 0.32rem;
+        font-family: 'fzg';
+        
+      }
+      &-text {
+        display: block;
+        font-size: 0.28rem;
+        line-height: 1.2;
+        margin: 0.16rem 0 0.34rem 0;
+        font-family: 'fzgy';
+      }
+
+      &-bottom {
+        font-size: 0.27rem;
+        color: #7d590f;
+        line-height: 1.2;
+        margin: 0.22rem 0 0 0;
+      }
+    }
+  }
+  // 关闭按钮
+  &-shut {
+    position: absolute;
+    top: 0.82rem;
+    right: 0.24rem;
+    width: 0.25rem;
+    height: 0.24rem;
+    > img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+}

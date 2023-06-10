@@ -1,0 +1,144 @@
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24rem);
+ */
+ @function changePx($px) {
+  @return $px / 2;
+}
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: 'PingFang',
+'PingFang SC',
+Helvetica,
+Tahoma,
+Arial,
+'Hiragino Sans GB',
+'Heiti SC',
+STXihei,
+'Microsoft YaHei',
+SimHei,
+'WenQuanYi Micro Hei';
+
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item {
+  display: block;
+
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+.absolute_center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, 0, 0);
+}
+
+/* 页面工具类 - 文字禁止选择 */
+.text_forbid__cope {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+  background-image: repeating-linear-gradient(135deg, #282320, #0a0f0e);
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background-image: repeating-linear-gradient(135deg, #282320, #0a0f0e);
+}
+
+// 背景
+.bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 100%;
+  height: changePx(16.24rem);
+  background-image: url('../img/loading_bg.jpg');
+  @extend .bg_item;
+}
+
+.page_item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: none;
+
+  &.show {
+    display: block;
+    animation: fadeIn 0.3s;
+  }
+}
+
+.page_logo {
+  @extend .absolute_center;
+  width: 100%;
+  height: changePx(0.27rem);
+  margin-top: changePx(-6.13rem);
+  background: {
+    image: url('../img/logo.png');
+    size: auto 100%;
+    repeat: no-repeat;
+    position: center;
+  }
+
+}
+@font-face {
+  font-family: "font_OPPOSans__l";
+  src: url("../fonts/OPPOSans-J-L-0802.ttf");
+}
+.font_OPPOSans__l {
+  font-family: "font_OPPOSans__l";
+}
+
+
+@font-face {
+  font-family: "font_OPPOSans__b";
+  src: url("../fonts/OPPOSans-S-B-0802.ttf");
+}
+.font_OPPOSans__b {
+  font-family: "font_OPPOSans__b";
+}
+
+@font-face {
+  font-family: "font_OPPOSans__r";
+  src: url("../fonts/OPPOSans-S-R-0802.ttf");
+}
+.font_OPPOSans__r {
+  font-family: "font_OPPOSans__r";
+}
+
+@font-face {
+  font-family: "font_OPPOSans__m";
+  src: url("../fonts/OPPOSans-S-M-0802.ttf");
+}
+.font_OPPOSans__m {
+  font-family: "font_OPPOSans__m";
+}
+
+@font-face {
+  font-family: "font_OPPOSans__h";
+  src: url("../fonts/OPPOSans-J-H-0802.ttf");
+}
+.font_OPPOSans__h {
+  font-family: "font_OPPOSans__h";
+}

@@ -1,0 +1,43 @@
+{% raw %}
+<!-- 专辑模板 -->
+<script id="songHtml" type="text/html">
+    <!-- 单个歌单 -->
+    {{each albumList album index}}
+    <div class="list_item list_item_{{album.id}}">
+        <div class="item_l">
+          <!-- 歌单图片 -->
+          <div class="picture_wrap"  data-index="{{index}}">
+            <img class="picture" src="{{album.songList[0].cover}}" alt="">
+            <span class="picture_header_stop"></span>
+            <!-- <div class="picture_header">
+              <img class="picture_header_img" src="./img/mini_logo.png" alt="">
+
+            </div> -->
+          </div>
+          <!-- 收藏歌单 -->
+          <div class="collect"  data-index="{{index}}">
+            <span class="collect_text">收藏歌单</span>
+            <span class="collect_img"></span>
+          </div>
+        </div>
+        <div class="item_r">
+          <!-- 单条音乐 -->
+          <div class="music_item_box">
+            {{each album.songList song songIndex}}
+              <div class="music_item music_item_{{song.id}}" data-sindex="{{songIndex}}" data-aindex="{{index}}">
+                <span class="music_name">{{song.name}}</span>
+              </div>
+            {{/each}}
+          </div>
+          {{if album.songList.length>3}}
+          <!-- 查看更多 当歌单歌曲大于三条时载入此按钮 -->
+          <div class="music_more">
+            <span class="music_more_btn">查看更多</span> <img class="more_icon" src="./img/icon_more.png" alt="">
+          </div>
+          {{/if}}
+        </div>
+      </div>
+      {{/each}}
+</script>
+
+{% endraw %}

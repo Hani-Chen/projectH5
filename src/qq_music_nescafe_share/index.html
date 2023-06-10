@@ -1,0 +1,37 @@
+<!--
+ * @Author: Gianni
+ * @Date: 2021-05-14 09:53:51
+ * @LastEditors: Gianni
+ * @LastEditTime: 2021-05-24 10:30:38
+ * @FilePath: \H5-Project\src\qq_music_nescafe_share\index.html
+ * @Description: QQ音乐雀巢项目html
+-->
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<div class="wrap">
+  <div class="share_wrap">
+    <!-- 歌曲信息 - 客户要求暂时隐藏 -->
+    <div class="song_data" style="display: none;">
+      <!-- 动态数据 - 歌名 -->
+      <div class="song_name">像我这样的人(live)</div>-
+      <!-- 动态数据 - 艺人名 -->
+      <div class="song_peoplename">毛不易</div>
+    </div>
+    <!-- 
+      * 动态数据 - 吉利话
+      * 1. 逢考必过
+      * 2. 水逆退散
+      * 3. 刷题担当
+      * 4. 锦鲤附体
+      * 5. 高分上榜
+      * 6. 金榜题名
+      * 7. 旗开得胜
+      * 8. 心想事成
+    -->
+    <div class="blessing_title">逢考必过</div>
+    <div class="qrcode">
+      <img src="./img/qrcode.png" alt="">
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,209 @@
+// 第十九屏容器
+.section-19 {
+  margin-top: 60px;
+  .product-img-wrap {
+    width: 100%;
+  }
+  .text-wrap {
+    height: 200px;
+    width: 100%;
+    line-height: 200px;
+    text-align: center;
+    font-family: SKSans, $defaultFont;
+    font-size: 26px;
+    color: #666;
+  }
+}
+#section19Swiper1,#section19Swiper2 {
+  margin-top: 72px;
+  img {
+    width: 100%;
+  }
+  .my-bullet {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+    border: 1px solid #010101;
+    border-radius: 50%;
+  }
+  .my-bullet-active {
+    background: #010101;
+  }
+  .swiper-pagination {
+    bottom: 30px;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 41px;
+    height: 78px;
+    transition: all 0.25s linear;
+    background: {
+      size: 100% auto;
+    }
+    
+  }
+  .swiper-button-next {
+    right: 2%;
+    background: {
+      image: url($baseUrl+"/img/swiper_button_next.png");
+    }
+    &:hover {
+      background: {
+        image: url($baseUrl+"/img/swiper_button_next_active.png");
+      }
+    }
+  }
+  .swiper-button-prev {
+    left: 2%;
+    background: {
+      image: url($baseUrl+"/img/swiper_button_prev.png");
+    }
+    &:hover {
+      background: {
+        image: url($baseUrl+"/img/swiper_button_prev_active.png");
+      }
+    }
+  }
+  &.swiper-pc {
+    display: block;
+  }
+  &.swiper-android {
+    display: none;
+  }
+}
+
+@media (max-width: 1600px) {
+  //$rate: 1600 / 1920;
+  $zoom: 0.833;
+  // 第十八屏容器
+  .section-19 {
+    margin-top: round(60px * $zoom);
+    .text-wrap {
+      height: round(200px * $zoom);
+      line-height: round(200px * $zoom);
+      font-size: round(26px * $zoom);
+    }
+  }
+  #section19Swiper1,#section19Swiper2 {
+    margin-top: round(72px * $zoom);
+    .swiper-pagination {
+      bottom: round(30px * $zoom);
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: round(41px * $zoom);
+      height: round(78px * $zoom);
+    }
+    
+  }
+}
+
+@media (max-width: 1440px) {
+  //$rate: 1440 / 1920;
+  $zoom: 0.75;
+  // 第十八屏容器
+  .section-19 {
+    margin-top: round(60px * $zoom);
+    .text-wrap {
+      height: round(200px * $zoom);
+      line-height: round(200px * $zoom);
+      font-size: round(26px * $zoom);
+    }
+  }
+  #section19Swiper1,#section19Swiper2 {
+    margin-top: round(72px * $zoom);
+    .swiper-pagination {
+      bottom: round(30px * $zoom);
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: round(41px * $zoom);
+      height: round(78px * $zoom);
+    }
+    
+  }
+}
+
+@media (max-width: 1200px) {
+  //$rate: 1200 / 1920;
+  $zoom: 0.625;
+  // 第十八屏容器
+  .section-19 {
+    margin-top: round(60px * $zoom);
+    .text-wrap {
+      height: round(200px * $zoom);
+      line-height: round(200px * $zoom);
+      font-size: round(26px * $zoom);
+    }
+  }
+  #section19Swiper1,#section19Swiper2 {
+    margin-top: round(72px * $zoom);
+    .swiper-pagination {
+      bottom: round(30px * $zoom);
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: round(41px * $zoom);
+      height: round(78px * $zoom);
+    }
+    
+  }
+}
+
+@media (max-width: 992px) {
+  //$rate: 992 / 1920;
+  $zoom: 0.517;
+  // 第十八屏容器
+  .section-19 {
+    margin-top: round(60px * $zoom);
+    .text-wrap {
+      height: round(200px * $zoom);
+      line-height: round(200px * $zoom);
+      font-size: round(26px * $zoom);
+    }
+  }
+  #section19Swiper1,#section19Swiper2 {
+    margin-top: round(72px * $zoom);
+    .swiper-pagination {
+      bottom: round(30px * $zoom);
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: round(41px * $zoom);
+      height: round(78px * $zoom);
+    }
+    
+  }
+}
+
+@media (max-width: 768px) {
+  //$rate: 768 / 1920;
+  $zoom: 0.4;
+  // 第十八屏容器
+  .section-19 {
+    margin-top: 0;
+    .text-wrap {
+      height: round(200px * $zoom);
+      line-height: round(200px * $zoom);
+      font-size: 13px;
+    }
+  }
+  #section19Swiper1,#section19Swiper2 {
+    margin-top: round(72px * $zoom);
+    .swiper-pagination {
+      bottom: 5px;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 12px;
+      height: 21px;
+    }
+    &.swiper-pc {
+      display: none;
+    }
+    &.swiper-android {
+      display: block;
+    }
+  }
+}

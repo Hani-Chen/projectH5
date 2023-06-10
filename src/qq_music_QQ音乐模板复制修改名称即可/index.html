@@ -1,0 +1,14 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<section class="wrap">
+  <p style="font-size: 22px;">QQ音乐规定 - 网站titlt需要修改成活动名称，去./_njk/base.njk 文件修改</p>
+  <p style="font-size: 22px;">QQ音乐规定 - 最外层容器命名必须是 'wrap' </p>
+  <p style="font-size: 22px;">QQ音乐规定 - 类名命名，必须以下划线形式命名<b style="color: #f00">*具体说明看css注释</b></p>
+  <p style="font-size: 22px;" class="">点击跳转外链 - <b style="color: #f00">禁止使用a标签和用a标签进行跳转，需要使用js点击事件跳转：</b><i>window.open('https://perpower.cn/');</i></p>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script src="./js/zepto.min.js"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

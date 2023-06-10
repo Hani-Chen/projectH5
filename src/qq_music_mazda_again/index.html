@@ -1,0 +1,52 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<section class="wrap">
+	<!-- 页面内容 -->
+	<div class="wrap_home show">
+		<!-- 表单头部占位图片 -->
+		<div class="home_top">
+			<img src="./img/top.jpg" alt="">
+		</div>
+    <div class="home_form">
+			<div class="bg"></div>
+			<form action="" class="form_inner" id="form">
+				<!-- 表单 - 姓名 -->
+				<div class="form_item form_name">
+					<input type="text" id="name" class="name" placeholder="姓名" name="name">
+				</div>
+				<!-- 表单 - 电话 -->
+				<div class="form_item form_phone">
+					<input type="number" id="phone" class="phone" placeholder="电话" name="phone">
+				</div>
+				<div class="form_group__multi">
+					<!-- 表单 - 城市 -->
+					<div class="form_item form_region">
+						<select class="province" id="province" name="province"></select>
+					</div>
+					<!-- 表单 - 城市 -->
+					<div class="form_item form_region">
+						<select class="city" id="city" name="city"></select>
+					</div>
+				</div>
+				<!-- 表单 - 经销商 -->
+				<div class="form_item form_region">
+					<select class="region" id="region" name="region"></select>
+				</div>
+				<button class="btn form_btn form_get font_nscjm">点击试驾</button>
+				<!-- 隐私说明 -->
+				<div class="form_privacy font_nscjm"><a href="JavaScript:;">隐私说明</a></div>
+			</form>
+		</div>
+		<!-- 表单底部占位图片 -->
+		<div class="home_bottom">
+			<img src="./img/bottom.jpg" alt="">
+		</div>
+	</div>
+</section>
+{% endblock %}
+{% block javascript %}
+  <script src="./js/data.js"></script>
+  <script src="./js/zepto.min.js"></script>
+  <script src="./js/fx.js"></script>
+  <script src="./js/index.js"></script>
+{% endblock %}

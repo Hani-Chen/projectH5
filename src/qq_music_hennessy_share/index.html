@@ -1,0 +1,52 @@
+{% extends "./_njk/base.njk" %}
+
+{% block main %}
+  <!-- 生成后页面 -->
+  <div class="item item-create-after">
+    <div class="box">
+      <!-- logo -->
+      <div class="logo"></div>
+      <div class="create_after create_item">
+        <!-- 内容 -->
+        <div class="create_content">
+          <!-- 个人信息 -->
+          <div class="details_wrap">
+            <!-- 配置项 - 用户头像 -->
+            <div class="portrait_wrap"><img class="portrait" src="./img/test.jpg" alt=""></div>
+            <!-- 配置项 - 用户昵称 -->
+            <div class="name">Hani</div>
+            <!-- 文案 -->
+            <div class="text font_hlw">的初心关键词是</div>
+            <!-- 配置项 - 关键词 -->
+            <div class="antistop_wrap">
+              <img class="antistop" src="./img/antistop_1.png" alt="">
+            </div>
+          </div>
+          <!-- 配置项 - 专辑图 -->
+          <div class="cover_wrap">
+            <img class="cover_item" src="./img/cover1.png" alt="">
+          </div>
+        </div>
+        <!-- 底部 -->
+        <div class="create_bottom">
+          <div class="create_bottom_bg">
+            <!-- 配置项 - 用户输入的文案 -->
+            <div class="text">和你在一起
+            就是最和谐的旋律
+            </div>
+          </div>
+          <!-- 二维码 -->
+          <div class="qrtest_wrap show">
+            <div class="qrtest_text font_hlw">扫一扫
+            打开你的初心专辑
+            </div>
+            <div class="qrtest_box">
+              <img class="qrtest" src="./img/QRtest.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg"></div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,40 @@
+@keyframes arrowBounce {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, -12%, 0);
+  }
+}
+
+@keyframes clawAni {
+  0%,
+  10% {
+    right: changePx(1.4rem);
+  }
+  60% {
+    right: changePx(3rem);
+    top: changePx(-1.35rem);
+  }
+  100% {
+    right: changePx(3rem);
+    top: changePx(-0.55rem);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes circle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

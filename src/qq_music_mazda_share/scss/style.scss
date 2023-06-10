@@ -1,0 +1,174 @@
+@charset "utf-8"; /*设定页面编码方式*/
+
+/* ↓↓↓↓↓↓↓以下为样式模块，可以按需引入 ↓↓↓↓↓↓↓*/
+/*引用公用样式*/
+@import "global.import.css";
+
+@font-face{
+  font-family: NotoSansCJKsc-Black;
+  //src:url(//at.alicdn.com/t/font_1404888168_2057645.eot);
+  src:
+      //url(//at.alicdn.com/t/font_1404888168_2057645.eot?#iefix) format("embedded-opentype"),
+  //url(//at.alicdn.com/t/font_1404888168_2057645.woff) format("woff"),
+  url(../fonts/NotoSansCJKsc-Black.ttf) format("truetype")
+}
+
+@font-face{
+  font-family: NotoSansCJKsc;
+  src:
+      //url(//at.alicdn.com/t/font_1404888168_2057645.eot?#iefix) format("embedded-opentype"),
+      //url(//at.alicdn.com/t/font_1404888168_2057645.woff) format("woff"),
+      url(../fonts/NotoSansCJKsc-Medium.ttf) format("truetype")
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::after , *::before {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: NotoSansCJKsc-Black;
+}
+
+.wrap_container {
+  position: relative;
+  margin: 0 auto;
+  width: 750px;
+  height: 1625px;
+  overflow-x: hidden;
+  background: {
+    image: url(../img/bg.png);
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  };
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  white-space: nowrap;
+  top: 392px;
+  height: 120px;
+  line-height: 110px;
+  font-size: 34px;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  transform: translateX(-50%);
+
+
+  background: {
+    image: url(../img/title_bg_center.png);
+    size: 20px 120px;
+    position: center;
+    repeat: repeat-x;
+  };
+
+  &::after, &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 120px;
+    background: {
+      position: center;
+      size: 100%;
+      repeat: no-repeat;
+    };
+  }
+
+  &::before {
+    left: -32px;
+    background: {
+      image: url(../img/title_bg_left.png);
+    };
+  }
+
+  &::after {
+    right: -32px;
+    background: {
+      image: url(../img/title_bg_right.png);
+    };
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
+  
+}
+
+.car_title {
+  position: absolute;
+  width: 554px;
+  height: 161px;
+  line-height: 59px;
+  left: 85px;
+  top: 584px;
+  color: #fff;
+  font-size: 44px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.car_desc {
+  position: absolute;
+  width: 560px;
+  color: #000;
+  font-size: 32px;
+  line-height: 47px;
+  top: 780px;
+  left: 85px;
+  padding: 0 34px;
+  font-family: NotoSansCJKsc;
+  text-align: justify;
+}
+
+.share_car {
+  position: absolute;
+  left: -110px;
+  width: 955px;
+  height: 328px;
+  top: 927px;
+  overflow: hidden;
+}
+
+.qr {
+  position: absolute;
+  left: 44px;
+  top: 1202px;
+  width: 610px;
+  height: 208px;
+  background: {
+    image: url(../img/qr_bg.png);
+    size: 100%;
+    repeat: no-repeat;
+    position: center;
+  };
+
+  .qr_content {
+    position: absolute;
+    display: block;
+    width: 180px;
+    height: 180px;
+    right: 0;
+    top: 10px;
+    left: 420px;
+  }
+}

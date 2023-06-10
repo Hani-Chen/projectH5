@@ -1,0 +1,124 @@
+<!-- 2019-3-20 Edit by 陈桦烽 -->
+{% extends "../_njk/base.njk" %}  //引入njk
+<!-- 引入js -->
+{% block adaption %}
+  <script src="js/adaptive.js"></script>
+  <script>
+    window['adaptive'].desinWidth = 750
+    window['adaptive'].maxRate = 0.75
+    window['adaptive'].baseFont = 24
+    window['adaptive'].init()
+  </script>
+{% endblock %} 
+
+{% set listObj = [
+  {
+    icon: './img/camera.png',
+    title: '最新玩法',
+    list: [
+      {
+        src: './img/list1.jpg'
+      },
+      {
+        src: './img/list1.jpg'
+      },
+      {
+        src: './img/list1.jpg'
+      }
+    ] 
+  },
+  {
+    icon: './img/camera.png',
+    title: '最新玩法2',
+    list: [
+      {
+        src: './img/list1.jpg'
+      },{
+        src: './img/list1.jpg'
+      }
+    ] 
+  },
+  {
+    icon: './img/camera.png',
+    title: '最新玩法2',
+    list: [
+      {
+        src: './img/list1.jpg'
+      },
+      {
+        src: './img/list1.jpg'
+      },
+      {
+        src: './img/list1.jpg'
+      }
+    ] 
+  }
+] %}
+
+<!-- 定义模板1 -->
+{% macro thumbItem(obj) %}
+  <div class="section-list-single-ls-img">
+    <img src="{{obj.src}}" alt="">
+  </div>
+{% endmacro %}
+
+<!-- 定义模板2 -->
+{% macro listTpl(obj) %}
+<!-- 单个列表 -->
+<div class="section-list-single">
+    <!-- 单个列表头部 -->
+    <div class="section-list-single-title">
+      <img src="{{obj.icon}}" alt="">
+      <span>{{obj.title}}</span>
+    </div>
+    <div class="section-list-single-ls flex flex_lb flex_hh">
+
+      <!-- 循环模板1 -->
+      {% for list in obj.list %}
+        {{thumbItem(list)}}
+      {% endfor %}
+
+    </div>
+  </div>
+{% endmacro %}
+
+<!-- 内容区 -->
+{% block main %}
+<section class="section">
+  <!-- 头部 -->
+  <div class="section-title">
+    <img src="./img/ionc_left.png" alt="">
+    <span>微视小课堂</span>
+    <!-- <img src="" alt=""> -->
+  </div>
+  <!-- tab部分 -->
+  <ul class="section-tab flex flex_spjf">
+    <li class="bd"><a href="##">推荐</a></li>
+    <li><a href="##">最新玩法</a></li>
+    <li><a href="##">取材创意</a></li>
+    <li><a href="##">视频制作</a></li>
+    <li><a href="##">吸粉秘籍</a></li>
+  </ul>
+  <!-- 轮播图部分 -->
+  <div class="section-swiper flex flex_sp">
+    <img src="./img/swiper.png" alt="">
+  </div>
+  <!-- 列表部分 -->
+  
+  <div class="section-list">
+    <!-- 单个列表 -->
+
+    <!-- 循环模板2 -->
+    {% for list in listObj %}
+      {{listTpl(list)}}
+    {% endfor %}
+
+  </div>
+</section>
+{% endblock %}
+
+
+<!-- js区 -->
+{% block javascript %}
+    
+{% endblock %}

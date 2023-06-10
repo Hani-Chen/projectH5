@@ -1,0 +1,1143 @@
+@charset "utf-8";
+$time: 0.8s;
+$taktTime: 0.6s;
+$baseFont: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei,
+  "WenQuanYi Micro Hei";
+/* 公共样式 */
+// 引入公共css
+@import url(global.import.css);
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+i {
+  font-style: normal;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  font-family: $baseFont;
+}
+
+textarea {
+  border: 0;
+  background: none;
+  resize: none;
+}
+.item,
+.section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #fff;
+  // 页面logo
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 0.3rem;
+    margin-left: -1.455rem;
+    width: 2.91rem;
+    height: 1rem;
+    background: {
+      image: url(../img/logo.png);
+      size: 100% auto;
+      position: center top;
+      repeat: no-repeat;
+    }
+  }
+  // 内容
+  .box {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: none;
+    &.show {
+      display: block;
+      animation: fadeInShow 0.6s 0.3s ease both;
+    }
+  }
+}
+.bg_cover {
+  width: 100%;
+  height: 100%;
+  background: {
+    repeat: no-repeat;
+    position: 0 center;
+    size: 100%;
+  }
+}
+.vertical_center {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@font-face {
+  font-family: "font_hlw";
+  src: url("../fonts/HanYiZhuZiHuLuWa-W-2.ttf");
+}
+.font_hlw {
+  font-family: "font_hlw";
+}
+
+@import "ani";
+
+/* 页面样式 */
+// 首页样式
+.item-index {
+  // 背景圈
+  .index_circle {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 13.35rem;
+    @extend .bg_cover;
+    background-image: url(../img/bg_index.png);
+    background-position: left 0 bottom 1.2rem;
+  }
+}
+
+.index {
+  // 内容
+  &_content {
+    @extend .vertical_center;
+    width: 100%;
+    height: 13.35rem;
+  }
+  // 首页文案
+  &_text {
+    position: absolute;
+    top: 1.9rem;
+    left: 50%;
+    width: 4.23rem;
+    margin-left: -2.115rem;
+    font-size: 0.46rem;
+    color: #431d0d;
+    animation: fadeInDown $time $taktTime ease both;
+  }
+  // 动画
+  &_animation {
+    &_wrap {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 13.35rem;
+      width: 100%;
+    }
+    &_item {
+      position: absolute;
+    }
+    // 餐车动画
+    &_car {
+      position: absolute;
+      bottom: 1.8rem;
+      left: -0.1rem;
+      width: 100%;
+      height: auto;
+      // animation: indexCar ($time * 2) ($taktTime * 2) ease both;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    // 云朵动画
+    &_cloud {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      .cloud_item {
+        position: absolute;
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .cloud_1 {
+        top: 1rem;
+        right: 0.5rem;
+        width: 2.37rem;
+        height: 1.08rem;
+        animation: indexFloat 1.5s ease-in-out infinite alternate;
+      }
+      .cloud_2 {
+        top: 4.25rem;
+        left: 0.75rem;
+        width: 1.82rem;
+        height: 0.75rem;
+        animation: indexFloat 1.5s 0.5s ease-in-out infinite alternate;
+      }
+    }
+    &_note {
+      position: absolute;
+      left: 0;
+      bottom: 4.7rem;
+      width: 100%;
+      height: auto;
+      // 餐车开进来
+      animation: fadeIn ($time * 2) ($taktTime * 2) ease both;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  // 滚动的数字
+  &_text1 {
+    display: flex;
+    top: 3.3rem;
+    > span {
+      line-height: 2;
+    }
+    .data {
+      &_wrap {
+        display: flex;
+        padding: 0 0.15rem;
+      }
+      &_item_wrap {
+        width: 0.6rem;
+        position: relative;
+        height: 0.72rem;
+        font-size: 0;
+        line-height: 0;
+        overflow: hidden;
+        // background: rgba($color: #000000, $alpha: 0.5);
+      }
+      &_item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate3d(0, 0, 0);
+        transition: all 0.6s linear;
+        span {
+          display: block;
+          height: 100%;
+          color: #df1715;
+          font-size: 0.75rem;
+          line-height: 0.74rem;
+        }
+      }
+      &_item_wrap0 {
+        display: none;
+        &.show {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// 相似的歌曲页面
+.item-alikesong {
+  // 背景
+  .animation_bg {
+    position: absolute;
+    left: 0;
+
+    top: 50%;
+    transform: translateY(-50%);
+    height: 13.35rem;
+    @extend .bg_cover;
+    background-image: url(../img/bg_alikesong.gif);
+    background-position: left 0 bottom 1.25rem;
+  }
+}
+.alikesong {
+  // 内容
+  &_content {
+    @extend .vertical_center;
+    width: 100%;
+    height: 13.35rem;
+  }
+  // 标题
+  &_title {
+    position: absolute;
+    left: 50%;
+    top: 2.25rem;
+    margin-left: -50%;
+    width: 100%;
+    color: #431d0d;
+    font-size: 0.4rem;
+    text-align: center;
+    letter-spacing: 0.02rem;
+    animation: fadeInDown $time $taktTime ease both;
+    span {
+      font-size: 0.55rem;
+      color: #431d0d;
+    }
+    // 可适配文案
+    .alikesong_title_text {
+      color: #df1715;
+      font-family: inherit;
+    }
+  }
+  // 歌曲列表
+  &_songname_list {
+    position: relative;
+    top: 3.8rem;
+    text-align: center;
+    .songname_item {
+      font-size: 0.32rem;
+      color: #703824;
+      span {
+        font-family: $baseFont;
+      }
+    }
+
+    animation: fadeInDown $time ($taktTime * 2) ease both;
+  }
+  // 标题
+  &_title2 {
+    position: absolute;
+    left: 50%;
+    top: 4.95rem;
+    margin-left: -50%;
+    width: 100%;
+    color: #431d0d;
+    font-size: 0.48rem;
+    text-align: center;
+    letter-spacing: 0.02rem;
+    animation: fadeInDown $time ($taktTime * 3) ease both;
+  }
+}
+
+// 单曲循环页面
+.item-loop {
+  // 背景
+  .animation_bg {
+    @extend .vertical_center;
+    height: 13.35rem;
+    @extend .bg_cover;
+    background-image: url(../img/bg_loop.gif);
+    background-position: left 0 bottom 2.3rem;
+  }
+}
+.loop {
+  &_content {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 13.35rem;
+    z-index: 2;
+  }
+  &_title {
+    position: absolute;
+    top: 2.3rem;
+    left: 50%;
+    margin-left: -2.365rem;
+    width: 4.73rem;
+    height: 1.81rem;
+    background: {
+      image: url("../img/title_cycle_text.png");
+      size: 100%;
+      position: center;
+      repeat: no-repeat;
+    }
+    animation: fadeInDown $time $taktTime ease both;
+  }
+  &_text {
+    position: absolute;
+    left: 58%;
+    bottom: 5.3rem;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    color: #703824;
+    letter-spacing: 0.02rem;
+    animation: fadeIn 3s 1.5s ease both;
+  }
+  &_text_1 {
+    font-size: 0.35rem;
+  }
+  &_text_2 {
+    display: flex;
+    justify-content: center;
+    width: 3.5rem;
+    margin: -0.1rem auto 0;
+    font-size: 0.45rem;
+    text-align: center;
+    span {
+      display: block;
+      max-width: 2.5rem;
+      // margin: 0 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+// 喜欢的歌曲列表页面
+.item-likelist {
+  // 背景
+  .animation_wrap {
+    @extend .vertical_center;
+    height: 13.35rem;
+    @extend .bg_cover;
+    background-image: url(../img/bg_likelist.png);
+    background-position: left 0 bottom 2rem;
+    z-index: 300;
+  }
+}
+.likelist {
+  // 标题
+  &_title {
+    position: absolute;
+    top: 1.9rem;
+    left: 50%;
+    width: 4.75rem;
+    height: 1.34rem;
+    margin-left: -2.375rem;
+    background: {
+      image: url("../img/title_song_list.png");
+      size: 100%;
+      position: center;
+      repeat: no-repeat;
+    }
+    animation: fadeInDown $time $taktTime ease both;
+  }
+  // 喜欢的歌单列表
+  &_like_list {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 3.9rem;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    animation: fadeIn 3s ($taktTime + 2) ease both;
+  }
+  // @for $i from 0 through 9 {
+  //   $item: $i + 1;
+  //   &_like_item#{$item} {
+  //     animation: fadeInDown $time ($taktTime * $i + 2) ease both;
+  //   }
+  // }
+  // 单个歌曲
+  &_like_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0.1rem;
+    color: #703824;
+    font-size: 0.27rem;
+
+    span {
+      display: inline-block;
+      font-family: $baseFont;
+      max-width: 3.55rem;
+      font-family: $baseFont;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  // 生成
+  &_create {
+    position: absolute;
+    left: 50%;
+    bottom: 1rem;
+    margin-left: -50%;
+    width: 100%;
+    font-size: 0.3rem;
+    text-align: center;
+    color: #703824;
+    animation: fadeInDown 0.8s 4s ease both;
+  }
+  &_animation {
+    &_item {
+      position: absolute;
+      left: 0;
+      bottom: 2.8rem;
+      width: 100%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    // 白纸
+    &_paper {
+      width: 100%;
+      height: 7.33rem;
+      background: {
+        image: url("../img/paper.gif");
+        size: 100%;
+        position: center;
+        repeat: no-repeat;
+      }
+      animation: fadeInShow ($time * 2) $taktTime * 2 ease both;
+    }
+    &_car {
+      position: absolute;
+      left: 11%;
+      bottom: 2rem;
+      margin-left: -1.9rem;
+      width: 100%;
+      height: 2.11rem;
+      background: {
+        image: url("../img/likelist_car.gif");
+        size: 12rem auto;
+        position: center;
+        repeat: no-repeat;
+      }
+      animation: fadeIn ($time * 2) ($taktTime * 2) ease both;
+    }
+    &_write {
+      position: absolute;
+      left: 0.1rem;
+      bottom: 3.7rem;
+      width: 100%;
+      height: 3.22rem;
+      animation: fadeInShow ($time * 2) ($taktTime * 3) ease both;
+      .animation_write {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 0;
+        padding-bottom: 42.93333333333334%;
+        background: {
+          image: url("../img/write-0.png");
+          size: 200% 300%;
+          repeat: no-repeat;
+        }
+        animation: {
+          name: writekeyframes-test;
+          duration: 1.5s;
+          delay: 0s;
+          iteration-count: infinite;
+          fill-mode: forwards;
+          timing-function: steps(1);
+        }
+      }
+    }
+  }
+}
+
+// 雪碧图便宜值
+$x: 4.4;
+$y: 2.1;
+
+// 生成关键词页面
+.item-create {
+  > .box {
+    bottom: 0;
+    top: auto;
+    transform: none;
+  }
+  .create_item {
+    display: none;
+    &.show {
+      display: block;
+    }
+  }
+}
+.create {
+  // 内容
+  &_content {
+    @extend .vertical_center;
+    width: 100%;
+    height: 13.35rem;
+  }
+  // 标题容器
+  &_title_wrap {
+    position: absolute;
+    top: 1.9rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2.4rem;
+    // background: #f00;
+  }
+  // 标题
+  &_title {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 4.2rem;
+    height: 1rem;
+    background: {
+      image: url("../img/title_antistop.png");
+      size: 100%;
+      position: center;
+      repeat: no-repeat;
+    }
+  }
+  // 关键词
+  &_antistop {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 4.4rem;
+    height: 2.1rem;
+    background: {
+      image: url("../img/antistop.png");
+      size: 17.66rem 14.7rem;
+      position: 0 0;
+      repeat: no-repeat;
+    }
+  }
+  // 专辑图
+  &_cover {
+    position: absolute;
+    top: 1.8rem;
+    left: 50%;
+    margin-left: -2.655rem;
+    width: 5.31rem;
+    height: 6.5rem;
+    background: {
+      image: url("../img/cover3.png");
+      size: 100% auto;
+      position: center;
+      repeat: no-repeat;
+    }
+  }
+  &_bottom {
+    // 底部 提交
+    &_submit {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0.5rem;
+      width: 100%;
+      height: 2.21rem;
+      background: {
+        image: url("../img/bg_submit.png");
+        size: 100% 0.12rem;
+        position: left 0 bottom 0.15rem;
+        repeat: no-repeat;
+      }
+    }
+    // 输入框
+    &_input {
+      position: absolute;
+      top: 0.2rem;
+      left: 0.2rem;
+      width: 80%;
+      height: 0.7rem;
+      line-height: 1.5;
+      padding: 0 0.2rem 0 0;
+      color: rgba($color: #000000, $alpha: 0.8);
+      font-size: 0.2rem;
+      &::placeholder {
+        color: rgba($color: #000000, $alpha: 0.8);
+        font-size: 0.2rem;
+      }
+    }
+    // 提交按钮
+    &_btn {
+      position: absolute;
+      bottom: 0.35rem;
+      right: 0.9rem;
+      width: 1.4rem;
+      height: 0.6rem;
+      z-index: 2;
+    }
+    // 车
+    &_car {
+      position: absolute;
+      left: -2.54rem;
+      bottom: -0.15rem;
+      width: 100%;
+      height: 1.44rem;
+      background: {
+        image: url("../img/likelist_car.gif");
+        size: 93% auto;
+        position: 0 0;
+        repeat: no-repeat;
+      }
+      animation: indexCar ($time * 2) ($taktTime * 2) ease both;
+    }
+    // 气泡
+    &_bubble {
+      position: absolute;
+      top: 0;
+      right: 0.7rem;
+      width: 4.35rem;
+      height: 1.81rem;
+      background: {
+        image: url("../img/bg_bubble.png");
+        size: 100% auto;
+        position: center;
+        repeat: no-repeat;
+      }
+      animation: fadeInShow $time ($taktTime * 4) ease both;
+    }
+  }
+}
+
+// 生成专辑加载页
+.section_loading {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 20;
+  &.show {
+    display: block;
+  }
+  .animation_bg {
+    @extend .vertical_center;
+    height: 13.35rem;
+    @extend .bg_cover;
+    background: {
+      image: url(../img/bg_loading.png);
+      size: 6.14rem 0.99rem;
+      position: center bottom 5.78rem;
+    }
+    img {
+      display: block;
+      position: absolute;
+      left: -2.7rem;
+      bottom: 6.65rem;
+      width: 100%;
+      height: auto;
+      transition: all 1s linear;
+      &.accomplish {
+        left: 1.7rem;
+      }
+    }
+    z-index: 30;
+  }
+  .loading_text {
+    position: absolute;
+    left: 0;
+    bottom: 4.45rem;
+    width: 100%;
+    font-size: 0.3rem;
+    text-align: center;
+    color: #703824;
+    letter-spacing: 0.02rem;
+  }
+}
+
+// 雪碧图类输出
+@mixin iconSprite($className, $width, $height, $col: 1, $row: 1, $total: $col * $row) {
+  @for $y from 0 through ($row - 1) {
+    @for $x from 0 through ($col - 1) {
+      $i: ($y * $col) + $x + 1;
+      @if $total >= $i {
+        /* 第 #{$i} 个关键词 */
+        .#{$className}#{$i} {
+          background-position: (-($x) * $width) (-($y) * $height);
+        }
+      }
+    }
+  }
+}
+
+@include iconSprite(antistop_item_, 4.4rem, 2.1rem, 4, 7, 25);
+
+/* 专辑图 */
+@for $i from 0 through 3 {
+  $item: $i + 1;
+  /* 第 #{$item} 张专辑 */
+  .cover_item_#{$item} {
+    background-image: url("../img/cover#{$item}.png");
+  }
+}
+
+.create_save {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+  z-index: 99;
+  &.show {
+    display: block;
+  }
+  img {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// 陪伴页样式
+.accompany {
+  &_content {
+    @extend .vertical_center;
+    width: 100%;
+    height: 13.35rem;
+    text-align: center;
+    font-size: 0.4rem;
+    color: #431d0d;
+  }
+  &_title {
+    animation: fadeInDown $time $taktTime ease both;
+  }
+  // 时间
+  &_time {
+    margin-top: 2.04rem;
+  }
+  &_text_wrap {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    line-height: 1.5rem;
+    letter-spacing: 0.01rem;
+    // margin-left: 0.5rem;
+    white-space: nowrap;
+    animation: fadeInDown $time ($taktTime * 2) ease both;
+  }
+  &_text,
+  &_text1 {
+    display: block;
+    color: #df1715;
+    font-size: 0.52rem;
+    line-height: 1.5;
+  }
+  &_text1 {
+    display: flex;
+    align-content: center;
+  }
+  &_text,
+  &_text3 {
+    font-family: $baseFont;
+  }
+  &_text3 {
+    display: inline-block;
+    max-width: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: -0.08rem;
+  }
+  // 动画
+  &_animation {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 13.35rem;
+  }
+  // 灯光
+  &_lamp {
+    position: absolute;
+    left: 0;
+    bottom: 1.2rem;
+    transform: translate3d(0, 0, 0);
+    width: 100%;
+    height: 0;
+    padding-bottom: 95.33333333333334%;
+    background-image: url("../img/lamp-0.png");
+    background-size: 200% 200%;
+    background-repeat: no-repeat;
+    animation-name: lampkeyframes-test;
+    animation-duration: 1.2s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: steps(1);
+  }
+  // 餐车
+  &_car {
+    position: absolute;
+    left: 2.4rem;
+    bottom: 2.3rem;
+    width: 2.88rem;
+    height: 1.8rem;
+    background: {
+      image: url("../img/likelist_car.png");
+      size: 100% auto;
+      position: center;
+      repeat: no-repeat;
+    }
+  }
+}
+.accompany_animation {
+  width: 95%;
+}
+
+/* 响应式 当用户是小屏手机时 */
+@media (min-aspect-ratio: 375 / 635) {
+  // 首页
+  .index_animation_wrap {
+    height: 11.7rem;
+  }
+  .index_content {
+    height: 11.7rem;
+  }
+  .index_animation_car {
+    bottom: 0.95rem;
+  }
+
+  // 共同歌曲页
+  .alikesong_content {
+    height: 11.7rem;
+  }
+  .item-alikesong .animation_bg {
+    background-position: left 0 bottom 1rem;
+  }
+
+  // 单曲循环页
+  .loop_content {
+    height: 11.7rem;
+  }
+  .item-loop .animation_bg {
+    background-position: left 0 bottom 1rem;
+  }
+  .loop_text {
+    bottom: 3.2rem;
+  }
+
+  .accompany_content {
+    height: 11.7rem;
+  }
+
+  // 列表页
+  .likelist_like_list {
+    top: 4.1rem;
+  }
+  .likelist_title {
+    top: 1.5rem;
+    left: 50%;
+    margin-left: -2.25rem;
+    width: 4.5rem;
+    background-size: 100% auto;
+  }
+  .likelist_animation_item {
+    bottom: 2.6rem;
+  }
+  .likelist_create {
+    font-size: 0.25rem;
+  }
+  .likelist_animation_write {
+    width: 80%;
+    left: 1.1rem;
+    bottom: 1.9rem;
+  }
+  .likelist_animation_write .animation_write {
+    top: -0.9rem;
+  }
+
+  // 生成页
+  .create_title_wrap {
+    top: 2.1rem;
+  }
+  .create_cover {
+    margin-left: -2.4rem;
+    width: 4.8rem;
+    top: 1.5rem;
+  }
+  .create_bottom_car {
+    bottom: -0.12rem;
+  }
+  .create_bottom_bubble {
+    width: 3.5rem;
+  }
+  .create_bottom_input {
+    top: 0.28rem;
+  }
+  .create_bottom_bubble {
+    top: 0.1rem;
+    right: 1rem;
+  }
+}
+
+.hint_text {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0.25rem;
+  width: 3.78rem;
+  height: 0.52rem;
+  pointer-events: none;
+  background: {
+    image: url(../img/bg_hint.png);
+    size: 3.78rem auto;
+    position: center;
+    repeat: no-repeat;
+  };
+}
+
+.item-home {
+  // 内容
+  .box {
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    transform: translateY(0);
+    width: 100%;
+    height: 100%;
+    background: {
+      image: url(../img/index.jpg);
+      size: 100% auto;
+      position: center bottom;
+      repeat: no-repeat;
+    }
+  }
+}
+
+// 添加活动规则勾选
+.home {
+  &_rule_wrap {
+    position: absolute;
+    left: 0;
+    bottom: 0.3rem;
+    width: 100%;
+    text-align: center;
+    color: #dcb370;
+    font-size: 0.21rem;
+    line-height: 0;
+    letter-spacing: 0.02rem;
+  }
+  &_play {
+    width: 2.75rem;
+    height: 0.34rem;
+    margin: 0 auto 0.13rem;
+    background: {
+      image: url(../img/btn_play.png);
+      size: 100% auto;
+      repeat: no-repeat;
+      position: center;
+    };
+    // pointer-events: none;
+    // opacity: 0;
+    // transition: all 0.75s cubic-bezier(0.21, 0.79, 0.65, 0.99);
+    // &.show {
+    //   opacity: 1;
+    //   pointer-events: unset;
+    // }
+  }
+  &_rule {
+    display: inline-block;
+    margin-bottom: 0.1rem;
+    line-height: 1.9;
+    border-bottom: 0.02rem solid #dcb370;
+  }
+  &_select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .select {
+      display: none;
+      & + label {
+        display: block;
+        width: 0.25rem;
+        height: 0.25rem;
+        margin-right: 0.07rem;
+        background: #2c7feb;
+        text-align: center;
+        color: #fff;
+        line-height: 0.25rem;
+      }
+      &:checked + label {
+        background: {
+          image: url(../img/icon_select.png);
+          size: 0.14rem auto;
+          position: center;
+          repeat: no-repeat;
+        };
+      }
+      // &:checked + label::after {
+      //   content:"\2714";
+      // }
+    }
+  }
+}
+
+// 背景音乐icon
+.icon_play {
+  display: block;
+  position: absolute;
+  top: 0.38rem;
+  right: 0.4rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: {
+    image: url(../img/icon_play.png);
+    size: 0.75rem 1.5rem;
+    repeat: no-repeat;
+    position: 0 -0.75rem;
+  };
+  z-index: 20;
+  &.play {
+    background-position: 0 0;
+    animation:myRotate 5s linear infinite;
+  }
+}
+
+#saveImage {
+  opacity: 0;
+}
+
+// 底部
+.box_bottom {
+  width: 100%;
+  height: 0.84rem;
+  position: fixed;
+  left: 0;
+  bottom: 0.27rem;
+  
+  // 滑动提示icon 容器
+  .bottom_icon_box {
+    width: 0.53rem;
+    height: 0.31rem;
+    // display: inline-blocks;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    animation: start 1.5s 2s infinite ease-in-out;opacity: 0;
+  }
+  .bottom_icon {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+.item-likelist .box_bottom {
+  .bottom_icon_box {
+    animation: start 1.5s 4s infinite ease-in-out;opacity: 0;
+  }
+}
+
+
+/* 响应式 当用户是小屏手机时 */
+@media (min-aspect-ratio: 375 / 580) {
+  // 生成页标题
+  .create_title_wrap {
+    top: 2.5rem;
+  }
+  // 生成页输入框
+  .create_bottom_submit {
+    bottom: 0;
+  }
+  // 歌单列表页提示文案
+  .likelist_create {
+    bottom: 1.15rem;
+  }
+}

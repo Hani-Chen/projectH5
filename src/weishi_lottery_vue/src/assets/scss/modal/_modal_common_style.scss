@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+// 公共样式 - 页面公共类
+@import '../class';
+
+// 公共样式 - 页面动画引入
+@import '../ani';
+
+// 弹窗 - 公共样式
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  &.show {
+    display: block;
+  }
+  &-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  &-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  &-body {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 6.26rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -3.13rem;
+  }
+  &-inner {
+    position: relative;
+    width: 100%;
+    height: 6.26rem;
+    @extend .bg-item;
+    background-image: url('~@/assets/img/modal_bg.png');
+    background-size: 100% 6.26rem;
+    animation: modalScale 0.5s linear;
+    &.pulse {
+      animation-name: pulse;
+    }
+  }
+
+  // 标题文案
+  .title {
+    @extend .ab-item;
+    top: 1.5rem;
+    text-align: center;
+    color: #ec2825;
+  }
+
+  // 弹窗 - 装饰
+  .ornament {
+    @extend .ab-item;
+    top: 3.35rem;
+    width: 2.5rem;
+    height: 1.8rem;
+    margin-left: -1.25rem;
+    @extend .bg-item;
+    background: {
+      image: url('~@/assets/img/modal_ornament1.png');
+      size: 2.5rem 5.4rem;
+      repeat: no-repeat;
+      position: 0 -3.6rem;
+    }
+  }
+  // 装饰 - 礼包
+  .ornament-gift {
+    margin-left: -1.15rem;
+    background-position: 0 0;
+  }
+  // 装饰 - 宝箱
+  .ornament-box {
+    top: 3.45rem;
+    margin-left: -1.05rem;
+    background-position: 0 -1.8rem;
+  }
+  // 弹窗 - 按钮
+  .modal-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 0.1rem;
+    width: 3rem;
+    height: 1.1rem;
+    margin-left: -1.47rem;
+    background: {
+      image: url('~@/assets/img/modal_btn.png');
+      size: 9rem 3.3rem;
+      repeat: no-repeat;
+    }
+  }
+  // 关闭按钮
+  &-close {
+    position: absolute;
+    left: 50%;
+    bottom: -1.44rem;
+    width: 0.76rem;
+    height: 0.76rem;
+    margin-left: -0.38rem;
+    @extend .bg-item;
+    background-image: url('~@/assets/img/modal_close.png');
+  }
+}

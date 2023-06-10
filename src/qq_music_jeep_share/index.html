@@ -1,0 +1,31 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<!--Body下的根元素 S-->
+<section class="wrap ">
+  <!-- 页面内容 - 生成后的海报页 -->
+  <div class="wrap_page share_wrap show">
+    <!-- 生成海报页 - 主要内容 -->
+    <div class="share_inner ">
+      <!-- 生成后海报展示 -->
+      <div class="share_content">
+        <div class="share_img">
+          <!-- 配置项 - 汽车大图 -->
+          <img src="./img/create_car1.png" class="share_bg share_car" alt="">
+          <!-- 配置项 - 天空背景大图 -->
+          <img src="./img/create_bg1.png" class="share_bg share_sky" alt="">
+          <!-- 配置项 - 歌词海报大图 -->
+          <img src="./img/create_lyric1.png" class="share_bg share_lyric" alt="">
+          <!-- 配置项 - 用户名 -->
+          <div class="user_name">独一无二的牧马人：<span>Hani</span></div>
+        </div>
+        <!-- Data: 2020-08-03; Edit: Hani; Describe: 将二维码从图片中分离; Start 1.0.0 -->
+        <!-- 配置项 - 生成后的二维码 -->
+        <div class="share_qrcode"><img src="./img/qrcode.png" alt=""></div>
+        <!-- Data: 2020-08-03; Edit: Hani; Describe: 将二维码从图片中分离; End 1.0.0 -->
+        <!-- 配置项 - 编号 -->
+        <div class="share_number font_hydhj">仲夏星空演唱会限定编号：<span>007</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

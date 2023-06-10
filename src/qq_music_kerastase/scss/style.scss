@@ -1,0 +1,633 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import 'global.import.css';
+
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24rem);
+ */
+@function changePx($px) {
+  @return $px / 2;
+}
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: 'PingFang', 'PingFang SC', Helvetica, Tahoma, Arial,
+  'Hiragino Sans GB', 'Heiti SC', STXihei, 'Microsoft YaHei', SimHei,
+  'WenQuanYi Micro Hei';
+
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+.border_t::after,
+.border_b::after,
+.border_l::after,
+.border_r::after{content:"";position:absolute;z-index:1;-webkit-box-sizing:border-box;pointer-events:none;border-style:solid;border-color: #4b4b4b;}/*请自己配置边框颜色*/
+
+.border_b::after{bottom:0;left:0;right:0;height:0;border-width:0 0 1px 0;}
+
+/* 
+* 公共样式 - 绝对定位居中
+* 用法: @extend .posa-center;
+*
+*/
+.posa_center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+/* 页面工具类 - 文字禁止选择 */
+.text_forbid__cope {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+html,
+body,
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+  overflow: hidden;
+  @extend .text_forbid__cope;
+}
+
+@font-face {
+  font-family: 'SHSCNN';
+  src: url('../fonts/SourceHanSansK-Normal.ttf');
+}
+.font_shscnn {
+  font-family: 'SHSCNN';
+}
+@font-face {
+  font-family: 'SHSCNR';
+  src: url('../fonts/SourceHanSansK-Regular.ttf');
+}
+.font_shscnr {
+  font-family: 'SHSCNR';
+}
+
+@font-face {
+  font-family: 'SHSCNL';
+  src: url('../fonts/SourceHanSansK-Light.ttf');
+}
+.font_shscnl {
+  font-family: 'SHSCNL';
+}
+
+@font-face {
+  font-family: 'BigCaslon';
+  src: url('../fonts/bigcaslon.otf');
+}
+.font_bigcaslon {
+  font-family: 'BigCaslon';
+}
+
+@font-face {
+  font-family: 'SHSCNE';
+  src: url('../fonts/SourceHanSansK-ExtraLight.ttf');
+}
+.font_shscne {
+  font-family: 'SHSCNE';
+}
+
+
+.toast_item {
+  position: absolute;
+  max-width: 60%;
+  left: 50%;
+  bottom: changePx(0.7rem);
+  background: #fcdce3;
+  color: #000;
+  font-size: changePx(0.24rem);
+  padding: changePx(0.12rem) changePx(0.16rem);
+  line-height: 1;
+  transform: translate3d(-50%, -50%, 0);
+  animation: i 0.5s backwards;
+  z-index: 11;
+  user-select:none;
+}
+.page {
+  &_item {
+    display: none;
+    width: 100%;
+    height: 100%;
+    @extend .bg_item;
+    background-image: url(../img/page_bg.jpg);
+    animation: fadeIn 0.3s ease-in;
+    &.show {
+      display: block;
+    }
+    .return {
+      @extend .posa_center;
+      left: changePx(0.6rem);
+      margin-top: changePx(-5.14rem);
+      width: changePx(0.3rem);
+      height: changePx(0.3rem);
+      @extend .bg_item;
+      background-image: url(../img/return.png);
+    }
+    .logo {
+      @extend .posa_center;
+      transform: translate3d(-50%, 0, 0);
+      margin-top: changePx(-5.18rem);
+      width: changePx(3.1rem);
+      height: changePx(0.44rem);
+      @extend .bg_item;
+      background-image: url(../img/logo.png);
+    }
+  }
+}
+
+// 页面标题 - 音符
+.decorate_note {
+  position: relative;
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    width: changePx(0.56rem);
+    height: changePx(0.42rem);
+    @extend .bg_item;
+  }
+  &::before {
+    left: changePx(-0.66rem);
+    background-image: url(../img/gif_left.gif);
+  }
+  &::after {
+    content: '';
+    right: changePx(-0.66rem);
+    background-image: url(../img/gif_right.gif);
+  }
+}
+
+.btn_item {
+  width: changePx(3.6rem);
+  height: changePx(0.68rem);
+  background-color: #d82422;
+  font-size: changePx(0.3rem);
+  color: #ffff;
+  text-align: center;
+  line-height: changePx(0.68rem);
+  letter-spacing: changePx(0.02rem);
+}
+
+// .number_style {
+//   color: rgb(228, 118, 103);
+//   // text-transform: uppercase;
+//   // text-align: center;
+//   text-shadow: changePx(0.02rem) changePx(0.02rem) changePx(0.02rem) rgba(242, 207, 204, 0.89),changePx(0.02rem) changePx(0.02rem) changePx(0.02rem) rgba(189, 102, 95, 0.92);
+//   // -moz-transform: matrix( 3.89637632589626,0,0,3.70980442975616,0,0);
+//   // -webkit-transform: matrix( 3.89637632589626,0,0,3.70980442975616,0,0);
+//   // -ms-transform: matrix( 3.89637632589626,0,0,3.70980442975616,0,0);
+
+// }
+
+.number_style {
+  color: rgb(228, 118, 103);
+  text-shadow: changePx(0.08rem) changePx(0.08rem) changePx(0.08rem) rgba(242, 207, 204, 0.89),changePx(0.08rem) changePx(0.08rem) changePx(0.08rem) rgba(189, 102, 95, 0.92);
+}
+/* 页面公共样式 - End */
+
+/* 页面样式 - Start 【*注意* ：QQ音乐规定类名命名，必须以下划线形式命名】
+ * 类名用法示例：
+ * .test_box {}
+ * .test_box__wrap {}
+ */
+
+// 启动页
+.page_start {
+  .start {
+    //  启动页 - 王俊凯图片
+    &_bg {
+      @extend .posa_center;
+      transform: translate3d(-50%, -50%, 0);
+      width: 100%;
+      height: changePx(16.25rem);
+      @extend .bg_item;
+      background-image: url(../img/start_bg.jpg);
+    }
+    //  启动页 - 文案
+    &_text {
+      &__wrap {
+        @extend .posa_center;
+        left: 0;
+        width: 100%;
+        height: changePx(1.04rem);
+        margin-top: changePx(-4.25rem);
+        @extend .bg_item;
+        background-image: url(../img/start_text.png);
+      }
+      &__title {
+        position: relative;
+        width: changePx(4.9rem);
+        height: changePx(0.4rem);
+        margin: 0 auto;
+      }
+    }
+    //  启动页 - 按钮
+    &_btn {
+      @extend .posa_center;
+      transform: translate3d(-50%, 0, 0);
+      margin-top: changePx(4.32rem);
+      width: changePx(3.6rem);
+      height: changePx(0.67rem);
+      // @extend .bg_item;
+      // background-image: url(../img/start_btn.jpg);
+    }
+  } 
+}
+// 录制页
+.page_record {
+  .record {
+    // 录制页 - 歌词
+    &_lyric {
+      @extend .posa_center;
+      transform: translate3d(-50%, 0, 0);
+      margin-top: changePx(-4.4rem);
+      width: changePx(5.5rem);
+      height: changePx(5.44rem);
+      @extend .bg_item;
+      background-image: url(../img/record_lyric.png);
+    }
+    // 录制页 - 操作区
+    &_operation {
+      @extend .posa_center;
+      transform: translate3d(-50%, 0, 0);
+      margin-top: changePx(1.8rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    // 录制页 - 播放原唱
+    &_play {
+      @extend .posa_center;
+      // transform: translate3d(0, -50%, 0);
+      margin-left: changePx(-2.76rem);
+      margin-top: changePx(-.6rem);
+      &__icon {
+        width: changePx(1.1rem);
+        height: changePx(1.1rem);
+        @extend .bg_item;
+        background-image: url(../img/record_icon.png);
+        background-size: changePx(2.2rem);
+        background-position: changePx(-1.1rem) 0;
+        &.play {
+          background-position: changePx(-1.1rem) changePx(-1.1rem);
+        }
+      }
+      &__text {
+        font-size: changePx(0.18rem);
+        margin-top: changePx(0.08rem);
+        letter-spacing: changePx(0.02rem);
+      }
+    }
+    // 录制页 - 录制按钮
+    &_sing {
+      position: relative;
+      width: changePx(1.92rem);
+      height: changePx(1.92rem);
+      @extend .bg_item;
+      background-image: url(../img/record_sing1.png);
+         // 圆圈动画 - 动画3
+         .circle {
+          display: none;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: changePx(1.92rem);
+          height: changePx(1.92rem);
+          @extend .bg_item;
+          animation: concertHaloAni 0.8s ease-in infinite;
+          transform: scale(0) translate3d(-50%, -50%, 0);
+          transform-origin: 0 0;
+        }
+        @for $i from 1 through 3 {
+          .circle_#{$i} {
+            animation-delay: ($i * 0.1s);
+            background-image: url('../img/record_sing' + $i +'.png');
+          }
+        }
+        .circle_2 {
+          width: changePx(2.3rem);
+          height: changePx(2.3rem);
+        }
+        .circle_3 {
+          width: changePx(2.62rem);
+          height: changePx(2.62rem);
+        }
+      // 录制页 - 歌唱时状态
+      &.sing {
+        background-image: url('');
+        .record_mic {
+          width: changePx(0.56rem);
+          height: changePx(0.42rem);
+          background-image: url(../img/gif_right.gif);
+          background-size: changePx(0.56rem) changePx(0.42rem);
+        }
+        .circle {
+          display: block !important;
+        }
+      }
+    }
+    // 录制页 - 麦克风
+    &_mic {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: changePx(1.1rem);
+      height: changePx(1.1rem);
+      @extend .bg_item;
+      background-image: url(../img/record_icon.png);
+      background-size: changePx(2.2rem);
+      background-position: 0 0;
+    }
+    // 录制页 - 录制时长
+    &_time {
+      @extend .posa_center;
+      transform: translate3d(0, -50%, 0);
+      margin-left: changePx(1.65rem);
+      font-size: changePx(0.18rem);
+      letter-spacing: changePx(0.02rem);
+    }
+    
+    // 录制页 - 提示文案
+    &_hint {
+      @extend .posa_center;
+      left: 0;
+      width: 100%;
+      margin-top: changePx(4.54rem);
+      font-size: changePx(0.18rem);
+      color: rgba($color: #000000, $alpha: 0.7);
+      text-align: center;
+      letter-spacing: changePx(0.04rem);
+      &__rule {
+        width: changePx(0.84rem);
+        position: relative;
+        display: inline-block;
+        margin-top: changePx(0.1rem);
+        padding-bottom: changePx(0.04rem);
+        white-space: nowrap;
+      }
+    }
+  }
+}
+// 评分页
+.page_grade {
+  .grade {
+    &_title {
+      font-size: changePx(0.38rem);
+      @extend .posa_center;
+      left: 0;
+      width: 100%;
+      margin-top: changePx(-4.24rem);
+      text-align: center;
+      font-weight: bold;
+      .text {
+        display: inline-block;
+      }
+    }
+    &_data {
+      display: flex;
+      align-items: center;
+      @extend .posa_center;
+      transform: translate3d(-50%, 0, 0);
+      margin-top: changePx(-3.28rem);
+      &__user{
+        display: flex;
+        align-items: center;
+        margin-right: changePx(0.5rem);
+        .portrait {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: changePx(1.18rem);
+          height: changePx(1.2rem);
+          @extend .bg_item;
+          background-image: url(../img/grade_portrait_bg.png);
+          margin-right: changePx(0.16rem);
+          &_img {
+            display: block;
+            width: changePx(1.02rem);
+            height: changePx(1.02rem);
+            border-radius: 50%;
+            flex-shrink: 0;
+          }
+        }
+        .name {
+          max-width: changePx(2.2rem);
+          min-width: changePx(0.72rem);
+          font-size: changePx(0.36rem);
+          color: #000;
+          white-space:nowrap;
+          white-space:nowrap;
+          overflow:hidden;
+          text-overflow:ellipsis;
+        }
+      }
+    }
+    // 评分页 - 分数
+    &_score {
+      margin-top: changePx(0.1rem);
+      font-size: changePx(0.78rem);
+    }
+    &_comment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: pre-wrap;
+      @extend .posa_center;
+      transform: translate3d(-50%, 0, 0);
+      width: changePx(6.18rem);
+      height: changePx(2.62rem);
+      margin-top: changePx(-1.78rem);
+      @extend .bg_item;
+      background-image: url(../img/grade_comment_bg.png);
+      font-size: changePx(0.3rem);
+      text-align: center;
+      line-height: changePx(0.44rem);
+      text {
+        margin-top: changePx(-0.2rem);
+        letter-spacing: changePx(0.02rem);
+      }
+    }
+    &_btn {
+      &__wrap {
+        @extend .posa_center;
+        transform: translate3d(-50%, 0, 0);
+        margin-top: changePx(1.47rem);
+      }
+      &__item {
+        margin-bottom: changePx(0.47rem);
+      }
+    }
+  }
+}
+// 排行页
+.page_list {
+  .list {
+    // 排行页 - 文案
+    &_text__wrap{
+      @extend .posa_center;
+      left: 0;
+      width: 100%;
+      margin-top: changePx(-4.40rem);
+      text-align: center;
+    }
+    &_title {
+      font-size: changePx(0.45rem);
+      color: #000;
+      margin-bottom: changePx(0.2rem);
+      letter-spacing: changePx(0.02rem);
+      .text {
+        display: inline-block;
+      }
+    }
+    &_text {
+      font-size: changePx(0.24rem);
+      color: #c7211c;
+    }
+    // 排行页 - 排行榜
+    &_ranking {
+      @extend .posa_center;
+      transform: translate3d(-50%, 0, 0);
+      width: changePx(5.25rem);
+      height: changePx(6.57rem);
+      @extend .bg_item;
+      background-image: url(../img/list_bg.png);
+      margin-top: changePx(-2.98rem);
+      padding: changePx(0.26rem) changePx(0.85rem) changePx(0.3rem) changePx(0.68rem); 
+      box-sizing: border-box;
+      &__title {
+        font-size: changePx(0.24rem);
+        color: #000;
+        letter-spacing: changePx(0.02rem);
+      }
+      &__inner {
+        margin-top: changePx(0.2rem);
+      }
+      &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: changePx(0.15rem);
+        width: 100%;
+        height: changePx(0.4rem);
+        &.active {
+          .list_ranking__name {
+            margin-top: changePx(-0.08rem);
+            color: rgb(228, 118, 103);
+            font-size: changePx(0.35rem);
+            text-shadow: changePx(0.08rem) changePx(0.08rem) changePx(0.08rem) rgba(242, 207, 204, 0.89),changePx(0.06rem) changePx(0.06rem) changePx(0.05rem) rgba(189, 102, 95, 0.92);
+          }
+          .list_ranking__gride {
+            display: flex;
+            justify-content: center;
+            width: changePx(0.6rem);
+            color: rgb(228, 118, 103);
+            font-size: changePx(0.35rem);
+            text-shadow: changePx(0.08rem) changePx(0.08rem) changePx(0.08rem) rgba(242, 207, 204, 0.89),changePx(0.06rem) changePx(0.06rem) changePx(0.05rem) rgba(189, 102, 95, 0.92);
+            white-space: nowrap;
+          }
+        }
+      }
+      &__data {
+        position: relative;
+        height: changePx(0.25rem);
+        width: 70%;
+      }
+      &__number {
+        position: absolute;
+        right: changePx(2.36rem);
+        margin-top: changePx(0.04rem);
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        @extend .font_shscnr;
+        font-size: changePx(0.4rem);
+        text-shadow: changePx(0.08rem) changePx(0.08rem) changePx(0.08rem) rgba(242, 207, 204, 0.89),changePx(0.06rem) changePx(0.06rem) changePx(0.05rem) rgba(189, 102, 95, 0.92);
+      }
+      &__name {
+        font-size: changePx(0.24rem);
+        color: #000;
+        padding-left: changePx(0.36rem);
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+      &__gride {
+        font-size: changePx(0.24rem);
+        margin-top: changePx(0.08rem);
+      }
+    }
+    // 排行页 - 提示文案
+    &_hint {
+      display: none;
+      @extend .posa_center;
+      left: 0;
+      width: 100%;
+      margin-top: changePx(3.84rem);
+      font-size: changePx(0.23rem);
+      color: #000;
+      text-align: center;
+      font-weight: bold;
+      &.show {
+        display: block;
+      }
+    }
+    &_btn__item {
+      @extend .posa_center;
+      transform: translate3d(-50%, 0, 0);
+      width: changePx(2.66rem);
+      height: changePx(0.62rem);
+      line-height: changePx(0.62rem);
+      margin-top: changePx(4.35rem);
+    }
+    &_expiration {
+      @extend .posa_center;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      margin-top: changePx(5.2rem);
+      font-size: changePx(0.14rem);
+      color: #3d3d3d;
+    }
+  }
+}
+
+// 弹窗样式
+.modal_share {
+  position: relative;
+  .share_content {
+    width: changePx(4.44rem);
+    min-height: changePx(5.94rem);
+  }
+  // 弹窗关闭按钮
+  .modal_close {
+    margin: changePx(0.18rem) auto;
+    width: changePx(0.8rem);
+    height: changePx(0.8rem);
+    @extend .bg_item;
+    background-image: url(../img/modal_close.png);
+  }
+  .share_img {
+    width: 100%;
+    // height: 100%;
+  }
+}
+@import './modal';
+@import './ani';

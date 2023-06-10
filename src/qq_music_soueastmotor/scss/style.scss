@@ -1,0 +1,846 @@
+@charset "utf-8";
+/*引用公用样式*/
+@import './global.import.css';
+* {
+  user-select: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img {
+  pointer-events: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+i {
+  font-style: normal;
+}
+// 磁盘旋转
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+// 页面样式
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: {
+    image: url(../img/project_bg.jpg);
+    position: center center;
+    size: 100% 16rem;
+  }
+}
+// 内容
+.motor_main {
+  width: 100%;
+  height: 11.05rem;
+  position: absolute;
+  // background: #f00;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.main {
+  &_content {
+    display: none;
+    &.show {
+      display: block;
+      animation: fadeIn 0.5s both;
+    }
+  }
+  // 头部 - logo
+  &_head_logo {
+    width: 5rem;
+    height: 0.44rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    background: {
+      image: url(../img/project_logo.png);
+      size: 5.2rem 1.23rem;
+      position: top -0.05rem center;
+      repeat: no-repeat;
+    }
+  }
+  // 首页
+  &_index {
+    // 标题
+    &_title {
+      width: 6rem;
+      height: 2.4rem;
+      margin: 0.65rem auto 0;
+      position: relative;
+      left: -0.3rem;
+      background: {
+        image: url(../img/project_title.png);
+        size: 6rem auto;
+        position: top center;
+        repeat: no-repeat;
+      }
+    }
+    // 音符背景
+    &_notebg {
+      width: 4rem;
+      height: 3rem;
+      margin: 0 auto;
+      position: absolute;
+      left: 2.25rem;
+      top: 3.1rem;
+      background: {
+        image: url(../img/project_bg1.png);
+        size: 4rem auto;
+        position: top center;
+        repeat: no-repeat;
+      }
+    }
+    // 文案
+    &_text {
+      font-size: 0.34rem;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      margin-top: 0.4rem;
+    }
+    // 汽车
+    &_car {
+      width: 5.68rem;
+      height: 2.58rem;
+      margin: 1.15rem auto 0;
+      position: relative;
+      background: {
+        image: url(../img/project_car.png);
+        size: 5.68rem auto;
+        position: top center;
+        repeat: no-repeat;
+      }
+    }
+    // 一键启动按钮
+    &_btn {
+      width: 3.2rem;
+      height: 0.9rem;
+      margin: 0.74rem auto 0;
+      position: relative;
+      left: 0.35rem;
+      background: {
+        image: url(../img/project_btn.png);
+        size: 6.64rem 2.1rem;
+        position: 0 0;
+        repeat: no-repeat;
+      }
+    }
+  }
+  // 选择页 && 声纹识别
+  &_two {
+    &_item {
+      display: none;
+      &.show {
+        display: block;
+      }
+    }
+    // 标题
+    &_title {
+      width: 4.8rem;
+      height: 1.93rem;
+      margin: 0.25rem auto 0;
+      position: relative;
+      left: -0.3rem;
+      background: {
+        image: url(../img/project_title.png);
+        size: 4.8rem auto;
+        position: top center;
+        repeat: no-repeat;
+      }
+    }
+    // 音符背景
+    &_notebg {
+      width: 5.36rem;
+      height: 6.91rem;
+      margin: 0 auto;
+      position: absolute;
+      left: 1rem;
+      top: 2.7rem;
+      background: {
+        image: url(../img/project_bg2.png);
+        size: 5.36rem auto;
+        position: top center;
+        repeat: no-repeat;
+      }
+    }
+    // 文案
+    &_text {
+      font-size: 0.3rem;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      margin-top: 0.1rem;
+      position: relative;
+      z-index: 1;
+    }
+  }
+  // 选择页
+  &_select {
+    // 选择框
+    &_wrap {
+      width: 5.03rem;
+      height: auto;
+      margin: 0.55rem auto 0;
+      position: relative;
+      z-index: 1;
+    }
+    &_box {
+      border: 0;
+      appearance: none;
+      display: block;
+      background-color: transparent;
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      height: 1rem;
+      left: 0;
+      overflow: hidden;
+      width: 100%;
+      outline: none;
+
+      > option {
+        text-align: center;
+        white-space: pre-line;
+      }
+    }
+    &_label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 1rem;
+      // position: absolute;
+      // left: 0;
+      // top: 0;
+      background: {
+        image: url(../img/project_select_bg.png);
+        size: 5.03rem auto;
+        position: top center;
+        repeat: no-repeat;
+      }
+    }
+    // 下拉按钮
+    &_btn {
+      position: absolute;
+      top: 0.42rem;
+      right: 0.65rem;
+      width: 0.27rem;
+      height: 0.16rem;
+      pointer-events: none;
+      background: {
+        image: url(../img/project_dropdown_btn.png);
+        size: 0.27rem auto;
+        position: top center;
+        repeat: no-repeat;
+      }
+    }
+    // 文案
+    &_text {
+      font-size: 0.24rem;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      margin-top: 0.15rem;
+    }
+    // 汽车
+    &_car {
+      width: 5.68rem;
+      height: 2.58rem;
+      margin: 0.3rem auto 0;
+      position: relative;
+      background: {
+        image: url(../img/project_car.png);
+        size: 5.68rem auto;
+        position: top center;
+        repeat: no-repeat;
+      }
+    }
+    // 下一步 按钮
+    &_nextbtn {
+      width: 3.2rem;
+      height: 0.9rem;
+      margin: 0.74rem auto 0;
+      position: relative;
+      left: 0.35rem;
+      background: {
+        image: url(../img/project_btn.png);
+        size: 6.64rem 2.1rem;
+        position: 0 -1.05rem;
+        repeat: no-repeat;
+      }
+    }
+  }
+  // 声纹识别
+  &_recognize {
+    // 选择框
+    &_wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 5.62rem;
+      height: 1rem;
+      margin: 0.55rem auto 0;
+      text-align: center;
+      background: linear-gradient(#e2d7e8 0%, #e8fcfa 100%);
+      border-radius: 0.06rem;
+
+      z-index: 1;
+    }
+    // 文案
+    &_text {
+      font-size: 0.2rem;
+      width: 100%;
+      text-align: center;
+      color: #feccd1;
+      margin-top: 0.15rem;
+      position: relative;
+      z-index: 1;
+    }
+    // 麦克风
+    &_microphone {
+      width: 2.1rem;
+      height: 2.1rem;
+      margin: 0.4rem auto 0;
+      position: relative;
+      z-index: 1;
+      background: {
+        image: url(../img/project_microphone.png);
+        size: 2.3rem 4.4rem;
+        position: -0.1rem -2.2rem;
+        repeat: no-repeat;
+      }
+      &:active {
+        background: {
+          position: -0.1rem 0;
+        }
+      }
+    }
+    // 提示语
+    &_reminder {
+      position: relative;
+      width: 3.15rem;
+      height: 0.68rem;
+      margin: 0.2rem auto 1.8rem;
+      font-size: 0.2rem;
+      color: #634000;
+      text-align: center;
+      line-height: 0.8rem;
+      background: {
+        z-index: 1;
+        image: url(../img/project_reminder.png);
+        size: 3.15rem auto;
+        position: top center;
+        repeat: no-repeat;
+      }
+      transition: all 0.3s;
+      &.hide {
+        transform: translateY(50%);
+        opacity: 0;
+      }
+    }
+  }
+  // 歌手列表
+  &_singer {
+    // 音符背景
+    &_notebg {
+      width: 5.36rem;
+      height: 6.91rem;
+      margin: 0 auto;
+      position: absolute;
+      left: 1rem;
+      top: 2.7rem;
+      background: {
+        image: url(../img/project_bg2.png);
+        size: 5.36rem auto;
+        position: top center;
+        repeat: no-repeat;
+      }
+    }
+    // 标题文案
+    &_title {
+      font-size: 0.26rem;
+      color: #fff;
+      width: 2.86rem;
+      text-align: center;
+      margin: 0.7rem auto 0;
+      line-height: 1.3;
+    }
+    // 波纹
+    &_ripple {
+      width: 4.28rem;
+      height: 0.6rem;
+      margin: -0.08rem auto;
+      position: relative;
+      background: {
+        image: url(../img/project_ripple.png);
+        size: 4.28rem auto;
+        position: 0 0;
+        repeat: no-repeat;
+      }
+    }
+    // 单个歌手
+    &_item {
+      width: 4.88rem;
+      height: 1.76rem;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      // 唱片
+      .item_record {
+        width: 1.96rem;
+        height: 1.86rem;
+        animation: rotate linear 10s infinite;
+        background: {
+          image: url(../img/project_record.png);
+          size: 1.96rem 5.58rem;
+          repeat: no-repeat;
+        }
+      }
+      // 唱片 1
+      .item_record1 {
+        background: {
+          position: 0 -0.05rem;
+        }
+      }
+      // 唱片 2
+      .item_record2 {
+        background: {
+          position: 0 -1.86rem;
+        }
+      }
+      // 唱片 3
+      .item_record3 {
+        background: {
+          position: 0 -3.67rem;
+        }
+      }
+      // 描述
+      .item_describe {
+        width: 2.83rem;
+        height: 0.6rem;
+        background: linear-gradient(#e2d7e8 0%, #e8fcfa 100%);
+        position: relative;
+        margin: 0 auto;
+        padding-left: 0.32rem;
+        line-height: 0.6rem;
+        border-radius: 0.06rem;
+        margin-left: 0.1rem;
+        &.active {
+          background: #ffc600;
+          .out {
+            border-right-color: #ffc600;
+          }
+        }
+        .out,
+        .in {
+          position: absolute;
+          width: 0;
+          height: 0px;
+        }
+        .out {
+          border: 0.1rem solid transparent;
+          border-right-color: #e5e7f0; /*这里的颜色一定要跟上面demo边框颜色一样*/
+          top: 50%;
+          left: -0.18rem;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    // 选手1
+    &_item1 {
+      margin-left: 0.9rem;
+      margin-top: 0.45rem;
+    }
+    // 选手2
+    &_item2 {
+      margin-left: 1.64rem;
+      margin-top: 0.2rem;
+    }
+    // 选手3
+    &_item3 {
+      margin-left: 0.9rem;
+      margin-top: 0.2rem;
+    }
+    // 重新录制按钮
+    &_restart {
+      width: 100%;
+      height: 1.55rem;
+      position: relative;
+      .restart_btn {
+        width: 1.3rem;
+        height: 1.3rem;
+        position: absolute;
+        top: -0.4rem;
+        right: 0.82rem;
+        background: {
+          image: url(../img/project_restart_btn.png);
+          size: 1.3rem auto;
+          position: top center;
+          repeat: no-repeat;
+        }
+      }
+    }
+  }
+  &_end {
+    position: relative;
+    // 背景
+    .bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: {
+        image: url(../img/project_bg3.png);
+        position: center center;
+        size: 100% 16rem;
+      }
+    }
+    // 返回按钮
+    .restart_btn2{
+      position: absolute;
+      top: 1rem;
+      right: 0.7rem;
+      width: 1.3rem;
+      height: 1.3rem;
+      background: {
+        image: url(../img/project_restart_btn2.png);
+        position: center center;
+        size: 100% 100%;
+      }
+    }
+    // 文案
+    &_text {
+      color: #fffefe;
+      text-align: center;
+      font-size: 0;
+      .text1 {
+        font-size: 0.22rem;
+        padding-top: 0.95rem;
+      }
+      .text2 {
+        font-size: 0.36rem;
+        color: #8f75ff;
+        margin-top: 0.15rem;
+      }
+      .text3 {
+        font-size: 0.24rem;
+        margin-top: 0.15rem;
+      }
+    }
+    // 音乐列表
+    &_list {
+      width: 100%;
+      height: 5.83rem;
+      position: relative;
+      left: -0.32rem;
+      margin: 0.33rem auto 0;
+      background: {
+        image: url(../img/project_list_bg.png);
+        position: center center;
+        size: 7rem 5.83rem;
+        repeat: no-repeat;
+      }
+      // 按钮
+      .btn {
+        position: relative;
+        width: 5.63rem;
+        height: 0.8rem;
+        margin: 0 auto;
+        left: 0.32rem;
+        border-bottom: 1px solid #bfbfbf;
+        color: #4a2600;
+        font-size: 0.24rem;
+        // 全部播放
+        &_play {
+          position: absolute;
+          width: 1.94rem;
+          height: 0.5rem;
+          top: 0.14rem;
+          left: 0.15rem;
+          line-height: 0.5rem;
+          display: flex;
+          align-items: center;
+          background: {
+            image: url(../img/project_list_btnbg.png);
+            position: center center;
+            size: 1.94rem 0.5rem;
+          }
+        }
+        &_icon {
+          display: block;
+          width: 0.4rem;
+          height: 0.4rem;
+          margin-right: 0.24rem;
+          margin-left: 0.08rem;
+          background: {
+            image: url(../img/project_icon.png);
+            position: 0 0;
+            size: 100% auto;
+            repeat: no-repeat;
+          }
+        }
+        &_icon1 {
+          background: {
+            position-y: 33.3333333%;
+          }
+        }
+        // 收藏全部
+        &_collect {
+          width: 1.94rem;
+          height: 0.5rem;
+          position: absolute;
+          top: 0.14rem;
+          right: 0.15rem;
+          line-height: 0.5rem;
+          display: flex;
+          align-items: center;
+          background: {
+            image: url(../img/project_list_btnbg.png);
+            position: center center;
+            size: 1.94rem 0.5rem;
+          }
+          .btn_icon2 {
+            background: {
+              position-y: 66.666666667%;
+            }
+          }
+          &.collected {
+            .btn_icon2 {
+              background-position-y: 100%;
+            }
+          }
+        }
+      }
+      // 列表容器
+      .list_wrap {
+        width: 5.64rem;
+        position: relative;
+        left: 0.32rem;
+        margin: 0 auto;
+        // 单个歌曲
+        .item {
+          display: flex;
+          align-items: center;
+          justify-items: center;
+          align-items: center;
+          color: #575757;
+          font-size: 0;
+          height: 0.55rem;
+
+          // 序号
+          &_serial {
+            display: block;
+            font-size: 0.24rem;
+            margin-left: 0.33rem;
+            line-height: 0.55rem;
+          }
+          // 名字
+          &_name {
+            font-size: 0.24rem;
+            height: 100%;
+            line-height: 0.55rem;
+            width: 4.95rem;
+            margin-left: 0.26rem;
+            display: flex;
+            justify-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #bfbfbf;
+            align-items: center;
+            padding-left: 0.12rem;
+          }
+          // icon
+          &_icon {
+            display: block;
+            width: 0.4rem;
+            height: 0.4rem;
+            margin-right: 0.33rem;
+            background: {
+              image: url(../img/project_icon.png);
+              position: 0 0;
+              size: 100% auto;
+              repeat: no-repeat;
+            }
+          }
+        }
+        .item:last-child {
+          .item_name {
+            border-bottom: 1px solid transparent;
+          }
+        }
+      }
+    }
+    // 按钮
+    &_share {
+      display: flex;
+      position: relative;
+      width: 5.8rem;
+      height: 1rem;
+      margin: 0 auto;
+      // 预约
+      .subscribe {
+        width: 3.21rem;
+        height: 0.9rem;
+        background: {
+          image: url(../img/project_btn.png);
+          position: -3.22rem -1.05rem;
+          size: 6.64rem 2.1rem;
+          repeat: no-repeat;
+        }
+      }
+      // 邀请
+      .invite {
+        width: 3.21rem;
+        height: 0.9rem;
+        position: relative;
+        left: 0;
+        background: {
+          image: url(../img/project_btn.png);
+          position: -3.48rem -0.06rem;
+          size: 6.64rem 2.1rem;
+          repeat: no-repeat;
+        }
+      }
+    }
+  }
+  &_bottom_logo {
+    width: 3rem;
+    height: 0.62rem;
+    margin: 0.53rem auto 0;
+    position: relative;
+    z-index: 1;
+    background: {
+      image: url(../img/project_logo.png);
+      size: 5.2rem 1.23rem;
+      position: bottom -0.05rem center;
+      repeat: no-repeat;
+    }
+  }
+}
+
+.song_text {
+  font-size: 0.26rem;
+  color: #303030;
+  line-height: 0.31rem;
+  text-align: center;
+  > span {
+    display: block;
+  }
+}
+
+.tada {
+  animation: tada 1.5s both infinite;
+}
+
+.bounce {
+  animation: bounce 1.5s both infinite;
+  
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom
+}
+
+
+@keyframes bounce {
+  0%,20%,53%,80%,to {
+      -webkit-animation-timing-function: cubic-bezier(.215,.61,.355,1);
+      animation-timing-function: cubic-bezier(.215,.61,.355,1);
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0)
+  }
+
+  40%,43% {
+      -webkit-animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+      animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+      -webkit-transform: translate3d(0,-0.3rem,0);
+      transform: translate3d(0,-0.3rem,0)
+  }
+
+  70% {
+      -webkit-animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+      animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+      -webkit-transform: translate3d(0,-0.15rem,0);
+      transform: translate3d(0,-0.15rem,0)
+  }
+
+  90% {
+      -webkit-transform: translate3d(0,-0.04rem,0);
+      transform: translate3d(0,-0.04rem,0)
+  }
+}
+
+@keyframes tada {
+  0% {
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1)
+  }
+
+  10%,20% {
+      -webkit-transform: scale3d(.9,.9,.9) rotate(-3deg);
+      transform: scale3d(.9,.9,.9) rotate(-3deg)
+  }
+
+  30%,50%,70%,90% {
+      -webkit-transform: scale3d(1.1,1.1,1.1) rotate(3deg);
+      transform: scale3d(1.1,1.1,1.1) rotate(3deg)
+  }
+
+  40%,60%,80% {
+      -webkit-transform: scale3d(1.1,1.1,1.1) rotate(-3deg);
+      transform: scale3d(1.1,1.1,1.1) rotate(-3deg)
+  }
+
+  to {
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1)
+  }
+}
+
+
+
+.heartBeat {
+  animation: heartBeat 0.5s ease-in-out both infinite alternate;
+}
+
+@keyframes heartBeat {
+  0% {
+      
+      transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(20%);
+
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (min-aspect-ratio: 375 / 635) {
+  .main_bottom_logo{
+    margin-top: 0.3rem;
+  }
+  .main_end_text .text1 {
+    
+    padding-top: 0.55rem;
+}
+}

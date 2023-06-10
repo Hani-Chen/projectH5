@@ -1,0 +1,1355 @@
+@charset "utf-8";
+@import 'global.import.css';
+@import 'islider.import.css';
+
+// 公共样式
+* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'FZShangKJW';
+  src: url('../fonts/FZShangKJW.TTF');
+}
+
+.bg_cover {
+  width: 100%;
+  height: 100%;
+  background: {
+    repeat: no-repeat;
+    position: 0 top;
+    size: 100%;
+  }
+}
+.box_position {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.item {
+  display: none;
+  color: #fff;
+
+  // 首页帧动画 画布
+  @at-root #homeCanvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  // 首页
+  &-home {
+    background: #999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200;
+    display: block;
+  }
+  // 选择城市
+  &-choose {
+    background: #070305;
+    // 背景图
+    .bg {
+      @extend .bg_cover;
+      background-image: url(../img/choose_bg.jpg);
+    }
+    // 内容
+    .box {
+      @extend .box_position;
+      // logo
+      &_header {
+        display: block;
+        width: 1.53rem;
+        height: 0.62rem;
+        position: absolute;
+        top: 0.11rem;
+        right: 0.14rem;
+        .logo {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      // 内容
+      &_middle {
+        // 标题 + 地区 + 点赞 容器
+        .text_box {
+          // width: 100%;
+          height: 1.3rem;
+          position: relative;
+          // margin-top: ;
+          margin: 0.91rem 0.51rem 0;
+        }
+        // 标题 容器
+        .title_box {
+          width: 3.54rem;
+          height: 1.3rem;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        // 标题图片
+        .title_img {
+          width: 100%;
+          height: 100%;
+        }
+        // 地区 + 点赞
+        .r_box {
+          width: 2.42rem;
+          // height: 0.87rem;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+        // 地区 容器
+        .district_box {
+          display: inline-block;
+          font-family: 'FZShangKJW';
+          position: relative;
+        }
+        // 地区名
+        .district_text {
+          display: block;
+          font-size: 0.61rem;
+          text-shadow: #d00d23 -0.08rem 0.04rem 0px;
+          text-align: center;
+        }
+        // 进度条
+        .progressbar {
+          width: 0.89rem;
+          height: 0.11rem;
+          display: inline-block;
+          position: relative;
+          // box-shadow: #d00d23 -0.08rem 0.04rem 0px;
+          &::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 1px;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-style: solid;
+            border-color: #cb0428;
+            border-width: 1px;
+          }
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-style: solid;
+            border-color: #fff;
+            border-width: 1px;
+          }
+        }
+        // 已经显示的滚动条
+        .done_progressbar {
+          display: block;
+          height: 0.11rem;
+          width: 0.3rem;
+          background: rgb(221, 215, 215);
+        }
+        // 燃点值文案
+        .value {
+          font-size: 0.16rem;
+          color: #fff;
+        }
+        // 点赞容器
+        .like_box {
+          display: inline-block;
+          width: 0.8rem;
+          height: 0.85rem;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+        // 点赞img
+        .like_img {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+        }
+        // 视频
+        .mv_box {
+          width: 6.51rem;
+          height: 3.59rem;
+          margin: 0.11rem auto 0;
+          position: relative;
+          overflow: hidden;
+          // z-index: 66;
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-style: solid;
+            border-color: currentColor;
+            border-width: 1px;
+          }
+        }
+        // 释放更多城市
+        .more_city {
+          width: 6.24rem;
+          height: 0.62rem;
+          margin: 0.59rem auto 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        // img
+        .more_city_img {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        // 城市切换
+        .tab {
+          display: flex;
+          justify-content: space-between;
+          bottom: 1.6rem;
+          // position: relative;
+          // 但个城市 容器
+          &_item {
+            width: 1.39rem;
+            position: relative;
+          }
+          // 但个城市图
+          &_img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: all 0.5s;
+          }
+        }
+      }
+      @at-root #mvVideo {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      // 底部
+      &_bottom {
+        width: 100%;
+        height: 0.84rem;
+        position: fixed;
+        left: 0;
+        bottom: 0.27rem;
+        @keyframes start {
+          0%,
+          30% {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          60% {
+            opacity: 1;
+            transform: translate(0);
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(-8px);
+          }
+        }
+        .bottom_text {
+          text-align: center;
+          font-size: 0.13rem;
+          color: #fff;
+        }
+        // 听更多 容器
+        .text_img_box {
+          display: block;
+          width: 2.4rem;
+          height: 0.3rem;
+          margin: 0 auto;
+          transition: background-position 0.5s;
+          background: {
+            image: url(../img/text.png);
+            repeat: no-repeat;
+            position: 0 0;
+            size: 2.4rem 1.5rem;
+          }
+        }
+        .shanghai {
+          background-position: 0 -0.3rem;
+        }
+        .guangzhou {
+          background-position: 0 -0.6rem;
+        }
+        .xiamen {
+          background-position: 0 -0.9rem;
+        }
+        .quanguo {
+          background-position: 0 -1.2rem;
+        }
+
+        .logo_qq_box {
+          width: 1.29rem;
+          height: 0.35rem;
+          position: absolute;
+          bottom: 0;
+          right: 0.25rem;
+        }
+        .logo_qq {
+          width: 100%;
+          height: auto;
+        }
+        // 滑动提示icon 容器
+        .bottom_icon_box {
+          width: 0.53rem;
+          height: 0.31rem;
+          // display: inline-block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          animation: start 1.5s infinite ease-in-out;
+        }
+        .bottom_icon {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  // 歌单页
+  &-songlist {
+    background: #0a0001;
+    // 背景图
+    .bg {
+      @extend .bg_cover;
+      background-image: url(../img/songlist_bg.jpg);
+    }
+    // 内容
+    .box {
+      @extend .box_position;
+      // background: #666;300
+
+      // width: 100%;
+      // height: 200px;
+      // overflow: hidden;
+      // logo
+      &_header {
+        display: block;
+        width: 2.06rem;
+        height: 0.83rem;
+        position: absolute;
+        top: 0.46rem;
+        right: 0.41rem;
+        .logo {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      // 歌单列表
+      &_middle {
+        position: relative;
+        min-height: 100%;
+        width: 100%;
+        padding: 0 0.72rem;
+        // width: 5.12rem;
+        // overflow-y: scroll;
+        // overflow-y: hidden;
+        // position: absolute;
+        // left: 0;
+        // right: 0;
+        // margin: 0 auto;
+        // top: 2.14rem;
+        // 单个歌单
+        .list_item {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 0.32rem;
+        }
+        // 单个歌单 左边 容器
+        .item_l {
+          width: 1.4rem;
+        }
+        // 预览图 容器
+        .picture_wrap {
+          width: 100%;
+          height: 1.4rem;
+          position: relative;
+          &::after {
+            width: 1.4rem;
+            height: 1.4rem;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: {
+              image: url(../img/song_bg.png);
+              size: 100% auto;
+              position: 0;
+              repeat: no-repeat;
+            }
+          }
+        }
+        // 预览图
+        .picture {
+          display: block;
+          width: 1.2rem;
+          height: 1.28rem;
+          // margin: 0 auto;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        .picture_header {
+          position: absolute;
+          left: 0;
+          top: 0.18rem;
+          font-size: 0.07rem;
+          color: #d00d23;
+        }
+        .picture_header_img {
+          display: inline-block;
+          margin-left: 0.16rem;
+          width: 0.34rem;
+          height: 0.11rem;
+        }
+        .picture_header_stop {
+          position: absolute;
+          bottom: 0.1rem;
+          right: 0.1rem;
+
+          display: block;
+          width: 0.26rem;
+          height: 0.26rem;
+          background: {
+            image: url(../img/song_list.png);
+            repeat: no-repeat;
+            position: center top;
+            size: 0.26rem 0.52rem;
+          }
+          background-position: 0 -0.26rem;
+          transition: all 0.5s;
+          // background: #f00;
+        }
+        .picture_header_play {
+          background-position: 0 0;
+        }
+        // 收藏歌单 容器
+        .collect {
+          display: block;
+          margin-left: 0.08rem;
+          margin-top: 0.1rem;
+          font-size: 0;
+        }
+        // 收藏歌单文案
+        .collect_text {
+          line-height: 1.2;
+          font-size: 0.2rem;
+          color: #cf0d23;
+          vertical-align: top;
+        }
+        // 收藏歌单文案 icon
+        .collect_img {
+          display: inline-block;
+          width: 0.24rem;
+          height: 0.24rem;
+          vertical-align: top;
+          margin-left: 0.05rem;
+          background: {
+            image: url(../img/icon_collect.png);
+            repeat: no-repeat;
+            position: 0 top;
+            size: 100% auto;
+          }
+          background-position: 0 0;
+          &.collected{
+            background-position: 0 100%;
+          }
+        }
+        // 单个歌单 右边 容器
+        .item_r {
+          width: 4.4rem;
+        }
+        .music_item_box {
+          max-height: 1.26rem;
+          //1.3
+          max-height: 1.34rem;
+          // 1.4
+          // max-height: 1.4rem;
+          // 1.5
+          // max-height: 1.5rem;
+          overflow: hidden;
+          transition: max-height 0.5s;
+          &.show {
+            max-height: 1000px;
+            & + .music_more {
+              .more_icon {
+                transform: rotate(-90deg);
+              }
+            }
+          }
+        }
+        // 单首歌曲
+        .music_item {
+          width: 100%;
+          height: 0.43rem;
+          //1.3
+          height: 0.46rem;
+          // 1.4
+          // height: 0.48rem;
+          // 1.5
+          // height: 0.5rem;
+          margin-bottom: 0.02rem;
+          position: relative;
+          background: {
+            image: url(../img/item_bg.png);
+            size: 100% auto;
+            position: left bottom;
+            repeat: no-repeat;
+          }
+        }
+        // 歌曲名
+        .music_name {
+          // 原始
+          // font-size: 0.2rem;
+          // 1.1
+          // font-size: 0.22rem;
+          // 1.2
+          // font-size: 0.24rem;
+          //1.3
+          font-size: 0.26rem;
+          // 1.4
+          // font-size: 0.28rem;
+          // 1.5
+          // font-size: 0.3rem;
+
+          position: absolute;
+          top: 0;
+          // 1.2 1.3 1.4 1.5
+          //1.3
+          top: -0.04rem;
+          left: 0.62rem;
+        }
+        // 更多
+        .music_more {
+          display: block;
+          float: right;
+          padding: 0.06rem 0.08rem 0.2rem;
+          text-align: right;
+          // 原始
+          // font-size: 0.16rem;
+          // 1.1
+          // font-size: 0.18rem;
+          // 1.2
+          // font-size: 0.19rem;
+          //1.3
+          font-size: 0.20rem;
+          // 1.4
+          // font-size: 0.22rem;
+          // 1.5
+          // font-size: 0.24rem;
+          color: #fff;
+        }
+        // 更多 icon
+        .more_icon {
+          display: inline-block;
+          width: 0.11rem;
+          height: 0.09rem;
+          margin-right: 0.02rem;
+        }
+      }
+      // 底部
+      &_bottom {
+        width: 100%;
+        height: 0.84rem;
+        position: absolute;
+        left: 0;
+        bottom: 0.27rem;
+        @keyframes start {
+          0%,
+          30% {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          60% {
+            opacity: 1;
+            transform: translate(0);
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(-8px);
+          }
+        }
+        // 滑动提示icon 容器
+        .bottom_icon_box {
+          width: 0.53rem;
+          height: 0.31rem;
+          // display: inline-block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          animation: start 1.5s infinite ease-in-out;
+        }
+        .bottom_icon {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+        .copy_box {
+          position: absolute;
+          bottom: 0;
+          right: 0.24rem;
+          width: 2.29rem;
+          height: 0.4rem;
+        }
+        .copy {
+          width: 2.29rem;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  // 播放页
+  &-playmusic {
+    background: #070304;
+    // 背景图
+    .bg {
+      @extend .bg_cover;
+      background-image: url(../img/playmusic_bg.jpg);
+    }
+    // 内容
+    .box {
+      @extend .box_position;
+      // 头部
+      &_header {
+        position: relative;
+        width: 100%;
+        height: 0.7rem;
+        margin-top: 0.12rem;
+        // 返回
+        .backtrack_box {
+          position: absolute;
+          left: 0.24rem;
+          top: 0.18rem;
+        }
+        // 返回icon 容器
+        .backtrack_wrap {
+          display: inline-block;
+          width: 0.12rem;
+          height: 0.23rem;
+          vertical-align: middle;
+        }
+        // 返回 icon
+        .backtrack {
+          width: 100%;
+          height: auto;
+        }
+        // 返回 容器
+        .playing_box {
+          margin-left: 0.08rem;
+          font-size: 0.2rem;
+          color: #fff;
+          line-height: 0.29rem;
+        }
+        // 返回 音符
+        .note {
+          margin-right: 0.02rem;
+          width: 0.26rem;
+          height: 0.29rem;
+          vertical-align: middle;
+        }
+        // logo 容器
+        .logo_box {
+          width: 1.53rem;
+          height: 0.62rem;
+          position: absolute;
+          // top: 0.12rem;
+          right: 0.14rem;
+        }
+        // logo
+        .logo {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      // 内容
+      &_middle {
+        padding-bottom: 1.2rem;
+        // 歌曲标题
+        .playmusic_music_name {
+          display: block;
+          font-size: 0.26rem;
+          color: #fff;
+          text-align: center;
+        }
+        // 转盘
+        .turntable_box {
+          width: 6.26rem;
+          height: 8.18rem;
+          margin: 0 auto;
+          position: relative;
+          &::after {
+            transform: rotate(-16deg);
+            transition: all 0.5s;
+            transform-origin: 0.24rem 0.24rem;
+            width: 1.82rem;
+            height: 3.24rem;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0.91rem;
+            right: 0;
+            margin: 0 auto;
+            background: {
+              image: url(../img/rocker.png);
+              repeat: no-repeat;
+              position: center top;
+              size: 1.82rem 3.24rem;
+            }
+          }
+        }
+
+        @keyframes rotate {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        .turntable_bg {
+          width: 5.82rem;
+          height: 5.82rem;
+          border-radius: 50%;
+          position: absolute;
+          top: 2.01rem;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          animation: rotate linear 10s  ;
+          animation-play-state: paused;
+          background: {
+            image: url(../img/turntable_bg.png);
+            repeat: no-repeat;
+            position: 0 top;
+            size: 100%;
+          }
+        }
+        .rotate {
+          &::after {
+            transform: rotate(0deg);
+          }
+          > .turntable_bg {
+            animation-play-state: running;
+          }
+        }
+        .turntable_img {
+          width: 3.94rem;
+          height: 3.94rem;
+          border-radius: 50%;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          transition: all 0.6s;
+        }
+        // 播放器
+        .player {
+          width: 6.18rem;
+          margin: 0.6rem auto 0;
+        }
+        // 进度条容器
+        .progressbar_box {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 0.14rem;
+          color: #fff;
+        }
+        // 进度条
+        .progressbar {
+          width: 80%;
+          height: 2px;
+          background: #968286;
+          position: relative;
+          display: flex;
+          // 小圆点
+          &_dot {
+            display: inline-block;
+            width: 0.13rem;
+            height: 0.13rem;
+            background: #cb0428;
+            border-radius: 50%;
+            // margin-top: -0.05rem;
+            position: relative;
+            top: 50%;
+            // left: 50%;
+            transform: translateY(-50%);
+            &::after {
+              content: '';
+              position: absolute;
+              top: -0.15rem;
+              left: -0.15rem;
+              width: 0.4rem;
+              height: 0.4rem;
+            }
+          }
+        }
+        .lose_progressbar {
+          display: inline-block;
+          height: 100%;
+          width: 0;
+          background: #cb0428;
+          // flex: 1;
+        }
+        // 切换容器
+        .command_box {
+          position: relative;
+          text-align: center;
+          margin-top: 0.18rem;
+        }
+        .command_item {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          display: block;
+          width: 1rem;
+          height: 1rem;
+          background: {
+            image: url(../img/icon_list.png);
+            repeat: no-repeat;
+            position: 0 top;
+            size: 4rem 2rem;
+          }
+        }
+        .command_audio {
+          display: none;
+        }
+        // 循环模式
+        .schema_box {
+          background-position: -1rem -1rem;
+          margin-left: -3.7rem;
+          &.mode1 {
+            background-position: 0 -1rem;
+          }
+          &.mode2 {
+            background-position: 0 0;
+          }
+        }
+        // 上一曲
+        .prev_box {
+          margin-left: -2.25rem;
+          background-position: -1rem 0;
+        }
+        // 播放暂停
+        .play_box {
+          margin-left: -0.5rem;
+          background-position: -2rem -1rem;
+          &.pause {
+            background-position: -2rem 0;
+          }
+        }
+        // 下一曲
+        .nextsong_box {
+          margin-left: 1.25rem;
+          background-position: -3rem 0;
+        }
+        // // 列表
+        // .list_box {
+        //     background-position: -3.2rem 0;
+        // }
+      }
+      // 歌曲列表
+      &_music_list {
+        width: 100%;
+        height: 100%;
+        background: rgba($color: #000000, $alpha: 0.6);
+        position: fixed;
+        z-index: 20;
+        left: 0;
+        bottom: 0;
+        display: none;
+        &.show {
+          display: block;
+        }
+        .music_list {
+          width: 100%;
+          height: 0%;
+          background: #fff;
+          border-radius: 25px 25px 0 0;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          padding-top: 0.6rem;
+
+          overflow: hidden;
+          transition: all 0.6s;
+          &.show {
+            height: 50%;
+          }
+        }
+        .list_item {
+          color: #666;
+          padding: 0.1rem 0.15rem;
+          // border: 1px solid #000;
+          position: relative;
+          &::after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-color: currentColor;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            border-width: 0 0 1px 0;
+            transform: scaleY(0.5);
+          }
+        }
+      }
+      // 底部
+      &_bottom {
+        color: #cb0428;
+        position: absolute;
+        left: 0.39rem;
+        bottom: 0.42rem;
+        line-height: 1.8;
+        .bottom_text {
+          font-size: 0.3rem;
+          display: block;
+          margin-left: 0.25rem;
+        }
+        .bottom_location {
+          display: block;
+          font-size: 0.16rem;
+          margin-left: 0.19rem;
+        }
+        .bottom_name {
+          color: #cb0428;
+          text-decoration: none;
+        }
+        .bottom_icon {
+          width: 0.34rem;
+          height: 0.35rem;
+          margin-right: 0.2rem;
+        }
+        .bottom_site {
+          display: block;
+          font-size: 0.17rem;
+          margin-left: 0.19rem;
+        }
+      }
+    }
+  }
+}
+
+.section_home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+
+  background-image: url(../img/loading_preview2.jpg),
+    linear-gradient(to top, #fff, #fff 50%, #cc0328 50%, #cc0328);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  // display: none;
+}
+#canvasLoading {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.city {
+  &_spacebw {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 15rem;
+    height: 100%;
+    padding-bottom: 1.5rem;
+  }
+  &_content_top {
+    position: relative;
+    padding-top: 0.91rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    // margin: 0.91rem 0.51rem 0;
+  }
+  &_logo {
+    display: block;
+    width: 1.53rem;
+    height: 0.62rem;
+    position: absolute;
+    top: 0.11rem;
+    right: 0.14rem;
+    .logo {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &_mv_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  &_info {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 0.15rem;
+  }
+  &_name {
+    &_wrapper {
+      position: relative;
+      font-family: 'FZShangKJW';
+      color: #fff;
+      line-height: 1;
+    }
+    display: block;
+    font-size: 0.61rem;
+    text-shadow: #d00d23 -0.04rem 0.02rem 0;
+    text-align: center;
+  }
+  &_hotbar {
+    &_wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    // 进度条
+    width: 0.89rem;
+    height: 0.11rem;
+    display: block;
+    flex: 1;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 1px;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      border-style: solid;
+      border-color: #cb0428;
+      border-width: 1px;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      border-style: solid;
+      border-color: #fff;
+      border-width: 1px;
+    }
+
+    &_inner {
+      display: block;
+      height: 0.11rem;
+      width: 0;
+      max-width: 100%;
+      background: #fff;
+      transition: width 0.3s;
+    }
+
+    &_label {
+      font-size: 0.16rem;
+      margin-left: 0.1rem;
+      overflow: hidden;
+    }
+  }
+  &_mv_wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    border: 1px solid #fff;
+    margin: 0.11rem auto 0;
+    overflow: hidden;
+
+    > video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+    > .city_mv_mark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.64);
+    }
+
+    &.active {
+      > .city_mv_mark {
+        display: none;
+      }
+    }
+  }
+  &_mv_btn_play {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 30;
+    width: 0.8rem;
+    height: 0.8rem;
+    > img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  &_content_middle {
+    .city_drop {
+      display: block;
+      width: 6.24rem;
+      height: 0.62rem;
+      object-fit: contain;
+      margin: 0.4rem auto;
+    }
+  }
+
+  &_content_bottom {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  &_tab {
+    &_bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0.15rem;
+    }
+    &_item {
+      position: relative;
+      display: block;
+      width: 20%;
+      height: 3.94rem;
+      transition: margin 0.5s;
+      &.active {
+        margin-top: -0.2rem;
+        // transform: translate3d(0, -0.2rem, 0);
+      }
+    }
+    &_hotbar {
+      position: absolute;
+      bottom: 0.13rem;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      font-size: 0.12rem;
+      text-align: center;
+      left: 0;
+      white-space: nowrap;
+
+      padding: 0 0.1rem;
+    }
+    &_heat {
+      width: 0.81rem;
+      height: 0.1rem;
+      position: relative;
+      margin-right: 0.08rem;
+      // display: inline-block;
+      bottom: 0;
+      border-style: solid;
+      border-color: #fff;
+      border-width: 1px;
+      // &::after {
+      //     content: '';
+      //     position: absolute;
+      //     top: 0;
+      //     left: 0;
+      //     z-index: 1;
+      //     width: 100%;
+      //     height: 100%;
+      //     pointer-events: none;
+
+      // }
+      .heat_box {
+        display: block;
+        width: 20%;
+        max-width: 100%;
+        height: 100%;
+        background: #fff;
+        // margin: 0.02rem 0 0 0.02rem;
+        flex: 1;
+      }
+      @at-root .heat_box_label {
+        display: block;
+        // overflow: hidden;
+        line-height: 1;
+      }
+    }
+    &_canvas {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      margin-left: -0.82rem;
+      width: 1.64rem;
+      height: auto;
+    }
+  }
+}
+
+#canvasCitySlogan {
+  display: block;
+  width: 4.7rem;
+  height: 1.55rem;
+  // background: #ff0;
+  margin-left: -0.5rem;
+}
+
+#canvasLike {
+  display: block;
+  width: 0.9rem;
+  height: 1rem;
+  margin-right: -0.15rem;
+  margin-bottom: -0.05rem;
+}
+
+@media (min-aspect-ratio: 375 / 635) {
+  .city_content_top {
+    padding-top: 0.51rem;
+  }
+  .city_content_middle .city_drop {
+    margin: 0.2rem auto;
+  }
+
+  .item-playmusic {
+    .box_middle {
+      .turntable_box {
+        height: 6.48rem;
+      }
+      .turntable_bg {
+        width: 5rem;
+        height: 5rem;
+      }
+      .turntable_img {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+      .turntable_bg {
+        top: 1.82rem;
+      }
+      .player {
+        // margin: -0.5rem auto 0;
+      }
+    }
+  }
+  .item-playmusic .box_middle .turntable_box::after {
+    width: 1.6rem;
+    height: 2.84rem;
+    background-size: 1.6rem 2.84rem;
+  }
+}
+
+.log_dom {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  white-space: pre-line;
+  z-index: 10;
+  overflow: auto;
+  max-height: 150px;
+}
+
+#log_clear {
+  display: block;
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 30px;
+  font-size: 12px;
+  background: rgba(255, 0, 0, 0.5);
+  z-index: 30;
+}
+
+.beer-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  z-index: 20;
+  .beer-item {
+    position: absolute;
+    top: -3rem;
+
+    display: block;
+    width: 1.62rem;
+    height: 2.53rem;
+    background: {
+      position: center;
+      image: url(../img/winebottle.png);
+      size: contain;
+    }
+    animation: falldown 4s linear;
+  }
+}
+
+@keyframes falldown {
+  0% {
+    top: -3rem;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+.scroll_view {
+  position: absolute;
+  top: 1.64rem;
+  right: 0;
+  bottom: 1.14rem;
+  left: 0;
+  margin: auto;
+  height: calc(100% - 2.74rem);
+  width: 100%;
+  overflow: hidden;
+  // height: 100%;
+}

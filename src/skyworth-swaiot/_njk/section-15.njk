@@ -1,0 +1,22 @@
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_1.png',
+    'heading': '自定义场景模式',
+    'text': '您可以对Swaiot智能设备预设各种场景模式，比如离家模式和睡眠模式等等，实现多个智能设备的协同联动。'
+  }
+%}
+
+{# 产品图 #}
+{% set productImg = {
+    'product': '/section15_product.jpg'
+  }
+%}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+{# 产品图 #}
+{% import "./components/title.njk" as title %}
+{{ title.product(productImg) }}
+

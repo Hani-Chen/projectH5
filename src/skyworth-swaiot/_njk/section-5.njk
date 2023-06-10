@@ -1,0 +1,19 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_3.png',
+    'heading': '微内核云系统',
+    'text': 'Swaiot OS与酷开系统复用了底层系统内核和顶层通用服务能力模块，微内核云架构让Swaiot OS具备跨硬件和跨平台部署能力。'
+  }
+%}
+
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+<div class="product-img-wrap animation-box">
+  <img class="product-img product-img-pc img-block" src="{{baseUrl}}/section5_product.jpg" alt="">
+  <img class="product-img product-img-android img-block" src="{{baseUrl}}/section5_product1.jpg" alt="">
+</div>

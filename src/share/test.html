@@ -1,0 +1,89 @@
+{% extends "./_njk/base.njk" %}
+{% block stylesheet %}
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/index.min.css"/>
+{% endblock %}
+
+<!-- 视频 -->
+{% set playerList = [
+  {
+    id: 1,
+    imgUrl: './img/player_ws.png',
+    videoUrl: 'http://www.w3school.com.cn/example/html5/mov_bbb.mp4'
+  }, {
+    id: 2,
+    imgUrl: './img/player_mz.png',
+    videoUrl: 'http://www.w3school.com.cn/example/html5/mov_bbb.mp4'
+  }, {
+    id: 3,
+    imgUrl: './img/player_xmm.png',
+    videoUrl: 'http://www.w3school.com.cn/example/html5/mov_bbb.mp4'
+  }, {
+    id: 4,
+    imgUrl: './img/player_zff.png',
+    videoUrl: 'http://www.w3school.com.cn/example/html5/mov_bbb.mp4'
+  }, {
+    id: 5,
+    imgUrl: './img/player_czh.png',
+    videoUrl: 'http://www.w3school.com.cn/example/html5/mov_bbb.mp4'
+  }
+] %}
+
+<!-- 视频 -->
+{% set player1List = [
+  {
+    id: 1,
+    imgUrl: './img/player_ws1.png',
+    number: 12312456
+  }, {
+    id: 2,
+    imgUrl: './img/player_mz1.png',
+    number: 12312456
+  }, {
+    id: 3,
+    imgUrl: './img/player_xmm1.png',
+    number: 12312456
+  }, {
+    id: 4,
+    imgUrl: './img/player_zff1.png',
+    number: 12312456
+  }, {
+    id: 5,
+    imgUrl: './img/player_czh1.png',
+    number: 12312456
+  }
+] %}
+{% block main %}
+  <div class="wrap">
+    <!-- 内容 -->
+    <div class="center">
+      <!-- 视频 -->
+      <div class="swiper-container at-videobox">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <video class="at-video" src="http://www.w3school.com.cn/example/html5/mov_bbb.mp4" webkit-playsinline="true"
+              playsinline="true"></video>
+            <div class="at-play at-stop"></div>
+          </div>
+          <div class="swiper-slide">
+            <video class="at-video" src="http://www.w3school.com.cn/example/html5/mov_bbb.mp4" webkit-playsinline="true"
+              playsinline="true"></video>
+            <div class="at-play at-stop"></div>
+          </div>
+          <div class="swiper-slide">
+            <video class="at-video" src="http://www.w3school.com.cn/example/html5/mov_bbb.mp4" webkit-playsinline="true"
+              playsinline="true"></video>
+            <div class="at-play at-stop"></div>
+          </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  {% endblock %}
+  {% block javascript %}
+    <script src="js/swiper.min.js"></script>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/index.js"></script>
+  {% endblock %}
+</div>

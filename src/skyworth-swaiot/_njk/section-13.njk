@@ -1,0 +1,22 @@
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_1.png',
+    'heading': '实时交互 沉浸观影',
+    'text': '酷开系统营造了大屏沉浸体验，Swaiot智能设备的实时反馈提醒能以气泡的形式悬浮于电视大屏一角，观影无需间断，家中状态依然尽在掌握。'
+  }
+%}
+
+{# 产品图 #}
+{% set productImg = {
+    'product': '/section13_product.jpg'
+  }
+%}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+{# 产品图 #}
+{% import "./components/title.njk" as title %}
+{{ title.product(productImg) }}
+

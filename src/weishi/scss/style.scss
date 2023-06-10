@@ -1,0 +1,125 @@
+@charset "utf-8";
+// 页面公共样式
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  position: relative;
+  width: 7.5rem;
+  min-height: 11.8rem;
+  // margin: 0 auto;
+}
+.section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 7.5rem;
+  height: 100%;
+  animation: showSection 0.3s ease 0.2s both;
+  background: #000033;
+}
+
+/* 公共样式 */
+ul,li{list-style: none;}  /* 去除列表小黑点 */
+i{ font-style:normal}  /* 去除i标签斜体 */
+.flex{display: flex;}  /* 弹性盒子 */
+.f1{flex: 1;}          /* 弹性盒子独占空余 */
+.flex_cz{align-items:center;}  /*垂直居中*/
+.flex_sp{justify-content: center;}  /*水平居中*/
+.flex_lb{justify-content:space-between;}  /*两端对齐*/
+.flex_spjf{justify-content:space-around;}  /*沿轴线均匀分布*/
+.flex_hh{flex-wrap: wrap;}  /* 自动换行 */
+.posr{position: relative;}  /* 相对定位 */
+.posa{position: absolute;}  /* 绝对定位 */
+.m0a{margin: 0 auto;}  /* 水平居中 */
+.text_c{text-align: center;}  /* 字体居中 */
+.text_l{text-align: left;}  /* 字体靠左 */
+.text_r{text-align: right;}  /* 字体靠右 */
+input{border:0; outline: none;}  /* 去除input默认边框样式 */
+a{text-decoration:none;}  /* a标签去除下划线 */
+.w100{width: 100%;}
+
+//  页面样式
+
+// 头部样式
+.section-title{
+  color:#fff;
+  line-height: 0.42rem;
+  padding: 0.54rem 0 0 0.3rem;
+  >img{
+    width: 0.24rem;
+    height: 0.42rem;
+    // height: 100%;
+  }
+  >span{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%)
+  }
+}
+
+// 头部tab切换
+.section-tab{
+  font-size: 0.3rem;
+  padding: 0.27rem 0.48rem 0.06rem 0.48rem; 
+  >li{
+    >a{
+      color:#999;
+      &:hover{
+        color:#fff;
+      }
+    }
+    &:hover{
+      border-bottom: 0.04rem solid #fff;
+    }
+  }
+}
+// tab高亮
+.bd{
+  border-bottom: 0.04rem solid #fff;
+  a{
+    color:#fff !important;
+  }
+}
+
+// 轮播图样式
+.section-swiper{
+  >img{
+    width: 6.29rem;
+    height: 2.3rem;
+    margin-top: 0.21rem;
+  }
+}
+
+// 列表部分
+.section-list{
+  &-single{
+    &-title{
+      padding: 0.25rem 0.3rem 0.12rem 0.3rem;
+      color:#fff;
+      font-size: 0.3rem;
+      >img{
+        width: 0.4rem;
+        height: 0.32rem;
+        margin-right: 0.08rem;
+      }
+    }
+    &-ls{
+      padding: 0 0.62rem;
+      &-img{
+        >img{
+          width: 2rem;
+          height: 2.83rem;
+        }
+      }
+    }
+  }
+}

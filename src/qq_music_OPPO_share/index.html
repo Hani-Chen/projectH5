@@ -1,0 +1,74 @@
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<div class="page_share">
+  <div class="bg"></div>
+  <div class="share_inner">
+    <!-- 顶部线条图 -->
+    <div class="share_up"></div>
+    <!-- 底部线条图 -->
+    <div class="share_down"></div>
+    <!-- 个人信息 -->
+    <div class="share_info">
+      <!-- 头像框 -->
+      <div class="share_avatar">
+        <!-- 头像 -->
+        <!-- <img src="" alt=""> -->
+      </div>
+      <!-- 答对题数 -->
+      <div class="share_topic">
+        <!-- 答对题数大于0时显示 -->
+        <div class="share_topic__text">
+          答对<span>6</span>题
+        </div>
+        <!-- 答对题数等于0时显示 -->
+        <div class="share_topic__null">
+          我一道题<br>都没答对
+        </div>
+      </div>
+    </div>
+    <!-- 中间内容 -->
+    <div class="share_content">
+      <!-- 背景图 -->
+      <div class="share_frame"></div>
+      <!-- 耳朵图片 -->
+      <div class="share_ear"></div>
+      <!-- 耳朵名字 -->
+      <div class="share_name"></div>
+    </div>
+    <!-- 击败了多少挑战者 -->
+    <div class="share_defeat">
+      <!-- 背景装饰图 -->
+      <div class="share_defeat__decorate"></div>
+      <!-- 击败了多少挑战者 -->
+      <div class="share_defeat__list">
+        <!-- 答对题数大于0时显示  -->
+        <div class="share_defeat__title">击败了<span>99</span>%的挑战者</div>
+        <!-- 答对题数等于0时显示 -->
+        <div class="share_defeat__null">一个挑战者也没有击败</div>
+      </div>
+      <!-- 介绍文字 -->
+      <div class="share_defeat__text"></div>
+    </div>
+    <!-- 成绩 -->
+    <div class="share_grades">
+      <!-- 耳机图片 -->
+      <div class="share_headset"></div>
+      <!-- 文案 -->
+      <div class="share_title"></div>
+    </div>
+    <!-- 扫码测试 -->
+    <div class="share_bottom">
+      <div class="share_bottom__item">
+        <!-- 二维码 -->
+        <img src="./img/share_code.jpg" alt="">
+        <!-- 文案 -->
+        <div class="share_bottom__text">扫码测测你<br>是不是金耳朵</div>
+      </div>
+      <!-- logo -->
+      <div class="share_bottom__item">
+        <img src="./img/share_logo.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

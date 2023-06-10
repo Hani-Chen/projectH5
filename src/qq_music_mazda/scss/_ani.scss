@@ -1,0 +1,224 @@
+// 显示动画
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+// 首页 - 标题 - 喇叭
+@keyframes fadeIn1 {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+// 首页标题动画
+@keyframes swing {
+  20% {
+    transform: rotate(12deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+// 光盘指针
+@keyframes pointer {
+  0% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+// 首页 - 光盘旋转
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// 首页 - 汽车出场
+@keyframes homeCar {
+  0% {
+    opacity: 0.6;
+    transform: translate(100%, -100%) scale(-0.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+// 手缩放动效
+@keyframes pulse {
+  0% {
+    // transform: scaleX(1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  50% {
+    // transform: scale3d(1.1, 1.1, 1.1);
+    transform: scaleX(1);
+  }
+  90% {
+    // transform: scale3d(1.1, 1.1, 1.1);
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  // to {
+  //   transform: scaleX(1);
+  // }
+}
+
+// 首页波圆圈动画
+@keyframes concertHaloAni {
+  0% {
+    transform: scale(0) translate3d(-50%, -50%, 0);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+  33.33% {
+    transform: scale(1) translate3d(-50%, -50%, 0);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+  66.66% {
+    transform: scale(1) translate3d(-50%, -50%, 0);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) translate3d(-50%, -50%, 0);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+}
+
+
+// 首页波圆圈动画
+@keyframes concertHaloAni1 {
+  0% {
+    transform: scale(0) translate3d(-50%, -50%, 0);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translate3d(-50%, -50%, 0);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+  // 66.66% {
+  //   transform: scale(1) translate3d(-50%, -50%, 0);
+  //   transform-origin: 0 0;
+  //   opacity: 1;
+  // }
+  // 100% {
+  //   transform: scale(0) translate3d(-50%, -50%, 0);
+  //   transform-origin: 0 0;
+  //   opacity: 0;
+  // }
+}
+
+// 手缩放动效
+@keyframes hint {
+  0% {
+    transform: translate3d(0%, 0%, 0%);
+  }
+  100% {
+    transform: translate3d(10%, 0%, 0%);
+  }
+}
+
+// 列表页光盘指针
+@keyframes pointer1 {
+  0% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+// 列表页汽车
+@keyframes listCar {
+  0% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+// 演唱页标题动画
+@keyframes singTitle {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+// 演唱页手动画
+@keyframes singHand {
+  0% {
+    transform: translate3d(changePx(-0.2rem), 100%, 0);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+// 上浮动画
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, changePx(1.5rem), 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes note {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, changePx(1rem), 0) rotate(720deg) scale(0.6);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate3d(0, 0px, 0)  rotate(0deg) scale(1);
+  }
+  // 75% {
+  //   opacity: 1;
+  //   transform: translate3d(0, 0px, 0);
+  // }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, changePx(-1rem), 0) rotate(-360deg) scale(0.6);
+  }
+}

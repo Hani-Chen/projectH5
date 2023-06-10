@@ -1,0 +1,81 @@
+{% extends "./_njk/base.njk" %} {% block main %}
+<section class="wrap">
+    <!-- 开始页 -->
+    <div class="page start">
+        <div class="page-inner">
+            <!-- 旋转 -->
+            <div class="lighter-ani">
+                <canvas
+                        class="lighter-ani-canvas"
+                        id="gka"
+                        width="134"
+                        height="134"
+                ></canvas>
+            </div>
+            <!-- 标题 -->
+            <div class="title">聆听#路易200</div>
+
+            <!-- 描述 -->
+            <div class="desc">
+                <div class="desc-text">200 年前，一名梦想家诞生于法国</div>
+                <div class="desc-text">从不见经传的山区少年，到非凡品牌的缔造者</div>
+                <div class="desc-text">让我们一起来聆听路易威登 200 个小故事</div>
+            </div>
+
+            <!-- 按钮 -->
+            <div class="btn" id="start-btn">
+                <div class="btn-circle"></div>
+                <div class="btn-text">
+                    <div class="btn-text1">点击开启</div>
+                    <div class="btn-text2">一场波澜壮阔的旅程</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 详情页 -->
+    <div class="page detail" id="page-detail">
+        <!-- 居中放大花 -->
+        <img class="detail-flower" src="./img/detail_flower.png"/>
+        <div class="page-inner">
+            <!-- 切换 swiper -->
+            <div class="detail-swiper">
+                <div class="detail-block detail-block1"></div>
+                <div class="detail-block detail-block2"></div>
+                <!-- 梅花背景 -->
+                <img class="swiper-meihua" src="./img/meihua.png"/>
+
+                <div class="swiper-continer">
+                    <div class="swiper-gka2">
+                        <canvas
+                                class="swiper-gka2-canvas"
+                                id="gka2"
+                                width="720"
+                                height="720"
+                        ></canvas>
+                    </div>
+                    <div class="swiper-wrapper"></div>
+                    <!-- 切换按钮 -->
+                    <div class="swiper-handler">
+                        <div class="swiper-handler-item swiper-handler-left"></div>
+                        <div class="swiper-handler-item swiper-handler-right"></div>
+                    </div>
+                    <!-- 收听音频 -->
+                    <!-- icon 禁止 class: swiper-music-disable -->
+                    <!-- icon 敬请期待 class: not-open -->
+                    <div class="swiper-music swiper-music-disable" id="music">
+                        <div class="swiper-music-icon"></div>
+                        <!-- 敬请期待  点击收听-->
+                        <div class="swiper-music-text">敬请期待</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} {% block javascript %}
+<script src="./js/iSlider.min.js"></script>
+<script src="./js/zepto.min.js"></script>
+<script src="//y.gtimg.cn/music/h5/player/player.js?max_age=2592000"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

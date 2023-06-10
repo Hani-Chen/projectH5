@@ -1,0 +1,964 @@
+@charset "utf-8";
+
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+
+@import "global.import.css";
+// @说明：边框样式基础样式
+// ========================================================================*/
+.border,
+.border_radius,
+.border_round {
+	position: relative;
+}
+
+.border::after,
+.border_radius::after,
+.border_round::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	-webkit-box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	border-style: solid;
+	border-color: currentColor;
+	border-width: 1px;
+}
+
+/*请自己配置边框颜色*/
+
+.border_radius::after {
+	border-radius: 4px;
+}
+
+/*自己配置圆角*/
+
+.border_round::after {
+	border-radius: 999px;
+}
+
+/*上，下，左，右边框*/
+
+.border_t,
+.border_b,
+.border_l,
+.border_r {
+	position: relative;
+}
+
+.border_t::after,
+.border_b::after,
+.border_l::after,
+.border_r::after {
+	content: "";
+	position: absolute;
+	z-index: 1;
+	-webkit-box-sizing: border-box;
+	pointer-events: none;
+	border-style: solid;
+	border-color: currentColor;
+}
+
+/*请自己配置边框颜色*/
+
+.border_t::after {
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 0;
+	border-width: 1px 0 0 0;
+}
+
+.border_b::after {
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 0;
+	border-width: 0 0 1px 0;
+}
+
+.border_l::after {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	border-width: 0 0 0 1px;
+}
+
+.border_r::after {
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 0;
+	border-width: 0 1px 0 0;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+	/*方形边框，圆角边框，圆弧边框*/
+	.border::after,
+	.border_radius::after,
+	.border_round::after {
+		width: 200%;
+		height: 200%;
+		-webkit-transform-origin: 0 0;
+		-webkit-transform: scale(0.5);
+	}
+	.border_radius::after {
+		border-radius: 8px;
+	}
+	/*自己配置圆角,为默认情况的2倍*/
+	.border_round::after {
+		border-radius: 999px;
+	}
+	/*上，下，左，右边框*/
+	.border_t::after,
+	.border_b::after {
+		-webkit-transform: scaleY(0.5);
+	}
+	.border_l::after,
+	.border_r::after {
+		-webkit-transform: scaleX(0.5);
+	}
+}
+
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24rem);
+ */
+
+@function changePx($px) {
+	@return $px / 2;
+}
+
+input {
+	background: none;
+	outline: none;
+	border: 0px;
+}
+
+select {
+	/*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+	border: solid 0 transparent;
+	/*很关键：将默认的select选择框样式清除*/
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	/*将背景改为红色*/
+	background: transparent;
+	/*加padding防止文字覆盖*/
+	padding-right: 14px;
+}
+
+select:focus {
+	outline: none;
+}
+
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+
+$baseFont: "PingFang", "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", STXihei,
+	"Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";
+
+/* 页面工具类 - 背景图片公共样式 */
+
+.bg_item {
+	display: block;
+	background: {
+		size: 100% auto;
+		repeat: no-repeat;
+		position: center;
+	}
+}
+
+/* 页面工具类 - 文字禁止选择 */
+
+@mixin text-forbid-cope {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+// 宽高
+@mixin size-set($width: 100%, $height: 100%) {
+	width: $width;
+	height: $height;
+}
+
+// 文字
+@mixin font-set($size, $color: #fff, $weight: normal, $lineHigh: null) {
+	font-size: $size;
+	color: $color;
+	font-weight: $weight;
+	line-height: $lineHigh;
+}
+
+/* 页面工具类 - 背景图片公共样式 */
+
+@mixin bg-set($url, $width: 100%, $height: auto, $repeat: no-repeat, $position: 50% 50%, $color: null) {
+	display: block;
+	background: {
+		size: $width $height;
+		repeat: $repeat;
+		position: $position;
+		image: url($url);
+		color: $color;
+	}
+}
+
+@mixin layout-set(
+	$layout: null,
+	$position: absolute,
+	$top: null,
+	$bottom: null,
+	$left: null,
+	$right: null,
+	$zIndex: 1
+) {
+	position: $position;
+	@if $layout==null {
+		top: $top;
+		bottom: $bottom;
+		left: $left;
+		right: $right;
+	}
+	@if $layout== "center" {
+		left: 50%;
+		top: 50%;
+		transform: translate3d(-50%, -50%, 0);
+	}
+	@if $layout== "layout" {
+		left: 50%;
+		top: 50%;
+		transform: translate3d(-50%, 0, 0);
+	}
+	z-index: $zIndex;
+}
+
+@mixin page-set-adorn($size, $top: null, $bottom: null, $left: null, $right: null) {
+	@include layout-set($top: $top, $left: $left, $right: $right, $bottom: $bottom);
+	@include size-set($size, $size);
+	background-color: #d7b358;
+	border-radius: 50%;
+}
+
+@mixin page-set-img(
+	$layout: null,
+	$width: null,
+	$height: null,
+	$top: null,
+	$left: null,
+	$right: null,
+	$bottom: null,
+	$url: ""
+) {
+	@include layout-set($layout: $layout, $top: $top, $left: $left, $right: $right, $bottom: $bottom);
+	@include size-set($width, $height);
+	@include bg-set($url);
+}
+
+/* 页面公共样式 - End */
+
+/* 页面样式 - Start 【*注意* ：QQ音乐规定类名命名，必须以下划线形式命名】
+ * 类名用法示例：
+ * .test_box {}
+ * .test_box__wrap {}
+ */
+
+/* 测试样式 - 项目开始删除 */
+html,
+body,
+.wrap {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	font-family: $baseFont;
+	@include text-forbid-cope;
+}
+
+.wrap {
+	position: relative;
+	@include size-set($width: 100%, $height: 100%);
+	background-color: #000;
+}
+
+.page {
+	&_item {
+		position: relative;
+		@include size-set($width: 100%, $height: 100%);
+		overflow: hidden;
+		display: none;
+		opacity: 0;
+		&.show {
+			display: block;
+			animation: fadeIn 1s linear;
+			animation-fill-mode : forwards;
+		}
+	}
+	&_logo {
+		@include layout-set("layout");
+		margin-top: changePx(-5.7rem);
+		@include size-set(changePx(3rem), changePx(2rem));
+		@include bg-set(
+			"../img/page_sprite.png",
+			$width: changePx(8rem),
+			$height: changePx(12rem),
+			$position: 0 changePx(-3rem)
+		);
+	}
+	&_gesture {
+		@include layout-set($left: 0rem, $top: 50%);
+		@include size-set(changePx(2rem), changePx(2rem));
+		@include bg-set(
+			"../img/page_sprite.png",
+			$width: changePx(8rem),
+			$height: changePx(12rem),
+			$position: changePx(-3rem) 0
+		);
+		display: none;
+		&.show {
+			display: block;
+			animation: btnZoom 0.4s linear infinite;
+			animation-direction: alternate;
+		}
+	}
+	&_icon__wrap {
+		@include layout-set("layout", $zIndex: 2);
+		margin-top: changePx(-5.64rem);
+		@include size-set(changePx(7.5rem), changePx(1rem));
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 changePx(0.2rem);
+		box-sizing: border-box;
+	}
+	&_icon__right {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&_icon__item {
+		@include size-set(changePx(1rem), changePx(1rem));
+		@include bg-set("../img/page_sprite.png", $width: changePx(8rem), $height: changePx(12rem), $position: 0 0);
+	}
+	&_icon__return {
+		background-position: changePx(-2rem) changePx(-1rem);
+	}
+	&_icon__skip {
+		position: relative;
+		background-position: changePx(-4rem) changePx(-2rem);
+		left: changePx(0.28rem);
+	}
+	&_icon__voice {
+		background-position: 0 0;
+		&.stop {
+			background-position: changePx(-1rem) 0;
+		}
+	}
+}
+
+.select {
+	&_item {
+		&__content {
+			position: relative;
+			height: changePx(16.25rem);
+			height: 100vh;
+			background-color: #000;
+		}
+		&__img {
+			@include layout-set("layout");
+			margin-top: changePx(-7.32rem);
+			@include size-set($width: 100%, $height: changePx(9.46rem));
+		}
+	}
+	&_content {
+		@include layout-set($left: 0, $top: 0);
+		@include size-set($width: 100%, $height: 100%);
+		pointer-events: none;
+	}
+	&_operation {
+		@include layout-set("layout");
+		margin-top: changePx(2.88rem);
+		width: 100%;
+		text-align: center;
+		@include text-forbid-cope;
+		pointer-events: auto;
+		@include font-set(changePx(0.35rem), $color: rgba(255, 255, 255, 0.5));
+		&__hint {
+			letter-spacing: changePx(0.02rem);
+			@include font-set(changePx(0.3rem), $color: rgba(255, 255, 255, 0.5));
+		}
+		&__line {
+			@include layout-set($top: changePx(0.36rem), $left: 50%);
+			transform: translate3d(-50%, 0, 0);
+			@include size-set(changePx(7rem), changePx(1rem));
+			@include bg-set(
+				"../img/page_sprite.png",
+				$width: changePx(8rem),
+				$height: changePx(12rem),
+				$position: changePx(-0.5rem) changePx(-7rem)
+			);
+		}
+		&__btn {
+			position: relative;
+			z-index: 2;
+			color: #fff;
+			margin: 0 auto;
+			margin-top: changePx(0.42rem);
+			letter-spacing: changePx(0.03rem);
+			@include size-set(changePx(6rem), changePx(1rem));
+			@include bg-set(
+				"../img/page_sprite.png",
+				$width: changePx(8rem),
+				$height: changePx(12rem),
+				$position: changePx(-1rem) changePx(-6rem)
+			);
+		}
+		&__cut {
+			@include layout-set($top: changePx(-0.3rem), $left: 0);
+			@include size-set(100%, changePx(1rem));
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 changePx(0.48rem);
+			box-sizing: border-box;
+		}
+		&__pagination {
+			&.swiper-pagination {
+				position: relative;
+				top: changePx(0.08rem);
+			}
+			.swiper-pagination-bullet {
+				background: rgba(255, 255, 255, 0.5);
+				opacity: 1;
+				margin: 0 changePx(0.06rem);
+				@include size-set(changePx(0.28rem), changePx(0.28rem));
+				transform: scale(0.5);
+			}
+			.swiper-pagination-bullet.swiper-pagination-bullet-active {
+				background-color: #fff;
+				@include size-set(changePx(0.28rem), changePx(0.28rem));
+			}
+		}
+		&__switch {
+			@include layout-set($top: changePx(0.02rem), $left: 0);
+			position: relative;
+			@include size-set(changePx(1rem), changePx(1rem));
+			@include bg-set(
+				"../img/page_sprite.png",
+				$width: changePx(8rem),
+				$height: changePx(12rem),
+				$position: changePx(-2rem) 0
+			);
+		}
+		&__prev {
+			background-position: changePx(-2rem) changePx(-1rem);
+		}
+	}
+	&_gesture {
+		left: changePx(5.62rem);
+		margin-top: changePx(0.88rem);
+	}
+}
+
+@mixin gesture($index) {
+	@if $index==1 {
+		left: changePx(13.12rem);
+		margin-top: changePx(2.28rem);
+	}
+	@if $index==2 {
+		left: changePx(13.12rem);
+		margin-top: changePx(2.28rem);
+	}
+	@if $index==3 {
+		left: changePx(13.12rem);
+		margin-top: changePx(2.28rem);
+	}
+	@if $index==4 {
+		left: changePx(13.12rem);
+		margin-top: changePx(2.28rem);
+	}
+}
+
+.body {
+	@for $i from 1 through 4 {
+		&_#{$i} {
+			.body_inner__img {
+				@include bg-set("../img/body_" + $i + ".jpg");
+			}
+			.body_gesture {
+				@include gesture($i);
+			}
+		}
+	}
+	&_wrap {
+		@include size-set(100%, 100%);
+	}
+	&_inner {
+		@include layout-set("layout");
+		margin-top: changePx(-6.13rem);
+		@include size-set($width: 100%, $height: changePx(11rem));
+		overflow: hidden;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		&::-webkit-scrollbar {
+			width: 0;
+		}
+		&__img {
+			@include size-set($width: changePx(15rem), $height: changePx(11rem));
+		}
+	}
+	&_content {
+		@include layout-set($left: 0, $top: 0);
+		@include size-set($width: 100%, $height: 100%);
+		pointer-events: none;
+	}
+	&_operation {
+		@include layout-set("layout");
+		margin-top: changePx(2.54rem);
+		width: 100%;
+		text-align: center;
+		@include text-forbid-cope;
+		pointer-events: auto;
+		@include font-set(changePx(0.35rem), $color: rgba(255, 255, 255, 0.5));
+		&__hint {
+			letter-spacing: changePx(0.02rem);
+		}
+		&__cut {
+			@include layout-set($top: changePx(1.7rem), $left: 0);
+			@include size-set(100%, changePx(1rem));
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 changePx(0.48rem);
+			box-sizing: border-box;
+		}
+		&__switch {
+			@include layout-set($top: changePx(0.02rem), $left: 0);
+			position: relative;
+			@include size-set(changePx(1rem), changePx(1rem));
+			// @include bg-set(
+			//   "../img/page_sprite.png",
+			//   $width: changePx(8rem),
+			//   $height: changePx(8rem),
+			//   $position: changePx(-2rem) 0
+			// );
+			// opacity: 0;
+			// &.show {
+			//   opacity: 1;
+			//   animation: fadeIn 0.3s linear;
+			// }
+		}
+		&__prev {
+			background-position: changePx(-2rem) changePx(-1rem);
+		}
+	}
+}
+
+@mixin carDoorGesture($index) {
+	@if $index==1 {
+		left: changePx(5.8rem);
+		margin-top: changePx(1rem);
+	}
+	@if $index==2 {
+		@include size-set(changePx(1rem), changePx(1rem));
+		background-position: changePx(-3rem) changePx(-2rem);
+		left: changePx(4.5rem);
+		margin-top: changePx(-0.58rem);
+	}
+	@if $index==3 {
+		@include size-set(changePx(1rem), changePx(1rem));
+		background-position: changePx(-3rem) changePx(-2rem);
+		left: changePx(2.1rem);
+		margin-top: changePx(0.6rem);
+	}
+	@if $index==4 {
+		left: changePx(5.2rem);
+		margin-top: changePx(0.64rem);
+	}
+}
+
+.cardoor {
+	@for $i from 1 through 4 {
+		&_#{$i} {
+			.cardoor_img {
+				@include bg-set("../img/cardoor_" + $i + ".jpg");
+			}
+			.cardoor_gesture {
+				@include carDoorGesture($i);
+			}
+		}
+	}
+	&_img {
+		@include layout-set("layout");
+		margin-top: changePx(-6.62rem);
+		@include size-set($width: 100%, $height: changePx(11rem));
+		@include bg-set("../img/cardoor_1.jpg");
+	}
+	&_gesture {
+		&.show {
+			animation: btnZoom2 0.4s linear infinite;
+			animation-direction: alternate;
+		}
+		left: changePx(5.5rem);
+		margin-top: changePx(0.64rem);
+		@include size-set(changePx(2rem), changePx(2rem));
+		background-position: 0 changePx(-1rem);
+		transition: opacity 0.3s;
+		&.hide {
+			opacity: 0;	
+		}
+	}
+	&_hint {
+		width: 100%;
+		@include layout-set("layout");
+		margin-top: changePx(4.5rem);
+		@include font-set(changePx(0.35rem), $color: rgb(255, 255, 255));
+		@include text-forbid-cope;
+		letter-spacing: changePx(0.02rem);
+		text-align: center;
+	}
+}
+
+.detail {
+	&_swiper {
+		height: 100%;
+	}
+	&_item {
+		&__content {
+			position: relative;
+			height: 100%;
+			background-color: #000;
+		}
+		&__img {
+			@include layout-set("layout");
+			margin-top: changePx(-6.62rem);
+			@include size-set($width: 100%, $height: changePx(11rem));
+		}
+	}
+	@for $i from 1 through 4 {
+		&_#{$i} {
+			.detail_item1 {
+				.detail_item__img {
+					@include bg-set("../img/detail_" + $i + "a.jpg");
+				}
+			}
+			.detail_item2 {
+				.detail_item__img {
+					@include bg-set("../img/detail_" + $i + "b.jpg");
+				}
+			}
+			.detail_item3 {
+				.detail_item__img {
+					@include bg-set("../img/detail_" + $i + "c.jpg");
+				}
+			}
+		}
+	}
+	&_content {
+		@include layout-set($left: 0, $top: 0);
+		@include size-set($width: 100%, $height: 100%);
+		pointer-events: none;
+	}
+	&_operation {
+		@include layout-set("layout");
+		margin-top: changePx(3.38rem);
+		width: 100%;
+		text-align: center;
+		@include text-forbid-cope;
+		pointer-events: auto;
+		@include font-set(changePx(0.35rem), $color: rgba(255, 255, 255, 1));
+		&__hint {
+			letter-spacing: changePx(0.02rem);
+			color: #e8cda2;
+			background-image: url(../img/textbg.png);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-size: 100% 50px;
+		}
+		&__line {
+			@include layout-set($top: changePx(0.38rem), $left: 50%);
+			transform: translate3d(-50%, 0, 0);
+			@include size-set(changePx(7rem), changePx(1rem));
+			@include bg-set(
+				"../img/page_sprite.png",
+				$width: changePx(8rem),
+				$height: changePx(12rem),
+				$position: changePx(-0.5rem) changePx(-7rem)
+			);
+		}
+		&__btn {
+			position: relative;
+			z-index: 2;
+			@include font-set(changePx(0.25rem), $color: rgba(255, 255, 255, 0.5), $lineHigh: changePx(0.44rem));
+			@include text-forbid-cope;
+			margin-top: changePx(0.78rem);
+			letter-spacing: changePx(0.02rem);
+			white-space: pre-line;
+		}
+		&__cut {
+			@include layout-set("layout", $zIndex: 2);
+			margin-top: changePx(3.12rem);
+			@include size-set(100%, changePx(1rem));
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 changePx(0.24rem);
+			box-sizing: border-box;
+			display: none;
+			&.show {
+				display: flex;
+				animation: fadeIn 0.3s linear;
+			}
+		}
+		&__switch {
+			@include layout-set($top: changePx(0.02rem), $left: 0);
+			position: relative;
+			@include size-set(changePx(1rem), changePx(1rem));
+			@include bg-set(
+				"../img/page_sprite.png",
+				$width: changePx(8rem),
+				$height: changePx(12rem),
+				$position: changePx(-2rem) 0
+			);
+		}
+		&__prev {
+			background-position: changePx(-2rem) changePx(-1rem);
+		}
+	}
+	&_2 {
+		.detail_operation__btn {
+			letter-spacing: changePx(-0.01rem);
+		}
+	}
+	&_gesture {
+		@include size-set(changePx(1rem), changePx(1rem));
+		background-position: changePx(-3rem) changePx(-2rem);
+		left: changePx(6.25rem);
+		margin-top: changePx(1.5rem);
+	}
+}
+
+.station {
+	&_item {
+		&__content {
+			position: relative;
+			height: 100vh;
+			background-color: #000;
+		}
+		&__img {
+			@include layout-set("layout");
+			margin-top: changePx(-7.02rem);
+			@include size-set($width: 100%, $height: changePx(11rem));
+		}
+	}
+	@for $i from 1 through 4 {
+		&_#{$i} {
+			.station_item {
+				.station_item__img {
+					@include bg-set("../img/detail_" + $i + "a.jpg");
+				}
+			}
+		}
+	}
+	&_operation {
+		@include layout-set("layout");
+		margin-top: changePx(2.8rem);
+		width: 100%;
+		text-align: center;
+		@include text-forbid-cope;
+		pointer-events: auto;
+		@include font-set(changePx(0.3rem), $color: rgba(255, 255, 255, 1));
+		letter-spacing: changePx(0.02rem);
+		&__item {
+			position: relative;
+			z-index: 2;
+			// background-color: #4d4d4d;
+			margin: 0 auto;
+			@include size-set(changePx(6rem), changePx(1rem));
+			@include bg-set(
+				"../img/page_sprite.png",
+				$width: changePx(8rem),
+				$height: changePx(12rem),
+				$position: changePx(-1rem) changePx(-8rem)
+			);
+		}
+		&__btn1 {
+			margin-top: changePx(0rem);
+			background-position: changePx(-1rem) changePx(-9rem);
+		}
+		// &__btn2 {
+		//   margin-top: changePx(0.36rem);
+		// }
+	}
+}
+
+.form {
+	&_bg {
+		@include layout-set(center);
+		@include size-set($width: 100%, $height: 100%);
+		@include bg-set("../img/form_bg.jpg");
+	}
+	&_wrap {
+		@include size-set($width: 100%, $height: 100%);
+	}
+	&_box {
+		@include layout-set("layout");
+		margin-top: changePx(-3.18rem);
+		@include size-set($width: changePx(6.12rem), $height: changePx(4.3rem));
+		background-color: rgba($color: #000000, $alpha: 0.2rem);
+		padding-top: changePx(0.5rem);
+		box-sizing: border-box;
+	}
+	&_item {
+		position: relative;
+		@include size-set($width: changePx(5.65rem), $height: changePx(0.48rem));
+		background-color: rgba($color: #fff, $alpha: 0.1rem);
+		margin: 0 auto changePx(0.45rem);
+		@include font-set(changePx(0.3rem), $color: rgba($color: #fff, $alpha: 0.5rem));
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 changePx(0.14rem);
+		box-sizing: border-box;
+		&__special {
+			.form_item__input {
+				padding-left: changePx(1.84rem);
+			}
+		}
+		&__input {
+			@include font-set(changePx(0.3rem), $color: rgba($color: #fff, $alpha: 0.5));
+			@include size-set(100%, 100%);
+			@include layout-set(center);
+			padding: 0 changePx(0.4rem) 0 changePx(0.94rem);
+			box-sizing: border-box;
+			option {
+				color: initial;
+			}
+		}
+		&__arrows {
+			@include layout-set($right: changePx(-0.14rem), $top: 50%, $zIndex: 2);
+			pointer-events: none;
+			transform: translate3d(0, -50%, 0);
+			@include size-set(changePx(1rem), changePx(1rem));
+			@include bg-set(
+				"../img/page_sprite.png",
+				$width: changePx(8rem),
+				$height: changePx(12rem),
+				$position: changePx(-3rem) changePx(-3rem)
+			);
+		}
+	}
+	&_strategy {
+		@include layout-set($left: 50%, $bottom: changePx(-0.08rem));
+		transform: translate3d(-50%, 0, 0);
+		@include size-set(73%, changePx(0.5rem));
+		&__check {
+			@include layout-set($left: changePx(0.3rem), $bottom: changePx(-0.32rem));
+			@include size-set(changePx(1rem), changePx(1rem));
+			@include bg-set(
+				"../img/page_sprite.png",
+				$width: changePx(8rem),
+				$height: changePx(12rem),
+				$position: changePx(-3rem) changePx(-4rem)
+			);
+			opacity: 0;
+			&.show {
+				opacity: 1;
+			}
+		}
+	}
+	&_text {
+		@include layout-set("layout");
+		margin-top: changePx(1.1rem);
+		@include size-set($width: changePx(7.5rem), $height: changePx(1.8rem));
+		@include bg-set("../img/form_text.png");
+	}
+	&_btn__wrap {
+		@include layout-set("layout");
+		margin-top: changePx(3.16rem);
+	}
+	&_btn__item {
+		margin: 0 auto;
+		text-align: center;
+		margin: 0 auto;
+		letter-spacing: changePx(0.02rem);
+		@include size-set(changePx(6rem), changePx(1rem));
+		@include bg-set(
+			"../img/page_sprite.png",
+			$width: changePx(8rem),
+			$height: changePx(12rem),
+			$position: changePx(-1rem) changePx(-10rem)
+		);
+	}
+	&_btn__share {
+		background-position: changePx(-1rem) changePx(-11rem);
+	}
+}
+
+.share {
+	&_wrap {
+		@include layout-set($left: 0, $top: 0);
+		@include size-set($width: 100%, $height: 100%);
+		background-color: #000;
+		@include bg-set("../img/share_bg.jpg");
+	}
+	&_img {
+		@include size-set(changePx(6.48rem), changePx(9.52rem));
+		@include layout-set("layout");
+		margin-top: changePx(-4.68rem);
+		img {
+			display: block;
+			@include size-set(100%, auto);
+		}
+	}
+	&_icon__wrap {
+		margin-top: changePx(-5.7rem);
+		@include font-set(changePx(0.23rem), $color: rgba(255, 255, 255, 0.5));
+	}
+	&_icon__item {
+		transform: scale(0.7);
+		transform-origin: center;
+	}
+	&_icon__left {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+	}
+	&_icon__text {
+		margin-left: changePx(-0.24rem);
+	}
+}
+
+.modal {
+	&_hint {
+		@include size-set(changePx(5.2rem), changePx(3.42rem));
+		border-radius: changePx(0.1rem);
+		background-color: rgba($color: #a1a1a1, $alpha: 0.8);
+		padding-top: changePx(0.94rem);
+		box-sizing: border-box;
+		text-align: center;
+		@include font-set(changePx(0.35rem));
+		@include text-forbid-cope;
+		&__btn {
+			@include font-set(changePx(0.3rem));
+			@include text-forbid-cope;
+			@include size-set(changePx(1.4rem), changePx(0.6rem));
+			border: changePx(0.03rem) solid #fff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: changePx(0.7rem) auto 0;
+		}
+	}
+}
+
+@import "ani";
+@import "./modal";
+
+/* 页面样式 - End */

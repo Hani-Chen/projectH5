@@ -1,0 +1,239 @@
+{% extends "./_njk/base.njk" %} {% block main %}
+<!-- 首页 -->
+<section class="section section_home_wrap">
+	<!-- 主要内容 -->
+	<div class="section_home_inner">
+		<!-- 标题模块 -->
+		<div class="titel_wrap">
+			<!-- 背景 -->
+			<div class="titel_bg"></div>
+			<!-- logo -->
+			<div class="titel_logo"></div>
+			<div class="titel_btn_wrap">
+				<div class="titel_btn btn_rule">活动规则</div>
+				<div class="titel_btn btn_me">我的奖品</div>
+			</div>
+		</div>
+		<!-- 抽奖模块 -->
+		<div class="lottery_wrap">
+			<!-- 背景 -->
+			<div class="lottery_bg"></div>
+			<div class="lottery_inner">
+				<div class="lottery_item lottery_item1 active">
+					<span class="lottery_name">满1000减200</span>
+				</div>
+				<div class="lottery_item lottery_item2">
+					<span class="lottery_name">2个月豪华绿钻</span>
+				</div>
+				<div class="lottery_item lottery_item3">
+					<span class="lottery_name">满20.01可用</span>
+				</div>
+				<div class="lottery_item lottery_item8">
+					<span class="lottery_name">2个月豪华绿钻</span>
+				</div>
+				<div class="lottery_item lottery_btn animation">
+					<img src="./img/lottery_pointer.png" class="pointer" alt="">
+				</div>
+				<div class="lottery_item lottery_item4">
+					<span class="lottery_name">2个月豪华绿钻</span>
+				</div>
+				<div class="lottery_item lottery_item7">
+					<span class="lottery_name">满10.01可用</span>
+				</div>
+				<div class="lottery_item lottery_item6">
+					<span class="lottery_name">2个月豪华绿钻</span>
+				</div>
+				<div class="lottery_item lottery_item5">
+					<span class="lottery_name">满249减50</span>
+				</div>
+			</div>
+			<div class="lottery_explain">2020.5.16 仅1天</div>
+		</div>
+	</div>
+</section>
+<!-- 奖品弹窗 -->
+<div class="modal" id="modalPrize">
+	<div class="modal_content">
+		<div class="modal_bg"></div>
+		<div class="modal_body">
+			<!-- 中奖内容 -->
+			<div class="modal_prize_wrap">
+				<div class="title_bg">
+					<div class="title_adorn"></div>
+				</div>
+				<div class="content">
+					<div class="content_title"></div>
+					<div class="content_prize"></div>
+					<div class="content_tips"></div>
+				</div>
+				<div class="end_bg"></div>
+			</div>
+			<!-- 按钮 -->
+			<div class="modal_btn_wrap">
+				<a  href="JavaScript:;" class="btn_get"></a>
+				<a  href="JavaScript:;" class="btn_share"></a>
+			</div>
+			<!-- 关闭按钮 -->
+			<div class="modal_close"></div>
+		</div>
+	</div>
+</div>
+<!-- 次数使用完弹窗 -->
+<div class="modal modal_hint " id="modalHint">
+	<div class="modal_content">
+		<div class="modal_bg"></div>
+		<div class="modal_body">
+			<!-- 提示内容 -->
+			<div class="modal_hint_wrap">
+				<div class="title_bg"></div>
+				<div class="content">
+					<div class="content_bg"></div>
+					<!-- 标题文案 -->
+					<div class="content_title">您的参与次数已用完</div>
+					<a href="JavaScript:;" class="btn_order"></a>
+				</div>
+				<div class="end_bg"></div>
+			</div>
+			<!-- 关闭按钮 -->
+			<div class="modal_close"></div>
+		</div>
+	</div>
+</div>
+
+<!-- 未抽奖弹窗 -->
+<div class="modal modal_await" id="modalAwait">
+	<div class="modal_content">
+		<div class="modal_bg"></div>
+		<div class="modal_body">
+			<!-- 提示内容 -->
+			<div class="modal_await_wrap">
+				<div class="title_bg"></div>
+				<div class="content">
+					<div class="content_bg"></div>
+					<!-- 标题文案 -->
+					<div class="content_title">奖品还在等着你！</div>
+					<a href="JavaScript:;" class="btn_order"></a>
+				</div>
+				<div class="end_bg"></div>
+			</div>
+			<!-- 关闭按钮 -->
+			<div class="modal_close"></div>
+		</div>
+	</div>
+</div>
+
+<!-- 我的奖品弹窗 -->
+<div class="modal modal_myprize " id="modalMyprize">
+	<div class="modal_content">
+		<div class="modal_bg"></div>
+		<div class="modal_body">
+			<!-- 提示内容 -->
+			<div class="modal_myprize_wrap">
+				<div class="title_bg">
+					<div class="title_adorn"></div>
+				</div>
+				<div class="list_wrap">
+					<div class="list_inner">
+						<div class="item">
+							<img src="./img/icon_prize2.png" alt="" class="item_icon">
+							<span>豪华绿钻2个月</span>
+							<a href="javas:;" class="item_btn"><span>去使用</span></a>
+						</div>
+						<div class="item">
+							<img src="./img/icon_prize1.png" alt="" class="item_icon">
+							<span>奥买家50元优惠券</span>
+							<a href="javas:;" class="item_btn show"><span>去使用</span></a>
+						</div>
+	
+						<div class="item">
+							<img src="./img/icon_prize1.png" alt="" class="item_icon">
+							<span>奥买家50元优惠券</span>
+							<a href="javas:;" class="item_btn show"><span>去使用</span></a>
+						</div>
+						<div class="item">
+							<img src="./img/icon_prize1.png" alt="" class="item_icon">
+							<span>奥买家50元优惠券</span>
+							<a href="javas:;" class="item_btn show"><span>去使用</span></a>
+						</div>
+						<div class="item">
+							<img src="./img/icon_prize1.png" alt="" class="item_icon">
+							<span>奥买家50元优惠券</span>
+							<a href="javas:;" class="item_btn show"><span>去使用</span></a>
+						</div>
+						<div class="item">
+							<img src="./img/icon_prize1.png" alt="" class="item_icon">
+							<span>奥买家50元优惠券</span>
+							<a href="javas:;" class="item_btn show"><span>去使用</span></a>
+						</div>
+					</div>
+
+					<div class="btn_wrap">
+						<a href="JavaScript:;" class="btn_participation"></a>
+						<a href="JavaScript:;" class="btn_share"></a>
+					</div>
+				</div>
+			</div>
+			<!-- 关闭按钮 -->
+			<div class="modal_close"></div>
+		</div>
+	</div>
+</div>
+
+<!-- 活动规则弹窗 -->
+<div class="modal modal_rule" id="modalRule">
+	<div class="modal_content">
+		<div class="modal_bg"></div>
+		<div class="modal_body">
+			<!-- 提示内容 -->
+			<div class="modal_rule_wrap">
+				<div class="title"></div>
+				<div class="rule_inner">
+					<p><b>1、活动时间：</b>2020年05月16日00:00分-2020年05月16日23:59分</p>
+					<p><b>2、福利活动1规则：</b></p>
+					<p class="rule_item_second">注册成为奥买家会员，即可参与互动抽奖赢取 2 个月 QQ 音乐豪华绿钻及奥买家优惠券，其中奥买家优惠券在活动期间内不限数量， QQ音乐豪华绿钻数量共42500份，随机发放，送完即止。</p>
+					<p class="rule_item_second">在本活动中，所有用户免费拥有1次100%中奖的机会（奖品包括QQ音乐豪华绿钻或奥买家优惠券），分享最多可额外获得1次抽奖机会（100%中奖，奖品包括QQ音乐豪华绿钻或奥买家优惠券），分享次数不限。</p>
+					<p class="rule_item_second">参与福利活动1赠送的2个月豪华绿钻会员有效期为62天，自发货起生效，如正在享用绿钻权益，则延长2个月有效期。</p>
+					<p class="rule_item_second">参与福利活动1赠送的奥买家优惠券使用规则：</p>
+					<p class="rule_item_thirdly">1、仅限奥买家自营跨境商品可以用</p>
+					<p class="rule_item_thirdly">2、限指定商品可用</p>
+					<p class="rule_item_thirdly">3、奶粉纸尿裤不参与</p>
+					<p class="rule_item_thirdly">4、部分特价活动不可用</p>
+					<p class="rule_item_thirdly">5、仅限在奥买家小程序使用</p>
+					<p class="rule_item_thirdly">6、优惠券随中奖结果立即发放到用户的奥买家账户中，凭手机号码登陆奥买家小程序即可使用</p>
+					<p>3、福利活动2规则：</p>
+					<p class="rule_item_second">2020年5月16日活动当天，在奥买家小程序绿钻活动专区下单金额实付满59元，即有机会领取3个月QQ音乐豪华绿钻（价值45元），绿钻数量有限（共16111份），依据下单时间先 到先得，发完即止。</p>
+					<p class="rule_item_second">用户成功下单并获得3个月豪华绿钻后，豪华绿钻将在2020年5月18日 23:59前统一发放，并将通过奥买家小程序微信推送进行提醒通知服务，中奖用户需在收到通知后24小时内填写账号进行领取，逾期无效</p>
+					
+					<p class="rule_item_second">参与福利活动2赠送的3个月豪华绿钻会员有效期为93天，自发货起生效，如正在享用豪华绿钻权益，则延长3个月有效期</p>
+					<p class="rule_item_second">同一个奥买家注册用户手机号码、同一个 QQ 音乐账号限领取一次</p>
+					<p class="rule_item_second">本次活动仅限在奥买家小程序下单用户参与，部分跨境商品非质量问题不支持退换，具体请参见销售页面。 </p>
+					<p class="rule_item_second">奥买家小程序绿钻活动专区所有问题均由奥买家方面负责，如出现商品退换货、质量问题、消费者权益保护等问题，均由奥买家负责解决，QQ音乐不承担任何责任；如出现绿钻权益问题，则由QQ 音乐负责解决，奥买家不承担任何责任。</p>
+					<p class="rule_item_second">关于获得豪华绿钻的用户取消订单后的情况说明：</p>
+					<p class="rule_item_second1">若用户获得豪华绿钻的订单在支付成功后的48小时内取消，则自该订单支付成功48小时后不再推送绿钻领取订阅消息、绿钻领取通知短信，不展示小程序个人中心绿钻领取入口，用户失去获得绿钻资格，且不能再次参与下单送豪华绿钻活动</p>
+					<p>4、用户参与本次活动，需向QQ音乐及奥买家提供手机号码，以绑定QQ音乐账号及注册/登录奥买家会员，实现绿钻领取及活动参与目的，如果您拒绝提供手机号，则无法参与本次活动。</p>
+					<p>5、本次活动的QQ音乐豪华绿钻仅能赠送给参与活动的个人账号，如因个人原因导致赠送到其他人账号，系统将无法补赠</p>
+					<p>6、活动参与者资格：本活动的参与者应为具有完全民事行为能力的自然人。每个自然人仅可使用一个自己合法有权的QQ账号（或微信账号）在QQ音乐上授权登录后参与活动。否则，您的全部参与行为将被视为无效，且无权获得任何奖品。</p>
+					<p>7、 豪华绿钻相关说明：豪华绿钻的有效服务期最长至2099年12月31日，若用户开通的豪华绿钻已达到最长服务期，将无法继续购买/领取豪华绿钻；如已经开通连续包月或者通过手机话费开通豪华绿钻的用户，需要关闭原来的支付方式后使本次开通的豪华绿钻生效到账。</p>
+					<p>8、参与资格、获奖资格的取消：您若有下列任何一种行为或情况的，QQ音乐有权单方面取消您的参与资格、获奖资格等权益：8、参与资格、获奖资格的取消：您若有下列任何一种行为或情况的，QQ音乐有权单方面取消您的参与资格、获奖资格等权益：</p>
+					<p class="rule_item_second1">(1)不符合参与资格的；</p>
+					<p class="rule_item_second1">(2)提供虚假信息的；</p>
+					<p class="rule_item_second1">(3)虚假交易或恶意破坏活动的；</p>
+					<p class="rule_item_second1">(4)以任何机器人软件、蜘蛛软件、爬虫软件、刷奖软件或其它任何自动方式、不正当手段等参与本活动的；</p>
+					<p class="rule_item_second1">(5)有任何违反诚实信用、公序良俗、公平、公正等原则行为的；</p>
+					<p class="rule_item_second1">(6)其他违反相关法规、本规则行为的。请用户理性参与活动，如用户存在违反法律、法规或违反包括但不限于《QQ音乐付费会员服务协议》及腾讯公司及其关联公司制定的其他各项规则、公告等相关规定，包括但不限于以作弊等非正当方式获取奖品、会员时长等行为，QQ音乐有权单独按照其平台用户服务协议规定进行处理（如取消您的中奖资格，撤销违规交易，收回您非法获得的全部礼品或权益等），请在开通之前，仔细阅读平台的用户/付费用户服务协议。</p>
+					<p>9、免责条款：用户知悉互联网存在诸多不确定性因素，因此理解并同意，如因不可抗力、网络、通讯线路故障、计算机大规模瘫痪及活动中存在大面积作弊行为等非腾讯原因致使本活动出现异常情况或难以继续开展的，QQ音乐有权采取包括但不限于通过各种方式消除异常情况或调整、暂停、取消本活动等措施。如需对本活动进行咨询，请联系在线客服。</p>
+					<p>10、点击查看QQ音乐 《QQ音乐付费会员服务协议》</p>
+					<p>11、点击联系QQ音乐 在线客服</p>
+					<p>12、点击前往QQ音乐 活动中心</p>
+				</div>
+			</div>
+			<!-- 关闭按钮 -->
+			<div class="modal_close"></div>
+		</div>
+	</div>
+</div>
+{% endblock %} {% block javascript %}
+<script src="js/zepto.min.js"></script>
+<!-- 主程序 -->
+<script type="text/javascript" src="js/index.js"></script>
+{% endblock %}

@@ -1,0 +1,160 @@
+@charset "utf-8";
+/* 公共样式 */
+* {
+  box-sizing: border-box;
+}
+body,
+dl,
+dd,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+input,
+textarea,
+p,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+li {
+  list-style: none;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+
+/* 页面样式 */
+.wrap {
+  width: 100%;
+  height: 100%;
+  background: {
+    image: url(../img/bg.png);
+    repeat: no-repeat;
+    position: left 0;
+    size: 100% 100%;
+  }
+}
+// 头部 - logo容器
+.logo-wrap {
+  display: block;
+  width: 100%;
+  height: 0.6rem;
+}
+// 头部 - logo
+.logo {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+@keyframes swing {
+  0% {
+    stroke-dasharray:0,1000;
+  }
+  100% {
+    stroke-dasharray:197,1000;
+  }
+}
+@keyframes innerswing {
+  0% {
+    transform: rotate(44deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(120deg);
+    opacity: 0.2;
+  }
+}
+// 内容
+.content {
+  width: 100%;
+  height: 10rem;
+  position: absolute;
+  top: 50%;
+  margin-top: -5rem;
+  // 圆盘
+  &-disk {
+    // animation: swing linear 1s infinite;
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 6rem;
+    height: 6rem;
+    border: 2px dotted #999;
+    border-radius: 50%;
+    position: relative;
+    z-index: 66;
+    // &:before {
+    //   content: '';
+    //   position: absolute;
+    //   left: -0.04rem;
+    //   top: -0.04rem;
+    //   width: 100%;
+    //   height: 100%;
+    //   border: 2px dotted #ff4b30;
+    //   border-radius: 50%;
+    //   clip: rect(0 200px 200px 100px);
+    // }
+  }
+  // 圆点
+  &-dot {
+    display: block;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: #ff4b30;
+    // border: 0.5px solid #ff4b30;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.72rem;
+    left: 0.73rem;
+    // transition: transform linear 0.1s;
+    transform-origin: 2.26rem 2.26rem;
+    transform: rotate(45deg);
+    // animation-play-state: running;
+  }
+  &-dot-play {
+    
+    animation: innerswing 2.4s ease infinite;
+    & + .box {
+      .demo2 {
+        
+        animation: swing 2.4s ease infinite;
+      }
+    }
+  }
+  &-dot-stop {
+    animation-play-state: paused;
+    & + .box {
+      .demo2 {
+        animation-play-state: paused;
+      }
+    }
+  }
+}
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  // z-index: 66;
+  width: 100%;
+  height: 100%;
+}
+
+svg {
+  overflow: visible;
+}
+.demo2 {
+  transform-origin: 2.96rem 3rem;
+  transform: rotate(-90deg);
+}

@@ -1,0 +1,18 @@
+@charset "utf-8";
+html{
+/*防止IOS屏幕横竖屏切换时文字大小产生变化*/
+-webkit-text-size-adjust:100%;
+/*禁用点击的高亮反馈*/
+-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+/* 禁止长按链接与图片弹出菜单 */
+a,img{-webkit-touch-callout:none;}
+body,dl,dd,ul,ol,h1,h2,h3,h4,h5,h6,form,input,textarea,p,th,td{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+li{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+input:focus,textarea:focus,button:focus{outline:0;}
+a,a:hover{text-decoration:none;}
+/*解决字体和文字大小在浏览器中没有被继承的问题*/
+button,input,textarea,select{font-family:inherit;font-size:100%;}
+body{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;} 

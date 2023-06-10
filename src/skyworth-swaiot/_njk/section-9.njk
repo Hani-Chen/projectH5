@@ -1,0 +1,58 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+
+{# 标题文案 #}
+{% set titleText = {
+  'imgSrc': '/title_icon_5.png',
+  'heading': '强强联手 云云互联',
+  'text': 'Swaiot智能设备已经覆盖家庭主要应用场景,支持跨品牌全品类海量智能家电互联，目前已与美的、京东、华为生态云云互联,欢迎更多合作伙伴加入。'
+} %}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+<div class="content-wrap animation-box">
+  <!-- 合作伙伴列表 -->
+  <div class="content-partners-list">
+    <!-- 单个合作伙伴 -->
+    <div class="content-partners-item">
+      <!-- 合作伙伴名称 -->
+      <div class="item-title">
+        <div class="item-title-wire"></div>
+        <div class="item-title-text">美的</div>
+        <div class="item-title-wire"></div>
+      </div>
+      <!-- 合作伙伴logo -->
+      <div class="item-partners-logo">
+        <img src="{{baseUrl}}/partners_logo3.png" alt="">
+      </div>
+    </div>
+    <!-- 单个合作伙伴 -->
+    <div class="content-partners-item">
+      <!-- 合作伙伴名称 -->
+      <div class="item-title">
+        <div class="item-title-wire"></div>
+        <div class="item-title-text">京东</div>
+        <div class="item-title-wire"></div>
+      </div>
+      <!-- 合作伙伴logo -->
+      <div class="item-partners-logo">
+        <img src="{{baseUrl}}/partners_logo1.png" alt="">
+      </div>
+    </div>
+    <!-- 单个合作伙伴 -->
+    <div class="content-partners-item">
+      <!-- 合作伙伴名称 -->
+      <div class="item-title">
+        <div class="item-title-wire"></div>
+        <div class="item-title-text">华为</div>
+        <div class="item-title-wire"></div>
+      </div>
+      <!-- 合作伙伴logo -->
+      <div class="item-partners-logo">
+        <img src="{{baseUrl}}/partners_logo2.png" alt="">
+      </div>
+    </div>
+  </div>
+  <img class="more" src="{{baseUrl}}/more_black.gif" alt="">
+</div>

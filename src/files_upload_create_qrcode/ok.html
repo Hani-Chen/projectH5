@@ -1,0 +1,79 @@
+<!-- Data: 2020-04-14 Edit: Hani Describe: 梦想倒计时重构 -->
+{% extends "./_njk/base.njk" %}
+
+<!-- title -->
+{% block title %}
+文件上传自动生成二维码
+{% endblock %}
+<!-- html -->
+{% block main %}
+<div class="page-wrap">
+  <!-- 页面内容容器 -->
+  <div class="page-inner">
+    <!-- 标题 -->
+    <div class="title">单视频上传</div>
+    <!-- 副标题 -->
+    <div class="subhead">
+      <span class="subhead-text">常规使用：视频上传</span>
+      <div class="subhead-wire"></div>
+    </div>
+    <!-- 上传视频 -->
+    <div class="upload-wrap upload-video">
+      <div class="upload-video-inner">
+        <input type="file" class="upload-btn-file" id="file" name="myfile" onchange="UpladFile();" />
+        <!-- <img class="img" src="https://img.tukuppt.com//png_preview/00/09/96/nX7YVKat5w.jpg!/fw/780" alt="" srcset=""> -->
+        <p class="text">点击上传，或将文件拖拽到此处</p>
+        <div class="layui-hide" id="uploadDemoView">
+          {# <hr>
+            <img src="" alt="上传成功后渲染" style="max-width: 196px"> #}
+        </div>
+      </div>
+
+      <!--进度条-->
+      <div class="progress-wrap" style="display: none;">
+        <div class="progress-inner">
+          <div class="progress-contennt">
+            <div class="progress-box" style="width: 10%;"></div>
+          </div>
+        </div>
+        <div class="progress-text">0%</div>
+      </div>
+      {# 手动输入名称 #}
+      <div class="name">
+        <input id="title" type="text" class="form-control" placeholder="请输入 视频名称">
+      </div>
+      {# 上传视频 #}
+      <div class="upload-btn-wrap" id="uploadBtnWrap">
+        <button type="button" class="btn" id="btnUploadVideo" onclick="sub();">上传视频</button>
+        <span class="upload-annotation">*备注</span>
+      </div>
+
+      <!-- 副标题 -->
+      <div class="subhead">
+        <span class="subhead-text">上传成功后：生成二维码</span>
+        <div class="subhead-wire"></div>
+      </div>
+      <div class="upload-qrcode-wrap">
+        <div class="upload-qrcode-inner" id="uploadQrcode">
+          <!-- <img class="upload-qrcode" src="https://www.liantu.com/meihua/resource/image/thumbnail/default.png"> -->
+        </div>
+        <!-- <div class="upload-href">链接：<a href="http://cdnmeidi.perpower.cn/video/test.mp4" id="videoUrl"
+            target="view_window">点击跳转在线链接</a>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!-- JavaScript -->
+{% block javascript %}
+<!-- jquery 引入 -->
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script src="./js/moxie.min.js"></script>
+<script src="./js/plupload.min.js"></script>
+<script src="./js/qiniu.min.js"></script>
+<script src="./js/index.js"></script>
+
+{% endblock %}

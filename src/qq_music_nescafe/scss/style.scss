@@ -1,0 +1,425 @@
+@charset "utf-8";
+/* 页面公共样式 - Start */
+
+/* QQ音乐规定 - 引入QQ音乐默认样式 */
+@import 'global.import.css';
+/* QQ音乐规定 - 使用1px边框解决方案所调用的CSS文件 */
+@import 'border.import.css';
+
+/* QQ音乐规定尺寸缩放 - 750尺寸设计稿的所有rem都需要除以2 
+ * 函数用法示例（750设计稿字体大小24）：
+ * font-size: changePx(0.24rem);
+ */
+@function changePx($px) {
+  @return $px / 2;
+}
+body{
+  -webkit-touch-callout: none;
+  -moz-user-select: none; /*火狐*/
+  -webkit-user-select: none;  /*webkit浏览器*/
+  -ms-user-select: none;   /*IE10*/
+  -khtml-user-select: none; /*早期浏览器*/
+  user-select: none;
+}
+/* h5默认字体 - 可根据默认不同的默认字体修改字体顺序 */
+$baseFont: 'PingFang', 'PingFang SC', Helvetica, Tahoma, Arial,
+  'Hiragino Sans GB', 'Heiti SC', STXihei, 'Microsoft YaHei', SimHei,
+  'WenQuanYi Micro Hei';
+
+.border_b::after {
+  -webkit-transform: scaleY(0.5);
+  background-color: #8a6f62;
+}
+
+/* 页面工具类 - 背景图片公共样式 */
+.bg_item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+/* 页面工具类 - 文字禁止选择 */
+.text_forbid__cope {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.position_layout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+}
+
+.position_center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: $baseFont;
+}
+.item {
+  .logo {
+    @extend .position_layout;
+    width: changePx(3.6rem);
+    height: changePx(0.5rem);
+    margin-top: changePx(-5.25rem);
+    @extend .bg_item;
+    background-image: url('../img/logo.png');
+    background-position: 0 0;
+    background-size: 100% 100%;
+    z-index: 2;
+  }
+  .box {
+    width: 100%;
+    height: changePx(16.24rem);
+    @extend .position_layout;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
+@font-face {
+  font-family: 'fzwrqnt';
+  src: url('../fonts/文悦新青年体.ttf');
+}
+.font_fzwrqnt {
+  font-family: 'fzwrqnt';
+}
+// @font-face {
+//   font-family: 'fzxjl';
+//   src: url('../fonts/徐静蕾字体.fon');
+// }
+// .font_fzxjl {
+//   font-family: 'fzxjl';
+// }
+/* 页面公共样式 - End */
+
+/* 页面样式 - Start 【*注意* ：QQ音乐规定类名命名，必须以下划线形式命名】
+ * 类名用法示例：
+ * .test_box {}
+ * .test_box__wrap {}
+ */
+
+@keyframes start {
+  0%,
+  30% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+.item {
+  overflow: hidden;
+  .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    @extend .bg_item;
+    // background-position: 0 0;
+  }
+}
+.item_start {
+  .bg {
+    background-image: url('../img/start_bg.jpg');
+  }
+  .start {
+    &_hint {
+      &__slide {
+        @extend .position_layout;
+        margin-top: changePx(3.7rem);
+        width: changePx(1.3rem);
+        height: changePx(1.8rem);
+      }
+      &__text {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        @extend .bg_item;
+        background-image: url('../img/start_hint_text.png');
+      }
+      &__arrows {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        @extend .bg_item;
+        background-image: url('../img/start_hint_arrows.png');
+        animation: start 1.5s infinite ease-in-out;
+      }
+      &__slide2 {
+        @extend .position_layout;
+        margin-top: changePx(3.18rem);
+        width: changePx(5.14rem);
+        height: changePx(2.26rem);
+      }
+      &__gigantic {
+        position: absolute;
+        top: 0;
+        width: changePx(1.24rem);
+        height: changePx(2.26rem);
+        @extend .bg_item;
+        background-image: url('../img/start_hint_arrows2.png');
+        animation: start 1.5s 1s infinite ease-in-out;
+        opacity: 0;
+        &1 {
+          left: 0;
+        }
+        &2 {
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+.item_discern {
+  .discern_quilt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    @extend .bg_item;
+    background-image: url('../img/discern_bg.png');
+  }
+  .discern_title {
+    @extend .position_layout;
+    margin-top: changePx(-4.44rem);
+    width: changePx(2.72rem);
+    height: changePx(0.44rem);
+    @extend .bg_item;
+    background-image: url('../img/discern_title.png');
+  }
+  .discern_hint {
+    position: absolute;
+    top: 50%;
+    left: changePx(3rem);
+    margin-top: changePx(0.2rem);
+    width: changePx(1.66rem);
+    height: changePx(0.82rem);
+    @extend .bg_item;
+    background-image: url('../img/discern_hint.png');
+  }
+  // 按钮模块
+  .discern_btn {
+    @extend .position_layout;
+    margin-top: changePx(2.67rem);
+    .btn_item {
+      width: changePx(3.8rem);
+      height: changePx(1.1rem);
+      @extend .bg_item;
+      background-image: url('../img/page_btn_bg.png');
+      background-size: changePx(7.6rem) changePx(2.2rem);
+      margin-bottom: changePx(0.2rem);
+      background-position: 0 0;
+      &.action {
+        background-position: changePx(-3.8rem) 0;
+      }
+    }
+  }
+  .discern_rule {
+    @extend .position_layout;
+    margin-top: changePx(5.27rem);
+    width: changePx(1.3rem);
+    height: changePx(0.24rem);
+    @extend .bg_item;
+    background-image: url('../img/discern_rule.png');
+  }
+}
+
+.item_result {
+  .bg {
+    background-image: url('../img/result_bg.jpg');
+  }
+  .result_song {
+    &__wrap {
+      @extend .position_layout;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: changePx(-3.2rem);
+      width: changePx(4.4rem);
+      height: changePx(0.72rem);
+    }
+    &__data {
+      display: flex;
+      align-items: center;
+      font-size: changePx(0.24rem);
+      color: #f3edd7;
+      padding-left: changePx(0.24rem);
+      box-sizing: border-box;
+    }
+    &__operate {
+      display: flex;
+      align-items: center;
+    }
+    &__icon {
+      width: changePx(0.55rem);
+      height: changePx(0.55rem);
+      @extend .bg_item;
+      background-image: url('../img/result_icon.png');
+      background-size: changePx(1.1rem) changePx(1.1rem);
+      background-position: changePx(-0.55rem) 0;
+      margin-right: changePx(0.04rem);
+      // 播放状态
+      &.play {
+        background-position: 0 0;
+      }
+      // 收藏状态
+      &.collect {
+        background-position: 0 changePx(-0.55rem);
+      }
+      // 取消收藏状态
+      &.cancel_collect {
+        background-position: changePx(-0.55rem) changePx(-0.55rem);
+      }
+    }
+  }
+  .result_return {
+    position: absolute;
+    top: 50%;
+    left: changePx(0.1rem);
+    margin-top: changePx(-5.5rem);
+    width: changePx(0.6rem);
+    height: changePx(0.6rem);
+    @extend .bg_item;
+    background-image: url('../img/result_return.png');
+  }
+  .result_blessing {
+    @extend .position_layout;
+    margin-top: changePx(-1.9rem);
+    @extend .font_fzwrqnt;
+    font-size: changePx(0.88rem);
+    width: changePx(0.8rem);
+    line-height: 1;
+    color: #fff;
+  }
+  // 按钮模块
+  .result_btn {
+    @extend .position_layout;
+    margin-top: changePx(2.84rem);
+    .btn_item {
+      width: changePx(3.8rem);
+      height: changePx(1.1rem);
+      @extend .bg_item;
+      background-image: url('../img/page_btn_bg.png');
+      background-size: changePx(7.6rem) changePx(2.2rem);
+      margin-bottom: changePx(0.1rem);
+      background-position: 0 changePx(-1.1rem);
+      &.action {
+        background-position: changePx(-3.8rem) changePx(-1.1rem);
+      }
+    }
+  }
+  // .songlist {
+  //   &_wrap {
+  //     @extend .position_layout;
+  //     top: changePx(2.7rem);
+  //     width: changePx(4.12rem);
+  //     height: changePx(5.35rem);
+  //     // background-color: rgba($color: #000000, $alpha: 0.2);
+  //   }
+  //   &_item {
+  //     height: changePx(1.08rem);
+  //     display: flex;
+  //     align-items: center;
+  //     justify-content: space-between;
+  //     line-height: changePx(0.4rem);
+  //     .item {
+  //       &_songdata {
+  //         position: relative;
+  //         display: flex;
+  //         align-items: center; 
+  //         padding-left: changePx(0.54rem);
+  //         &__sort {
+  //           position: absolute;
+  //           left: changePx(0.14rem);
+  //           top: 50%;
+  //           transform: translate3d(0, -50%, 0);
+  //           font-size: changePx(0.4rem);
+  //           @extend .font_fzxjl;
+  //         }
+  //         &__name {
+  //           font-size: changePx(0.26rem);
+  //           @extend .font_fzwrqnt;
+  //         }
+  //       }
+  //       &_icon {
+  //         width: changePx(0.4rem);
+  //         height: changePx(0.4rem);
+  //         @extend .bg_item;
+  //         background-image: url('../img/songlist_icon.png');
+  //         background-size: changePx(0.8rem) changePx(0.4rem);
+  //         background-position: 0 0;
+  //         &.play {
+  //           background-position: changePx(-0.4rem) 0;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   &_btn {
+  //     .btn_item {
+  //       width: changePx(0.4rem);
+  //       height: changePx(0.4rem);
+  //       @extend .bg_item;
+  //       background-image: url('../img/page_btn_bg.png');
+  //       background-size: changePx(0.8rem) changePx(0.4rem);
+  //       background-position: 0 0;
+  //     }
+  //   }
+  // }
+}
+
+// 弹窗样式
+.modal_share {
+  position: relative;
+  .share_content {
+    width: changePx(6.06rem);
+    min-height: changePx(5.94rem);
+  }
+  // 弹窗关闭按钮
+  .modal_close {
+    margin: changePx(0.04rem) auto 0;
+    width: changePx(0.78rem);
+    height: changePx(0.78rem);
+    @extend .bg_item;
+    background-image: url(../img/modal_close.png);
+  }
+  .share_img {
+    width: 100%;
+    display: block;
+    // height: 100%;
+  }
+}
+@import './modal';
+// .item_poster {
+//   background-color: #bf3f10;
+//   .bg {
+//     background-image: url('../img/poster_bg_test.jpg');
+//   }
+// }
+/* 页面样式 - End */

@@ -1,0 +1,226 @@
+<!--
+ * @Author: Gianni
+ * @Date: 2021-10-17 10:21:45
+ * @LastEditTime: 2021-10-20 15:10:45
+ * @LastEditors: Gianni
+ * @Description: *
+ * @FilePath: \H5-Project\src\qq_music_zj\index.html
+-->
+{% extends "./_njk/base.njk" %} {% block main %}
+<section class="wrap">
+  <!-- 首页 -->
+  <div class="item page_home">
+    <div class="bg"></div>
+    <div class="box home_wrap">
+      <!-- logo -->
+      <div class="page_logo"></div>
+      <!-- 播放icon -->
+      <div class="page_music"></div>
+      <div class="home_input">
+        <input
+          type="text"
+          id="homeInputItem"
+          class="home_input__item"
+          placeholder="请输入昵称"
+          maxlength="6"
+        />
+        <div class="home_input__hint"><div class="hint_text">0</div>/6</div>
+      </div>
+      <div class="home_btn"></div>
+    </div>
+  </div>
+  <!-- 大数据页 || 未获取到大数据页 -->
+  <div class="item page_data">
+    <div class="bg"></div>
+    <div class="box data_wrap">
+      <div class="page_logo"></div>
+      <div class="page_return">
+        <div class="page_return__icon"></div>
+        <div class="page_return__text">返回</div>
+      </div>
+      <div class="data_name user_name">一个人的旅行</div>
+      <div class="data_title">近期最爱单曲</div>
+      <div class="data_songname"><div class="data_songname__inner">《真的爱你》</div></div>
+      <div class="data_text">
+        深沉的爱从不轻易开口<br />希望你听懂音乐，也听懂我
+      </div>
+      <div class="page_slide">
+        <div class="page_slide__icon"></div>
+        <div class="page_slide__text">向上滑动</div>
+      </div>
+    </div>
+    <div class="box data_wrap lose">
+      <div class="page_logo"></div>
+      <div class="page_return">
+        <div class="page_return__icon"></div>
+        <div class="page_return__text">返回</div>
+      </div>
+      <div class="data_name user_name">一个人的旅行</div>
+      <div class="data_text">
+        <div class="data_text__wrie"></div>
+        最近还好吗？<br />让我们一起重温<br />音乐带给你的感动时刻吧
+      </div>
+      <div class="page_slide">
+        <div class="page_slide__icon"></div>
+        <div class="page_slide__text">向上滑动</div>
+      </div>
+    </div>
+  </div>
+  <!-- 播放页 -->
+  <div class="item page_play">
+    <div class="bg"></div>
+    <div class="box play_wrap">
+      <!-- logo -->
+      <div class="page_logo"></div>
+      <div class="page_return page_return1">
+        <div class="page_return__icon"></div>
+        <div class="page_return__text">返回</div>
+      </div>
+      <div class="play_title">你听过这首歌吗？</div>
+      <div class="play_cd"></div>
+      <div class="play_song">
+        <div class="play_song__name">珍情版《真的爱你》</div>
+        <div class="play_song__btn">
+          <div class="btn_play"></div>
+          <div class="btn_like"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page_slide">
+      <div class="page_slide__icon"></div>
+      <div class="page_slide__text">向上滑动</div>
+    </div>
+  </div>
+  <!-- 制作页 -->
+  <div class="item page_execution">
+    <div class="bg"></div>
+    <div class="box execution_wrap">
+      <!-- logo -->
+      <div class="page_logo"></div>
+      <div class="page_return page_return2">
+        <div class="page_return__icon"></div>
+        <div class="page_return__text">返回</div>
+      </div>
+      <!-- 播放icon -->
+      <div class="page_music"></div>
+      <div class="execution_title">真心的话 说给珍爱的人</div>
+      <div class="execution_banner"></div>
+      <div class="execution_btn"></div>
+    </div>
+  </div>
+  <!-- 选择场景页面 -->
+  <div class="item page_scene">
+    <div class="bg"></div>
+    <div class="box scene_wrap">
+      <!-- logo -->
+      <div class="page_logo"></div>
+      <div class="page_return page_return3">
+        <div class="page_return__icon"></div>
+        <div class="page_return__text">返回</div>
+      </div>
+      <!-- 播放icon -->
+      <div class="page_music"></div>
+      <div class="scene_step">第一步</div>
+      <div class="scene_title">选择回忆场景</div>
+      <div class="scene_swiper__wrap scene_swiper__wrap1">
+        <div class="scene_swiper">
+          <div class="scene_swiper__item scene_swiper__item1">
+            <!-- <img class="scene_swiper__img scene_swiper__img1" src="./img/scene_item1.png" alt=""> -->
+          </div>
+          <div class="scene_swiper__item scene_swiper__item2">
+            <!-- <img class="scene_swiper__img scene_swiper__img2" src="./img/scene_item2.png" alt=""> -->
+          </div>
+        </div>
+        <div class="scene_swiper__pagination">
+          <span class="pagination_item pagination_item0 active"></span>
+          <span class="pagination_item pagination_item1"></span>
+        </div>
+      </div>
+      <div class="scene_tab">
+        <div class="scene_tab__item active">爱情</div>
+        <div class="scene_tab__item">友情</div>
+        <div class="scene_tab__item scene_tab__item3">亲情</div>
+      </div>
+      <div class="scene_btn"></div>
+    </div>
+  </div>
+  <!-- 选择歌词页面 -->
+  <div class="item page_lyric">
+    <div class="bg"></div>
+    <div class="box lyric_wrap">
+      <!-- logo -->
+      <div class="page_logo"></div>
+      <div class="page_return page_return3">
+        <div class="page_return__icon"></div>
+        <div class="page_return__text">返回</div>
+      </div>
+      <!-- 播放icon -->
+      <div class="page_music"></div>
+      <div class="lyric_step">第二步</div>
+      <div class="lyric_title">选择走心歌词</div>
+      <div class="lyric_content">
+        <div class="lyric_content__title"></div>
+        <div class="lyric_content__text">
+          <div class="lyric_content__item lyric_content__1">
+            水云间醇香飘逸<br />
+            带我找到通往你心里的路
+          </div>
+          <div class="lyric_content__item lyric_content__2">
+            世间多少平凡的憧憬<br />
+            但愿携手铺开风景
+          </div>
+        </div>
+      </div>
+      <div class="lyric_btn"></div>
+    </div>
+  </div>
+  <!-- 结果页 -  -->
+  <div class="item page_serp page_serp6">
+    <div class="bg"></div>
+    <div class="box lyric_wrap">
+      <!-- logo -->
+      <div class="page_logo"></div>
+      <div class="page_return page_return4">
+        <div class="page_return__icon"></div>
+        <div class="page_return__text">返回</div>
+      </div>
+      <!-- 播放icon -->
+      <div class="page_music"></div>
+      <div class="serp_name user_name">一个人的旅行</div>
+      <div class="serp_text__wrap show">
+        <div class="serp_text">近期最爱单曲</div>
+        <div class="serp_songname"><div class="serp_songname__inner">《真的爱你》</div></div>
+        <!-- <div class="data_songname"><div class="data_songname__inner">《真的爱你》</div></div> -->
+      </div>
+      <div class="serp_text__wrap lose">
+        <div class="serp_text">你的音乐能量未能被发现</div>
+        <div class="serp_songname__lose"><div>赶紧选一首歌来听吧！</div></div>
+        <!-- <div class="data_songname"><div class="data_songname__inner">《真的爱你》</div></div> -->
+      </div>
+      <!-- 歌词 -->
+      <div class="serp_lyric serp_lyric1">
+        <div class="serp_lyric__title">此刻对珍爱的ta说：</div>
+        <div class="serp_lyric__text">手捧无尽的梦想 珍诚无畏 陪你追梦 一起并肩远方 </div>
+      </div>
+      <div class="serp_skip__wrap">
+        <div class="serp_skip serp_skip__left"></div>
+        <div class="serp_skip serp_skip__right"></div>
+      </div>
+      <div class="serp_btn__wrap">
+        <div class="serp_btn serp_btn__left">重新制作</div>
+        <div class="serp_btn serp_btn__right">点击保存海报</div>
+      </div>
+    </div>
+    <div class="serp_share__img">
+      <img class="share__img" src="./img/test_share_img1.jpg" alt="">
+    </div>
+  </div>
+</section>
+{% endblock %} {% block javascript %}
+<script src="//y.gtimg.cn/music/h5/player/player.js?max_age=2592000"></script>
+<script src="./js/zepto.min.js"></script>
+<script src="./js/fx.js"></script>
+<script src="./js/iSlider.min.js"></script>
+<!-- 音乐播放器 -->
+<script src="./js/index.js?t=1"></script>
+{% endblock %}

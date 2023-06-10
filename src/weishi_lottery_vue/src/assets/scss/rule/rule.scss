@@ -1,0 +1,35 @@
+.page-rule-wrap {
+  position: relative;
+  padding-bottom: 0.38rem;
+  width: 100%;
+  .ornament-gold2 {
+    top: 2.97rem;
+    right: -0.35rem;    
+    z-index: 20;
+  }
+  .ornament-leaf2 {
+    top: 0.5rem;
+    left: -0.25rem;
+    width: 1.05rem;
+    z-index: 20;
+  }
+  > .bg-title {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 7rem;
+    @extend .bg-item;
+    background-image: url('~@/assets/img/profile_top_bg.jpg');
+  }
+  > .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    @extend .bg-item;
+    background-image: url('~@/assets/img/profile_bg.jpg');
+    background-repeat: repeat-y;
+  }
+}

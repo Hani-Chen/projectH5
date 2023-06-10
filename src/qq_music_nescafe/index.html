@@ -1,0 +1,101 @@
+<!--
+ * @Author: Gianni
+ * @Date: 2021-05-14 09:53:51
+ * @LastEditors: Gianni
+ * @LastEditTime: 2021-05-24 11:00:16
+ * @FilePath: \H5-Project\src\qq_music_nescafe\index.html
+ * @Description: QQ音乐雀巢项目html
+-->
+{% extends "./_njk/base.njk" %}
+{% block main %}
+<div class="wrap">
+  <!-- start 页面  页面切换加类 play -->
+  <div class="item item_start">
+    <div class="bg"></div>
+    <div class="box">
+      <!-- h5联合logo -->
+      <div class="logo"></div>
+      <!-- 提示滑动 -->
+      <div class="start_hint__slide">
+        <!-- 提示下滑箭头 -->
+        <div class="start_hint__arrows"></div>
+        <div class="start_hint__text"></div>
+      </div>
+      <!-- 提示滑动 -->
+      <div class="start_hint__slide2">
+        <!-- 提示下滑箭头 -->
+        <div class="start_hint__gigantic start_hint__gigantic1"></div>
+        <div class="start_hint__gigantic start_hint__gigantic2"></div>
+      </div>
+    </div>
+  </div>
+  <!-- 手势识别 页面  页面切换加类 play -->
+  <div class="item item_discern">
+    <!-- <div class="bg"></div> -->
+    <div class="box">
+      <!-- 获取相机影像层 - 此处插入获取的摄像头中的手势 -->
+      <div class="discern_camera"></div>
+      <!-- 手势层 -->
+      <div class="discern_quilt"></div>
+      <!-- h5联合logo -->
+      <div class="logo"></div>
+      <!-- 手势识别解锁 -->
+      <div class="discern_title"></div>
+      <!-- 提示识别 -->
+      <div class="discern_hint"></div>
+      <div class="discern_btn">
+        <!-- 开始识别按钮 -->
+        <div class="btn_item btn_start action"></div>
+        <!-- 专属福利按钮 -->
+        <a href="JavaScript:;" class="btn_item btn_welfare"></a>
+      </div>
+      <!-- 活动规则按钮 -->
+      <div class="discern_rule"></div>
+    </div>
+  </div>
+  <!-- 结果页  页面切换加类 play -->
+  <div class="item item_result">
+    <div class="bg"></div>
+    <div class="box">
+      <div class="result_song__wrap">
+        <div class="result_song__data">
+          <div class="result_song__title">像我这样的人(live)</div>-
+          <div class="result_song__name">毛不易</div>
+        </div>
+        <div class="result_song__operate">
+          <div class="result_song__icon result_song__play"></div>
+          <div class="result_song__icon result_song__like collect cancel_collect"></div>
+        </div>
+      </div>
+      <div class="result_blessing">逢考必过</div>
+      <div class="result_return"></div>
+      <div class="result_btn">
+        <!-- 分享按钮 -->
+        <div class="btn_item btn_share action"></div>
+        <!-- 开运按钮 -->
+        <a href="JavaScript:;" class="btn_item btn_buff"></a>
+      </div>
+      <div class="modal" id="modalShore">
+        <div class="modal_content">
+          <div class="modal_bg"></div>
+          <div class="modal_body modal_share">
+            <div class="share_content">
+              <img src="./img/share_img.png" class="share_img" alt="">
+            </div>
+            <div class="modal_close"></div>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="js/zepto.min.js"></script>
+<!-- 音乐播放器 -->
+<script src="//y.gtimg.cn/music/h5/player/player.js?max_age=2592000"></script>
+<!-- QQ音乐 - 刷屏插件 -->
+<script type="text/javascript" src="js/iSlider.min.js"></script>
+<script src="./js/index.js"></script>
+{% endblock %}

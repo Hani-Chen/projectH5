@@ -1,0 +1,547 @@
+{% extends "./_njk/base.njk" %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="css/style.min.css?t=1576383748142">
+  <link rel="stylesheet" href="css/swiper.min.css">
+{% endblock %}
+{% set  
+  songList = [
+    {
+      id: 1,
+      name: '光年之外 - G.E.M.邓紫棋',
+      text: '也许未来遥远在光年之外\n我愿守候未知里为你等待',
+      src: '200255722'
+    },
+    {
+      id: 2,
+      name: '永远都会在 - 旅行团乐队',
+      text: '我欲乘风 浪迹远方\n因为我并不平凡普通',
+      src: '202936042'
+    },
+    {
+      id: 3,
+      name: '克卜勒 - 孙燕姿',
+      text: '一闪一闪亮晶晶\n好像你的身体藏在众多孤星之中',
+      src: '5159439'
+    },
+    {
+      id: 4,
+      name: '飞云之下 - 韩红/林俊杰',
+      text: '在飞云之下 以为忘了的家\n在耳里说话 叫我别烦心那些痛与怕',
+      src: '213773480'
+    },
+    {
+      id: 5,
+      name: '望穿 - 吴青峰/陈粒',
+      text: '你是不是在云的脚下 在等雨落下\n是不是在平原尽头望穿海峡',
+      src: '231035273'
+    },{
+      id: 6,
+      name: '我的天空 - 南征北战NZBZ',
+      text: '只要我还有梦 就会看到彩虹\n在我的天空',
+      src: '105974515'
+    }
+  ] 
+%}
+{% set
+songList1 = [
+  {
+    id: 1,
+    name: 'G.E.M.邓紫棋',
+    songName: '光年之外',
+    src: 'https://y.qq.com/m/openmusic.html?noclose=1&api=other.editPoster&type=1&ad=4001&songType=0&songId=200255722&songName=%E5%85%89%E5%B9%B4%E4%B9%8B%E5%A4%96&songMid=002E3MtF0IAMMY&singerName=G.E.M.+%E9%82%93%E7%B4%AB%E6%A3%8B&SongVary=1&ShareH5=1&allowCustomVideo=1&showAll=0',
+    songId: '200255722'
+  }, {
+    id: 2,
+    name: '旅行团乐队',
+    songName: '永远都会在',
+    src: 'https://y.qq.com/m/openmusic.html?noclose=1&api=other.editPoster&type=1&ad=4001&songType=0&songMid=001T7POr3uoDiy&songId=202936042&songName=%E6%B0%B8%E8%BF%9C%E9%83%BD%E4%BC%9A%E5%9C%A8&singerName=%E6%97%85%E8%A1%8C%E5%9B%A2%E4%B9%90%E9%98%9F&ShareH5=1&allowCustomVideo=1',
+    songId: '202936042'
+  }, {
+    id: 3,
+    name: '孙燕姿',
+    songName: '克卜勒',
+    src: 'https://y.qq.com/m/openmusic.html?noclose=1&api=other.editPoster&type=1&ad=4001&songType=0&songMid=003oagDU1O6yBJ&songId=5159439&songName=%E5%85%8B%E5%8D%9C%E5%8B%92&singerName=%E5%AD%99%E7%87%95%E5%A7%BF&ShareH5=1&allowCustomVideo=1',
+    songId: '5159439'
+  }, {
+    id: 4,
+    name: '韩红/林俊杰',
+    songName: '飞云之下',
+    src: 'https://y.qq.com/m/openmusic.html?noclose=1&api=other.editPoster&type=1&ad=4001&songType=0&songMid=000fVqPH1RjwS3&songId=213773480&songName=%E9%A3%9E%E4%BA%91%E4%B9%8B%E4%B8%8B&singerName=%E9%9F%A9%E7%BA%A2%2F%E6%9E%97%E4%BF%8A%E6%9D%B0&ShareH5=1&allowCustomVideo=1',
+    songId: '213773480'
+  }, {
+    id: 5,
+    name: '吴青峰/陈粒',
+    songName: '望穿',
+    src: 'https://y.qq.com/m/openmusic.html?noclose=1&api=other.editPoster&type=1&ad=4001&songType=0&songMid=002Xt25G3i5HM9&songId=231035273&songName=%E6%9C%9B%E7%A9%BF&singerName=%E5%90%B4%E9%9D%92%E5%B3%B0%2F%E9%99%88%E7%B2%92&ShareH5=1&allowCustomVideo=1',
+    songId: '231035273'
+  }, {
+    id: 6,
+    name: '南征北战NZBZ',
+    songName: '我的天空',
+    src: 'https://y.qq.com/m/openmusic.html?noclose=1&api=other.editPoster&type=1&ad=4001&songType=0&songMid=0043WGTm3kacAQ&songId=105974515&songName=%E6%88%91%E7%9A%84%E5%A4%A9%E7%A9%BA&singerName=%E5%8D%97%E5%BE%81%E5%8C%97%E6%88%98NZBZ&ShareH5=1&allowCustomVideo=1',
+    songId: '105974515'
+
+  }, {
+    id: 7,
+    name: '郑云龙',
+    songName: '天边外',
+    src: 'https://y.qq.com/m/openmusic.html?noclose=1&api=other.editPoster&type=1&ad=4001&songType=0&songMid=001yWJiK22heSL&songId=227979146&songName=%E5%A4%A9%E8%BE%B9%E5%A4%96&singerName=%E9%83%91%E4%BA%91%E9%BE%99&ShareH5=1&allowCustomVideo=1',
+    songId: '227979146'
+
+  }, {
+    id: 8,
+    name: '蔡旻佑',
+    songName: '你看不到的天空',
+    src: 'https://y.qq.com/m/openmusic.html?noclose=1&api=other.editPoster&type=1&ad=4001&songType=0&songMid=001c4HPZ32Oxii&songId=635616&songName=%E4%BD%A0%E7%9C%8B%E4%B8%8D%E5%88%B0%E7%9A%84%E5%A4%A9%E7%A9%BA&singerName=%E8%94%A1%E6%97%BB%E4%BD%91&ShareH5=1&allowCustomVideo=1',
+    songId: '635616'
+
+  }, {
+    id: 9,
+    name: '蔡依林',
+    songName: '天空',
+    src: 'https://y.qq.com/m/openmusic.html?noclose=1&api=other.editPoster&type=1&ad=4001&songType=0&songMid=003FbPIL1ofQkG&songId=102445651&songName=%E5%A4%A9%E7%A9%BA&singerName=%E8%94%A1%E4%BE%9D%E6%9E%97&ShareH5=1&allowCustomVideo=1',
+    songId: '102445651'
+
+  }, {
+    id: 10,
+    name: 'Lenka',
+    songName: 'Blue Skies',
+    src: 'https://y.qq.com/m/openmusic.html?noclose=1&api=other.editPoster&type=1&ad=4001&songType=0&songMid=002zFI4D26KW54&songId=102190311&songName=Blue+Skies&singerName=Lenka&ShareH5=1&allowCustomVideo=1',
+    songId: '102190311'
+
+  }
+] %}
+
+{% block main %}
+
+  <!-- 页面 - 加载页 -->
+  <section class="loading_wrap">
+    <!-- 车窗背景 -->
+    <div class="loading_bg"></div>
+    <!-- 背景蒙层 -->
+    <div class="loading_alpha_channels"></div>
+    <!-- 进度条 -->
+    <div class="loading_inner font_bsnr">
+      <div class="loading_text">为你开启最美天空</div>
+      <div class="loading_percent">0%</div>
+    </div>
+  </section>
+  <!--Body下的根元素 S-->
+  <section class="wrap">
+
+    <!-- 页面 - 启动页 -->
+    <div class="page start_wrap" id="startWrap">
+      <!-- 启动页 - 内容 -->
+      <div class="start_inner">
+        <!-- 启动页 - 车窗背景 -->
+        <div class="start_bg"></div>
+        <!-- logo -->
+        <div class="page_logo"></div>
+        <!-- 启动页 - 内容1 -->
+        <div class="start_content start_content1 show">
+          <!-- 内容1 - 文案容器 -->
+          <div class="start_text_wrap font_bsnl">
+            <div class="start_text1">你有多久没有</div>
+            <div class="start_text2">仰望天空？</div>
+          </div>
+          <!-- 内容1 - 提示点击 -->
+          <div class="start_remind_wrap">
+            <!-- 圈 -->
+            <div class="start_remind_ripple"></div>
+            <!-- 手 -->
+            <div class="start_remind_hand"></div>
+          </div>
+        </div>
+        <!-- 启动页 - 内容2 -->
+        <div class="start_content start_content2 ">
+          <!-- 内容2 - 提示 -->
+          <div class="start_lookup_wrap">
+            <!-- 箭头 -->
+            <div class="start_lookup_arrows"></div>
+            <!-- 手机 -->
+            <div class="start_lookup_cellphone"></div>
+            <!-- 文案 -->
+            <div class="start_lookup_text font_bsnl">抬起手机朝向天空<br/>你将看见......</div>
+          </div>
+        </div>
+        <!-- 启动页 - 底部 -->
+        <div class="start_base_wrap">
+          <!-- 启动页 - 活动规则 -->
+          <div class="start_base_rule btn_rule font_bsnr">
+            <a href="JavaScript:;">活动详情</a>
+          </div>
+          <!-- 启动页幸运福袋 -->
+          <div class="start_base_lucky btn_lucky"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 页面 - 视频播放 -->
+    <div class="page video_wrap" id="videoWrap">
+      <!-- 背景音乐icon -->
+      <div class="icon_play show"></div>
+      <video class="video_inner" id="mvVideo" src="./video/video.mp4" x5-video-player-type="h5" x5-video-player-fullscreen="true" webkit-playsinline="webkit-playsinline" playsinline="playsinline" x5-playsinline="x5-playsinline">
+        您的浏览器不支持Video标签。
+      </video>
+      <div class="video_skip" id="mvVideoSkip">跳过</div>
+    </div>
+
+    <!-- 页面 - 制作海报 -->
+    <div class="page make_wrap" id="makeWrap">
+      <!-- 内容 -->
+      <div class="make_inner">
+        <!-- 文案内容 -->
+        <div class="make_text_wrap">
+          <!-- 标题 -->
+          <div class="make_title_wrap">
+            <!-- 左框 -->
+            <div class="make_title_frame make_title_frame1"></div>
+            <!-- 标题文案 -->
+            <div class="make_title font_bsnr">你心中的最美天空
+              <br/>&nbsp;是什么旋律？</div>
+            <!-- 右框 -->
+            <div class="make_title_frame make_title_frame2"></div>
+          </div>
+          <!-- 文案 -->
+          <div class="make_text">即刻制作你的天空歌词海报</div>
+        </div>
+        <!-- 底部 -->
+        <div class="make_base font_bsnr">
+          <!-- 生成静态海报按钮 -->
+          <div class="btn_item btn_static">静态海报</div>
+          <!-- 生成动态海报 -->
+          <div class="btn_item btn_dynamic">
+            <a href="JavaScript:;">动态海报</a>
+          </div>
+          <!-- 仰望天空新姿势 -->
+          <div class="btn_item btn_select">仰望天空新姿势</div>
+          <!-- 活动规则 -->
+          <div class="make_base_rule btn_rule">
+            <a href="JavaScript:;">活动详情</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页面 - 选择天空 -->
+    <div class="page select_wrap" id="selectWrap">
+      <!-- 轮播 -->
+      <div class="swiper-container select_swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="./img/select_sky1.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="./img/select_sky2.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="./img/select_sky3.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="./img/select_sky4.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="./img/select_sky5.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="./img/select_sky6.jpg" alt=""></div>
+        </div>
+      </div>
+      <!-- 车窗 -->
+      <div class="select_bg"></div>
+      <div class="songlist_return page_return"></div>
+      <!-- 轮播控件 & 内容 -->
+      <div class="select_inner">
+        <!-- logo -->
+        <div class="page_logo"></div>
+
+        <!-- 轮播页面 -->
+        <div class="select_content select_content1 show">
+          <!-- 提示左右滑动 -->
+          <div class="select_hint">
+            <div class="btn_switch btn_switch1"></div>
+            <div class="text">左右滑动<br/>选择你心中的最美天空</div>
+            <div class="btn_switch btn_switch2"></div>
+          </div>
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination select_pagination"></div>
+        </div>
+        <!-- 选择背景音乐 -->
+        <div class="select_content select_content2 ">
+          <div class="select_title_wrap font_bsnr">
+            <div class="wire"></div>
+            <div class="title">选择你的背景音乐</div>
+            <div class="wire"></div>
+          </div>
+          <!-- 背景音乐列表 -->
+          <div class="select_bgmusic_list">
+            {% for item in songList %}
+              <div class="item" data-url="{{item.src}}" data-id="{{item.id}}" data-name="{{item.name}}" data-text="{{item.text}}">
+                <div class="item_text">{{item.name}}</div>
+                <div class="item_icon"></div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- 底部 -->
+        <div class="select_base font_bsnr">
+          <!-- 下一步 -->
+          <div class="btn_next show">下一步</div>
+          <div class="btn_create">生成你的歌词海报</div>
+          <!-- 幸运福袋 -->
+          <div class="lucky btn_lucky"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页面 - 歌单页 -->
+    <div class="page songlist_wrap" id="songlistWrap">
+      <div class="songlist_inner">
+        <div class="songlist_return page_return"></div>
+        <!-- logo -->
+        <div class="page_logo"></div>
+        <!-- 标题 -->
+        <div class="songlist_title_wrap"></div>
+        <!-- 歌单列表 -->
+        <div class="songlist_content">
+          <div class="title font_bsnl">歌单共10首</div>
+          <div class="songlist_box">
+            {% for item in songList1 %}
+              <div class="item" data-url="{{item.src}}" data-songid="{{item.songId}}">
+                <div class="item_serial font_bsnl">{{item.id}}</div>
+                <div class="item_text_wrap">
+                  <div class="name">{{item.songName}}</div>
+                  <div class="text">{{item.name}}</div>
+                </div>
+                <div class="item_icon paused"></div>
+              </div>
+            {% endfor %}
+          </div>
+          <!-- btn -->
+          <div class="songlist_create">
+            <a href="JavaScript:;">生成你的歌词海报</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页面 - 调查填表 -->
+    <div class="page survey_wrap " id="surveyWrap">
+      <div class="survey_inner">
+        <div class="survey_return page_return"></div>
+        <!-- 标题 -->
+        <div class="survey_title_wrap">
+          {# <video src="./video/survey_video.mp4" poster="./img/survey_cover.jpg" class="survey_title_video" webkit-playsinline="webkit-playsinline" playsinline="playsinline" x5-playsinline="x5-playsinline">
+            您的浏览器不支持Video标签。
+          </video>
+          <!-- 半透明遮罩 -->
+          <div class="survey_title_mark">
+            <!-- 播放按钮 -->
+            <div class="survey_title_stop">
+              <img src="./img/icon_stop.png" alt="">
+            </div>
+          </div> #}
+        </div>
+        <!-- 2019-12-14 Edit - 修改文案和默认选中车型 S -->
+        <!-- 内容 -->
+        <div class="survey_content">
+          <!-- 文案 -->
+          <div class="survey_content_text font_bsnl">
+            <div class="title font_bsnr">智能电动轿跑SUV <br>蔚来EC6 现已开放预订</div>
+            <p class="text">蔚来EC6，采用动感溜背设计，兼具运动美感与年轻活力。拥有超大透光面积的穹顶式天窗，为整个座舱带来绝佳视觉享受。综合工况续航里程最长可达600km以上，向自由即刻出发。</p>
+            <p class="text active">即刻预订，享限时预订特权，<br>2,000元意向金无门槛抵5,000元购车款</p>
+            <p class="text ">预留信息，即刻解锁福袋<br>
+              <span class="active font_bsnl">赢取NIO Life精品、QQ音乐豪华绿钻</span>等精彩好礼</p>
+          </div>
+          <!-- 表单 - 填写 -->
+          <form class="survey_fillout" action="#">
+            <!-- 表单 - 型号选择 -->
+            <div class="survey_select">
+              <div class="text">意向车型</div>
+              <!-- 表单 - 汽车型号 -->
+              <div class="survey_carmodel_list">
+                <div class="item item1 active" data-name="EC6"></div>
+                <div class="item item2" data-name="全新ES8"></div>
+                <div class="item item3" data-name="ES6"></div>
+                <!-- 表单 - 汽车型号储存input -->
+                <input type="hidden" value="EC6" name="carmodel" id="carmodel">
+              </div>
+            </div>
+            <!-- 2019-12-14 Edit - 修改文案和默认选中车型 E -->
+            <!-- 表单 - name -->
+            <div class="survey_item survey_name">
+              <input type="text" id="name" class="name" placeholder="姓名" name="username" maxlength="20">
+            </div>
+            <!-- 表单 - 省份 -->
+            <div class="survey_item survey_region">
+              <select class="region" id="region" name="region">
+                <option value="" disabled="disabled" selected="selected" hidden="hidden">省份</option>
+              </select>
+              <select class="city" id="city">
+                <option value="" disabled="disabled" selected="selected" hidden="hidden">用车城市</option>
+              </select>
+            </div>
+            <!-- 表单 - 电话 -->
+            <div class="survey_item survey_name">
+              <input type="number" id="phone" class="phone" placeholder="手机" name="phone" oninput="if(value.length>11)value=value.slice(0,11)">
+            </div>
+            <!-- 表单 - 提交 -->
+            <button class="survey_submit_btn font_bsnr" type="submit">
+              <a href="JavaScript:;">提交并解锁福袋</a>
+            </button>
+          </form>
+          <div class="survey_base_wrap font_bsnl">
+            <div class="survey_base_site">
+              <a href="https://y.qq.com/m/myinfo/index.html">填写礼品邮寄地址</a>
+            </div>
+            <div class="survey_base_rule btn_rule">
+              <a href="JavaScript:;">活动详情</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- 保存图片 -->
+    <div class="create_save">
+      <div class="songlist_return page_return"></div>
+      <div class="scroll_inner">
+        <!-- 生成后的图片 -->
+        <img src="" alt="" id="saveImg">
+        <!-- 用户保存的图片 -->
+        <img src="" alt="" id="saveImage">
+        <!-- 提示 -->
+        <div class="end_hint font_bsnl">
+          <div class="circle_wrap">
+            <div class="roundness"></div>
+            <div class="circle"></div>
+          </div>
+          <div class="text">长按保存海报</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页面所需弹窗 -->
+
+    <!-- 实物弹窗 -->
+    <div class="modal" id="popReality">
+      <div class="modal_content">
+        <div class="modal_bg"></div>
+        <div class="modal_body">
+          <div class="reality_content">
+            <div class="modal_close"></div>
+            <div class="goods_wrap">
+
+              <div class="text_wrap">
+                <div class="icon"></div>
+                <div class="text">蔚蓝天空咖啡杯套装</div>
+              </div>
+              <div class="arrows"></div>
+              <div class="prize"><img src="./img/prize_cup.png" alt=""></div>
+              <div class="get">
+                <a href="https://y.qq.com/m/myinfo/index.html">填写礼品邮寄地址</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 福袋弹窗 -->
+    <div class="modal" id="popLuckybag">
+      <div class="modal_content">
+        <div class="modal_bg"></div>
+        <div class="modal_body">
+          <div class="luckybag_content">
+            <div class="modal_close"></div>
+            <div class="text font_bsnl">信息已提交，后续将由蔚来顾问与你联系<br>如需咨询请联系蔚来客服<br>电话400-999-6699
+            </div>
+            <div class="title font_bsnb">点击下方福袋 抽取好礼！</div>
+            <div class="arrows"></div>
+            <div class="prize"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 绿钻弹窗 -->
+    <div class="modal" id="popMember">
+      <div class="modal_content">
+        <div class="modal_bg"></div>
+        <div class="modal_body">
+          <div class="member_content">
+            <div class="modal_close"></div>
+            <div class="text_wrap">
+              <div class="title font_bsnb">恭喜获得</div>
+              <div class="text_box font_bsnb">
+                <div class="icon"></div>
+                <div class="text">一个月豪华绿钻</div>
+              </div>
+            </div>
+            <div class="arrows"></div>
+            <div class="prize"></div>
+            <div class="text1">奖品将在72小时内下发到账号<br>
+              请注意查收</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 未中奖弹窗 -->
+    <div class="modal" id="popRegret">
+      <div class="modal_content">
+        <div class="modal_bg"></div>
+        <div class="modal_body">
+          <div class="regret_content">
+            <div class="modal_close"></div>
+            <div class="text_wrap">
+              <div class="text_frame text_frame1"></div>
+              <div class="text">很遗憾<br>没有抽中福袋</div>
+              <div class="text_frame text_frame2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 活动规则弹窗 -->
+    <div class="modal" id="popRule">
+      <div class="modal_content">
+        <div class="modal_bg"></div>
+        <div class="modal_body">
+          <div class="rule_content">
+            <div class="modal_close"></div>
+            <div class="text_wrap">
+              <div class="title">活动时间：</div>
+              <div class="text text1">2019年12月29日0:00-2020年1月19日23:59</div>
+              <div class="title">歌词海报活动步骤：</div>
+              <div class="text text1">STEP1-选择你钟意的天空美图和音乐</div>
+              <div class="text text1">STEP2-生成你的天空歌词海报/MV</div>
+              <div class="text text1">STEP3-分享你的天空故事</div>
+              <div class="title">福袋活动：</div>
+              <div class="text text1">在本活动中预留信息即可解锁福袋，赢取精彩好礼：</div>
+              <div class="text">NIO Life蔚来ES8 1:18合金车模(限6位)</div>
+              <div class="text">NIO Life蔚蓝天空咖啡杯套装250ml(限6位)</div>
+              <div class="text">QQ音乐一个月豪华绿钻(限666位)</div>
+              <div class="title">奖品发放：</div>
+              <div class="text">虚拟奖品(QQ音乐一个月豪华绿钻)将在线发放，72小时内下发到账，请注意查收</div>
+              <div class="text">实体奖品(NIO Life精品) 获奖者需在线填写邮寄信息，工作人员将在活动结束后10个工作日内审核中奖名单并安排寄送。需注意，邮寄信息需要登录QQ音乐账号并完成相关资料信息填写，该信息仅用于本次活动奖品邮寄，未经您的同意，腾讯不会向腾讯以外的任何公司、组织和个人披露您的个人信息</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+{% endblock %}
+
+{% block javascript %}
+
+  <!-- 2019-12-14 Edit 资源引入更改 S -->
+  <!-- <script src="//y.gtimg.cn/music/h5/lib/js/zepto-1.0.min.js?max_age=604800"></script> -->
+  <script src="./js/zepto.min.js"></script>
+    <script src="//y.gtimg.cn/music/h5/lib/js/music-1.0.min.js?max_age=604800"></script>
+  <!-- 2019-12-14 Edit 资源引入更改 E -->
+  <script src="https://y.gtimg.cn/music/h5/client/jsbridge.js?max_age=2592000"></script>
+  {# 音乐播放 #}
+  <script src="//y.gtimg.cn/music/h5/player/player.js?max_age=2592000"></script>
+  {# 生成页 #}
+  <script src="./js/swiper.min.js"></script>
+  <script src="./js/fx.js"></script>
+  <script src="./js/index.js?t=1576383748142"></script>
+{% endblock %}

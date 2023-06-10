@@ -1,0 +1,73 @@
+// 第十四屏容器
+.section-14 {
+  margin-top: 60px;
+  .product-img-wrap {
+    width: 100%;
+  }
+  .product-img {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 120px;
+  }
+}
+@media (max-width: 1600px) {
+  //$rate: 1600 / 1920;
+  $zoom: 0.833;
+  // 第十四屏容器
+.section-14 {
+  margin-top: round(60px * $zoom);
+  .product-img {
+    margin-top: round(120px * $zoom);
+  }
+}
+}
+
+@media (max-width: 1440px) {
+  //$rate: 1440 / 1920;
+  $zoom: 0.75;
+  // 第十四屏容器
+.section-14 {
+  margin-top: round(60px * $zoom);
+  .product-img {
+    margin-top: round(120px * $zoom);
+  }
+}
+}
+
+@media (max-width: 1200px) {
+  //$rate: 1200 / 1920;
+  $zoom: 0.625;
+  // 第十四屏容器
+.section-14 {
+  margin-top: round(60px * $zoom);
+  .product-img {
+    margin-top: round(120px * $zoom);
+  }
+}
+}
+
+@media (max-width: 992px) {
+  //$rate: 992 / 1920;
+  $zoom: 0.517;
+  // 第十四屏容器
+.section-14 {
+  margin-top: round(60px * $zoom);
+  .product-img {
+    margin-top: round(120px * $zoom);
+  }
+}
+}
+
+@media (max-width: 768px) {
+  //$rate: 768 / 1920;
+  $zoom: 0.4;
+  // 第十四屏容器
+.section-14 {
+  margin-top: 0;
+  .product-img {
+    margin-top: 20px;
+  }
+}
+
+}

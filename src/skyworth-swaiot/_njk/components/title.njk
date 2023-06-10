@@ -1,0 +1,25 @@
+<!-- baseUrl -->
+{% set baseUrl = "./img" %}
+
+{% macro text(item) %}
+<div class="title-wrap">
+  <div class="title-main">
+    {% if item.imgSrc %}
+      <div class="title-logo"><img src="{{baseUrl}}{{ item.imgSrc }}" alt=""></div>
+    {% endif %}
+    {% if item.heading %}
+      <div class="title-heading">{{ item.heading }}</div>
+    {% endif %}
+    {% if item.text %}
+      <div class="title-text">{{ item.text }}</div>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+
+{% macro product(item) %}
+<div class="product-img-wrap animation-box">
+  <img class="product-img img-block" src="{{baseUrl}}{{ item.product }}" alt="">
+</div>
+{% endmacro %}

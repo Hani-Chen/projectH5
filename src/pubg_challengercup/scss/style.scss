@@ -1,0 +1,197 @@
+@charset "utf-8";
+// @import './origin';
+$color-yellow: #f2a900;
+$color-black: #1b1b1f;
+// $color-bg-black: #000;
+
+// fomat 页面样式
+// fomat 第一个tab 样式
+.format_container {
+  background: {
+    image: url('../images/video_bg.png');
+    repeat: no-repeat;
+    position: center top;
+      size: aotu 100%;
+  }
+}
+
+.tabbar {
+  &_wrapper {
+    position: relative;
+    height: 240px;
+    margin-bottom: 54px;
+    // background-color: $color-yellow;
+    background: {
+      image: url('../images/tab_bg.png');
+      position: center top;
+      repeat: no-repeat;
+      size: aotu 100%;
+    }
+  }
+  &_list {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    font-size: 36px;
+    // line-height: 190px;
+    padding-top: 74px;
+    > li > a {
+      color: $color-black;
+      // margin-right: 20px;
+    }
+    > li.active {
+      border-bottom: 3px solid $color-black;
+    }
+  }
+}
+.tab_content {
+  color: #fff;
+}
+
+.tab_pane {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+// content_list 类为第三个tab页样式
+.content_video,
+.content_list {
+  // height: 720px;
+  text-align: center;
+  font-size: 60px;
+  padding: 20px 0 127px 0;
+  >span {
+    color: $color-yellow;
+    display: block;
+    padding-bottom: 42px;
+
+  }
+  >.content_title_text{
+    padding-bottom: 0;
+  }
+  .margin_top{
+    margin-top: 30px;
+  }
+}
+
+// fomat 第三个tab样式
+.content{
+  &_title{
+    width: 369px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    background: $color-yellow;
+    margin: 0 auto;
+    font-size: 20px;
+    color: $color-black;
+  }
+  &_data_list{
+    // display: flex;
+    width: 914px;
+    // font-size: 20px;
+    margin: 0 auto;
+    padding-top: 20px;
+    >ul{
+      display: flex;
+      font-size: 20px;
+      color:#fff;
+      >li{
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        // width: 100%;
+        height: 33px;
+        line-height: 33px;
+        text-align: center;
+      }
+    }
+    >ul:nth-child(2n)>li{
+      font-size: 20px;
+      background: #313438;
+    }
+    >ul:nth-child(2n+1)>li{
+      font-size: 20px;
+      background: #2c2f32;
+    }
+    >ul:nth-child(1)>li{
+      font-size: 22px;
+      background: $color-yellow;
+      color: #1a1a1e;
+    }
+  }
+  &_list>p{
+    width: 914px;
+    margin: 29px auto;
+    font-size: 20px;
+    text-align: right;
+    line-height: 2;
+
+  }
+  
+  // fomat 第四个个tab样式
+  &_member_list{
+    width: 914px;
+    font-size: 22px;
+    margin: 0 auto;
+    padding-top: 20px;
+    >ul{
+      display: flex;
+      font-size: 20px;
+      >li{
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 33px;
+        line-height: 33px;
+        text-align: center;
+      }
+    }
+    >ul:nth-child(2n)>li{
+      font-size: 22px;
+      height: 62px;
+      line-height: 62px;
+      background: #2c2f32;
+    }
+    >ul:nth-child(2n+1)>li{
+      font-size: 20px;
+      background: $color-yellow;
+      color: #1a1a1e;
+    }
+  }
+}
+
+.watch{
+  &_container {
+    height: 710px;
+    text-align: center;
+    background: {
+      image: url('../images/video_bg.png');
+      repeat: no-repeat;
+      position: center top;
+      size: aotu 100%;
+    }
+  }
+  &_title_wrapper{
+    margin-bottom: 100px;
+    height: 200px;
+    background: {
+      image: url('../images/tab_bg.png');
+      repeat: no-repeat;
+      size: aotu 100%;
+    }
+    >span{
+      font-size: 36px;
+      display: inline-block;
+      margin-top: 74px;
+    }
+  }
+}
+.watch_video_reg.watch_video {
+  width: 586px;
+  height: 317px;
+  margin: 0 auto 40px;
+}

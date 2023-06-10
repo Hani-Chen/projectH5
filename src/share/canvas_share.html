@@ -1,0 +1,16 @@
+{% extends "./_njk/base.njk" %}
+{% block title %}canvas 分享{% endblock %}
+{% block stylesheet %}
+  <link rel="stylesheet" href="css/canvas_share.min.css">
+{% endblock %}
+{% block main %}
+    <!-- 分享一 -->
+    <!-- <canvas width="1200" height="600" id="canvasShare1"></canvas> -->
+    
+    <!-- 分享二 - 时钟 -->
+    <canvas width="1000" height="800"  id="canvasShare2"></canvas>
+{% endblock %}
+
+{% block javascript %}
+    <script src="./js/canvas_share.js"></script>
+{% endblock %}

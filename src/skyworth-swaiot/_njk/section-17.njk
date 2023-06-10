@@ -1,0 +1,22 @@
+{# 标题文案 #}
+{% set titleText = {
+    'imgSrc': '/title_icon_6.png',
+    'heading': '酷开账号连接Swaiot',
+    'text': '得益于自研的Swaiot云，酷开账号即是Swaiot APP账号，使用电视端Swaiot APP时无需二次登录。'
+  }
+%}
+
+{# 产品图 #}
+{% set productImg = {
+    'product': '/section17_product.jpg'
+  }
+%}
+
+{# 标题文案 #}
+{% import "./components/title.njk" as title %}
+{{ title.text(titleText) }}
+
+{# 产品图 #}
+{% import "./components/title.njk" as title %}
+{{ title.product(productImg) }}
+

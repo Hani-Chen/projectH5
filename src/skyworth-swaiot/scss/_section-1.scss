@@ -1,0 +1,150 @@
+// 第一屏容器
+.section-1 {
+  margin-top: 60px;
+  .product-img-wrap {
+    width: 100%;
+    margin: 50px 0 17px;
+  }
+  .content-wrap {
+    position: relative;
+    width: 100%;
+    margin-top: 48px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .product-img-pc {
+    display: block;
+  }
+  .product-img-android {
+    display: none;
+  }
+}
+#section1Canvas1,#section1Canvas2 {
+  position: absolute;
+  left: 0;
+  top: 5.46%;
+  width: 100%;
+  height: auto;
+}
+
+.return-top{
+  display: none;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  z-index: 20;
+  bottom: 13.8889%;
+  right: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  background: {
+    image: url(../img/icon-return1.png);
+    size: 100% 100%;
+    position: center center;
+    color: rgba(229, 229, 229, .5);
+  }
+  &.active{
+    background: {
+      image: url(../img/icon-return2.png);
+    }
+  }
+  &.show{
+    display: block;
+  }
+}
+@media (max-width: 1600px) {
+  //$rate: 1600 / 1920;
+  $zoom: 0.833;
+  // 第一屏容器
+  .section-1 {
+    margin-top: round(60px * $zoom);
+    .product-img-wrap {
+      margin: round(50px * $zoom) 0 round(17px * $zoom);
+    }
+    .content-wrap {
+      margin-top: round(48px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  //$rate: 1440 / 1920;
+  $zoom: 0.75;
+  // 第一屏容器
+  .section-1 {
+    margin-top: round(60px * $zoom);
+    .product-img-wrap {
+      margin: round(50px * $zoom) 0 round(17px * $zoom);
+    }
+    .content-wrap {
+      margin-top: round(48px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  //$rate: 600 / 1920;
+  $zoom: 0.625;
+
+  // 第一屏容器
+  .section-1 {
+    margin-top: round(60px * $zoom);
+    .product-img-wrap {
+      margin: round(50px * $zoom) 0 round(17px * $zoom);
+    }
+    .content-wrap {
+      margin-top: round(48px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  //$rate: 992 / 1920;
+  $zoom: 0.517;
+  // 第一屏容器
+  .section-1 {
+    margin-top: round(60px * $zoom);
+    .product-img-wrap {
+      margin: round(50px * $zoom) 0 round(17px * $zoom);
+    }
+    .content-wrap {
+      margin-top: round(48px * $zoom);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  //$rate: 768 / 1920;
+  $zoom: 0.4;
+
+  // 第一屏容器
+  .section-1 {
+    margin-top: 0;
+    .product-img-wrap {
+      margin: round(50px * $zoom) 0 round(17px * $zoom);
+    }
+    .content-wrap {
+      margin-top: 20px;
+      img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        // margin-left: -38%;
+      }
+    }
+    .product-img-pc {
+      display: none;
+    }
+    .product-img-android {
+      display: block;
+    }
+  }
+  #section1Canvas {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+}

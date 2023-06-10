@@ -1,0 +1,668 @@
+@charset "utf-8";
+// 引入公共样式
+@import 'global.import.css';
+* {
+  user-select: none;
+  box-sizing: border-box;
+}
+
+img {
+  pointer-events: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+// 公共样式 - 背景图片公共样式
+.bg-item {
+  display: block;
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+// 页面样式
+.section {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #ff7e56;
+  &_home {
+    &_inner {
+      position: relative;
+      width: 100%;
+      background-color: #ffdb79;
+      /* 标题模块 */
+      .titel {
+        // 容器
+        &_wrap {
+          position: relative;
+          width: 100%;
+          height: 5.1rem;
+        }
+        /* 标题模块 - 背景 */
+        &_bg {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          @extend .bg-item;
+          background-image: url(../img/title_bg.jpg);
+        }
+        /* 标题模块 - logo */
+        &_logo {
+          position: absolute;
+          left: 50%;
+          top: 1.56rem;
+          width: 4.24rem;
+          height: 0.49rem;
+          margin-left: -2.12rem;
+          @extend .bg-item;
+          background-image: url(../img/logo.png);
+        }
+        &_btn_wrap {
+          position: absolute;
+          top: 2.84rem;
+          right: 0;
+          width: 0.51rem;
+          height: 2.28rem;
+          z-index: 9;
+          .titel_btn {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1.19rem;
+            border-radius: 0.2rem 0 0 0.2rem;
+            padding: 0.1rem 0.15rem;
+            font-size: 0.22rem;
+            color: #fff;
+            line-height: 1.1;
+          }
+
+          /* 标题模块 - 活动规则模块 */
+          .btn_rule {
+            top: 0;
+            background-color: #5954dc;
+          }
+
+          /* 标题模块 - 我的奖品 */
+          .btn_me {
+            bottom: 0;
+            background-color: #34317f;
+          }
+        }
+      }
+      /* 抽奖模块 */
+      .lottery {
+        &_wrap {
+          position: relative;
+          // top: -0.12rem;
+          margin-top: -0.12rem;
+          width: 100%;
+          height: 5.96rem;
+          background-color: #ff7e56;
+        }
+        /* 抽奖模块 - 背景 */
+        &_bg {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          @extend .bg-item;
+          background-image: url(../img/lottery_bg.png);
+        }
+        &_inner {
+          position: absolute;
+          left: 50%;
+          top: 1rem;
+          display: flex;
+          // align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          width: 6.75rem;
+          padding: 0 0.15rem;
+          height: 4.36rem;
+          margin-left: -3.42rem;
+        }
+        &_item {
+          position: relative;
+          width: 2.03rem;
+          height: 1.32rem;
+          border: 0.02rem solid #ff4e00;
+          border-radius: 0.15rem;
+          @extend .bg-item;
+          background-position: 60% 0.02rem;
+          background-size: 2.3rem auto;
+          // overflow: hidden;
+          &.active::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 2.15rem;
+            height: 1.46rem;
+            transform: translate3d(-50%, -50%, 0);
+            @extend .bg-item;
+            background-image: url(../img/lottery_active.png);
+            // background-size: 2.15rem 1.46rem;
+          }
+        }
+        &_item4,
+        &_item8,
+        &_btn {
+          align-self: center;
+        }
+        &_item5,
+        &_item6,
+        &_item7 {
+          align-self: flex-end;
+        }
+        &_item1 {
+          background-image: url(../img/prize_3.png);
+        }
+        &_item2,
+        &_item4,
+        &_item6,
+        &_item8 {
+          background-image: url(../img/prize_5.png);
+        }
+        &_item3 {
+          background-image: url(../img/prize_4.png);
+        }
+        &_item5 {
+          background-image: url(../img/prize_2.png);
+        }
+        &_item7 {
+          background-image: url(../img/prize_1.png);
+        }
+        // 奖品名称
+        &_name {
+          display: block;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 0.3rem;
+          border-radius: 0 0 0.12rem 0.12rem;
+          background-color: #ff6113;
+          text-align: center;
+          font-size: 0.24rem;
+          line-height: 0.32rem;
+          color: #fff;
+        }
+        &_btn {
+          border: 0;
+          width: 2rem;
+          height: 1.45rem;
+          @extend .bg-item;
+          background-size: 100% auto;
+          background-image: url(../img/btn_lottery.png);
+          &.animation {
+            animation: btnScale 1s 1s infinite;
+          }
+          .pointer {
+            position: absolute;
+            right: -0.07rem;
+            bottom: -0.15rem;
+            width: 0.55rem;
+            height: 0.51rem;
+          }
+        }
+        &_explain {
+          position: absolute;
+          left: 0;
+          bottom: 0.08rem;
+          width: 100%;
+          color: #34317f;
+          text-align: center;
+          font-size: 0.3rem;
+          line-height: 0.57rem;
+          padding: 0 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+/* 弹窗公共样式 */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  height: 100%;
+  z-index: 1000;
+  &.show {
+    display: block;
+  }
+  &_content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba($color: #000, $alpha: 0.7);
+  }
+  &_close {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0.65rem auto 0;
+    @extend .bg-item;
+    background-image: url(../img/btn_close_pop.png);
+  }
+  &_body {
+    position: relative;
+    width: 5.56rem;
+  }
+}
+
+/* 奖品弹窗 */
+.modal {
+  &_prize {
+    &_wrap {
+      width: 100%;
+      .title_bg {
+        position: relative;
+        width: 100%;
+        height: 1.62rem;
+        @extend .bg-item;
+        background-image: url(../img/pop_title_bg1.png);
+        background-position: left 0 bottom 0;
+      }
+      .title_adorn {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 2.46rem;
+        height: 1.5rem;
+        margin-left: -1.23rem;
+        @extend .bg-item;
+        background-image: url(../img/pop_title_adorn.png);
+        background-position: 0 0;
+      }
+      .content {
+        width: 100%;
+        padding-top: 0.41rem;
+        border-left: 0.03rem solid #34317f;
+        border-right: 0.03rem solid #34317f;
+        background-color: #fff;
+        &_title {
+          width: 4.57rem;
+          height: 0.99rem;
+          margin: 0 auto;
+          @extend .bg-item;
+        }
+        &_prize {
+          width: 3.85rem;
+          height: 3.32rem;
+          margin: -0.2rem 0.6rem;
+          @extend .bg-item;
+        }
+        &_tips {
+          width: 3.32rem;
+          height: 1.21rem;
+          margin: -1.3rem auto 0;
+          @extend .bg-item;
+        }
+      }
+      .end_bg {
+        width: 100%;
+        height: 0.35rem;
+        margin-top: -1px;
+        @extend .bg-item;
+        background-image: url(../img/pop_end_bg.png);
+      }
+      &.prize_1 {
+        .content {
+          &_title {
+            background-image: url(../img/prize_model_title2.png);
+          }
+          &_prize {
+            background-image: url(../img/prize_model_1.png);
+          }
+          &_tips {
+            background-image: url(../img/prize_model_tips1.png);
+          }
+        }
+      }
+      &.prize_2 {
+        .content {
+          &_title {
+            background-image: url(../img/prize_model_title2.png);
+          }
+          &_prize {
+            background-image: url(../img/prize_model_2.png);
+          }
+          &_tips {
+            background-image: url(../img/prize_model_tips2.png);
+          }
+        }
+      }
+      &.prize_3 {
+        .content {
+          &_title {
+            background-image: url(../img/prize_model_title2.png);
+          }
+          &_prize {
+            background-image: url(../img/prize_model_3.png);
+          }
+          &_tips {
+            background-image: url(../img/prize_model_tips3.png);
+          }
+        }
+      }
+      &.prize_4 {
+        .content {
+          &_title {
+            background-image: url(../img/prize_model_title2.png);
+          }
+          &_prize {
+            background-image: url(../img/prize_model_4.png);
+          }
+          &_tips {
+            background-image: url(../img/prize_model_tips4.png);
+          }
+        }
+      }
+      &.prize_5 {
+        .content {
+          &_title {
+            background-image: url(../img/prize_model_title1.png);
+          }
+          &_prize {
+            background-image: url(../img/prize_model_5.png);
+          }
+          &_tips {
+            background-image: url(../img/prize_model_tips5.png);
+            margin: -1.1rem auto 0;
+          }
+        }
+      }
+    }
+  }
+  &_btn_wrap {
+    width: 3.92rem;
+    margin: 0.15rem auto 0;
+    .btn_get {
+      width: 100%;
+      height: 1rem;
+      @extend .bg-item;
+      background-image: url(../img/btn_get_pop.png);
+    }
+    .btn_share {
+      width: 100%;
+      height: 1rem;
+      margin-top: 0.15rem;
+      @extend .bg-item;
+      background-image: url(../img/btn_share_pop.png);
+    }
+  }
+}
+/* 次数用尽弹窗 && 提示抽奖弹窗 */
+.modal_hint,
+.modal_await {
+  &_wrap {
+    .title_bg {
+      width: 100%;
+      height: 0.58rem;
+      @extend .bg-item;
+      background-image: url(../img/pop_title_bg1.png);
+    }
+    .content {
+      position: relative;
+      width: 100%;
+      height: 4.7rem;
+      border-left: 0.03rem solid #34317f;
+      border-right: 0.03rem solid #34317f;
+      background-color: #fff;
+      &_bg {
+        position: absolute;
+        left: 50%;
+        top: 0.97rem;
+        width: 3.64rem;
+        height: 3.32rem;
+        margin-left: -1.82rem;
+        @extend .bg-item;
+        background-image: url(../img/pop_content_bg.png);
+      }
+      &_title {
+        padding-top: 0.4rem;
+        text-align: center;
+        font-size: 0.5rem;
+        color: #34317f;
+        font-weight: bold;
+      }
+      .btn_order {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 4.32rem;
+        height: 1.67rem;
+        margin-left: -2rem;
+        @extend .bg-item;
+        background-image: url(../img/btn_order.png);
+      }
+    }
+    .end_bg {
+      width: 100%;
+      height: 0.35rem;
+      margin-top: -1px;
+      @extend .bg-item;
+      background-image: url(../img/pop_end_bg.png);
+    }
+  }
+}
+
+/* 提示抽奖弹窗 */
+.modal_await {
+  &_wrap {
+    .content {
+      .btn_order {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 3.4rem;
+        height: 1.57rem;
+        margin-left: -1.6rem;
+        background-image: url(../img/btn_await.png);
+      }
+    }
+  }
+}
+
+/* 我的奖品弹窗 */
+.modal_myprize {
+  &_wrap {
+    .title_bg {
+      position: relative;
+      width: 100%;
+      height: 2.16rem;
+      @extend .bg-item;
+      background-image: url(../img/pop_title_bg2.png);
+      background-position: left 0 bottom 0;
+    }
+    .title_adorn {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 2.46rem;
+      height: 1.5rem;
+      margin-left: -1.23rem;
+      @extend .bg-item;
+      background-image: url(../img/pop_title_adorn.png);
+      background-position: 0 0;
+    }
+    .list_wrap {
+      position: relative;
+      width: 100%;
+      height: 5.16rem;
+      border: 0.03rem solid #34317f;
+      border-top: 0 solid transparent;
+      background-color: #fff;
+      border-radius: 0 0 0.2rem 0.2rem;
+    }
+    .list_inner {
+      width: 100%;
+      height: 3.2rem;
+      overflow: auto;
+    }
+    .item {
+      position: relative;
+      width: 4.55rem;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding-top: 0.28rem;
+      padding-bottom: 0.13rem;
+      border-bottom: 1px dashed #5d5d5d;
+      color: #000;
+      font-size: 0.24rem;
+      &_icon {
+        width: 0.55rem;
+        height: auto;
+        padding-right: 0.13rem;
+      }
+      &_btn {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 1.13rem;
+        height: 0.3rem;
+        border: 0.25rem;
+        margin-top: -0.08rem;
+        background: #5954dc;
+        text-align: center;
+        line-height: 1;
+        border-radius: 0.25rem;
+        color: #fff;
+        &.show {
+          display: flex;
+        }
+      }
+    }
+    .btn {
+      &_wrap {
+        position: absolute;
+        bottom: 0.24rem;
+        left: 50%;
+        width: 4.5rem;
+        height: 1.65rem;
+        margin: 0 auto;
+        margin-left: -2.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      &_participation {
+        width: 2.04rem;
+        height: 1.65rem;
+        @extend .bg-item;
+        background-image: url(../img/btn_participation.png);
+      }
+      &_share {
+        width: 2.04rem;
+        height: 1.65rem;
+        @extend .bg-item;
+        background-image: url(../img/btn_pop_share.png);
+      }
+    }
+  }
+}
+
+/* 活动规则弹窗 */
+.modal_rule {
+  &_wrap {
+    position: relative;
+    width: 100%;
+    height: 9.2rem;
+    background: #fff;
+    border-radius: 0.1rem;
+    border: 0.03rem solid #34317f;
+    padding-right: 0.1rem;
+    .title {
+      position: absolute;
+      left: 0;
+      top: -0.35rem;
+      width: 2.24rem;
+      height: 0.67rem;
+      @extend .bg-item;
+      background-image: url(../img/pop_title_rule.png);
+    }
+    .rule_inner {
+      font-size: 0.17rem;
+      padding: 0 0.4rem 0 0.2rem;
+      margin-top: 0.5rem;
+      height: 8.5rem;
+      overflow: auto;
+      color: #34317f;
+      /* 设置滚动条的样式 */
+      &::-webkit-scrollbar {
+        width: 0.12rem;
+        border-radius: 0.25rem;
+        background-color: #ededed;
+        padding: 0.02rem;
+      }
+      /* 滚动条滑块 */
+      &::-webkit-scrollbar-thumb {
+        width: 0.06rem !important;
+        height: 1.27rem;
+        background-color: #5954dc;
+        border-radius: 0.25rem;
+      }
+    }
+    .rule_item_second {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0.3rem;
+        top: 0.07rem;
+        width: 0.1rem;
+        height: 0.1rem;
+        background: #5954dc;
+        border-radius: 50%;
+      }
+    }
+    .rule_item_second,
+    .rule_item_thirdly {
+      padding-left: 0.45rem;
+    }
+    .rule_item_second1 {
+      padding-left: 0.22rem;
+    }
+  }
+}
+
+// 动画引入
+@import 'ani';
